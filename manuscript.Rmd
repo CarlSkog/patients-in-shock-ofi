@@ -66,19 +66,24 @@ Trauma is a major global public health concern, especially impacting economicall
 
 kolla upp/skriva om i intro
   - Varför trauma är viktigt
-  - Varför taruma patienter i chock är viktig subdel av akut omhändertagande av taruma pat
+    - Mortalitet för unga
+  - Varför chock patienter är viktig subdel av akut omhändertagande av trauma pat
     - Kanske (infoga källa) att chock är stor del av mortalitet.
-  - (PR) Definiton av chock
+  - Definiton av chock
+    - olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
+    - trauma oftas de 3 första??
   - Klassifikationer av chock nivå
     - ATLS klassifikation för blödningschock.
-      - Obstruktiv som tamponad?
-      - Neurogen som trauma mot hlasrygg?
-    - RETTS som klassifikation?
-    - NEWS som klassifikation?
+      - Hur ska jag ta med:
+        - Obstruktiv som tamponad?
+        - Neurogen som trauma mot halsrygg?
+      - RETTS och NEWS istället?? de används vid triage men är inte chock specifik.
+    - Kanske borde använda ATLS 4 kategorier + obstruktiv + neurogen vid sidan??
   - Kliniskt för att förbättra omhändertagande används OFI
     - Förklara vad OFI är för något
-  - Korrelation mellan chock nivåer och OFI
-    - Var kommer specifika typer av OFI in??
+  - Korrelation mellan chock nivåer och OFI (Är det då antal OFI/chock nivåer som anses?)
+    - Var kommer specifika typer av OFI in?? Finns denna sorts data?
+     - Om det finns kan man då även lägga till i frågeställningen att man jämför hur OFI subkategorier skiljer sig mellan de olika chock nivåerna. 
   
 
 
