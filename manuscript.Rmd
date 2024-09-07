@@ -62,6 +62,21 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 You can cite document here like this [@exampleKey9999]. Open the file
 bibliography.bib to learn more.
 
+Trauma is a major global public health concern, especially impacting economically active populations. Effective management of trauma care is essential to improving outcomes for severe injuries.
+
+kolla upp/skriva om i intro
+  - Varför trauma är viktigt
+  - Varför taruma patienter i chock är viktig subdel av akut omhändertagande av taruma pat
+    - Kanske (infoga källa) att chock är stor del av mortalitet.
+  - (PR) Definiton av chock
+  - Klassifikationer av chock nivå
+  - Kliniskt för att förbättra omhändertagande används OFI
+    - Förklara vad OFI är för något
+  - Korrelation mellan chock nivåer och OFI
+    - Var kommer specifika typer av OFI in??
+  
+
+
 Methods 
 =======
 
