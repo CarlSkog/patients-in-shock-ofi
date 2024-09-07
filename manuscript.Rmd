@@ -70,6 +70,11 @@ kolla upp/skriva om i intro
     - Kanske (infoga källa) att chock är stor del av mortalitet.
   - (PR) Definiton av chock
   - Klassifikationer av chock nivå
+    - ATLS klassifikation för blödningschock.
+      - Obstruktiv som tamponad?
+      - Neurogen som trauma mot hlasrygg?
+    - RETTS som klassifikation?
+    - NEWS som klassifikation?
   - Kliniskt för att förbättra omhändertagande används OFI
     - Förklara vad OFI är för något
   - Korrelation mellan chock nivåer och OFI
