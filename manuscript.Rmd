@@ -65,25 +65,27 @@ bibliography.bib to learn more.
 Trauma is a major global public health concern, especially impacting economically active populations. Effective management of trauma care is essential to improving outcomes for severe injuries.
 
 kolla upp/skriva om i intro
-  - Varför trauma är viktigt
-    - Mortalitet för unga
-  - Varför chock patienter är viktig subdel av akut omhändertagande av trauma pat
-    - Kanske (infoga källa) att chock är stor del av mortalitet.
-  - Definiton av chock
-    - olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
-    - trauma oftas de 3 första??
-  - Klassifikationer av chock nivå
-    - ATLS klassifikation för blödningschock.
-      - Hur ska jag ta med:
-        - Obstruktiv som tamponad?
-        - Neurogen som trauma mot halsrygg?
-      - RETTS och NEWS istället?? de används vid triage men är inte chock specifik.
-    - Kanske borde använda ATLS 4 kategorier + obstruktiv + neurogen vid sidan??
-  - Kliniskt för att förbättra omhändertagande används OFI
-    - Förklara vad OFI är för något
-  - Korrelation mellan chock nivåer och OFI (Är det då antal OFI/chock nivåer som anses?)
-    - Var kommer specifika typer av OFI in?? Finns denna sorts data?
-     - Om det finns kan man då även lägga till i frågeställningen att man jämför hur OFI subkategorier skiljer sig mellan de olika chock nivåerna. 
+  Varför trauma är viktigt
+    Mortalitet för unga
+  Varför chock patienter är viktig subdel av akut omhändertagande av trauma pat
+    Kanske (infoga källa) att chock är stor del av mortalitet.
+  Definiton av chock
+    olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
+    trauma oftas de 3 första??
+  Klassifikationer av chock nivå
+    ATLS klassifikation för blödningschock.
+      Hur ska jag ta med:
+        Obstruktiv som tamponad?
+        Neurogen som trauma mot halsrygg?
+      RETTS och NEWS istället?? de används vid triage men är inte chock specifik.
+    Kanske borde använda ATLS 4 kategorier + obstruktiv + neurogen vid sidan??
+  Kliniskt för att förbättra omhändertagande används OFI
+    Förklara vad OFI är för något
+  Syfte: Korrelation mellan chock nivåer och OFI (Är det då antal OFI/chock nivåer som anses?)
+    Vilka typer av OFI finns hos shockpatienter?
+    Koppling mellan nivå av chock och sannolikhet till OFI.
+    \textit{Var kommer specifika typer av OFI in?? Finns denna sorts data?
+     Om det finns kan man då även lägga till i frågeställningen att man jämför hur OFI subkategorier skiljer sig mellan de olika chock nivåerna.} 
   
 
 
