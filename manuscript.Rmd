@@ -62,12 +62,14 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 You can cite document here like this [@exampleKey9999]. Open the file
 bibliography.bib to learn more.
 
-Trauma is a major global public health concern, especially impacting economically active populations. Effective management of trauma care is essential to improving outcomes for severe injuries.
 
 1  Varför trauma är viktigt
     Mortalitet för unga
     Varför chock patienter är viktig subdel av akut omhändertagande av trauma pat
       Kanske (infoga källa) att chock är stor del av mortalitet.
+      
+Trauma is a major global public health concern in form of death and disability. It affects over four milion peole each year, among those younger and economicaly active(??) populations are the most affected. 
+      
 2  Definiton av chock
     olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
     trauma oftas de 3 första??
