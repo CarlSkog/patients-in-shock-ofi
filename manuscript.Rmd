@@ -68,11 +68,14 @@ bibliography.bib to learn more.
     Varför chock patienter är viktig subdel av akut omhändertagande av trauma pat
       Kanske (infoga källa) att chock är stor del av mortalitet.
       
-Trauma is a major global public health concern in form of death and disability. It affects over four milion peole each year, among those younger and economicaly active(??) populations are the most affected. 
+Trauma is a major global public health concern in form of death and disability. It affects over four milion peole each year, among those younger and economicaly active(??) populations are the most affected(källa). The initial management of trauma patients once they reach hospital is very time sensitive and error prone(källa), especially in patients arriving in shock(källa). Therefore, careful studying of this part is of importance. 
       
 2  Definiton av chock
     olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
     trauma oftas de 3 första??
+
+Shock are generally defined as circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[]. There are five types of causes, which are hypovolemia, obstructive, neurogenic, cardiogenic and distributive. These causes can occur alone or in combination. The most usuall one during trauma are hypovolemia in form of a large bleeding.
+
 3  Klassifikationer av chock
     ATLS klassifikation för blödningschock.
       Hur ska jag ta med:
@@ -80,8 +83,14 @@ Trauma is a major global public health concern in form of death and disability. 
         Neurogen som trauma mot halsrygg?
       RETTS och NEWS istället?? de används vid triage men är inte chock specifik.
     Kanske borde använda ATLS 4 kategorier + obstruktiv + neurogen vid sidan??
+    
+Clinically to be able to differentiate the degree of shock, usually the ATLS classification for major haemorrhage are used. The classification are divided into four classes, based on the patients: estimated bloodloss, heart rate, bloodpressure, pulse pressure, respiratory rate, mental status and urine output. However this only suits hypovolemic shocks and not the other types. 
+    
 4  Kliniskt för att förbättra omhändertagande används OFI
     Förklara vad OFI är för något
+    
+To be able to asses and improve the quality of trauma care, improvement programmes aim to identify opportunities for improvements(OFI). OFI is multidiciplinary morbidity and mortality reviews, where oppertunity for improvemetns are identified in the straucture and clinical process of trauma care(Hussein).  
+    
 5  Frågeställning:
     a, Vilka typer av OFI finns hos chockpatienter?
     b, Koppling mellan nivå av chock och sannolikhet till OFI.
@@ -91,6 +100,8 @@ Trauma is a major global public health concern in form of death and disability. 
           Comparison: mellan chocknivåer?
           Outcome: Sannolikhet till OFI?
       Det blir ju inte direkt någon ja/nej svar på frågeställningen...funkar det?
+      
+This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 
 
