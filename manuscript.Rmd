@@ -80,12 +80,16 @@ Trauma is a major global public health concern, especially impacting economicall
     Kanske borde använda ATLS 4 kategorier + obstruktiv + neurogen vid sidan??
 4  Kliniskt för att förbättra omhändertagande används OFI
     Förklara vad OFI är för något
-5  Syfte: Korrelation mellan chock nivåer och OFI (Är det då antal OFI/chock nivåer som anses?)
-    Vilka typer av OFI finns hos shockpatienter?
-    Koppling mellan nivå av chock och sannolikhet till OFI.
-    \textit{Var kommer specifika typer av OFI in?? Finns denna sorts data?
-     Om det finns kan man då även lägga till i frågeställningen att man jämför hur OFI subkategorier skiljer sig mellan de olika chock nivåerna.} 
-  
+5  Frågeställning:
+    a, Vilka typer av OFI finns hos chockpatienter?
+    b, Koppling mellan nivå av chock och sannolikhet till OFI.
+    Vilken av de två är huvudfrågeställningen?
+    PICO: Population: Chock pat, bland 8000 (2014-2023)
+          Intervention: OFI?
+          Comparison: mellan chocknivåer?
+          Outcome: Sannolikhet till OFI?
+      Det blir ju inte direkt någon ja/nej svar på frågeställningen...funkar det?
+
 
 
 Methods 
