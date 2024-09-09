@@ -74,7 +74,7 @@ Trauma is a major global public health concern in form of death and disability. 
     olika typer av chock: hypovolem, obstruktiv, neurogen, kardiogen och distributiv.
     trauma oftas de 3 första??
 
-Shock are generally defined as circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[]. There are five types of causes, which are hypovolemia, obstructive, neurogenic, cardiogenic and distributive. These causes can occur alone or in combination. The most usuall one during trauma are hypovolemia in form of a large bleeding.
+Shock are generally defined as circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are five types of causes, which are hypovolemia, obstructive, neurogenic, cardiogenic and distributive. These causes can occur alone or in combination. The most usuall one during trauma are hypovolemia in form of a large bleeding.
 
 3  Klassifikationer av chock
     ATLS klassifikation för blödningschock.
