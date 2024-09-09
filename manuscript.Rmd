@@ -153,7 +153,10 @@ applicable. For each variable of interest, give sources of data and
 details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
 
-The outcome is OFI, such as delayed management or technical errors, as identified by a multidisciplinary trauma quality improvement review board and recorded in the trauma care quality database. 
+The outcome is OFI recorded in the trauma care quality database and are binary (as in yes exist or no does not exist) when used to calculate the association with degree of shock. 
+The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
+
+To classify the patients the following variables will be used: estimated bloodloss, heart rate, bloodpressure, pulse pressure, respiratory rate, mental status and urine output.
 
 Bias 
 ----
@@ -164,6 +167,8 @@ Study size
 ----------
 
 <!-- Explain how the study size was arrived at -->
+
+Size of the data.
 
 Quantitative variables
 ----------------------
@@ -196,6 +201,16 @@ taking account of sampling strategy
 
 (e) Describe any sensitivity analyses
 -->
+
+(a) Logistic regression to determine the association between the binary results of OFI existence and non-binary degree of shock.
+
+(b) ?
+
+(c) patient case removed?
+
+(d) patient case removed?
+
+(e) ?
 
 Results
 =======
