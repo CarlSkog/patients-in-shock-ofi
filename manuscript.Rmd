@@ -89,7 +89,7 @@ Clinically to be able to differentiate the degree of shock, usually the ATLS cla
 4  Kliniskt för att förbättra omhändertagande används OFI
     Förklara vad OFI är för något
     
-To be able to asses and improve the quality of trauma care, improvement programmes aim to identify opportunities for improvements(OFI). OFI is multidiciplinary morbidity and mortality reviews, where oppertunity for improvemetns are identified in the straucture and clinical process of trauma care(Hussein).  
+To be able to asses and improve the quality of trauma care, improvement programmes aim to identify opportunities for improvements(OFI). OFI is multidiciplinary morbidity and mortality reviews, where oppertunity for improvemetns are identified in the stracture and clinical process of trauma care(Hussein).  
     
 5  Frågeställning:
     a, Vilka typer av OFI finns hos chockpatienter?
@@ -113,9 +113,7 @@ Study design
 
 <!-- Present key elements of study design -->
 
-Registry based cohort study, using data from the trauma registry and trauma care database at the Karolinska University Hospital in Solna. 
-
-This project will link the two databases and assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. A 5% significance level and 95% confidence levels will be used. 
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
 
 Setting
 -------
@@ -123,9 +121,7 @@ Setting
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
 
-The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. 
-
-The outcome is opportunities for improvement, such as delayed management or technical errors, as identified by a multidisciplinary trauma quality improvement review board and recorded in the trauma care quality database.
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm.  
 
 Participants
 ------------
@@ -144,8 +140,9 @@ of controls per case -->
 <!-- Cross-sectional study: Give the eligibility criteria, and the
 sources and methods of selection of participants -->
 
-Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. Examples of OFIs identified in this process may include the need for more senior trauma team members or additional emergency operating rooms. These issues are then categorized into broader areas, such as resource or logistical deficiencies. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between ... and ... We excluded patients younger than 18 and/or were dead on arrival. 
 
 Variables and data sources/measurements
 ---------------------------------------
@@ -155,6 +152,8 @@ confounders, and effect modifiers. Give diagnostic criteria, if
 applicable. For each variable of interest, give sources of data and
 details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
+
+The outcome is OFI, such as delayed management or technical errors, as identified by a multidisciplinary trauma quality improvement review board and recorded in the trauma care quality database. 
 
 Bias 
 ----
