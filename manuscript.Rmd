@@ -96,7 +96,7 @@ To be able to asses and improve the quality of trauma care, improvement programm
     b, Koppling mellan nivå av chock och sannolikhet till OFI.
     Vilken av de två är huvudfrågeställningen?
     PICO: Population: Chock pat, bland 8000 (2014-2023)
-          Intervention: OFI?
+          Intervention: OFI efter vård?
           Comparison: mellan chocknivåer?
           Outcome: Sannolikhet till OFI?
       Det blir ju inte direkt någon ja/nej svar på frågeställningen...funkar det?
@@ -113,11 +113,19 @@ Study design
 
 <!-- Present key elements of study design -->
 
+Registry based cohort study, using data from the trauma registry and trauma care database at the Karolinska University Hospital in Solna. 
+
+This project will link the two databases and assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. A 5% significance level and 95% confidence levels will be used. 
+
 Setting
 -------
 
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
+
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. 
+
+The outcome is opportunities for improvement, such as delayed management or technical errors, as identified by a multidisciplinary trauma quality improvement review board and recorded in the trauma care quality database.
 
 Participants
 ------------
@@ -135,6 +143,9 @@ of controls per case -->
 
 <!-- Cross-sectional study: Give the eligibility criteria, and the
 sources and methods of selection of participants -->
+
+Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. Examples of OFIs identified in this process may include the need for more senior trauma team members or additional emergency operating rooms. These issues are then categorized into broader areas, such as resource or logistical deficiencies. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+
 
 Variables and data sources/measurements
 ---------------------------------------
