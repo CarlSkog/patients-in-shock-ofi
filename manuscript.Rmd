@@ -281,6 +281,9 @@ and sensitivity analyses
 
 You can include code in this document like this:
 
+```{r main, echo=FALSE} 
+source("main.R") ## This "imports" the main script file of your project and run any code in it 
+``` 
 
 You can also embed plots:
 
