@@ -47,6 +47,26 @@ https://www.doi2bib.org/. If you use Zotero you can simply export
 entries to bibtex `Ctrl-Shift-C`, however you need to first setup 
 Quick Copy to export to bibtex (https://www.zotero.org/support/creating_bibliographies#quick_copy)*
 
+
+Trauma is a significant global public health concern, responsible for causing death and disability in over four million people each year. Among those affected, younger populations are disproportionately impacted, making trauma management a critical issue in healthcare systems worldwide[@noauthor_injuries_nodate]. The initial management of trauma patients in the hospital setting is extremely time-sensitive and prone to errors, which can adversely affect patient outcomes[@mackersie_pitfalls_2010]. Trauma patients presenting in shock have a notably higher mortality rate compared to those who are not in shock, underscoring the need for improved care strategies for these high-risk patients[@vang_shock_2022].
+Shock is generally defined as circulatory failure resulting in insufficient perfusion and oxygenation of tissues and organs[@leech_shock_2023]. There are four primary causes of shock: hypovolemic, obstructive, cardiogenic, and distributive. These etiologies can occur in isolation or in combination. In the context of trauma, hypovolemic shock, usually caused by massive hemorrhage, is the most common type of shock[@teixeira_preventable_2007].
+
+To classify shock in trauma 
+The Advanced Trauma Life Support (ATLS) system provides a widely used classification for hypovolemic shock based on blood loss, heart rate, blood pressure, respiratory rate, mental status, and urine output. ATLS divides hypovolemic shock into four distinct classes, ranging from mild to severe, and helps guide resuscitative efforts. However, this classification is specific to hypovolemic shock and does not account for the other types of shock.
+
+To address the broader spectrum of shock types encountered in trauma, triage systems like Rapid Emergency Triage and Treatment System (RETTS) and National Early Warning Score 2 (NEWS2) are commonly used in emergency care settings. While these systems are not shock-specific, they offer useful frameworks for assessing patients in various shock states by prioritizing vital signs such as heart rate (HR), blood pressure (BP), respiratory rate (RR), and mental status.
+
+RETTS is designed for rapid triage and treatment prioritization in emergency departments and uses color-coded categories (red, orange, yellow, green, and blue) to rank patients by urgency. It incorporates physiological parameters similar to those used in ATLS, making it applicable to patients in various forms of shock, including hypovolemic, cardiogenic, and distributive shock.
+
+NEWS2, on the other hand, is a scoring system developed to track the clinical deterioration of hospitalized patients. Like ATLS and RETTS, it evaluates HR, BP, RR, and mental status, but also includes oxygen saturation and temperature. NEWS2 is especially valuable for monitoring patients over time and identifying those at risk of deteriorating, regardless of the underlying cause of shock.
+
+Despite their differences, all three systems—ATLS, RETTS, and NEWS2—share key similarities, particularly in their use of vital sign markers such as heart rate, blood pressure, respiratory rate, and mental status. This overlap suggests a potential framework for integrating these systems to better classify trauma patients presenting in any form of shock.
+
+Infoga OFI
+      
+This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
+
+
 Methods
 =======
 
@@ -59,6 +79,21 @@ case control study in which you assess associations between some
 exposure and an outcome then use
 [STROBE](https://www.equator-network.org/reporting-guidelines/strobe/).*
 
+Study design
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
+
+Setting
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm.  
+
+Participatns
+Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between ... and ... We excluded patients younger than 18 and/or were dead on arrival. 
+
+Variable and measurements
+To classify the patients "heart rate", "blood pressure", "respiratory rate" and "mental status" will be used as independent variables for classification of shock regardless of their cause.  Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications. The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
+
+
 Project Update and Timeline
 ===========================
 
@@ -67,6 +102,17 @@ Project Update and Timeline
 *Save the image generated from the Gantt chard spreadsheet into the assets folder, rename it to project-gantt.png*
 
 ![**The Gantt chart will be displayed here when you place it in the assets folder under "project-gantt.png"**](assets/project-gantt.png)
+
+Doing right now:
+- Introduction
+- Methods
+
+To do:
+- Coding for regression
+- Analysis
+- Results
+- Discussion
+- Conclusion and Abstract
 
 Back-up Plan
 ============
