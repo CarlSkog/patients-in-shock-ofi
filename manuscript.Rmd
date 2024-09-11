@@ -82,7 +82,7 @@ bibliography.bib to learn more.
     
   (4  Kliniskt för att förbättra omhändertagande används OFI
     Förklara vad OFI är för något
-      To be able to asses and improve the quality of trauma care, improvement programmes aim to identify opportunities for improvements(OFI). OFI is multidiciplinary morbidity and mortality reviews, where oppertunity for improvemetns are identified in the structure and clinical process of trauma care(Hussein).)  
+      To be able to asses and improve the quality of trauma care, improvement programmes aim to identify opportunities for improvements(OFI). OFI is multidiciplinary morbidity and mortality reviews, where opportunity for improvements are identified in the structure and clinical process of trauma care[@albaaj_patient_2023].)  
       
 5  Frågeställning:
     a, Vilka typer av OFI finns hos chockpatienter?
