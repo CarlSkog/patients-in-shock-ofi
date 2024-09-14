@@ -101,6 +101,8 @@ Shock are generally defined as circulatory failure leading to insuficient perfus
     
 Clinically to be able to differentiate the degree of shock, the ATLS classification for major haemorrhage can be used. The classification are divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However this only suits hypovolemic shocks and not the other types. There are two other classifications, namely RETTS and NEWS2. These are used in emergency triaging and can be used on other types of shocks, however they are not shock specific classifications. If we look into all three classifications we will be able to find similarities in that all use HF, BP, RR and mental status. (sista två meningarna borde tillhöra metod...)
       
+Infoga OFI del och koppla samman
+      
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 
@@ -112,7 +114,7 @@ Study design
 
 <!-- Present key elements of study design -->
 
-We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to first assess what types of OFI occurred in patients arriving in shock and then use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
 
 
 Setting
