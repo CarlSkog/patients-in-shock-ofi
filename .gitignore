@@ -5,3 +5,4 @@ PROJECT.org*
 **/*.Rds
 results/
 .Rproj.user
+out/project-plan.html
