@@ -95,11 +95,13 @@ bibliography.bib to learn more.
       Det blir ju inte direkt någon ja/nej svar på frågeställningen...funkar det?
 
       
-Trauma is a major global public health concern in form of death and disability. It affects over four milion peole each year, among those younger populations are the most affected[@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone[@mackersie_pitfalls_2010]. This combined with the fact that trauma patients in shock have a higher mortality rate, than those not[@vang_shock_2022], makes it important to study and improve the care for trauma patients in shock. 
+Trauma is a major global public health concern in form of death and disability. It affects over four milion peole each year, among those younger populations are the most affected <!-- You can be explicit and say that trauma causes over four million deaths each year. Trauma affects hundreds of millions -->[@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010]. This combined with the fact that trauma patients in shock have a higher mortality rate, than those not[@vang_shock_2022], makes it important to study and improve the care for trauma patients in shock. <!-- You can write that shock is a major cause of mortality in trauma patients. -->
 
-Shock are generally defined as circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding[@teixeira_preventable_2007]. 
+Shock are generally defined as circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding[@teixeira_preventable_2007]. <!-- Move the information about the types of shock here. -->
     
-Clinically to be able to differentiate the degree of shock, the ATLS classification for major haemorrhage can be used. The classification are divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However this only suits hypovolemic shocks and not the other types. There are two other classifications, namely RETTS and NEWS2. These are used in emergency triaging and can be used on other types of shocks, however they are not shock specific classifications. If we look into all three classifications we will be able to find similarities in that all use HF, BP, RR and mental status. (sista två meningarna borde tillhöra metod...)
+Clinically to be able to differentiate the degree of shock, the ATLS classification for major haemorrhage can be used. The classification are divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However this only suits hypovolemic shocks and not the other types. There are two other classifications, namely RETTS and NEWS2<!-- You can discuss these in your KI paper but you don't need it here in your manuscript-->. These are used in emergency triaging and can be used on other types of shocks, however they are not shock specific classifications. If we look into all three classifications we will be able to find similarities in that all use HF, BP, RR and mental status. (sista två meningarna borde tillhöra metod...)
+
+<!-- Say something about opportunities for improvement here, and why it's important to study these among patients in shock -->
       
 Infoga OFI del och koppla samman
       
@@ -114,7 +116,8 @@ Study design
 
 <!-- Present key elements of study design -->
 
-We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to first assess what types of OFI occurred in patients arriving in shock and then use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
+
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
 
 
 Setting
@@ -123,7 +126,7 @@ Setting
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
 
-The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm.  
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.  
 
 
 Participants
@@ -145,7 +148,7 @@ sources and methods of selection of participants -->
 
 Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
-To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between ... and ... We excluded patients younger than 18 and/or were dead on arrival. 
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between 2014 and 2023  We excluded patients younger than 15 and/or were dead on arrival. 
 
 
 Variables and data sources/measurements
@@ -157,7 +160,9 @@ applicable. For each variable of interest, give sources of data and
 details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
 
-To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate, bloodpressure, respiratory rate and mental status. Based on these four measurements, the patients will be calssified into four groups rouphly based on the same value as in the ATLS trauma shock classifications. The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
+<!-- Elaborate on the outcome OFI. How is it defined? What are the different types of OFI? -->
+
+To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate, bloodpressure, respiratory rate and mental status. Based on these four measurements, the patients will be classified into four groups rouphly based on the same value as in the ATLS trauma shock classifications. <!-- Elaborate on how you will categorise the degree of shock, what are the different levels?--> The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
 
 
 Bias 
@@ -170,7 +175,7 @@ Study size
 
 <!-- Explain how the study size was arrived at -->
 
-Size of the data.
+Size of the data.<!-- Mention that you will include all available data-->
 
 
 Quantitative variables
@@ -204,6 +209,8 @@ taking account of sampling strategy
 
 (e) Describe any sensitivity analyses
 -->
+
+<!-- Start with stating what software you'll use. Then say something about how you will describe the data. Then say something about how you will analyse the data. -->
 
 (a) Logistic regression to determine the association between the binary results of OFI existence and teh four degrees of shock.
 
@@ -279,7 +286,7 @@ and sensitivity analyses
 You can include code in this document like this:
 
 ```{r main, echo=FALSE} 
-source("main.R") ## This "imports" the main script file of your project and run any code in it 
+source("main.R") ## This "imports" the main script file of your project and run any code in it
 ``` 
 
 You can also embed plots:
