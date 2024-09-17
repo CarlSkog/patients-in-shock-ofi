@@ -101,7 +101,7 @@ Shock is a major cause of mortality in trauma patients[@siegel_effect_1995]. The
 
 Clinically to be able to differentiate the degree of shock in context of trauma, the ATLS classification for major haemorrhage can be used. The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only suits hypovolemic shocks and not the other types. (Källa) There is other classification for triaging or tracking the clinical deterioration of patients, which can be used for other causes of shocks. The common denominator for these classifications is they are all based on vital parameters. 
 
-The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010]. 
+The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010][@teixeira_preventable_2007][@ivatury_patient_2008]. 
 
 This is especially worth noting when patients in shock also have a higher mortality rate than those not[@vang_shock_2022]. 
 
