@@ -6,120 +6,130 @@ bibliography: bibliography.bib
 csl: vancouver.csl
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding, output_dir = "out") })
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{=html}
 <!-- The project plan should be 3-4 pages long and written in
 Rmarkdown (like this document). Remove all comments in italic when you 
 use this document as a template for your own project plan. -->
-
+```
+```{=html}
 <!-- This is an R Markdown document. Markdown is a simple formatting
 syntax for authoring HTML, PDF, and MS Word documents. For more
 details on using R Markdown see http://rmarkdown.rstudio.com -->
-
+```
+```{=html}
 <!-- This is a comment and will not be present in the compiled
 document. Try "knitting" this document by clicking the knit button up
 to the left, or by running `rmarkdown::render("project-plan.Rmd")` in
 the console and you should only see headings -->
+```
+# Introduction
 
-
-Introduction
-============
-
-*This is part A) in the project plan [sv: projektredogörelse]. *
-
+*This is part A) in the project plan [sv: projektredogörelse].*
 
 *The background/introduction should summarise the scope of the problem,
 what is known about the problem, what is not known, what specific
-knowledge gap the study is supposed to fill and why this is
-important. It should end be stating the aim of the study. The
-background should be 4-5 paragraphs long and each paragraph should be
-between 3-5 sentences. Strive to make the paragraphs about the same
-length.*
+knowledge gap the study is supposed to fill and why this is important.
+It should end be stating the aim of the study. The background should be
+4-5 paragraphs long and each paragraph should be between 3-5 sentences.
+Strive to make the paragraphs about the same length.*
 
 *bibliography.bib includes an example reference. Add additional
 references in that file as bibtex entries and then cite in text using:
-"[@exampleKey9999]". One can convert DOIs' to bibtex entries using 
-https://www.doi2bib.org/. If you use Zotero you can simply export 
-entries to bibtex `Ctrl-Shift-C`, however you need to first setup 
-Quick Copy to export to bibtex (https://www.zotero.org/support/creating_bibliographies#quick_copy)*
+"[@exampleKey9999]". One can convert DOIs' to bibtex entries using
+<https://www.doi2bib.org/>. If you use Zotero you can simply export
+entries to bibtex `Ctrl-Shift-C`, however you need to first setup Quick
+Copy to export to bibtex
+(<https://www.zotero.org/support/creating_bibliographies#quick_copy>)*
 
+Trauma is a major global public health concern. It causes over four milion death and affects hundreds of millions each year, among those younger populations are the most affected [@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010] [@teixeira_preventable_2007][@ivatury_patient_2008], and shock is the most common potentially preventable death within the first 24h of injury[@berry_shock_2015]. It is also the second major cause of early mortality in trauma patients [@kauvar_impact_2006], and patients in shock have a higher mortality rate than those not[@vang_shock_2022].
 
-Trauma is a significant global public health concern, responsible for causing death and disability in over four million people each year. Among those affected, younger populations are more impacted, making trauma management a worldwide health care concern[@noauthor_injuries_nodate]. The initial management of trauma patients in the hospital setting is time-sensitive and prone to errors, which can adversely affect patient outcomes[@mackersie_pitfalls_2010]. Trauma patients presenting with shock have a notably higher mortality compared to those who are not in shock[@vang_shock_2022], underscoring the need for improved care strategies for these patients.
-Shock is generally defined as circulatory failure resulting in insufficient perfusion and oxygenation of tissues and organs[@leech_shock_2023]. There are four primary causes of shock: hypovolemic, obstructive, cardiogenic and distributive. These etiologies can occur alone or in combination. In the context of trauma, hypovolemic shock, usually caused by massive hemorrhage, is the most common type of shock[@teixeira_preventable_2007].
+The definition for shock is circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding[@teixeira_preventable_2007].
 
-To classify shock in trauma 
-The Advanced Trauma Life Support (ATLS) classification for hypovolemic shock based on the parameters of "blood loss", "heart rate", "blood pressure", "respiratory rate", "mental status" and "urine output". ATLS divides hypovolemic shock into four distinct classes, ranging from mild to severe. However, this classification is specific to hypovolemic shock and does not account for the other types of shock like obstructive.
+To differentiate the severity of trauma shock, we can divide shock into different degrees. One of such classification is the ATLS classification for major haemorrhage. The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classification for predicting massive transfusion (TASH, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings[@guly_vital_2011], still is one of the most used classifications for this topic(Källa).
 
-To address other types of diseases, such as other types of trauma shock, triage systems like Rapid Emergency Triage and Treatment System (RETTS) and National Early Warning Score 2 (NEWS2) are used in emergency care. While these systems are not shock-specific, they are useful for assessing patients in various shock states by using vital signs such as heart rate (HR), blood pressure (BP), respiratory rate (RR) and mental status.
+One way to improve trauma care quality is trough identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatals. There are different processes to finding OFIs, but one of the primary ways is structured multidisciplinary morbidity and mortality reviews of patient cases [källa 8]. In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used[@donabedian_quality_1988]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
 
-RETTS is designed for triage in emergency departments and uses color-coded categories (red, orange, yellow, green, and blue) to rank patients by urgency. It incorporates parameters similar to those used in ATLS, but also include airway, saturation and temperature. This makes it applicable to patients in various forms of shock, including hypovolemic, cardiogenic and distributive shock(källa?).
-
-NEWS2, on the other hand, is a scoring system developed to track the clinical deterioration of patients. Like ATLS and RETTS, it evaluates HR, BP, RR, and mental status, but also includes oxygen saturation and temperature. NEWS2 is especially valuable for monitoring patients over time and identifying those at risk of deteriorating, regardless of the underlying cause of shock(källa?).
-
-Despite their differences, all three systems ATLS, RETTS and NEWS2 share similarities in their use of vital sign markers such as heart rate, blood pressure, respiratory rate and mental status. This overlap suggests using these four parameters as a base for general classification for all types of shock is justifiable(är det verkligen så, får man anta det?). 
-
-To improve trauma care quality, healthcare systems identify Opportunities for Improvement (OFI) through structured reviews of patient cases. Multidisciplinary morbidity and mortality reviews play a central role in this process, where clinicians from different specialities together analyse trauma cases to evaluate both the structure and clinical processes involved in trauma care following the Donabedian’s quality of care framework[@albaaj_patient_2023]. For shock patients, timely interventions such as fluid resuscitation/blood transfusion, intervention, OR and radiology are critical, and delays or missteps can result in adverse outcomes (källa). By systematically addressing OFIs, healthcare providers can improve the effectiveness of trauma care, directly impacting mortality and morbidity(källa).
-      
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
-
-Methods
-=======
+# Methods
 
 *Refer to the appropriate reporting guideline for details. If you are
-developing, updating or validating a clinical prediction model then
-use
-[TRIPOD](https://www.equator-network.org/reporting-guidelines/tripod-statement/). If
-you are conducting an observational study, for example a cohort or
+developing, updating or validating a clinical prediction model then use
+[TRIPOD](https://www.equator-network.org/reporting-guidelines/tripod-statement/).
+If you are conducting an observational study, for example a cohort or
 case control study in which you assess associations between some
 exposure and an outcome then use
 [STROBE](https://www.equator-network.org/reporting-guidelines/strobe/).*
 
-Study design
-We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use adjusted logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
+Study design We conducted a registry based retrospective cohort study,
+using data from the trauma registry and trauma care quality database at
+the Karolinska University Hospital in Solna. We then linked the two
+databases to assess what types of OFI occurred in patients arriving in
+shock and use adjusted logistic regression to assess the association
+between the degree of shock and odds of opportunities for improvement.
 
-Setting
-The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2012 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review between 2014 and 2023. Karolinska University Hospital in Solna acts as a level one trauma center according to critera set by American College of Surgeons(), and treats all major trauma in the greater metropolitan area of Stockholm.  
+Setting The trauma registry includes about 14000 patients treated at
+Karolinska University Hospital in Solna between 2012 and 2023. The
+trauma care quality database is a subset of the trauma registry and
+includes about 8000 patients selected for review between 2014 and 2023.
+Karolinska University Hospital in Solna acts as a level one trauma
+center according to critera set by American College of Surgeons(), and
+treats all major trauma in the greater metropolitan area of Stockholm.
 
-Participatns
-Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+Participatns Every trauma patient at Karolinska University Hospital is
+included in a morbidity and mortality review process, which involves
+both individual case evaluations by specialized nurses and audit
+filters. Patients identified with a high potential for OFIs are
+discussed at multidisciplinary conferences. The identified OFIs are then
+categorized into broader areas. The multidisciplinary conferences are
+held every six to eight weeks, during which an average of ten patient
+cases are reviewed by experienced specialists from all trauma-related
+fields. The presence or absence of OFIs is determined by consensus among
+all participants and is documented in the trauma care quality database.
 
-To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between ... and ... We excluded patients younger than 18 and/or were dead on arrival. 
+To qualify into the trauma registry, requires admission by trauma team
+activation or any admission with an Injury Severity Score (ISS) of more
+than nine. We included all patients in ... between ... and ... We
+excluded patients younger than 18 and/or were dead on arrival.
 
-Variable and measurements
-To classify the patients "heart rate", "blood pressure", "respiratory rate" and "mental status" will be used as independent variables for classification of shock regardless of their cause.  Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications. The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
+Variable and measurements To classify the patients "heart rate", "blood
+pressure", "respiratory rate" and "mental status" will be used as
+independent variables for classification of shock regardless of their
+cause. Based on these four measurements, the patients will be classified
+into four groups roughly based on the same value as in the ATLS trauma
+shock classifications. The outcome will be OFI recorded in the trauma
+care quality database and are binary when used to calculate the
+association with degree of shock. The subgroups of OFI will be explored
+and reported in a list, and therefore non-binary.
 
+# Project Update and Timeline
 
-Project Update and Timeline
-===========================
+*This is part B) in the project plan [sv: projektredogörelse].*
 
-*This is part B) in the project plan [sv: projektredogörelse]. *
+*Save the image generated from the Gantt chard spreadsheet into the
+assets folder, rename it to project-gantt.png*
 
-*Save the image generated from the Gantt chard spreadsheet into the assets folder, rename it to project-gantt.png*
+![**The Gantt chart will be displayed here when you place it in the
+assets folder under "project-gantt.png"**](assets/project-gantt.png)
 
-![**The Gantt chart will be displayed here when you place it in the assets folder under "project-gantt.png"**](assets/project-gantt.png)
+Doing right now: - Introduction - Methods
 
-Doing right now:
-- Introduction
-- Methods
+To do: - Coding for regression - Analysis - Results - Discussion -
+Conclusion and Abstract
 
-To do:
-- Coding for regression
-- Analysis
-- Results
-- Discussion
-- Conclusion and Abstract
-
-Back-up Plan
-============
+# Back-up Plan
 
 *This is part C) in the project plan [sv: projektredogörelse]*
 
-References
-==========
+# References
 
 <!-- Do not edit by hand, references will be inserted and formatted automatically once you knit this document -->
