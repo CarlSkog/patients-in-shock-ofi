@@ -12,56 +12,54 @@ csl: vancouver.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{=html}
 <!-- This is an R Markdown document. Markdown is a simple formatting
 syntax for authoring HTML, PDF, and MS Word documents. For more
 details on using R Markdown see http://rmarkdown.rstudio.com -->
-
+```
+```{=html}
 <!-- This is a comment and will not be present in the compiled
 document. Try "knitting" this document by clicking the knit button up
 to the left, or by running `rmarkdown::render("manuscript.Rmd")` in
 the console and you should only see headings -->
-
+```
+```{=html}
 <!-- Structure and most comments are from the Strengthening the
 reporting of observational studies in epidemiology (STROBE) statement,
 see https://www.strobe-statement.org/. For more explanations see the
 paper Strengthening the Reporting of Observational Studies in
 Epidemiology (STROBE):explanation and elaboration.  -->
-
+```
+```{=html}
 <!-- Indicate the study’s design with a commonly used term in the
 title, for example: "Associations between resuscitation interventions
 and opportunities for improvement in adult trauma patients: A cohort
 study" -->
+```
+# Abstract
 
-Abstract
-========
-
+```{=html}
 <!-- Provide in the abstract an informative and balanced summary of
 what was done and what was found. Not more than 300 words. -->
+```
+## Background
 
-Background
-----------
+## Methods
 
-Methods
--------
+## Results
 
-Results
--------
+## Conclusion
 
-Conclusion
-----------
+# Introduction
 
-Introduction
-============
-
+```{=html}
 <!-- Explain the scientific background and rationale for the
 investigation being reported. End by stating the aim or specific
 objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
-
-You can cite document here like this [@exampleKey9999]. Open the file
-bibliography.bib to learn more.
-
+```
+You can cite document here like this [@exampleKey9999]. Open the file bibliography.bib to learn more.
 
 Trauma is a major global public health concern. It causes over four milion death and affects hundreds of millions each year, among those younger populations are the most affected [@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010] [@teixeira_preventable_2007][@ivatury_patient_2008], and shock is the most common potentially preventable death within the first 24h of injury[@berry_shock_2015]. It is also the second major cause of early mortality in trauma patients [@kauvar_impact_2006], and patients in shock have a higher mortality rate than those not[@vang_shock_2022].
 
@@ -69,107 +67,105 @@ The definition for shock is circulatory failure leading to insuficient perfusion
 
 To differentiate the severity of trauma shock, we can divide shock into different degrees. One of such classification is the ATLS classification for major haemorrhage. The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classifications for predicting massive transfusion (TASH,TBSS, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings[@guly_vital_2011], still is one of the most used classifications for this topic(Källa).
 
-One way to improve trauma care quality is trough identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatals. There are different processes to finding OFIs, but one of the primary ways is structured multidisciplinary morbidity and mortality reviews of patient cases [@world_health_organization_guidelines_2009]. In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used[@donabedian_quality_1988]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
+One way to improve trauma care quality is trough identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatals. There are different processes to finding OFIs, but one of the primary ways is through structured multidisciplinary morbidity and mortality reviews of patient cases [@world_health_organization_guidelines_2009]. In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used[@donabedian_quality_1988]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
 
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
+# Methods
 
-Methods 
-=======
-
-Study design
-------------
+## Study design
 
 <!-- Present key elements of study design -->
 
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use logistic regression to assess the association between the degree of shock and odds of opportunities for improvement.
 
-We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. We then linked the two databases to assess what types of OFI occurred in patients arriving in shock and use logistic regression to assess the association between the degree of shock and odds of opportunities for improvement. 
+## Setting
 
-
-Setting
--------
-
+```{=html}
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
+```
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.
 
-The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.  
+## Participants
 
-
-Participants
-------------
-
+```{=html}
 <!-- Cohort study: Give the eligibility criteria, and the sources and
 methods of selection of participants. Describe methods of
 follow-up. For matched studies, give matching criteria and number of
 exposed and unexposed -->
-
+```
+```{=html}
 <!-- Case-control study: Give the eligibility criteria, and the
 sources and + methods of case ascertainment and control
 selection. Give the rationale for the choice of cases and
 controls. For matched studies, give matching criteria and the number
 of controls per case -->
-
+```
+```{=html}
 <!-- Cross-sectional study: Give the eligibility criteria, and the
 sources and methods of selection of participants -->
-
+```
 Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
-To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in "SWETRAU" and "Problem" between 2014 and 2023  We excluded patients younger than 15 and/or were dead on arrival. 
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in "SWETRAU" and "Problem" between 2014 and 2023 We excluded patients younger than 15 and/or were dead on arrival.
 
+## Variables and data sources/measurements
 
-Variables and data sources/measurements
----------------------------------------
-
+```{=html}
 <!-- Clearly define all outcomes, exposures, predictors, potential
 confounders, and effect modifiers. Give diagnostic criteria, if
 applicable. For each variable of interest, give sources of data and
 details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
-
+```
 <!-- Elaborate on the outcome OFI. How is it defined? What are the different types of OFI? -->
+
 The outcome was defined as presence of OFI, determined by the multidisciplinary M&M conference. An OFI can be expressed as various types of care errors, which include but not limited to communication, lack of resources, treatment delays, level of care, lack of competence and so on. In this study, two outcomes will be used, one is all of the types of OFI described, and the other is binary where OFI exists or does not exist.
 
-To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), systolic blood pressure(SBP), respiratory rate(RR) and mental status. Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications. 
+To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), systolic blood pressure(SBP), respiratory rate(RR) and mental status. Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications.
 
 <!-- Elaborate on how you will categorise the degree of shock, what are the different levels?-->
-Due to lack of data on FAST, type of injury and clinical chemistry, we will not be able to use categorisations such as TASH, TBSS and ABC with better sensitivity and specificity than ATLS[@yucel_trauma_2006][@ogura_modified_2016][@hanlin_prehospital_2024]. 
 
-Version 1,
+Due to lack of data on FAST, type of injury and clinical chemistry, we will not be able to use categorisations such as TASH, TBSS and ABC with better sensitivity and specificity than ATLS[@yucel_trauma_2006][@ogura_modified_2016][@hanlin_prehospital_2024].
+
+Version 1, 
 Due to the tenth edition of ATLS classifications lack actual numbers, we will be using simplified and numerical version approximated by Dunham et al[@dunham_comparison_2017]. (INSERT PICTURE)
 
-Version 2,
-Due to the tenth edition of ATLS classifications lack actual numbers, we will be approximating numbers to the values. For HR and RR we will be using the numbers from the ninth edition of the classification. The SBP will be divded into class I and II where the SBP is >110, class III 110-90mmhg and class IV <90mmhg. This selection is based on tenth edition, where SBP is defined as normal i class I to II and normal/below in class III and clearly below normal i class IV. These two studies, defined hypotension as 110mmhg respective 90mmhg dependent on age, therefore we choose class III as 110-90mmgh and class IV below 90mmhg. For mental status, according to the tenth edition ATLS, class I and II should have normal GCS, and class III and IV have lower GCS. Therefore we decided to use GCS 15 for class I + II and GCS <15 for class III and IV. 
+Version 2, 
+Due to the tenth edition of ATLS classifications lack actual numbers, we will be approximating numbers to the values. For HR and RR we will be using the numbers from the ninth edition of the classification. The SBP will be divded into class I and II where the SBP is >110, class III 110-90mmhg and class IV <90mmhg. This selection is based on tenth edition, where SBP is defined as normal i class I to II and normal/below in class III and clearly below normal i class IV. These two studies, redefined hypotension as 110mmhg respective 90mmhg dependent on age[@eastridge_hypotension_2007][@oyetunji_redefining_2011], therefore we choose class III as 110-90mmgh and class IV below 90mmhg. For mental status, according to the tenth edition ATLS, class I and II should have normal GCS, and class III and IV have lower GCS. Therefore we decided to use GCS 15 for class I + II and GCS <15 for class III and IV.
 
-Hur gör vi med de som hamnar mellan klasserna?
+ - Hur gör vi med de som hamnar mellan klasserna?
+To classify, all of the parameters in one class needs to be fulfilled. In the cases where the parameters belong in different classes, we will be classifying according to the most severe parameter in the same way as Dunham et al[@dunham_comparison_2017]. At same time ATLS manual states one of the common pitfalls is "Diagnosis of shock can be missed when only a single parameter is used." therefore to improve sensitivity we decided to use the worst parameter for classification. 
 
-The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
+To prevent classifying non-shock traumatic brain injury as class III and worse shock based on GCS, we decided to only include those who also present a circulatory parameter in accordance with class III or IV. 
+ - eller ta bort GCS helt och hållet? För i enlighet med ovan kommer GCS alltid att prioriteras bort och då finns ingen anlending att ha med det...
 
+Version 3, simplaste och den jag gillar mest, men kan andra sjukdomar som gluykolen förgiftning sabba tanken?
+We will be using the classification of tenth edition of ATLS, but only the base deficit parameter as it is most accurate [@dunham_comparison_2017]. 
 
-Bias 
-----
+## Bias
 
 <!-- Describe any efforts to address potential sources of bias -->
 
-Study size 
-----------
+## Study size
 
 <!-- Explain how the study size was arrived at -->
 
 <!-- Mention that you will include all available data-->
-All available data in the trauma care quality database? will be included, regarding the studied variables.
- 
 
+All available data in "SWETRAU" and "Problem" database will be included.
 
-Quantitative variables
-----------------------
+## Quantitative variables
 
+```{=html}
 <!-- Explain how quantitative variables were handled in the
 analyses. If applicable, describe which groupings were chosen and why
 -->
+```
+## Statistical methods
 
-Statistical methods
--------------------
-
+```{=html}
 <!-- 
 
 (a) Describe all statistical methods, including those used to control
@@ -191,7 +187,7 @@ taking account of sampling strategy
 
 (e) Describe any sensitivity analyses
 -->
-
+```
 <!-- Start with stating what software you'll use. Then say something about how you will describe the data. Then say something about how you will analyse the data. -->
 
 I will be using R to...
@@ -206,9 +202,9 @@ I will be using R to...
 
 (e) ?
 
-Results
-=======
+# Results
 
+```{=html}
 <!-- 
 
 Participants
@@ -266,12 +262,12 @@ Other analyses
 Report other analyses done—eg analyses of subgroups and interactions,
 and sensitivity analyses 
 -->
-
+```
 You can include code in this document like this:
 
-```{r main, echo=FALSE} 
+```{r main, echo=FALSE}
 source("main.R") ## This "imports" the main script file of your project and run any code in it
-``` 
+```
 
 You can also embed plots:
 
@@ -281,9 +277,9 @@ plot(pressure)
 
 You can also mix text and code, so called inline code, like this: `r 2+5`.
 
-Discussion
-==========
+# Discussion
 
+```{=html}
 <!--
 
 Key results
@@ -310,13 +306,11 @@ Generalisability
 Discuss the generalisability (external validity) of the study results
 
 -->
-
-Conclusion
-==========
+```
+# Conclusion
 
 <!-- Give a short conclusion, corresponding to the aim -->
 
-References
-==========
+# References
 
 <!-- Do not edit by hand, references will be inserted and formatted automatically once you knit this document -->
