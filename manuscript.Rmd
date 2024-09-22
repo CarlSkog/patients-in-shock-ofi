@@ -142,7 +142,7 @@ To prevent classifying non-shock traumatic brain injury as class III and worse s
  - eller ta bort GCS helt och hållet? För i enlighet med ovan kommer GCS alltid att prioriteras bort och då finns ingen anlending att ha med det...
 
 Version 3, simplaste och den jag gillar mest, men kan andra sjukdomar som gluykolen förgiftning sabba tanken?
-We will be using the classification of tenth edition of ATLS, but only the base deficit parameter as it is most accurate [@dunham_comparison_2017]. 
+We will be only using the base deficit parameter acccording to the tenth edition of the ATLS classification for hemorrhage. There are two reasons. The first one is that it is superior to vital parameter[@dunham_comparison_2017]. The second one is due to nature of having multiple parameters, makes it difficult to categorise a patient with vital parameters in two or more classes and difficult to separate lower GCS due to traumatic brain injury from shock as cause. The classes will be divided into class I: 0 - (-2), class II: (-2)-(-6), class III: (-6)-(-10), and class IV: <(-10).  
 
 ## Bias
 
