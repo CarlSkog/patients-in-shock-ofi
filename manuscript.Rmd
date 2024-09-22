@@ -67,7 +67,7 @@ Trauma is a major global public health concern. It causes over four milion death
 
 The definition for shock is circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding[@teixeira_preventable_2007].
 
-To differentiate the severity of trauma shock, we can divide shock into different degrees. One of such classification is the ATLS classification for major haemorrhage. The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classification for predicting massive transfusion (TASH, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings[@guly_vital_2011], still is one of the most used classifications for this topic(Källa).
+To differentiate the severity of trauma shock, we can divide shock into different degrees. One of such classification is the ATLS classification for major haemorrhage. The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classifications for predicting massive transfusion (TASH,TBSS, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings[@guly_vital_2011], still is one of the most used classifications for this topic(Källa).
 
 One way to improve trauma care quality is trough identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatals. There are different processes to finding OFIs, but one of the primary ways is structured multidisciplinary morbidity and mortality reviews of patient cases [@world_health_organization_guidelines_2009]. In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used[@donabedian_quality_1988]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
 
@@ -114,7 +114,7 @@ sources and methods of selection of participants -->
 
 Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
-To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in ... between 2014 and 2023  We excluded patients younger than 15 and/or were dead on arrival. 
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in "SWETRAU" and "Problem" between 2014 and 2023  We excluded patients younger than 15 and/or were dead on arrival. 
 
 
 Variables and data sources/measurements
@@ -127,11 +127,22 @@ details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
 
 <!-- Elaborate on the outcome OFI. How is it defined? What are the different types of OFI? -->
+The outcome was defined as presence of OFI, determined by the multidisciplinary M&M conference. An OFI can be expressed as various types of care errors, which include but not limited to communication, lack of resources, treatment delays, level of care, lack of competence and so on. In this study, two outcomes will be used, one is all of the types of OFI described, and the other is binary where OFI exists or does not exist.
 
 To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), blood pressure(BP), respiratory rate(RR) and mental status. Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications. 
 
 <!-- Elaborate on how you will categorise the degree of shock, what are the different levels?-->
+Due to lack of data on FAST, type of injury and clinical chemistry, we will not be able to use categorisations such as TASH, TBSS and ABC with better sensitivity and specificity than ATLS[@yucel_trauma_2006][@ogura_modified_2016][@hanlin_prehospital_2024]. 
+
+Version 1,
+Due to the newer versions of ATLS classifications lack actual numbers, we will be using simplified and numerical version approximated by Dunham et al[@dunham_comparison_2017].
+
+Version 2,
+Due to the newer versions of ATLS classifications lack actual numbers, we will be approximating the values to numbers. For HF... For BP
+
 The first group will be patients presenting with a HR below 100 beats per minute(BPM), respiratory rate between 14 to 20. The original ATLS classification only states normal BP, but no number. In our case, we will be using the systolic over 90mmhg as the lower limit up to 65 years old, and 110mmhg as the lower limit for patients older (geriatric patients). The...    
+
+Hur gör vi med de som hamnar mellan klasserna?
 
 The outcome will be OFI recorded in the trauma care quality database and are binary when used to calculate the association with degree of shock. The subgroups of OFI will be explored and reported in a list, and therefore non-binary.
 
@@ -146,7 +157,8 @@ Study size
 
 <!-- Explain how the study size was arrived at -->
 
-All available data in the trauma care quality database? will be included, regarding the studied variables. <!-- Mention that you will include all available data-->
+<!-- Mention that you will include all available data-->
+All available data in the trauma care quality database? will be included, regarding the studied variables.
  
 
 
