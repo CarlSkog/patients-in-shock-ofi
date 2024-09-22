@@ -85,7 +85,7 @@ We conducted a registry based retrospective cohort study, using data from the tr
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
 ```
-The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes about 8000 patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.
+The trauma registry includes about 14000 patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The "problem" database is a subset of the trauma registry and includes about ? patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.
 
 ## Participants
 
@@ -106,9 +106,11 @@ of controls per case -->
 <!-- Cross-sectional study: Give the eligibility criteria, and the
 sources and methods of selection of participants -->
 ```
+To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine.
+
 Every trauma patient at Karolinska University Hospital is included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
-To qualify into the trauma registry, requires admission by trauma team activation or any admission with an Injury Severity Score (ISS) of more than nine. We included all patients in "SWETRAU" and "Problem" between 2014 and 2023 We excluded patients younger than 15 and/or were dead on arrival.
+We included all patients in "SWETRAU" and "Problem" between 2014 and 2023 We excluded patients younger than 15 and/or were dead on arrival.
 
 ## Variables and data sources/measurements
 
@@ -190,7 +192,7 @@ taking account of sampling strategy
 ```
 <!-- Start with stating what software you'll use. Then say something about how you will describe the data. Then say something about how you will analyse the data. -->
 
-I will be using R to...
+The statistical analysis will be performed using R, a language and environment for statistical computing. 
 
 (a) Logistic regression to determine the association between the binary results of OFI existence and teh four degrees of shock.
 
