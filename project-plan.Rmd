@@ -2,6 +2,8 @@
 title: "Manuscript title here"
 subtitle: "Add a Subtitle if Needed"
 author: "Your name here"
+output: 
+  word_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 knit: (function(inputFile, encoding) {
