@@ -123,7 +123,9 @@ of assessment methods if there is more than one group -->
 ```
 <!-- Elaborate on the outcome OFI. How is it defined? What are the different types of OFI? -->
 
-The outcome was defined as presence of OFI, determined by the multidisciplinary M&M conference. An OFI can be expressed as various types of care errors, which include but not limited to communication, lack of resources, treatment delays, level of care, lack of competence and so on. In this study, two outcomes will be used, one is all of the types of OFI described, and the other is binary where OFI exists or does not exist.
+The outcome was defined as presence of atleast one OFI, determined by the multidisciplinary M&M conference in the "problem" registry. An OFI can be various types of errors, which are categorized into: clinical judgement error, inadequate resources, delay in treatment, missed injury, inadequate protocols, "preventable death" (den här var väl inte ens med i "problem", fast fanns med i studien som Martin delade på discord) and other errors.
+
+In this study, the outcomes will be studied in two ways, one is the amount of occurrence for various types of OFI in shock patients, and the other is binary where odds of OFI for every shock class i calculated out of presence of OFI or not. (kanske inte ens en del av metod)
 
 To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), systolic blood pressure(SBP), respiratory rate(RR) and mental status. Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications.
 
@@ -192,17 +194,8 @@ taking account of sampling strategy
 ```
 <!-- Start with stating what software you'll use. Then say something about how you will describe the data. Then say something about how you will analyse the data. -->
 
-The statistical analysis will be performed using R, a language and environment for statistical computing. 
+The statistical analysis will be performed using R, a programing language and environment for statistical computing. We will present the type of OFI as percentage distributions and then visualize it in a pie chart. Bivariable logistic regression will be used to determine the association between the OFI and degree/class of shock according to ATLS. It will be presented as odds ratios (OR) between presence of OFI, and shock classes. The OR will be determined with 95% confidence intervals, and a significance level of 5% will be used. All statistical analysis will first be done on synthetic data and later implemented on the data collected from the trauma registry and the “problem” database to ensure objectivity.
 
-(a) Logistic regression to determine the association between the binary results of OFI existence and teh four degrees of shock.
-
-(b) ?
-
-(c) patient case removed?
-
-(d) patient case removed?
-
-(e) ?
 
 # Results
 
