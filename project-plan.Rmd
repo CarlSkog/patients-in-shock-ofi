@@ -141,7 +141,7 @@ assets folder under "project-gantt.png"**](assets/project-gantt.png)
 
 Doing right now: - Introduction - Methods
 
-To do: - Coding for regression - Analysis - Results - Discussion -
+To do: - Coding to sort data - Coding for regression - Analysis - Results - Discussion -
 Conclusion and Abstract
 
 # Back-up Plan
