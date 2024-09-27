@@ -10,5 +10,5 @@ BE <- convert_number(data$swetrau_scrambled$ed_be_art)
 BEclass1 <- swetrau_scrambled[BE<0 & BE>-2, ]
 BEclass2 <- swetrau_scrambled[BE<-2 & BE>-6, ]
 BEclass3 <- swetrau_scrambled[BE<-6 & BE>-10, ]
-BEclass3 <- swetrau_scrambled[BE<-10, ]
+BEclass4 <- swetrau_scrambled[BE<-10, ]
 
