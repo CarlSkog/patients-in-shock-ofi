@@ -63,6 +63,38 @@ One way to improve trauma care quality is trough identifying Opportunities for I
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 
+
+## Epidemiology
+Trauma is a major global public health concern. It causes over four milion death and affects hundreds of millions each year, among those younger populations are the most affected (2). Globally low and middle income countries are disproportionately affected, but high income countries like Sweden also face considerable challenges(källa). In Sweden between 2018 and 2021, the most common age demographic for trauma is the working aged population, between 18 and 64 years old. (Swetrau ÅR, 2021). This not only leads to premature loss of life but also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs. 
+
+## Trauma
+Trauma are generally divided into two groups, blunt and penetrating injury. The most common type in Sweden is blunt injury, constituting around 90% of all trauma. The most common causes for blunt trauma are traffic related and falls, which account for roughly ½ and ⅓ of all blunt trauma(Swetrau ÅR, 2021).  
+
+Blunt and penetrating trauma have their own distinct clinical implications. Blunt trauma often results from impacts of different energy factor, and depending on the energy can result in anything from abbrations to fractures and internal organ damage. The most anatomically common type of blunt trauma is blunt abdominal trauma (BAT), at 75% of all blunt trauma(advances of abdominal trauma). The most common cause is traffic related such as, rapid deceleration leading to driver crashing into car furniture and causing contusions or rupture of internal organs. 
+
+Penetrating trauma on the other hand are often caused by gunshots or stab wounds(Emergency care and transportation of the sick and injured). The most common location is thorax and injuries there can lead to damage of the lungs and heart, which in turn interfere with breathing and circulation, such as pneumo/hemothorax and heart tamponade.
+
+A consequence of both types of trauma is possibility of significant bleeding, which in turn can result in hemorrhagic shock.  
+
+## Shock
+The definition for shock is circulatory failure leading to insufficient perfusion and oxygenation of tissue and organ(9). Some of the common symptoms are tachycardia, hypotenstion and altered mental status. Shock are usually classified into four different types based on physiological mechanism. The types are, hypovolemic, obstructive, cardiogenic and distributive, and they all have their own special characteristics(källa). These causes can occur alone or in combination, as there can be multiple disruptions on the circulatory system. Common examples of diagnoses for each type are, hypovolemic - bleeding, obstructive - pulmonary embolism, cardiogenic - STEMI  and, distributive - sepsis(källa). 
+
+The most common type of shock during trauma is the hypovolemic type due to a major hemorrhage(4). Hemorrhage leads to low blood volume, which beside the common central symptoms noted before, also results in peripheral vasoconstriction, which corresponds with cold, wet and pale extremities(källa).
+
+## Shock classifications
+To differentiate the severity of trauma shock, we can divide it into different degrees. One of such classification is the ATLS classification for major haemorrhage. ATLS stratifies patients into four classes, based on the patients: estimated blood loss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classifications for predicting massive transfusion (TASH,TBSS, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings(10), still is one of the most used classifications for this topic(Källa).
+
+## Trauma quality improvement and oppertunities for improvement
+The initial management of trauma patients once they reach hospital is very time sensitive and error prone (3) [(4)](5), and shock is the most common potentially preventable death within the first 24 hour of injury(6), as the midian time to death is 2 hours(Tisherman, 2015). To address these challenges and reduce preventable errors, different types of Quality Improvement (QI) initiatives were initiated. QI focuses on systematically evaluating healthcare processes and patient outcomes, aiming to reduce morbidity and mortality(WHO). By implementing formal quality measures and conducting collaborative case reviews, QI programs have strengthened trauma systems and improved patient outcomes in various settings globally (Juillard + Hashmi).
+
+One way to improve trauma care quality is through identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatal outcomes, which gives a broader perspective and a chance to reduce chronic morbidity. There are different processes to finding OFIs, but one of the primary ways is through structured multidisciplinary morbidity and mortality (M&M) reviews of patient cases (11). In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used(12). It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
+
+## Aims
+This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
+
+
+
+
 # Methods
 
 If you are conducting an observational study, for example a cohort or
