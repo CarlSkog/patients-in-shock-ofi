@@ -16,3 +16,9 @@ BEclass1num <- convert_number(BEclass1$ed_be_art)
 BEclass2num <- convert_number(BEclass2$ed_be_art)
 BEclass3num <- convert_number(BEclass3$ed_be_art)
 BEclass4num <- convert_number(BEclass4$ed_be_art)
+
+newNiss <- as.numeric(NISS)
+newISS <- as.numeric(ISS)
+newhost_care_level <- as.numeric(host_care_level)
+
+DataFrame1 <- data.frame(host_care_level, newNiss, newISS)
