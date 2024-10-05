@@ -88,7 +88,7 @@ The inclusion criteria for the trauma registry is a patient either admitted thro
 
 ## Variables and data sources/measurements
 
-The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the “problem” registry. An OFI can be various types of errors, which are categorized into: clinical judgement error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
+The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the trauma care quality registry. An OFI can be various types of errors, which are categorized into: clinical judgement error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
 
 To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), systolic blood pressure(SBP) and respiratory rate(RR). Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications.
 
