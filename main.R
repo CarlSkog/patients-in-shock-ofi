@@ -136,3 +136,19 @@ dimnames(tabell) <- list(OFI = c("Yes", "No"),
                          Shock = c("Yes shock", "no shock"))
 tabell
 chisq.test(tabell)
+
+
+SBP <- convert_number(study.sample$ed_sbp_value)
+SBPclass0 <- study.sample[SBP<110, ]
+SBPclass999 <- study.sampleBE[SBP>= 110, ]
+SBPc0Y <- filter(SBPclass0, ofi == "Yes")
+SBPc0N <- filter(SBPclass0, ofi == "No")
+SBPc999Y <- filter(SBPclass999, ofi == "Yes")
+SBPc999N <- filter(SBPclass999, ofi == "No")
+
+tabell <- as.table(rbind(c(sum(length(convert_number(SBPc0Y$ed_be_art))), sum(length(convert_number(SBPc999Y$ed_be_art)))),
+                         c(sum(length(convert_number(SBPc0N$ed_be_art))), sum(length(convert_number(SBPc999N$ed_be_art))))))
+dimnames(tabell) <- list(OFI = c("Yes", "No"),
+                         Shock = c("Yes shock", "no shock"))
+tabell
+chisq.test(tabell)
