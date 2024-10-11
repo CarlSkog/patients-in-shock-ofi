@@ -97,6 +97,13 @@ study.sample <- study.sample %>%
     TRUE ~ NA_character_
   ))
 
+# Converting 999 to unknown for pt_asa_preinjury
+study.sample <- study.sample %>%
+  mutate(pt_asa_preinjury = case_when(
+    pt_asa_preinjury == 999 ~ "Unknown",
+    TRUE ~ as.character(pt_asa_preinjury)
+  ))
+
 # Remove unused variables. 
 study.sample <- study.sample |> 
   select(-inj_mechanism, 
@@ -114,7 +121,8 @@ var_label(study.sample$SBP_class) <- "Shock class classfied according to SBP"
 var_label(study.sample$BE_class) <- "Shock class classified according to BE"
 var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
-var_label(display.sample$pt_Gender) <- "Gender"
+var_label(study.sample$pt_Gender) <- "Gender"
+var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
