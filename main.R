@@ -51,22 +51,52 @@ study.data <- merged.data |>
          res_survival,
          ofi)
 
-OfiBE <- merged.data |> 
-  select(ed_be_art,
-         ofi)
-
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
   filter(!is.na(ofi))
 
+# Exclude patients who did not have BE data
 study.sampleBE <- study.sample |>
   filter(!is.na(ed_be_art))
 
-OfiBEO <- OfiBE |>
-  filter(!is.na(ofi))
+# The display sample
+display.sample <- study.sample |> 
+  select(pt_age_yrs, 
+         pt_Gender, 
+         pt_asa_preinjury,
+         ed_sbp_value,
+         ISS,
+         ofi)
 
-OfiBEOB <- OfiBEO |>
-  filter(!is.na(ed_be_art))
+# Adding shock classification
+
+convert_number <- function(x){
+  x <- as.character(x)
+  x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
+  x <- as.numeric(x)
+  return(x)
+}
+
+BEnum <- convert_number(study.sample$ed_be_art)
+
+study.sample <- study.sample %>%
+  mutate(BE_class = case_when(
+    BEnum < (-10) ~ "Class 4",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",  
+    BEnum >= (-2) & BEnum < (0) ~ "Class 1",   
+    is.na(BEnum) ~ NA_character_,        
+    TRUE ~ "no shock"
+  ))
+
+# Remove unused variables. 
+study.sample <- study.sample |> 
+  select( -inj_mechanism, 
+         -ed_gcs_sum,
+         -ed_rr_value,
+         -ed_be_art,
+         -host_care_level,
+         -res_survival)
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age in years"
@@ -78,7 +108,7 @@ sample.characteristics.table <- tbl_summary(study.sample,
 
 ## Whatever you do next, maybe clean data?
 
-function(x){
+convert_number <- function(x){
   x <- as.character(x)
   x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
   x <- as.numeric(x)
@@ -209,3 +239,7 @@ dimnames(tabell) <- list(OFI = c("Yes", "No"),
                          Shock_class = c("Class 1", "Class 2", "Class 3", "Class 4"))
 tabell
 chisq.test(tabell)
+
+#recodar variabler - tidy verse
+#conituerlig av BE i tabellen o.s.v 
+#add p - gt summary 
