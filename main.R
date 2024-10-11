@@ -89,6 +89,10 @@ study.sample <- study.sample %>%
     TRUE ~ "no shock"
   ))
 
+# Re-add the BE column as numeric to `study.sample`
+study.sample <- study.sample %>%
+  mutate(ed_be_art_numeric = BEnum)
+
 # Remove unused variables. 
 study.sample <- study.sample |> 
   select( -inj_mechanism, 
@@ -101,6 +105,7 @@ study.sample <- study.sample |>
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age in years"
 var_label(study.sample$ofi) <- "Opportunities for improvement"
+var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
