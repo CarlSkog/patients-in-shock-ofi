@@ -1,3 +1,21 @@
+# Exclude patients who did not have BE data
+study.sampleBE <- study.sample |>
+  filter(!is.na(ed_be_art))
+
+# The display sample
+display.sample <- study.sample |> 
+  select(pt_age_yrs, 
+         pt_Gender, 
+         pt_asa_preinjury,
+         ed_sbp_value,
+         ISS,
+         ofi)
+
+
+
+
+
+
 convert_number <- function(x){
   x <- as.character(x)
   x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
