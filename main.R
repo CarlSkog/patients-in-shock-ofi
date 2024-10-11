@@ -141,4 +141,3 @@ add_p(sample.characteristics.table)
 #recodar variabler - tidy verse
 #conituerlig av BE i tabellen o.s.v 
 #add p - gt summary 
-
