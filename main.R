@@ -128,7 +128,12 @@ var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure"
 sample.characteristics.table <- tbl_summary(study.sample,
                                             by = ofi)
 
+# Display table
 sample.characteristics.table
+
+# Testing P
+add_p(sample.characteristics.table)
+
 ## Whatever you do next, maybe clean data?
 
 
@@ -136,3 +141,4 @@ sample.characteristics.table
 #recodar variabler - tidy verse
 #conituerlig av BE i tabellen o.s.v 
 #add p - gt summary 
+
