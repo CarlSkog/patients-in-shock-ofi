@@ -68,8 +68,7 @@ display.sample <- study.sample |>
          ISS,
          ofi)
 
-# Adding shock classification
-
+# Converting ed_be_art to numeric
 convert_number <- function(x){
   x <- as.character(x)
   x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
@@ -79,6 +78,7 @@ convert_number <- function(x){
 
 BEnum <- convert_number(study.sample$ed_be_art)
 
+# BE shock classification
 study.sample <- study.sample %>%
   mutate(BE_class = case_when(
     BEnum < (-10) ~ "Class 4",
@@ -93,6 +93,15 @@ study.sample <- study.sample %>%
 study.sample <- study.sample %>%
   mutate(ed_be_art_numeric = BEnum)
 
+# SBP shock classifiaction
+study.sample <- study.sample %>%
+  mutate(SBP_class = case_when(
+    ed_sbp_value < (90) ~ "Class 2",
+    ed_sbp_value >= (90) & ed_sbp_value < (110) ~ "Class 1",
+    is.na(ed_sbp_value) ~ NA_character_,        
+    TRUE ~ "no shock"
+  ))
+
 # Remove unused variables. 
 study.sample <- study.sample |> 
   select( -inj_mechanism, 
@@ -103,14 +112,17 @@ study.sample <- study.sample |>
          -res_survival)
 
 # Label variables
-var_label(study.sample$pt_age_yrs) <- "Age in years"
-var_label(study.sample$ofi) <- "Opportunities for improvement"
+var_label(study.sample$pt_age_yrs) <- "Age (Years)"
+var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
 var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
+var_label(study.sample$SBP_class) <- "Shock class classfied according to SBP"
+var_label(study.sample$BE_class) <- "Shock class classified according to BE"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
                                             by = ofi)
 
+sample.characteristics.table
 ## Whatever you do next, maybe clean data?
 
 convert_number <- function(x){
