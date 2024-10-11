@@ -117,6 +117,9 @@ var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
 var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
 var_label(study.sample$SBP_class) <- "Shock class classfied according to SBP"
 var_label(study.sample$BE_class) <- "Shock class classified according to BE"
+var_label(study.sample$pt_Gender) <- "Gender (M/F)"
+var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
+var_label(study.sample$ISS) <- "Injury Severity Score"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
