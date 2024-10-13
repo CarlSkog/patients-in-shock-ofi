@@ -37,9 +37,7 @@ the console and you should only see headings -->
 
 ## Epidemiology
 
-Trauma is a major global public health concern. It causes over four million deaths and affects hundreds of millions each year
-#otydligt
-, among those younger populations are the most affected[@noauthor_injuries_nodate]. Globally low and middle income countries are disproportionately affected, while high income countries like Sweden have lower overall number but the younger and economically active demographic are also affected. In Sweden between 2018 and 2021, the most common age demographic for trauma is the working aged population, between 18 and 64 years old[@noauthor_arsrapport_2022]. This not only leads to premature loss of life but also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs[@noauthor_injuries_nodate]. 
+Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected[@noauthor_injuries_nodate]. Globally low and middle income countries are disproportionately affected, while high income countries like Sweden have lower overall number but the younger and economically active demographic are also affected. In Sweden between 2018 and 2021, the most common age demographic for trauma is the working aged population, between 18 and 64 years old[@noauthor_arsrapport_2022]. This not only leads to premature loss of life but also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs[@noauthor_injuries_nodate]. 
 
 ## Trauma
 
