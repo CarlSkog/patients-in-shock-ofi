@@ -1,7 +1,7 @@
 ---
-title: "Manuscript title here"
+title: "Opportunities for improvement in the care of adult trauma patients arriving in shock"
 subtitle: "Add a Subtitle if Needed"
-author: "Your name here"
+author: "Carl Skog"
 output: 
   word_document: default
 bibliography: bibliography.bib
