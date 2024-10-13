@@ -1,0 +1,156 @@
+---
+title: "Manuscript title here"
+subtitle: "Add a Subtitle if Needed"
+author: "Your name here"
+output: 
+  word_document: default
+bibliography: bibliography.bib
+csl: vancouver.csl
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "out") })
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{=html}
+<!-- The project plan should be 3-4 pages long and written in
+Rmarkdown (like this document). Remove all comments in italic when you 
+use this document as a template for your own project plan. -->
+```
+```{=html}
+<!-- This is an R Markdown document. Markdown is a simple formatting
+syntax for authoring HTML, PDF, and MS Word documents. For more
+details on using R Markdown see http://rmarkdown.rstudio.com -->
+```
+```{=html}
+<!-- This is a comment and will not be present in the compiled
+document. Try "knitting" this document by clicking the knit button up
+to the left, or by running `rmarkdown::render("project-plan.Rmd")` in
+the console and you should only see headings -->
+```
+# Introduction
+
+## Epidemiology
+
+Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected[@noauthor_injuries_nodate]. Globally low and middle income countries are disproportionately affected, while high income countries like Sweden have lower overall number but the younger and economically active demographic are also affected. In Sweden between 2018 and 2021, the most common age demographic for trauma is the working aged population, between 18 and 64 years old[@noauthor_arsrapport_2022]. This not only leads to premature loss of life but also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs[@noauthor_injuries_nodate]. 
+
+## Trauma
+
+Trauma are generally divided into two groups, blunt and penetrating injury. The most common type in Sweden is blunt injury, constituting around 90% of all trauma. The most common causes for blunt trauma are traffic related and falls, which account for roughly ½ and ⅓ of all blunt trauma[@noauthor_arsrapport_2022].  
+
+Blunt and penetrating trauma have their own distinct clinical implications. Blunt trauma often results from impacts of different energy factors, and depending on the energy can result in anything from abbrations to fractures and internal organ damage. The most anatomically common type of blunt trauma is blunt abdominal trauma (BAT), which is often caused by traffic accidents. When counting motor vehicle collision and pedestrian versus auto accidents together, they account for 75% of all blunt trauma[@isenhour_advances_2007]
+#sweden or worldwide?
+.
+
+Penetrating trauma, often caused by gunshots or stab wounds, commonly affects the small intestine, colon, liver, and intra-abdominal blood vessels. These injuries are life-threatening due to significant bleeding from large vessels and the liver’s extensive blood supply. There is also a risk of other complications, such as pancreatic damage leading to autodigestion, and intestinal perforation resulting in contamination from fecal matter. Consequently, penetrating trauma frequently leads to hypovolemic shock and peritonitis[@lotfollahzadeh_penetrating_2023].
+
+A consequence of both types of trauma is the possibility of significant bleeding, which in turn can result in hemorrhagic shock.  
+
+## Shock
+
+The definition for shock is circulatory failure leading to insufficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. Some of the common symptoms are tachycardia, hypotenstion and altered mental status. Shock are usually classified into four different types based on physiological mechanism. The types are: hypovolemic, obstructive, cardiogenic and distributive, and they all have their own special characteristics[@standl_nomenclature_2018]. These causes can occur alone or in combination, as there can be multiple disruptions on the circulatory system. Examples of diagnoses for each type are, hypovolemic - bleeding, obstructive - tension pneumothorax, cardiogenic - myocardial pump failure and distributive - sepsis[@standl_nomenclature_2018]. 
+
+The most common type of shock during trauma is the hypovolemic type due to a major hemorrhage[@teixeira_preventable_2007]. Hemorrhage leads to low blood volume, which beside the common central symptoms noted before, also results in peripheral vasoconstriction, which corresponds with cold, wet and pale extremities[@raja_initial_2024].
+
+## Shock classifications
+
+To differentiate the severity of trauma shock, we can divide it into different degrees. One of such classification is the ATLS classification for major haemorrhage. ATLS stratifies patients into four classes, based on the following patient factors: estimated blood loss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output[@noauthor_atls_2018]. However, this is only meant to be used for hypovolemic shocks and not the other types. There are other classifications for predicting massive transfusion (TASH,TBSS, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2)
+#referens?
+. The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings, still is one of the common classifications and part of the student course manual of the internationally accepted ATLS trauma management system[@guly_vital_2011][@noauthor_atls_2018].
+
+(Infoga bild på ATLS tenth edition)
+
+## Trauma quality improvement and oppertunities for improvement
+
+The initial management of trauma patients once they reach hospital is very time sensitive and error prone[@mackersie_pitfalls_2010][@teixeira_preventable_2007][@ivatury_patient_2008]. To address this and other challenges within trauma care and reduce preventable errors, different types of Quality Improvement (QI) initiatives were initiated. QI focuses on systematically evaluating healthcare processes and patient outcomes, aiming to reduce morbidity and mortality[@world_health_organization_guidelines_2009]. By implementing formal quality measures and conducting collaborative case reviews, QI programs have strengthened trauma systems and improved patient outcomes in various settings globally[@juillard_establishing_2009][@hashmi_hospital-based_2013].
+
+One way to improve trauma care quality is through identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatal outcomes, which gives a broader perspective and a chance to reduce chronic morbidity. There are different processes to finding OFIs, but one of the primary ways is through structured multidisciplinary morbidity and mortality (M&M) reviews of patient cases[@world_health_organization_guidelines_2009]. In order for the review content to be as comprehensive as possible and taking in a system oriented approach, the Donabedian quality of care framework can be used[@donabedian_quality_1988][@world_health_organization_guidelines_2009]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find OFIs as part of QI. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[@juillard_establishing_2009][@hashmi_hospital-based_2013].
+
+## Shock and OFI
+Shock is the leading cause of preventable death within the first 24 hours of injury[@berry_shock_2015], with a median time to death from hemorrhagic shock of just 2 hours[@tisherman_detailed_2015]. Despite this, the relationship between shock, its severity, and Opportunities for Improvement (OFI) remains largely unexamined. Most studies on OFI focus on trauma as a whole and do not explore shock in detail, for example, one study [@christie_how_2023] noted that 80% of patients had bleeding or hypotension but did not investigate further. However, studying shock more closely is crucial, as it is common, highly preventable and one of the most deadly. This knowledge would help clinicians better identify and avoid preventable mistakes in shock patients who need urgent care.
+
+
+## Aims
+This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
+
+# Methods
+
+## Study design
+
+We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. 
+
+## Setting
+
+The trauma registry includes patients treated at Karolinska University Hospital in Solna between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes patients selected for review. The Karolinska University Hospital in Solna treats all major trauma in the greater metropolitan area of Stockholm.
+
+## Participants
+
+We included all patients in trauma registry and Trauma care quality database. We excluded patients younger than 15 and/or were dead on arrival. 
+
+The inclusion criteria for the trauma registry is a patient either admitted through trauma team activation or a already admitted patient with an Injury Severity Score (ISS) greater than nine. Every trauma patient (registered in the trauma registry) at Karolinska University Hospital is then included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broader areas. The multidisciplinary conferences are held every six to eight weeks, during which an average of ten patient cases are reviewed by experienced specialists from all trauma-related fields. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+
+## Variables and data sources/measurements
+
+The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the trauma care quality registry. An OFI can be various types of errors, which are categorized into: clinical judgement error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
+
+To classify the patients the following measurement will be used as independent variables for classification of shock regardless of their cause. Heart rate(HR), systolic blood pressure(SBP) and respiratory rate(RR). Based on these four measurements, the patients will be classified into four groups roughly based on the same value as in the ATLS trauma shock classifications.
+
+Due to lack of data on FAST, type of injury and clinical chemistry, we will not be able to use categorisations such as TASH, TBSS and ABC with better sensitivity and specificity than ATLS[@yucel_trauma_2006][@ogura_modified_2016][@hanlin_prehospital_2024].
+Due to the tenth edition of ATLS classifications lack actual numbers, we will be approximating numbers to the values. For HR and RR we will be using the numbers from the ninth edition of the classification. The SBP will be divded into class I and II where the SBP is >110, class III 110-90mmhg and class IV <90mmhg. This selection is based on tenth edition, where SBP is defined as normal in class I to II and normal/below in class III and clearly below normal in class IV. These two studies by Eastridge et al and Oyetunji et al, redefined hypotension as 110mmhg respective 90mmhg dependent on age[@eastridge_hypotension_2007][@oyetunji_redefining_2011], therefore we choose class III as 110-90 mmhg and class IV below 90mmhg. We decided to not include Glasgow Coma Scale (GCS) due to difficulties in differentiating if any lowering is due to shock or traumatic brain injury (TBI). Urine output and pulse pressure were also neglected, due to lack of data.
+
+To classify, all of the parameters in one class needs to be fulfilled. In the cases where the parameters belong in different classes, we will be classifying according to the most severe parameter in the same way as Dunham et al[@dunham_comparison_2017]. At same time ATLS manual states one of the common pitfalls is “Diagnosis of shock can be missed when only a single parameter is used.” therefore to improve sensitivity we decided to use the worst parameter for classification[@noauthor_atls_2018].
+
+We will be only using the base deficit parameter according to the tenth edition of the ATLS classification for haemorrhage. There are three reasons. The first one is ATLS tenth edition lack numerical values for vital parameters. The second one is that bace deficit is superior to vital parameters as a predictive parameter for mortality[@dunham_comparison_2017]. The third one is due to nature of having multiple parameters, makes it difficult to categorise a patient with vital parameters in two or more classes and difficult to separate lower GCS due to traumatic brain injury from shock as cause. The classes will be divided into class I: 0 - (-2), class II: (-2)-(-6), class III: (-6)-(-10), and class IV: <(-10).
+
+## Bias
+
+The trauma care quality database is build up in a way where every error can be classified into a certain type of OFI, however for paitent that died there is only the category “preventable death”. Therefore, survivorship bias may occur as we dont have the detail which type of OFI actually occured.
+
+## Study size
+
+All available data in trauma registry and trauma care quality database will be included.
+
+## Quantitative variables
+
+## Statistical methods
+
+The statistical analysis will be performed using R, a programming language and environment for statistical computing. We will present the types of OFI as percentage distributions and then visualize it in a pie chart. Unadjusted and adjusted logistic regression will be used to determine the association between the OFI, degree/class of shock according to ATLS and other patient factors such as age, sex, preinjury ASA and ISS. It will be presented as odds ratios (OR) between presence of OFI, and shock classes. The OR will be determined with 95% confidence intervals, and a significance level of 5% will be used. All statistical analysis will first be done on synthetic data and later implemented on the data collected from the trauma registry and the trauma care quality database to ensure objectivity.
+
+# Ethics
+
+The handling of registry data and the extraction of information from medical records pose a potential risk to patient privacy. To mitigate this, patients were anonymized after data collection, with personal identity numbers replaced by unique study identifiers.
+
+From a self-determination standpoint, the Swedish trauma registry does not require patient consent for data registration. However, it is mandatory for the caregiver to inform patients of their inclusion in the registry. Patients have the right to view, correct, opt out of, and request the deletion of their data, without any impact on the care they receive.
+
+In this study, data will be presented at the group level, ensuring that no individual patient details can be identified. Ethical approvals has been obtained for this study, with the record numbers: 2021-02541, 2021-03531 and 2023-02975-02.  
+
+The benefits of this study, in relation to its risks, are substantial due to its potential to improve care for future critically ill patients. This research is a step toward reducing mortality and morbidity in a significant portion of the younger and economically active population worldwide.
+
+
+# Project Update and Timeline
+
+*This is part B) in the project plan [sv: projektredogörelse].*
+
+*Save the image generated from the Gantt chard spreadsheet into the
+assets folder, rename it to project-gantt.png*
+
+![**The Gantt chart will be displayed here when you place it in the
+assets folder under "project-gantt.png"**](assets/project-gantt.png)
+
+Doing right now: - Introduction - Methods
+
+To do: - Coding to sort data - Coding for regression - Analysis - Results - Discussion -
+Conclusion and Abstract
+
+# Back-up Plan
+
+After discussion with my supervisor, it seems like the part which have the highest possibility of taking too much time is coding, and therefore he and other cosupervisor will assist with coding if needed. 
+
+# References
+
+<!-- Do not edit by hand, references will be inserted and formatted automatically once you knit this document -->
