@@ -100,7 +100,7 @@ study.sample <- study.sample %>%
 # Converting 999 to unknown for pt_asa_preinjury
 study.sample <- study.sample %>%
   mutate(pt_asa_preinjury = case_when(
-    pt_asa_preinjury == 999 ~ "Unknown",
+    pt_asa_preinjury == 999 ~ NA_character_,
     TRUE ~ as.character(pt_asa_preinjury)
   ))
 
