@@ -63,22 +63,23 @@ convert_number <- function(x){
   return(x)
 }
 
-BEnum <- convert_number(study.sample$ed_be_art)
+study.sample$ed_be_art_numeric <- convert_number(study.sample$ed_be_art)
 
 # BE shock classification
 study.sample <- study.sample %>%
   mutate(BE_class = case_when(
-    BEnum < (-10) ~ "Class 4",
-    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",  
-    BEnum >= (-2) & BEnum < (0) ~ "Class 1",   
-    is.na(BEnum) ~ NA_character_,        
-    TRUE ~ "no shock"
+    ed_be_art_numeric < (-10) ~ "Class 4",
+    ed_be_art_numeric >= (-10) & ed_be_art_numeric < (-6) ~ "Class 3",
+    ed_be_art_numeric >= (-6) & ed_be_art_numeric < (-2) ~ "Class 2",  
+    ed_be_art_numeric >= (-2) & ed_be_art_numeric < (0) ~ "Class 1",   
+    is.na(ed_be_art_numeric) ~ NA_character_,        
+    TRUE ~ "No shock"
   ))
 
+# I suggest that you skip first creating BEnum as a separate object and then adding it back, add it to the dataset directly instead
 # Re-add the BE column as numeric to `study.sample`
-study.sample <- study.sample %>%
-  mutate(ed_be_art_numeric = BEnum)
+# study.sample <- study.sample %>%
+#  mutate(ed_be_art_numeric = BEnum)
 
 # SBP shock classifiaction
 study.sample <- study.sample %>%
@@ -86,7 +87,7 @@ study.sample <- study.sample %>%
     ed_sbp_value < (90) ~ "Class 2",
     ed_sbp_value >= (90) & ed_sbp_value < (110) ~ "Class 1",
     is.na(ed_sbp_value) ~ NA_character_,        
-    TRUE ~ "no shock"
+    TRUE ~ "No shock"
   ))
 
 # Convert gender from numeric to categorical
@@ -105,6 +106,7 @@ study.sample <- study.sample %>%
   ))
 
 # Remove unused variables. 
+# I suggest removing them from the lines 40-52 where the study data is created instead
 study.sample <- study.sample |> 
   select(-inj_mechanism, 
          -ed_gcs_sum,
@@ -126,13 +128,11 @@ var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
-                                            by = ofi)
+                                            by = ofi) |>
+  add_p()
 
 # Display table
-sample.characteristics.table
-
-# Testing P
-add_p(sample.characteristics.table)
+sample.characteristics.table 
 
 ## Whatever you do next, maybe clean data?
 
