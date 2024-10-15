@@ -132,24 +132,114 @@ In this study, data will be presented at the group level, ensuring that no indiv
 The benefits of this study, in relation to its risks, are substantial due to its potential to improve care for future critically ill patients. This research is a step toward reducing mortality and morbidity in a significant portion of the younger and economically active population worldwide.
 
 
-# Project Update and Timeline
+# Results
 
-*This is part B) in the project plan [sv: projektredogörelse].*
+```{=html}
+<!-- 
 
-*Save the image generated from the Gantt chard spreadsheet into the
-assets folder, rename it to project-gantt.png*
+Participants
+------------
 
-![**The Gantt chart will be displayed here when you place it in the
-assets folder under "project-gantt.png"**](assets/project-gantt.png)
+(a) Report numbers of individuals at each stage of study—eg numbers
+potentially eligible, examined for eligibility, confirmed eligible,
+included in the study, completing follow-up, and analysed
 
-Doing right now: - Introduction - Methods
+(b) Give reasons for non-participation at each stage
 
-To do: - Coding to sort data - Coding for regression - Analysis - Results - Discussion -
-Conclusion and Abstract
+(c) Consider use of a flow diagram
 
-# Back-up Plan
+Descriptive data
+----------------
 
-After discussion with my supervisor, it seems like the part which have the highest possibility of taking too much time is coding, and therefore he and other cosupervisor will assist with coding if needed. 
+(a) Give characteristics of study participants (eg demographic,
+clinical, social) and information on exposures and potential
+confounders
+
+(b) Indicate number of participants with missing data for each
+variable of interest
+
+(c) Cohort study — Summarise follow-up time (eg, average and total
+amount)
+
+Outcome data
+------------
+
+Cohort study — Report numbers of outcome events or summary measures
+over time
+
+Case-control study — Report numbers in each exposure category, or
+summary measures of exposure
+
+Cross-sectional study — Report numbers of outcome events or summary
+measures
+
+Main results
+------------
+
+(a) Give unadjusted estimates and, if applicable, confounder-adjusted
+estimates and their precision (eg, 95% confidence interval). Make
+clear which confounders were adjusted for and why they were included
+
+(b) Report category boundaries when continuous variables were
+categorized
+
+(c) If relevant, consider translating estimates of relative risk into
+absolute risk for a meaningful time period
+
+Other analyses 
+--------------
+
+Report other analyses done—eg analyses of subgroups and interactions,
+and sensitivity analyses 
+-->
+```
+You can include code in this document like this:
+
+```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+source("main.R") ## This "imports" the main script file of your project and run any code in it
+```
+
+You can also embed plots:
+
+```{r plot, echo=FALSE}
+plot(pressure)
+```
+
+You can also mix text and code, so called inline code, like this: `r 2+5`.
+
+# Discussion
+
+```{=html}
+<!--
+
+Key results
+-----------
+Summarise key results with reference to study objectives
+
+Limitations
+-----------
+
+Discuss limitations of the study, taking into account sources of
+potential bias or imprecision.  Discuss both direction and magnitude
+of any potential bias
+
+Interpretation
+--------------
+
+Give a cautious overall interpretation of results considering
+objectives, limitations, multiplicity of analyses, results from
+similar studies, and other relevant evidence
+
+Generalisability
+----------------
+
+Discuss the generalisability (external validity) of the study results
+
+-->
+```
+# Conclusion
+
+<!-- Give a short conclusion, corresponding to the aim -->
 
 # References
 
