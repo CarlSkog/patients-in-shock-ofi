@@ -134,10 +134,5 @@ sample.characteristics.table
 # Testing P
 add_p(sample.characteristics.table)
 
-## Whatever you do next, maybe clean data?
-
-
-
-#recodar variabler - tidy verse
-#conituerlig av BE i tabellen o.s.v 
-#add p - gt summary 
+# Print
+print(sample.characteristics.table)

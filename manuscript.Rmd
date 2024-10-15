@@ -2,8 +2,8 @@
 title: "Manuscript title here"
 author: "Your name here"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 ---
@@ -260,7 +260,7 @@ and sensitivity analyses
 ```
 You can include code in this document like this:
 
-```{r main, echo=FALSE}
+```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```
 
