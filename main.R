@@ -25,6 +25,7 @@ library(rofi)
 library(dplyr)
 library(labelled)
 library(gtsummary)
+library(ggplot2)
 
 ## Import data
 data <- import_data(test = TRUE)
@@ -136,3 +137,36 @@ add_p(sample.characteristics.table)
 
 # Print
 print(sample.characteristics.table)
+
+
+
+
+# Make ofi numerical
+study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
+
+# No NA database
+study.sample_noNA <- study.sample %>%
+  filter(!is.na(ofi) & !is.na(BE_class))
+
+# Relevel, "no shock" reference category
+study.sample_noNA$BE_class <- relevel(factor(study.sample_noNA$BE_class), ref = "no shock")
+
+# Logistic regression
+Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = study.sample_noNA)
+summary(Reg)
+
+# Generate predicted probabilities
+study.sample_noNA$predicted_prob <- predict(Reg, type = "response")
+
+# Create a plot
+ggplot(study.sample_noNA, aes(x = BE_class, y = predicted_prob)) +
+  geom_point() +  
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) + 
+  labs(title = "Predicted Probability of OFI by BE Class",
+       x = "BE Class",
+       y = "Predicted Probability of OFI") +
+  theme_minimal()
+
+# hantera missingdata 
+# tolka värdena och läsa på
+# byta referens
