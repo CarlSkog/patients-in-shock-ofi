@@ -36,6 +36,9 @@ merged.data <- merge_data(data, test = TRUE)
 # Add the OFI outcome
 merged.data$ofi <- create_ofi(merged.data)
 
+# New add ofi categories
+merged.data <- add_ofi_categories(merged.data)
+
 # Select variables, this is just an example. The function select comes from the 
 # dplyr package
 study.data <- merged.data |> 
@@ -50,7 +53,8 @@ study.data <- merged.data |>
          ISS,
          host_care_level,
          res_survival,
-         ofi)
+         ofi,
+         ed_sbp_rtscat)
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
@@ -105,6 +109,25 @@ study.sample <- study.sample %>%
     TRUE ~ as.character(pt_asa_preinjury)
   ))
 
+# Converting 999 to unknown for ed_sbp_rtscat
+study.sample <- study.sample %>%
+  mutate(ed_sbp_rtscat = case_when(
+    ed_sbp_rtscat == 999 ~ NA_character_,
+    TRUE ~ as.character(ed_sbp_rtscat)
+  ))
+
+# Reclassify those without ed_sbp_rtscat class
+study.sample <- study.sample %>%
+  mutate(ed_sbp_rtscat = case_when(
+    ed_sbp_rtscat != "999" & !is.na(ed_sbp_rtscat) ~ ed_sbp_rtscat,  
+    ed_sbp_value >89 ~ "4",
+    ed_sbp_value <= 89 & ed_sbp_value >= 76 ~ "3",                                   
+    ed_sbp_value <= 75 & ed_sbp_value >= 50 ~ "2",
+    ed_sbp_value <= 49 & ed_sbp_value >= 1 ~ "1",
+    ed_sbp_value >= 110 ~ "no shock",                               
+    TRUE ~ NA_character_                                              
+  ))
+
 # Remove unused variables. 
 study.sample <- study.sample |> 
   select(-inj_mechanism, 
@@ -124,6 +147,7 @@ var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
 var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(study.sample$ed_sbp_rtscat) <- "SBP registery categorised"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
@@ -139,7 +163,7 @@ add_p(sample.characteristics.table)
 print(sample.characteristics.table)
 
 
-
+# !Plot and Regression!
 
 # Make ofi numerical
 study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
@@ -167,6 +191,11 @@ ggplot(study.sample_noNA, aes(x = BE_class, y = predicted_prob)) +
        y = "Predicted Probability of OFI") +
   theme_minimal()
 
-# hantera missingdata 
+# Dataframe that regression models uses
+true_noNA <- na.omit(study.sample)
+
+
+
+
+# hantera missingdata - Hur hantera de 33%?
 # tolka värdena och läsa på
-# byta referens
