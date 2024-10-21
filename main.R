@@ -172,7 +172,7 @@ study.sample_noNA <- study.sample %>%
   filter(!is.na(ofi) & !is.na(BE_class))
 
 # Relevel, "no shock" reference category
-study.sample_noNA$BE_class <- relevel(factor(study.sample_noNA$BE_class), ref = "no shock")
+study.sample_noNA$BE_class <- relevel(factor(study.sample_noNA$BE_class), ref = "Class 1 (no shock)")
 
 # Logistic regression
 Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = study.sample_noNA)
