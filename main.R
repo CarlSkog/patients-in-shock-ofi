@@ -197,5 +197,5 @@ true_noNA <- na.omit(study.sample)
 
 
 
-# hantera missingdata - Hur hantera de 33%?
+# hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
 # tolka värdena och läsa på
