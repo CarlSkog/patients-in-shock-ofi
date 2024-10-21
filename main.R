@@ -33,11 +33,11 @@ data <- import_data(test = TRUE)
 # Merge data
 merged.data <- merge_data(data, test = TRUE)
 
+# New add ofi categories
+merged.data <- add_ofi_categories(merged.data)
+
 # Add the OFI outcome
 merged.data$ofi <- create_ofi(merged.data)
-
-# New add ofi categories
-#merged.data <- add_ofi_categories(merged.data)
 
 # Select variables, this is just an example. The function select comes from the 
 # dplyr package
@@ -55,13 +55,16 @@ study.data <- merged.data |>
          res_survival,
          ofi,
          ed_sbp_rtscat,
-         ed_inr)
+         ed_inr,
+         ofi.categories.broad,
+         ofi.categories.detailed
+         )
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
   filter(!is.na(ofi))
 
-# Converting ed_be_art to numeric
+# Function for converting to numeric
 convert_number <- function(x){
   x <- as.character(x)
   x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
@@ -69,6 +72,14 @@ convert_number <- function(x){
   return(x)
 }
 
+# Converting INR to numeric
+inr_num <- convert_number(study.sample$ed_inr)
+
+# Re-add INR as numeric to `study.sample`
+study.sample <- study.sample %>%
+  mutate(ed_inr_numeric = inr_num)
+
+# Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
 
 # BE shock classification
@@ -135,7 +146,8 @@ study.sample <- study.sample |>
          -ed_rr_value,
          -ed_be_art,
          -host_care_level,
-         -res_survival)
+         -res_survival,
+         -ed_inr)
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
@@ -191,7 +203,7 @@ ggplot(study.sample_noNA, aes(x = BE_class, y = predicted_prob)) +
        y = "Predicted Probability of OFI") +
   theme_minimal()
 
-# Dataframe that regression models uses
+# Dataframe that regression models uses  - put in the beginning when using real data.
 true_noNA <- na.omit(study.sample)
 
 
@@ -199,3 +211,4 @@ true_noNA <- na.omit(study.sample)
 
 # hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
 # tolka värdena och läsa på
+# kolla föreläsning kring vad man ska ha med. 
