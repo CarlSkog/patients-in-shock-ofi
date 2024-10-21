@@ -54,7 +54,8 @@ study.data <- merged.data |>
          host_care_level,
          res_survival,
          ofi,
-         ed_sbp_rtscat)
+         ed_sbp_rtscat,
+         ed_inr)
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
