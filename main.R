@@ -37,7 +37,7 @@ merged.data <- merge_data(data, test = TRUE)
 merged.data$ofi <- create_ofi(merged.data)
 
 # New add ofi categories
-merged.data <- add_ofi_categories(merged.data)
+#merged.data <- add_ofi_categories(merged.data)
 
 # Select variables, this is just an example. The function select comes from the 
 # dplyr package
@@ -73,12 +73,11 @@ BEnum <- convert_number(study.sample$ed_be_art)
 # BE shock classification
 study.sample <- study.sample %>%
   mutate(BE_class = case_when(
-    BEnum < (-10) ~ "Class 4",
-    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",  
-    BEnum >= (-2) & BEnum < (0) ~ "Class 1",   
-    is.na(BEnum) ~ NA_character_,        
-    TRUE ~ "no shock"
+    BEnum < (-10) ~ "Class 4 (severe)",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",  
+    BEnum >= (-2) ~ "Class 1 (no shock)",   
+    is.na(BEnum) ~ NA_character_,
   ))
 
 # Re-add the BE column as numeric to `study.sample`
