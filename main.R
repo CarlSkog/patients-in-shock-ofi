@@ -72,13 +72,6 @@ convert_number <- function(x){
   return(x)
 }
 
-# Converting INR to numeric
-inr_num <- convert_number(study.sample$ed_inr)
-
-# Re-add INR as numeric to `study.sample`
-study.sample <- study.sample %>%
-  mutate(ed_inr_numeric = inr_num)
-
 # Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
 
@@ -138,6 +131,17 @@ study.sample <- study.sample %>%
     ed_sbp_value >= 110 ~ "no shock",                               
     TRUE ~ NA_character_                                              
   ))
+
+# Converting INR to numeric
+inr_num <- convert_number(study.sample$ed_inr)
+
+# Re-add INR as numeric to `study.sample`
+study.sample <- study.sample %>%
+  mutate(ed_inr_numeric = inr_num)
+
+# Classify ISS
+# Classify age
+# Classify INR
 
 # Remove unused variables. 
 study.sample <- study.sample |> 
@@ -211,4 +215,3 @@ true_noNA <- na.omit(study.sample)
 
 # hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
 # tolka värdena och läsa på
-# kolla föreläsning kring vad man ska ha med. 
