@@ -26,6 +26,7 @@ library(dplyr)
 library(labelled)
 library(gtsummary)
 library(ggplot2)
+library(nnet)
 
 ## Import data
 data <- import_data(test = TRUE)
@@ -71,6 +72,9 @@ convert_number <- function(x){
   x <- as.numeric(x)
   return(x)
 }
+
+# Make ofi numerical
+study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 
 # Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
@@ -133,15 +137,57 @@ study.sample <- study.sample %>%
   ))
 
 # Converting INR to numeric
-inr_num <- convert_number(study.sample$ed_inr)
+ed_inr_numeric <- convert_number(study.sample$ed_inr)
 
 # Re-add INR as numeric to `study.sample`
 study.sample <- study.sample %>%
-  mutate(ed_inr_numeric = inr_num)
+  mutate(ed_inr_numeric = ed_inr_numeric)
 
-# Classify ISS
-# Classify age
-# Classify INR
+# V3 SBP class
+study.sample <- study.sample %>%
+  mutate(V3SBP_class = case_when(
+    ed_sbp_value <= 70 ~ "5",
+    ed_sbp_value > (70) & ed_sbp_value <=(80) ~ "4",
+    ed_sbp_value > (80) & ed_sbp_value <= (90) ~ "3",
+    ed_sbp_value > 90 & ed_sbp_value <= (100) ~"2",
+    ed_sbp_value > 100 & ed_sbp_value <= (110) ~ "1",
+    is.na(ed_sbp_value) ~ NA_character_,        
+    TRUE ~ "no shock"
+  ))
+
+
+
+
+
+# Dataframe that regression models uses
+true_noNA <- na.omit(study.sample)
+
+# Binary logistic regression model
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + V3SBP_class + BE_class, 
+               family = binomial, 
+               data = true_noNA)
+
+log_reg <- glm(ofinum ~ ed_sbp_value, 
+               family = binomial, 
+               data = study.sample)
+
+
+# Summary of the model
+summary(log_reg)
+
+plot(log_reg)
+
+
+# Box tidwell test for linearity (add 1e-10? to avoid log(0))
+study.sample$log_ed_sbp_value <- log(study.sample$ed_sbp_value)
+
+box_tidwell_sbp <- glm(ofinum ~ ed_sbp_value + I(ed_sbp_value * log_ed_sbp_value),
+                       family = binomial, 
+                       data = study.sample)
+
+# Display the summary of the model
+summary(box_tidwell_sbp)
+
 
 # Remove unused variables. 
 study.sample <- study.sample |> 
@@ -151,7 +197,8 @@ study.sample <- study.sample |>
          -ed_be_art,
          -host_care_level,
          -res_survival,
-         -ed_inr)
+         -ed_inr
+         )
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
@@ -164,6 +211,7 @@ var_label(study.sample$ISS) <- "Injury Severity Score"
 var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
 var_label(study.sample$ed_sbp_rtscat) <- "SBP registery categorised"
+var_label(study.sample$ed_inr_numeric) <- "INR"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
@@ -184,31 +232,27 @@ print(sample.characteristics.table)
 # Make ofi numerical
 study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 
-# No NA database
-study.sample_noNA <- study.sample %>%
-  filter(!is.na(ofi) & !is.na(BE_class))
+# Dataframe that regression models uses
+true_noNA <- na.omit(study.sample)
 
 # Relevel, "no shock" reference category
-study.sample_noNA$BE_class <- relevel(factor(study.sample_noNA$BE_class), ref = "Class 1 (no shock)")
+true_noNA$BE_class <- relevel(factor(true_noNA$BE_class), ref = "Class 1 (no shock)")
 
 # Logistic regression
-Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = study.sample_noNA)
+Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = true_noNA)
 summary(Reg)
 
 # Generate predicted probabilities
-study.sample_noNA$predicted_prob <- predict(Reg, type = "response")
+true_noNA$predicted_prob <- predict(Reg, type = "response")
 
 # Create a plot
-ggplot(study.sample_noNA, aes(x = BE_class, y = predicted_prob)) +
+ggplot(true_noNA, aes(x = BE_class, y = predicted_prob)) +
   geom_point() +  
   geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) + 
   labs(title = "Predicted Probability of OFI by BE Class",
        x = "BE Class",
        y = "Predicted Probability of OFI") +
   theme_minimal()
-
-# Dataframe that regression models uses  - put in the beginning when using real data.
-true_noNA <- na.omit(study.sample)
 
 
 
