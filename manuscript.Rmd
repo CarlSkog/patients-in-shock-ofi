@@ -59,8 +59,6 @@ objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
 ```
-You can cite document here like this [@exampleKey9999]. Open the file bibliography.bib to learn more.
-
 Trauma is a major global public health concern. It causes over four milion death and affects hundreds of millions each year, among those younger populations are the most affected [@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010] [@teixeira_preventable_2007][@ivatury_patient_2008], and shock is the most common potentially preventable death within the first 24h of injury[@berry_shock_2015]. It is also the second major cause of early mortality in trauma patients [@kauvar_impact_2006], and patients in shock have a higher mortality rate than those not[@vang_shock_2022].
 
 The definition for shock is circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ[@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding[@teixeira_preventable_2007].

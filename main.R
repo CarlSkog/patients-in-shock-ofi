@@ -27,6 +27,7 @@ library(labelled)
 library(gtsummary)
 library(ggplot2)
 library(nnet)
+library(broom.helpers)
 
 ## Import data
 data <- import_data(test = TRUE)
@@ -88,15 +89,6 @@ study.sample <- study.sample %>%
 study.sample <- study.sample %>%
   mutate(ed_be_art_numeric = BEnum)
 
-# SBP shock classifiaction
-study.sample <- study.sample %>%
-  mutate(SBP_class = case_when(
-    ed_sbp_value < (90) ~ "Class 2",
-    ed_sbp_value >= (90) & ed_sbp_value < (110) ~ "Class 1",
-    is.na(ed_sbp_value) ~ NA_character_,        
-    TRUE ~ "no shock"
-  ))
-
 # Convert gender from numeric to categorical
 study.sample <- study.sample %>%
   mutate(pt_Gender = case_when(
@@ -112,25 +104,6 @@ study.sample <- study.sample %>%
     TRUE ~ as.character(pt_asa_preinjury)
   ))
 
-# Converting 999 to unknown for ed_sbp_rtscat
-study.sample <- study.sample %>%
-  mutate(ed_sbp_rtscat = case_when(
-    ed_sbp_rtscat == 999 ~ NA_character_,
-    TRUE ~ as.character(ed_sbp_rtscat)
-  ))
-
-# Reclassify those without ed_sbp_rtscat class
-study.sample <- study.sample %>%
-  mutate(ed_sbp_rtscat = case_when(
-    ed_sbp_rtscat != "999" & !is.na(ed_sbp_rtscat) ~ ed_sbp_rtscat,  
-    ed_sbp_value >89 ~ "4",
-    ed_sbp_value <= 89 & ed_sbp_value >= 76 ~ "3",                                   
-    ed_sbp_value <= 75 & ed_sbp_value >= 50 ~ "2",
-    ed_sbp_value <= 49 & ed_sbp_value >= 1 ~ "1",
-    ed_sbp_value >= 110 ~ "no shock",                               
-    TRUE ~ NA_character_                                              
-  ))
-
 # Converting INR to numeric
 ed_inr_numeric <- convert_number(study.sample$ed_inr)
 
@@ -138,58 +111,28 @@ ed_inr_numeric <- convert_number(study.sample$ed_inr)
 study.sample <- study.sample %>%
   mutate(ed_inr_numeric = ed_inr_numeric)
 
-# V3 SBP class
+# V4 SBP class
 study.sample <- study.sample %>%
-  mutate(V3SBP_class = case_when(
-    ed_sbp_value <= 70 ~ "5",
-    ed_sbp_value > (70) & ed_sbp_value <=(80) ~ "4",
-    ed_sbp_value > (80) & ed_sbp_value <= (90) ~ "3",
-    ed_sbp_value > 90 & ed_sbp_value <= (100) ~"2",
-    ed_sbp_value > 100 & ed_sbp_value <= (110) ~ "1",
+  mutate(V4SBP_class = case_when(
+    ed_sbp_value < (90) ~ "Class 4 - severe",
+    ed_sbp_value >= 90 & ed_sbp_value < (100) ~"Class 3 - moderate",
+    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 - mild",
     is.na(ed_sbp_value) ~ NA_character_,        
-    TRUE ~ "no shock"
+    TRUE ~ "Class 1 - no shock"
   ))
 
-
-
-
-
-# Dataframe that regression models uses
-true_noNA <- na.omit(study.sample)
-
 # Binary logistic regression model
-log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + ed_sbp_value + BE_class, 
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + V4SBP_class + BE_class, 
                family = binomial, 
                data = study.sample)
 
-#log_reg <- glm(ofinum ~ ed_sbp_value, 
-               #family = binomial, 
-               #data = study.sample)
-
-
 # Summary of the model
 summary(log_reg)
-
-# Generate predicted probabilities
-study.sample$predicted_prob <- predict(log_reg, type = "response")
-
-
-# Box tidwell test for linearity (add 1e-10? to avoid log(0))
-study.sample$log_ed_sbp_value <- log(study.sample$ed_sbp_value)
-
-box_tidwell_sbp <- glm(ofinum ~ ed_sbp_value + I(ed_sbp_value * log_ed_sbp_value),
-                       family = binomial, 
-                       data = study.sample)
-
-# Display the summary of the model
-summary(box_tidwell_sbp)
-
 
 # Remove unused variables. 
 study.sample <- study.sample |> 
   select(-ed_be_art,
          -ed_inr,
-         -log_ed_sbp_value,
          -ofinum
          )
 
@@ -197,7 +140,6 @@ study.sample <- study.sample |>
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
 var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
 var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
-var_label(study.sample$SBP_class) <- "Shock class classified according to SBP"
 var_label(study.sample$BE_class) <- "Shock class classified according to BE"
 var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
@@ -205,47 +147,23 @@ var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
 var_label(study.sample$ed_sbp_rtscat) <- "SBP registery categorised"
 var_label(study.sample$ed_inr_numeric) <- "INR"
+var_label(study.sample$V4SBP_class) <- "Shock class V4 - SBP"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
                                             by = ofi)
 
-# Display table
-sample.characteristics.table
+# Create a table of regression of sample
 
-# Testing P
-add_p(sample.characteristics.table)
+log_reg_sample.characteristics.tabel <- tbl_regression(log_reg, exponentiate = TRUE)
+
+# Display tables
+sample.characteristics.table
+log_reg_sample.characteristics.tabel
 
 # Print
 print(sample.characteristics.table)
-
-
-# !Plot and Regression!
-
-# Make ofi numerical
-study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
-
-# Dataframe that regression models uses
-true_noNA <- na.omit(study.sample)
-
-# Relevel, "no shock" reference category
-true_noNA$BE_class <- relevel(factor(true_noNA$BE_class), ref = "Class 1 (no shock)")
-
-# Logistic regression
-Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = true_noNA)
-summary(Reg)
-
-# Generate predicted probabilities
-true_noNA$predicted_prob <- predict(Reg, type = "response")
-
-# Create a plot
-ggplot(true_noNA, aes(x = BE_class, y = predicted_prob)) +
-  geom_point() +  
-  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) + 
-  labs(title = "Predicted Probability of OFI by BE Class",
-       x = "BE Class",
-       y = "Predicted Probability of OFI") +
-  theme_minimal()
+print(log_reg_sample.characteristics.tabel)
 
 
 
