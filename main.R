@@ -45,15 +45,10 @@ merged.data$ofi <- create_ofi(merged.data)
 study.data <- merged.data |> 
   select(pt_age_yrs, 
          pt_Gender, 
-         inj_mechanism, 
          pt_asa_preinjury, 
-         ed_gcs_sum,
          ed_sbp_value,
-         ed_rr_value,
          ed_be_art,
          ISS,
-         host_care_level,
-         res_survival,
          ofi,
          ed_sbp_rtscat,
          ed_inr,
@@ -163,19 +158,20 @@ study.sample <- study.sample %>%
 true_noNA <- na.omit(study.sample)
 
 # Binary logistic regression model
-log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + V3SBP_class + BE_class, 
-               family = binomial, 
-               data = true_noNA)
-
-log_reg <- glm(ofinum ~ ed_sbp_value, 
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + ed_sbp_value + BE_class, 
                family = binomial, 
                data = study.sample)
+
+#log_reg <- glm(ofinum ~ ed_sbp_value, 
+               #family = binomial, 
+               #data = study.sample)
 
 
 # Summary of the model
 summary(log_reg)
 
-plot(log_reg)
+# Generate predicted probabilities
+study.sample$predicted_prob <- predict(log_reg, type = "response")
 
 
 # Box tidwell test for linearity (add 1e-10? to avoid log(0))
@@ -191,13 +187,10 @@ summary(box_tidwell_sbp)
 
 # Remove unused variables. 
 study.sample <- study.sample |> 
-  select(-inj_mechanism, 
-         -ed_gcs_sum,
-         -ed_rr_value,
-         -ed_be_art,
-         -host_care_level,
-         -res_survival,
-         -ed_inr
+  select(-ed_be_art,
+         -ed_inr,
+         -log_ed_sbp_value,
+         -ofinum
          )
 
 # Label variables
