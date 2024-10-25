@@ -51,7 +51,6 @@ study.data <- merged.data |>
          ed_be_art,
          ISS,
          ofi,
-         ed_sbp_rtscat,
          ed_inr,
          ofi.categories.broad,
          ofi.categories.detailed
@@ -74,16 +73,6 @@ study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 
 # Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
-
-# BE shock classification
-study.sample <- study.sample %>%
-  mutate(BE_class = case_when(
-    BEnum < (-10) ~ "Class 4 (severe)",
-    BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",  
-    BEnum >= (-2) ~ "Class 1 (no shock)",   
-    is.na(BEnum) ~ NA_character_,
-  ))
 
 # Re-add the BE column as numeric to `study.sample`
 study.sample <- study.sample %>%
@@ -111,18 +100,28 @@ ed_inr_numeric <- convert_number(study.sample$ed_inr)
 study.sample <- study.sample %>%
   mutate(ed_inr_numeric = ed_inr_numeric)
 
+# BE shock classification
+study.sample <- study.sample %>%
+  mutate(BE_class = case_when(
+    BEnum < (-10) ~ "Class 4 (severe)",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",  
+    BEnum >= (-2) ~ "Class 1 (no shock)",   
+    is.na(BEnum) ~ NA_character_,
+  ))
+
 # V4 SBP class
 study.sample <- study.sample %>%
   mutate(V4SBP_class = case_when(
-    ed_sbp_value < (90) ~ "Class 4 - severe",
-    ed_sbp_value >= 90 & ed_sbp_value < (100) ~"Class 3 - moderate",
-    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 - mild",
+    ed_sbp_value < (90) ~ "Class 4 (severe)",
+    ed_sbp_value >= 90 & ed_sbp_value < (100) ~"Class 3 (moderate)",
+    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 (mild)",
     is.na(ed_sbp_value) ~ NA_character_,        
-    TRUE ~ "Class 1 - no shock"
+    TRUE ~ "Class 1 (no shock)"
   ))
 
 # Binary logistic regression model
-log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + ISS + ed_inr_numeric + pt_asa_preinjury + V4SBP_class + BE_class, 
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class + V4SBP_class, 
                family = binomial, 
                data = study.sample)
 
@@ -140,22 +139,32 @@ study.sample <- study.sample |>
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
 var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
 var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
-var_label(study.sample$BE_class) <- "Shock class classified according to BE"
+var_label(study.sample$BE_class) <- "Shock classification - BE"
 var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
 var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
-var_label(study.sample$ed_sbp_rtscat) <- "SBP registery categorised"
 var_label(study.sample$ed_inr_numeric) <- "INR"
-var_label(study.sample$V4SBP_class) <- "Shock class V4 - SBP"
+var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
                                             by = ofi)
 
 # Create a table of regression of sample
-
-log_reg_sample.characteristics.tabel <- tbl_regression(log_reg, exponentiate = TRUE)
+log_reg_sample.characteristics.tabel <- tbl_regression(log_reg, 
+                                                       exponentiate = TRUE,
+                                                       label = list(
+                                                         pt_age_yrs ~ "Age (Years)",
+                                                         pt_Gender ~ "Gender (M/F)",
+                                                         pt_asa_preinjury ~ "Pre-injury ASA",
+                                                         ed_inr_numeric ~ "INR",
+                                                         ISS ~ "Injury Severity Score",
+                                                         BE_class ~ "Shock classification - BE",
+                                                         V4SBP_class ~ "Shock classification - SBP"
+                                                         
+                                                       )
+)
 
 # Display tables
 sample.characteristics.table
