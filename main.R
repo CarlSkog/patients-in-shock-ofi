@@ -178,4 +178,5 @@ print(log_reg_sample.characteristics.tabel)
 
 
 # hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
-# tolka värdena och läsa på
+# lägga till noNA kanske för summary tabellen?
+# lägga till cirkel diagram för ofi broad och shock class?
