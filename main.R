@@ -61,6 +61,8 @@ study.data <- merged.data |>
 study.sample <- study.data |>
   filter(!is.na(ofi))
 
+# Add code to remove patients younger than 15 and dead on arrival
+
 # Function for converting to numeric
 convert_number <- function(x) {
   x <- as.character(x)
@@ -122,6 +124,7 @@ study.sample <- study.sample %>%
   ))
 
 # Binary logistic regression model
+# Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
 log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class + V4SBP_class,
   family = binomial,
   data = study.sample
@@ -155,10 +158,11 @@ var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 sample.characteristics.table <- tbl_summary(study.sample,
   by = ofi
 ) |>
+  add_overall() |>
   add_p()
 
 # Create a table of regression of sample
-log_reg_sample.characteristics.tabel <- tbl_regression(log_reg,
+log_reg_sample.characteristics.table <- tbl_regression(log_reg,
   exponentiate = TRUE,
   label = list(
     pt_age_yrs ~ "Age (Years)",
@@ -173,14 +177,16 @@ log_reg_sample.characteristics.tabel <- tbl_regression(log_reg,
 
 # Display tables
 sample.characteristics.table
-log_reg_sample.characteristics.tabel
+log_reg_sample.characteristics.table
 
 # Print
 print(sample.characteristics.table)
-print(log_reg_sample.characteristics.tabel)
+print(log_reg_sample.characteristics.table)
 
-
-
+# Create objects for descriptive data
+ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
+age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column = stat_0)
+gender <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
 
 # hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
 # lägga till noNA kanske för summary tabellen?
