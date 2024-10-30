@@ -197,6 +197,10 @@ The statistical analysis will be performed using R, a programing language and en
 
 # Results
 
+```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+source("main.R") ## This "imports" the main script file of your project and run any code in it
+```
+
 ```{=html}
 <!-- 
 
@@ -211,6 +215,8 @@ included in the study, completing follow-up, and analysed
 
 (c) Consider use of a flow diagram
 
+There were a total of `r nrow(merged.data)` patients in the trauma registry. Out of these, `r nrow(study.sample)` patients had been reviewed for the presence of opportunities for improvement. After exluding patients younger than 15 and/or were dead on arrival, `r nrow(study.sample)` patients remained. A total of X patients were finally excluded due to missing data, leaving us with Y patients for the final analysis.
+
 Descriptive data
 ----------------
 
@@ -223,6 +229,12 @@ variable of interest
 
 (c) Cohort study — Summarise follow-up time (eg, average and total
 amount)
+
+Sample characteristics are presented in Table \@ref(tab:sample-characteristics). A total of `r ofi` patients had at least one opportunity for improvement. The median age was `r age`. Most patients were male `r gender`.
+
+```{r sample-characteristics, echo=FALSE}
+sample.characteristics.table
+```
 
 Outcome data
 ------------
@@ -258,9 +270,7 @@ and sensitivity analyses
 ```
 You can include code in this document like this:
 
-```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
-source("main.R") ## This "imports" the main script file of your project and run any code in it
-```
+
 
 You can also embed plots:
 

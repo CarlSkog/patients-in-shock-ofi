@@ -41,29 +41,32 @@ merged.data <- add_ofi_categories(merged.data)
 # Add the OFI outcome
 merged.data$ofi <- create_ofi(merged.data)
 
-# Select variables, this is just an example. The function select comes from the 
+# Select variables, this is just an example. The function select comes from the
 # dplyr package
-study.data <- merged.data |> 
-  select(pt_age_yrs, 
-         pt_Gender, 
-         pt_asa_preinjury, 
-         ed_sbp_value,
-         ed_be_art,
-         ISS,
-         ofi,
-         ed_inr,
-         ofi.categories.broad,
-         ofi.categories.detailed
-         )
+study.data <- merged.data |>
+  select(
+    pt_age_yrs,
+    pt_Gender,
+    pt_asa_preinjury,
+    ed_sbp_value,
+    ed_be_art,
+    ISS,
+    ofi,
+    ed_inr,
+    ofi.categories.broad,
+    ofi.categories.detailed
+  )
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
   filter(!is.na(ofi))
 
+# Add code to remove patients younger than 15 and dead on arrival
+
 # Function for converting to numeric
-convert_number <- function(x){
+convert_number <- function(x) {
   x <- as.character(x)
-  x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
+  x <- gsub(pattern = ",", replacement = ".", x = x, fixed = TRUE)
   x <- as.numeric(x)
   return(x)
 }
@@ -75,8 +78,8 @@ study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 BEnum <- convert_number(study.sample$ed_be_art)
 
 # Re-add the BE column as numeric to `study.sample`
-study.sample <- study.sample %>%
-  mutate(ed_be_art_numeric = BEnum)
+# study.sample <- study.sample %>%
+#  mutate(ed_be_art_numeric = BEnum)
 
 # Convert gender from numeric to categorical
 study.sample <- study.sample %>%
@@ -105,8 +108,8 @@ study.sample <- study.sample %>%
   mutate(BE_class = case_when(
     BEnum < (-10) ~ "Class 4 (severe)",
     BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",  
-    BEnum >= (-2) ~ "Class 1 (no shock)",   
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",
+    BEnum >= (-2) ~ "Class 1 (no shock)",
     is.na(BEnum) ~ NA_character_,
   ))
 
@@ -114,26 +117,30 @@ study.sample <- study.sample %>%
 study.sample <- study.sample %>%
   mutate(V4SBP_class = case_when(
     ed_sbp_value < (90) ~ "Class 4 (severe)",
-    ed_sbp_value >= 90 & ed_sbp_value < (100) ~"Class 3 (moderate)",
+    ed_sbp_value >= 90 & ed_sbp_value < (100) ~ "Class 3 (moderate)",
     ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 (mild)",
-    is.na(ed_sbp_value) ~ NA_character_,        
+    is.na(ed_sbp_value) ~ NA_character_,
     TRUE ~ "Class 1 (no shock)"
   ))
 
 # Binary logistic regression model
-log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class + V4SBP_class, 
-               family = binomial, 
-               data = study.sample)
+# Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class + V4SBP_class,
+  family = binomial,
+  data = study.sample
+)
 
 # Summary of the model
 summary(log_reg)
 
-# Remove unused variables. 
-study.sample <- study.sample |> 
-  select(-ed_be_art,
-         -ed_inr,
-         -ofinum
-         )
+# Remove unused variables.
+# I suggest removing them from the lines 40-52 where the study data is created instead
+study.sample <- study.sample |>
+  select(
+    -ed_be_art,
+    -ed_inr,
+    -ofinum
+  )
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
@@ -149,33 +156,37 @@ var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
-                                            by = ofi)
+  by = ofi
+) |>
+  add_overall() |>
+  add_p()
 
 # Create a table of regression of sample
-log_reg_sample.characteristics.tabel <- tbl_regression(log_reg, 
-                                                       exponentiate = TRUE,
-                                                       label = list(
-                                                         pt_age_yrs ~ "Age (Years)",
-                                                         pt_Gender ~ "Gender (M/F)",
-                                                         pt_asa_preinjury ~ "Pre-injury ASA",
-                                                         ed_inr_numeric ~ "INR",
-                                                         ISS ~ "Injury Severity Score",
-                                                         BE_class ~ "Shock classification - BE",
-                                                         V4SBP_class ~ "Shock classification - SBP"
-                                                         
-                                                       )
+log_reg_sample.characteristics.table <- tbl_regression(log_reg,
+  exponentiate = TRUE,
+  label = list(
+    pt_age_yrs ~ "Age (Years)",
+    pt_Gender ~ "Gender (M/F)",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR",
+    ISS ~ "Injury Severity Score",
+    BE_class ~ "Shock classification - BE",
+    V4SBP_class ~ "Shock classification - SBP"
+  )
 )
 
 # Display tables
 sample.characteristics.table
-log_reg_sample.characteristics.tabel
+log_reg_sample.characteristics.table
 
 # Print
 print(sample.characteristics.table)
-print(log_reg_sample.characteristics.tabel)
+print(log_reg_sample.characteristics.table)
 
-
-
+# Create objects for descriptive data
+ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
+age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column = stat_0)
+gender <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
 
 # hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
 # lägga till noNA kanske för summary tabellen?
