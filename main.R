@@ -25,6 +25,9 @@ library(rofi)
 library(dplyr)
 library(labelled)
 library(gtsummary)
+library(ggplot2)
+library(nnet)
+library(broom.helpers)
 
 ## Import data
 data <- import_data(test = TRUE)
@@ -32,63 +35,49 @@ data <- import_data(test = TRUE)
 # Merge data
 merged.data <- merge_data(data, test = TRUE)
 
+# New add ofi categories
+merged.data <- add_ofi_categories(merged.data)
+
 # Add the OFI outcome
 merged.data$ofi <- create_ofi(merged.data)
 
-# Select variables, this is just an example. The function select comes from the 
+# Select variables, this is just an example. The function select comes from the
 # dplyr package
-study.data <- merged.data |> 
-  select(pt_age_yrs, 
-         pt_Gender, 
-         inj_mechanism, 
-         pt_asa_preinjury, 
-         ed_gcs_sum,
-         ed_sbp_value,
-         ed_rr_value,
-         ed_be_art,
-         ISS,
-         host_care_level,
-         res_survival,
-         ofi)
+study.data <- merged.data |>
+  select(
+    pt_age_yrs,
+    pt_Gender,
+    pt_asa_preinjury,
+    ed_sbp_value,
+    ed_be_art,
+    ISS,
+    ofi,
+    ed_inr,
+    ofi.categories.broad,
+    ofi.categories.detailed
+  )
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
   filter(!is.na(ofi))
 
-# Converting ed_be_art to numeric
-convert_number <- function(x){
+# Function for converting to numeric
+convert_number <- function(x) {
   x <- as.character(x)
-  x <- gsub(pattern = ",", replacement = ".",x = x, fixed = TRUE)
+  x <- gsub(pattern = ",", replacement = ".", x = x, fixed = TRUE)
   x <- as.numeric(x)
   return(x)
 }
 
-study.sample$ed_be_art_numeric <- convert_number(study.sample$ed_be_art)
+# Make ofi numerical
+study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 
-# BE shock classification
-study.sample <- study.sample %>%
-  mutate(BE_class = case_when(
-    ed_be_art_numeric < (-10) ~ "Class 4",
-    ed_be_art_numeric >= (-10) & ed_be_art_numeric < (-6) ~ "Class 3",
-    ed_be_art_numeric >= (-6) & ed_be_art_numeric < (-2) ~ "Class 2",  
-    ed_be_art_numeric >= (-2) & ed_be_art_numeric < (0) ~ "Class 1",   
-    is.na(ed_be_art_numeric) ~ NA_character_,        
-    TRUE ~ "No shock"
-  ))
+# Converting ed_be_art to numeric
+BEnum <- convert_number(study.sample$ed_be_art)
 
-# I suggest that you skip first creating BEnum as a separate object and then adding it back, add it to the dataset directly instead
 # Re-add the BE column as numeric to `study.sample`
 # study.sample <- study.sample %>%
 #  mutate(ed_be_art_numeric = BEnum)
-
-# SBP shock classifiaction
-study.sample <- study.sample %>%
-  mutate(SBP_class = case_when(
-    ed_sbp_value < (90) ~ "Class 2",
-    ed_sbp_value >= (90) & ed_sbp_value < (110) ~ "Class 1",
-    is.na(ed_sbp_value) ~ NA_character_,        
-    TRUE ~ "No shock"
-  ))
 
 # Convert gender from numeric to categorical
 study.sample <- study.sample %>%
@@ -105,39 +94,94 @@ study.sample <- study.sample %>%
     TRUE ~ as.character(pt_asa_preinjury)
   ))
 
-# Remove unused variables. 
+# Converting INR to numeric
+ed_inr_numeric <- convert_number(study.sample$ed_inr)
+
+# Re-add INR as numeric to `study.sample`
+study.sample <- study.sample %>%
+  mutate(ed_inr_numeric = ed_inr_numeric)
+
+# BE shock classification
+study.sample <- study.sample %>%
+  mutate(BE_class = case_when(
+    BEnum < (-10) ~ "Class 4 (severe)",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",
+    BEnum >= (-2) ~ "Class 1 (no shock)",
+    is.na(BEnum) ~ NA_character_,
+  ))
+
+# V4 SBP class
+study.sample <- study.sample %>%
+  mutate(V4SBP_class = case_when(
+    ed_sbp_value < (90) ~ "Class 4 (severe)",
+    ed_sbp_value >= 90 & ed_sbp_value < (100) ~ "Class 3 (moderate)",
+    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 (mild)",
+    is.na(ed_sbp_value) ~ NA_character_,
+    TRUE ~ "Class 1 (no shock)"
+  ))
+
+# Binary logistic regression model
+log_reg <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class + V4SBP_class,
+  family = binomial,
+  data = study.sample
+)
+
+# Summary of the model
+summary(log_reg)
+
+# Remove unused variables.
 # I suggest removing them from the lines 40-52 where the study data is created instead
-study.sample <- study.sample |> 
-  select(-inj_mechanism, 
-         -ed_gcs_sum,
-         -ed_rr_value,
-         -ed_be_art,
-         -host_care_level,
-         -res_survival)
+study.sample <- study.sample |>
+  select(
+    -ed_be_art,
+    -ed_inr,
+    -ofinum
+  )
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
 var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
 var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
-var_label(study.sample$SBP_class) <- "Shock class classified according to SBP"
-var_label(study.sample$BE_class) <- "Shock class classified according to BE"
+var_label(study.sample$BE_class) <- "Shock classification - BE"
 var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
 var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(study.sample$ed_inr_numeric) <- "INR"
+var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
-                                            by = ofi) |>
+  by = ofi
+) |>
   add_p()
 
-# Display table
-sample.characteristics.table 
+# Create a table of regression of sample
+log_reg_sample.characteristics.tabel <- tbl_regression(log_reg,
+  exponentiate = TRUE,
+  label = list(
+    pt_age_yrs ~ "Age (Years)",
+    pt_Gender ~ "Gender (M/F)",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR",
+    ISS ~ "Injury Severity Score",
+    BE_class ~ "Shock classification - BE",
+    V4SBP_class ~ "Shock classification - SBP"
+  )
+)
 
-## Whatever you do next, maybe clean data?
+# Display tables
+sample.characteristics.table
+log_reg_sample.characteristics.tabel
+
+# Print
+print(sample.characteristics.table)
+print(log_reg_sample.characteristics.tabel)
 
 
 
-#recodar variabler - tidy verse
-#conituerlig av BE i tabellen o.s.v 
-#add p - gt summary 
+
+# hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
+# lägga till noNA kanske för summary tabellen?
+# lägga till cirkel diagram för ofi broad och shock class?

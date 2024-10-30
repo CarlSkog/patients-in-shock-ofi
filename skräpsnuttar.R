@@ -12,6 +12,69 @@ display.sample <- study.sample |>
          ofi)
 
 
+# SBP shock classifiaction
+study.sample <- study.sample %>%
+  mutate(SBP_class = case_when(
+    ed_sbp_value < (90) ~ "Class 2",
+    ed_sbp_value >= (90) & ed_sbp_value < (110) ~ "Class 1",
+    is.na(ed_sbp_value) ~ NA_character_,        
+    TRUE ~ "no shock"
+  ))
+
+# Converting 999 to unknown for ed_sbp_rtscat
+study.sample <- study.sample %>%
+  mutate(ed_sbp_rtscat = case_when(
+    ed_sbp_rtscat == 999 ~ NA_character_,
+    TRUE ~ as.character(ed_sbp_rtscat)
+  ))
+
+# Reclassify those without ed_sbp_rtscat class
+study.sample <- study.sample %>%
+  mutate(ed_sbp_rtscat = case_when(
+    ed_sbp_rtscat != "999" & !is.na(ed_sbp_rtscat) ~ ed_sbp_rtscat,  
+    ed_sbp_value >89 ~ "4",
+    ed_sbp_value <= 89 & ed_sbp_value >= 76 ~ "3",                                   
+    ed_sbp_value <= 75 & ed_sbp_value >= 50 ~ "2",
+    ed_sbp_value <= 49 & ed_sbp_value >= 1 ~ "1",
+    ed_sbp_value >= 110 ~ "no shock",                               
+    TRUE ~ NA_character_                                              
+  ))
+
+
+# !Plot and Regression!
+
+# Make ofi numerical
+study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
+
+# Dataframe that regression models uses
+true_noNA <- na.omit(study.sample)
+
+# Relevel, "no shock" reference category
+true_noNA$BE_class <- relevel(factor(true_noNA$BE_class), ref = "Class 1 (no shock)")
+
+# Logistic regression
+Reg <- glm(formula= ofinum ~ BE_class, family = "binomial", data = true_noNA)
+summary(Reg)
+
+# Generate predicted probabilities
+true_noNA$predicted_prob <- predict(Reg, type = "response")
+
+
+# Dataframe that regression models uses
+true_noNA <- na.omit(study.sample)
+
+# Generate predicted probabilities
+study.sample$predicted_prob <- predict(log_reg, type = "response")
+
+# Create a plot
+ggplot(true_noNA, aes(x = BE_class, y = predicted_prob)) +
+  geom_point() +  
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) + 
+  labs(title = "Predicted Probability of OFI by BE Class",
+       x = "BE Class",
+       y = "Predicted Probability of OFI") +
+  theme_minimal()
+
 
 
 
