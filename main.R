@@ -207,7 +207,3 @@ print(log_regSBP_sample.characteristics.table)
 ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
 age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column = stat_0)
 gender <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
-
-# hantera missingdata - Hur hantera de 33%? kör listwise deletion och sedan diskutera det i diskussionen
-# lägga till noNA kanske för summary tabellen?
-# lägga till cirkel diagram för ofi broad och shock class?
