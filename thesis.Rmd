@@ -2,7 +2,8 @@
 title: "Opportunities for improvement in the care of adult trauma patients arriving in shock"
 subtitle: "Add a Subtitle if Needed"
 author: "Carl Skog"
-output: 
+output:
+  html_document: default
   word_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
