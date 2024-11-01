@@ -167,7 +167,7 @@ sample.characteristics.table <- tbl_summary(study.sample,
   add_overall() |>
   add_p()
 
-# Create a table of regression of sample
+# Create a table of regression of sample - BE
 log_regBE_sample.characteristics.table <- tbl_regression(log_regBE,
   exponentiate = TRUE,
   label = list(
@@ -180,7 +180,7 @@ log_regBE_sample.characteristics.table <- tbl_regression(log_regBE,
   )
 )
 
-# Create a table of regression of sample
+# Create a table of regression of sample - SBP
 log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
   exponentiate = TRUE,
   label = list(
