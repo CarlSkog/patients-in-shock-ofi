@@ -135,12 +135,12 @@ All available data in trauma registry and trauma care quality database will be i
 
 **ATLS tenth edition - Systolic blood pressure and Base excess (BD)**
 
-| **Parameter**                     | **Class I** | **Class II** (Mild)  | **Class III** (Moderate)  | **Class IV** (Severe)         |
+| **Parameter - original ATLS 10th edition**| **Class I** | **Class II** (Mild)  | **Class III** (Moderate)  | **Class IV** (Severe) |
 |-----------------------------------|-------------|----------------------|---------------------------|-------------------------------|
 | Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L     | –6 to –10 mEq/L           | –10 mEq/L or less             |
-| Blood pressure                    | ↔           | ↔                    | ↔/↓                       | ↓                             |
+| Systolic Blood pressure           | ↔           | ↔                    | ↔/↓                       | ↓                             |
 | **Parameter - numerical approximated SBP**                                                                                         |
-| Blood pressure                    | >110 mmhg   | 109-100 mmhg         | 99-90 mmhg                | <90  mmhg                     |
+| Systolic Blood pressure           | >110 mmhg   | 109-100 mmhg         | 99-90 mmhg                | <90  mmhg                     |
 
 ## Statistical methods
 
