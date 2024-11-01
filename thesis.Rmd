@@ -62,11 +62,24 @@ The most common type of shock during trauma is the hypovolemic type due to a maj
 
 To assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Although no single international standard exists for such classifications, there is the Advanced Trauma Life Support (ATLS) system for major hemorrhage, which is part of the ATLS trauma management course curriculum[@noauthor_atls_2018]. This system stratifies patients into four shock classes based on estimated blood loss, heart rate (HR), blood pressure (BP), pulse pressure, respiratory rate (RR), mental status, and urine output[@noauthor_atls_2018]. However, studies have indicated that the ATLS classification has limited prognostic accuracy[@guly_vital_2011] and is often impractical for clinical use[@mutschler_critical_2013], which may explain the low uptake in practice[@mutschler_is_2015].
 
+**ATLS tenth edition**
+
+| **Parameter**                     | **Class I** | **Class II** (Mild) | **Class III** (Moderate) | **Class IV** (Severe)        |
+|-----------------------------------|-------------|----------------------|---------------------------|-------------------------------|
+| Approximate blood loss            | <15%        | 15–30%              | 31–40%                    | >40%                          |
+| Heart rate                        | ↔           | ↔/↑                 | ↑                         | ↑/↑↑                          |
+| Blood pressure                    | ↔           | ↔                   | ↔/↓                       | ↓                             |
+| Pulse pressure                    | ↔           | ↓                   | ↓                         | ↓                             |
+| Respiratory rate                  | ↔           | ↔                   | ↔/↑                       | ↑                             |
+| Urine output                      | ↔           | ↔                   | ↓                         | ↓↓                            |
+| Glasgow Coma Scale score          | ↔           | ↔                   | ↓                         | ↓                             |
+| Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L     | –6 to –10 mEq/L          | –10 mEq/L or less             |
+| Need for blood products           | Monitor     | Possible            | Yes                       | Massive Transfusion Protocol  |
+
+
 Alternative scoring systems have been developed to address specific clinical needs, such as the Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion[@el-menyar_review_2019], and the National Early Warning Score 2 (NEWS2) for monitoring general patient deterioration [källa?]. While none of these systems is explicitly designed to classify trauma shock across all shock types, each can, to some extent, aid in categorizing shock severity based on core physiological parameters.
 
 Ultimately, the shared foundation of these classifications lies in their reliance on vital signs and additional clinical indicators, underscoring the central role of physiological metrics in assessing shock severity across different settings and applications.
-
-(Infoga bild på ATLS tenth edition)
 
 ## Trauma quality improvement and oppertunities for improvement
 
@@ -119,6 +132,15 @@ The trauma care quality database is build up in a way where every error can be c
 All available data in trauma registry and trauma care quality database will be included.
 
 ## Quantitative variables
+
+**ATLS tenth edition - Systolic blood pressure and Base excess (BD)**
+
+| **Parameter**                     | **Class I** | **Class II** (Mild)  | **Class III** (Moderate)  | **Class IV** (Severe)         |
+|-----------------------------------|-------------|----------------------|---------------------------|-------------------------------|
+| Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L     | –6 to –10 mEq/L           | –10 mEq/L or less             |
+| Blood pressure                    | ↔           | ↔                    | ↔/↓                       | ↓                             |
+| **Parameter - numerical approximated SBP**                                                                                         |
+| Blood pressure                    | >110 mmhg   | 109-100 mmhg         | 99-90 mmhg                | <90  mmhg                     |
 
 ## Statistical methods
 
