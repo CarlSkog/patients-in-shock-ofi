@@ -108,21 +108,21 @@ study.sample <- study.sample %>%
 # BE shock classification
 study.sample <- study.sample %>%
   mutate(BE_class = case_when(
-    BEnum < (-10) ~ "Class 4 (severe)",
-    BEnum >= (-10) & BEnum < (-6) ~ "Class 3 (moderate)",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2 (mild)",
-    BEnum >= (-2) ~ "Class 1 (no shock)",
+    BEnum < (-10) ~ "Class 4",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",
+    BEnum >= (-2) ~ "Class 1",
     is.na(BEnum) ~ NA_character_,
   ))
 
 # V4 SBP class
 study.sample <- study.sample %>%
   mutate(V4SBP_class = case_when(
-    ed_sbp_value < (90) ~ "Class 4 (severe)",
-    ed_sbp_value >= 90 & ed_sbp_value < (100) ~ "Class 3 (moderate)",
-    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2 (mild)",
+    ed_sbp_value < (90) ~ "Class 4",
+    ed_sbp_value >= 90 & ed_sbp_value < (100) ~ "Class 3",
+    ed_sbp_value >= 100 & ed_sbp_value < (110) ~ "Class 2",
     is.na(ed_sbp_value) ~ NA_character_,
-    TRUE ~ "Class 1 (no shock)"
+    TRUE ~ "Class 1"
   ))
 
 # Binary logistic regression model - BE
@@ -192,6 +192,22 @@ log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
     V4SBP_class ~ "Shock classification - SBP"
   )
 )
+
+# Create a contingency table of counts
+ofi_table <- table(study.sample$BE_class, study.sample$ofi.categories.broad)
+
+# Convert the table into proportions by row (BE_class)
+ofi_prop <- prop.table(ofi_table, margin = 1)
+
+# Plotting
+barplot(
+  t(ofi_prop),  
+  beside = TRUE,  
+  col = rainbow(ncol(ofi_prop)),  
+  main = "Distribution of OFI Categories by BE Shock Class",
+  xlab = "Shock class - BE",
+  ylab = "Proportion (%)",
+)  
 
 # Display tables
 sample.characteristics.table
