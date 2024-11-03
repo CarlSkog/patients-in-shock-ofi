@@ -193,13 +193,11 @@ log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
   )
 )
 
-# Create a contingency table of counts
+# plot
 ofi_table <- table(study.sample$BE_class, study.sample$ofi.categories.broad)
 
-# Convert the table into proportions by row (BE_class)
 ofi_prop <- prop.table(ofi_table, margin = 1)
 
-# Plotting
 barplot(
   t(ofi_prop),  
   beside = TRUE,  
@@ -208,6 +206,30 @@ barplot(
   xlab = "Shock class - BE",
   ylab = "Proportion (%)",
 )  
+
+# ggplot2
+ofi_counts <- study.sample %>%
+  group_by(BE_class, ofi.categories.broad) %>%
+  summarize(count = n()) %>%
+  ungroup() %>%
+  group_by(BE_class) %>%
+  mutate(percent = count / sum(count) * 100)
+
+p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.broad)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Distribution of OFI Broad Categories by BE Shock Class",
+    x = "BE Shock Class",
+    y = "Percentage of OFI Broad Categories"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.title = element_text(size = 10),
+    legend.position = "bottom"
+  ) +
+  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
+
+print(p)
 
 # Display tables
 sample.characteristics.table
