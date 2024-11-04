@@ -193,20 +193,6 @@ log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
   )
 )
 
-# plot
-ofi_table <- table(study.sample$BE_class, study.sample$ofi.categories.broad)
-
-ofi_prop <- prop.table(ofi_table, margin = 1)
-
-barplot(
-  t(ofi_prop),  
-  beside = TRUE,  
-  col = rainbow(ncol(ofi_prop)),  
-  main = "Distribution of OFI Categories by BE Shock Class",
-  xlab = "Shock class - BE",
-  ylab = "Proportion (%)",
-)  
-
 # ggplot2
 ofi_counts <- study.sample %>%
   group_by(BE_class, ofi.categories.broad) %>%
