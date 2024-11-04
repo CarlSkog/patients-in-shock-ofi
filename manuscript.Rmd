@@ -209,7 +209,6 @@ The statistical analysis will be performed using R, a programing language and en
 
 
 # Results
-
 ```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```

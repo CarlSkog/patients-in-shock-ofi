@@ -58,6 +58,12 @@ study.data <- merged.data |>
     Deceased,
   )
 
+# Those excluded
+excluded <- study.data |>
+  filter(Deceased == "False",
+         pt_age_yrs >= 15
+  )
+
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
   filter(!is.na(ofi),
@@ -251,7 +257,35 @@ print(sample.characteristics.table)
 print(log_regBE_sample.characteristics.table)
 print(log_regSBP_sample.characteristics.table)
 
+# Counting log reg BE
+log_reg_dataBE <- study.sample %>% 
+  filter(!is.na(pt_age_yrs) & 
+           !is.na(pt_Gender) & 
+           !is.na(ISS) & 
+           !is.na(ed_inr_numeric) & 
+           !is.na(pt_asa_preinjury) & 
+           !is.na(BE_class))
+
+# Total rows used in the logistic regression
+log_reg_countBE <- nrow(log_reg_dataBE)
+
+# Counting log reg SBP
+log_reg_dataSBP <- study.sample %>% 
+  filter(!is.na(pt_age_yrs) & 
+           !is.na(pt_Gender) & 
+           !is.na(ISS) & 
+           !is.na(ed_inr_numeric) & 
+           !is.na(pt_asa_preinjury) & 
+           !is.na(V4SBP_class))
+
+# Total rows used in the logistic regression
+log_reg_countSBP <- nrow(log_reg_dataSBP)
+
 # Create objects for descriptive data
 ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
 age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column = stat_0)
-gender <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
+male <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
+merged <- nrow(merged.data)
+sample <- nrow(study.sample)
+excluded <- nrow(excluded)
+
