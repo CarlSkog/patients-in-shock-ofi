@@ -217,6 +217,30 @@ p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.bro
 
 print(p)
 
+# ggplot2 SBP
+ofi_counts <- study.sample %>%
+  group_by(V4SBP_class, ofi.categories.broad) %>%
+  summarize(count = n()) %>%
+  ungroup() %>%
+  group_by(V4SBP_class) %>%
+  mutate(percent = count / sum(count) * 100)
+
+pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categories.broad)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Distribution of OFI Broad Categories by SBP Shock Class",
+    x = "SBP Shock Class",
+    y = "Percentage of OFI Broad Categories"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.title = element_text(size = 10),
+    legend.position = "bottom"
+  ) +
+  scale_fill_brewer(palette = "Set2", name = "OFI Categories")
+
+print(pSBP)
+
 # Display tables
 sample.characteristics.table
 log_regBE_sample.characteristics.table
