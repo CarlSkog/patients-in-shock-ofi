@@ -144,6 +144,18 @@ log_regSBP <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_nu
                data = study.sample
 )
 
+# Binary logistic regression model unadjusted - BE
+log_regBEun <- glm(ofinum ~ BE_class,
+                 family = binomial,
+                 data = study.sample
+)
+
+# Binary logistic regression model unadjusted - SBP
+log_regSBPun <- glm(ofinum ~ V4SBP_class,
+                  family = binomial,
+                  data = study.sample
+)
+
 # Remove unused variables.
 # I suggest removing them from the lines 40-52 where the study data is created instead
 study.sample <- study.sample |>
@@ -199,6 +211,22 @@ log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
   )
 )
 
+# Create a table of regression of sample unadjusted - BE
+log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
+                                                         exponentiate = TRUE,
+                                                         label = list(
+                                                           BE_class ~ "Shock classification - BE"
+                                                         )
+)
+
+# Create a table of regression of sample unadjusted - SBP
+log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPun,
+                                                          exponentiate = TRUE,
+                                                          label = list(
+                                                            V4SBP_class ~ "Shock classification - SBP"
+                                                          )
+)
+
 # ggplot2
 ofi_counts <- study.sample %>%
   group_by(BE_class, ofi.categories.broad) %>%
@@ -251,6 +279,8 @@ print(pSBP)
 sample.characteristics.table
 log_regBE_sample.characteristics.table
 log_regSBP_sample.characteristics.table
+log_regSBP_sample.characteristics.table_unadjusted
+log_regSBP_sample.characteristics.table_unadjusted
 
 # Print
 print(sample.characteristics.table)
