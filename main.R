@@ -156,6 +156,30 @@ log_regSBPun <- glm(ofinum ~ V4SBP_class,
                   data = study.sample
 )
 
+# Counting log reg BE
+log_reg_dataBE <- study.sample %>% 
+  filter(!is.na(pt_age_yrs) & 
+           !is.na(pt_Gender) & 
+           !is.na(ISS) & 
+           !is.na(ed_inr_numeric) & 
+           !is.na(pt_asa_preinjury) & 
+           !is.na(BE_class))
+
+# Total rows used in the logistic regression
+log_reg_countBE <- nrow(log_reg_dataBE)
+
+# Counting log reg SBP
+log_reg_dataSBP <- study.sample %>% 
+  filter(!is.na(pt_age_yrs) & 
+           !is.na(pt_Gender) & 
+           !is.na(ISS) & 
+           !is.na(ed_inr_numeric) & 
+           !is.na(pt_asa_preinjury) & 
+           !is.na(V4SBP_class))
+
+# Total rows used in the logistic regression
+log_reg_countSBP <- nrow(log_reg_dataSBP)
+
 # Remove unused variables.
 # I suggest removing them from the lines 40-52 where the study data is created instead
 study.sample <- study.sample |>
@@ -275,41 +299,12 @@ pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categori
 
 print(pSBP)
 
-# Display tables
-sample.characteristics.table
-log_regBE_sample.characteristics.table
-log_regSBP_sample.characteristics.table
-log_regSBP_sample.characteristics.table_unadjusted
-log_regSBP_sample.characteristics.table_unadjusted
-
 # Print
 print(sample.characteristics.table)
 print(log_regBE_sample.characteristics.table)
 print(log_regSBP_sample.characteristics.table)
-
-# Counting log reg BE
-log_reg_dataBE <- study.sample %>% 
-  filter(!is.na(pt_age_yrs) & 
-           !is.na(pt_Gender) & 
-           !is.na(ISS) & 
-           !is.na(ed_inr_numeric) & 
-           !is.na(pt_asa_preinjury) & 
-           !is.na(BE_class))
-
-# Total rows used in the logistic regression
-log_reg_countBE <- nrow(log_reg_dataBE)
-
-# Counting log reg SBP
-log_reg_dataSBP <- study.sample %>% 
-  filter(!is.na(pt_age_yrs) & 
-           !is.na(pt_Gender) & 
-           !is.na(ISS) & 
-           !is.na(ed_inr_numeric) & 
-           !is.na(pt_asa_preinjury) & 
-           !is.na(V4SBP_class))
-
-# Total rows used in the logistic regression
-log_reg_countSBP <- nrow(log_reg_dataSBP)
+print(log_regBE_sample.characteristics.table_unadjusted)
+print(log_regSBP_sample.characteristics.table_unadjusted)
 
 # Create objects for descriptive data
 ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
