@@ -223,7 +223,67 @@ You can include code in this document like this:
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```
 
-There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excluded` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis.
+## Participants
+There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excluded` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis. 
+
+## Descriptive data
+The study demographic median age is ... and the most common gender is male, `r male`. 
+
+The variable with most missing data is ... which lack the data for ... patients. 
+
+### BE classification
+For the outcome OFI, out of the `r sample` patients reviewed, `r ofi` patients had a positive OFI. Clinically, the 
+
+### SBP classification
+
+Descriptive data
+----------------
+
+(a) Give characteristics of study participants (eg demographic,
+clinical, social) and information on exposures and potential
+confounders
+
+(b) Indicate number of participants with missing data for each
+variable of interest
+
+(c) Cohort study — Summarise follow-up time (eg, average and total
+amount)
+
+Outcome data
+------------
+
+Cohort study — Report numbers of outcome events or summary measures
+over time
+
+Case-control study — Report numbers in each exposure category, or
+summary measures of exposure
+
+Cross-sectional study — Report numbers of outcome events or summary
+measures
+
+Main results
+------------
+
+(a) Give unadjusted estimates and, if applicable, confounder-adjusted
+estimates and their precision (eg, 95% confidence interval). Make
+clear which confounders were adjusted for and why they were included
+
+(b) Report category boundaries when continuous variables were
+categorized
+
+(c) If relevant, consider translating estimates of relative risk into
+absolute risk for a meaningful time period
+
+Other analyses 
+--------------
+
+Report other analyses done—eg analyses of subgroups and interactions,
+and sensitivity analyses 
+-->
+
+Table 3 present the sample characteristics.
+
+Table 4 present 
 
 You can also embed plots:
 

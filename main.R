@@ -156,6 +156,27 @@ log_regSBPun <- glm(ofinum ~ V4SBP_class,
                   data = study.sample
 )
 
+# Remove unused variables.
+# I suggest removing them from the lines 40-52 where the study data is created instead
+study.sample <- study.sample |>
+  select(
+    -ed_be_art,
+    -ed_inr,
+    -ofinum,
+    -Deceased
+  )
+# Label variables
+var_label(study.sample$pt_age_yrs) <- "Age (Years)"
+var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
+var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
+var_label(study.sample$BE_class) <- "Shock classification - BE"
+var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
+var_label(study.sample$ISS) <- "Injury Severity Score"
+var_label(study.sample$pt_Gender) <- "Gender (M/F)"
+var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(study.sample$ed_inr_numeric) <- "INR"
+var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
+
 # Counting log reg BE
 log_reg_dataBE <- study.sample %>% 
   filter(!is.na(pt_age_yrs) & 
@@ -180,31 +201,24 @@ log_reg_dataSBP <- study.sample %>%
 # Total rows used in the logistic regression
 log_reg_countSBP <- nrow(log_reg_dataSBP)
 
-# Remove unused variables.
-# I suggest removing them from the lines 40-52 where the study data is created instead
-study.sample <- study.sample |>
-  select(
-    -ed_be_art,
-    -ed_inr,
-    -ofinum,
-    -Deceased
-  )
-
-# Label variables
-var_label(study.sample$pt_age_yrs) <- "Age (Years)"
-var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
-var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
-var_label(study.sample$BE_class) <- "Shock classification - BE"
-var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
-var_label(study.sample$ISS) <- "Injury Severity Score"
-var_label(study.sample$pt_Gender) <- "Gender (M/F)"
-var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
-var_label(study.sample$ed_inr_numeric) <- "INR"
-var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
   by = ofi
+) |>
+  add_overall() |>
+  add_p()
+
+# Create a table of sample characteristics - BE
+sample.characteristics.tableBE <- tbl_summary(log_reg_dataBE,
+                                            by = ofi
+) |>
+  add_overall() |>
+  add_p()
+
+# Create a table of sample characteristics - SBP
+sample.characteristics.tableSBP <- tbl_summary(log_reg_dataSBP,
+                                              by = ofi
 ) |>
   add_overall() |>
   add_p()
@@ -301,6 +315,8 @@ print(pSBP)
 
 # Print
 print(sample.characteristics.table)
+print(sample.characteristics.tableBE)
+print(sample.characteristics.tableSBP)
 print(log_regBE_sample.characteristics.table)
 print(log_regSBP_sample.characteristics.table)
 print(log_regBE_sample.characteristics.table_unadjusted)
