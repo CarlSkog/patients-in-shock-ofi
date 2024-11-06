@@ -176,6 +176,8 @@ var_label(study.sample$pt_Gender) <- "Gender (M/F)"
 var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
 var_label(study.sample$ed_inr_numeric) <- "INR"
 var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
+var_label(study.sample$ofi.categories.broad) <- "OFI categories broad"
+var_label(study.sample$ofi.categories.detailed) <- "OFI categories detailed"
 
 # Counting log reg BE
 log_reg_dataBE <- study.sample %>% 
@@ -267,13 +269,13 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
 
 # ggplot2
 ofi_counts <- study.sample %>%
-  group_by(BE_class, ofi.categories.broad) %>%
+  group_by(BE_class, ofi.categories.detailed) %>%
   summarize(count = n()) %>%
   ungroup() %>%
   group_by(BE_class) %>%
   mutate(percent = count / sum(count) * 100)
 
-p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.broad)) +
+p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.detailed)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(
     title = "Distribution of OFI Broad Categories by BE Shock Class",
@@ -285,7 +287,7 @@ p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.bro
     legend.title = element_text(size = 10),
     legend.position = "bottom"
   ) +
-  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
+  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
 
 print(p)
 
@@ -309,7 +311,7 @@ pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categori
     legend.title = element_text(size = 10),
     legend.position = "bottom"
   ) +
-  scale_fill_brewer(palette = "Set2", name = "OFI Categories")
+  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
 
 print(pSBP)
 

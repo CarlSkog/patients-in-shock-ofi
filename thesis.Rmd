@@ -236,50 +236,6 @@ For the outcome OFI, out of the `r sample` patients reviewed, `r ofi` patients h
 
 ### SBP classification
 
-Descriptive data
-----------------
-
-(a) Give characteristics of study participants (eg demographic,
-clinical, social) and information on exposures and potential
-confounders
-
-(b) Indicate number of participants with missing data for each
-variable of interest
-
-(c) Cohort study — Summarise follow-up time (eg, average and total
-amount)
-
-Outcome data
-------------
-
-Cohort study — Report numbers of outcome events or summary measures
-over time
-
-Case-control study — Report numbers in each exposure category, or
-summary measures of exposure
-
-Cross-sectional study — Report numbers of outcome events or summary
-measures
-
-Main results
-------------
-
-(a) Give unadjusted estimates and, if applicable, confounder-adjusted
-estimates and their precision (eg, 95% confidence interval). Make
-clear which confounders were adjusted for and why they were included
-
-(b) Report category boundaries when continuous variables were
-categorized
-
-(c) If relevant, consider translating estimates of relative risk into
-absolute risk for a meaningful time period
-
-Other analyses 
---------------
-
-Report other analyses done—eg analyses of subgroups and interactions,
-and sensitivity analyses 
--->
 
 Table 3 present the sample characteristics.
 
