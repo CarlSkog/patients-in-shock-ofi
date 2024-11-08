@@ -237,6 +237,8 @@ Table 3 present the sample characteristics.
 
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
+sample.characteristics.tableBE
+sample.characteristics.tableSBP
 ```
 
 Table 4 present 
@@ -261,13 +263,17 @@ print(pd)
 print(pSBPd)
 ```
 
-print(sample.characteristics.table)
-print(sample.characteristics.tableBE)
-print(sample.characteristics.tableSBP)
-print(log_regBE_sample.characteristics.table)
-print(log_regSBP_sample.characteristics.table)
-print(log_regBE_sample.characteristics.table_unadjusted)
-print(log_regSBP_sample.characteristics.table_unadjusted)
+Table adjusted log
+```{r Adjusted_log, echo=FALSE}
+log_regBE_sample.characteristics.table
+log_regSBP_sample.characteristics.table
+```
+
+Table unadjusted log
+```{r Unadjusted_log, echo=FALSE}
+log_regBE_sample.characteristics.table_unadjusted
+log_regSBP_sample.characteristics.table_unadjusted
+```
 
 
 You can also embed plots:
