@@ -237,8 +237,6 @@ Table 3 present the sample characteristics.
 
 Table 4 present 
 
-`r print(sample.characteristics.table)`
-
 You can also embed plots:
 
 ```{r plot, echo=FALSE}
