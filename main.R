@@ -269,13 +269,13 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
 
 # ggplot2
 ofi_counts <- study.sample %>%
-  group_by(BE_class, ofi.categories.detailed) %>%
+  group_by(BE_class, ofi.categories.broad) %>%
   summarize(count = n()) %>%
   ungroup() %>%
   group_by(BE_class) %>%
   mutate(percent = count / sum(count) * 100)
 
-p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.detailed)) +
+p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.broad)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(
     title = "Distribution of OFI Broad Categories by BE Shock Class",
@@ -287,9 +287,7 @@ p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.det
     legend.title = element_text(size = 10),
     legend.position = "bottom"
   ) +
-  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
-
-print(p)
+  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
 
 # ggplot2 SBP
 ofi_counts <- study.sample %>%
@@ -313,16 +311,50 @@ pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categori
   ) +
   scale_fill_brewer(palette = "Set1", name = "OFI Categories")
 
-print(pSBP)
+#sub ofi detailed
+# ggplot2
+ofi_counts <- study.sample %>%
+  group_by(BE_class, ofi.categories.detailed) %>%
+  summarize(count = n()) %>%
+  ungroup() %>%
+  group_by(BE_class) %>%
+  mutate(percent = count / sum(count) * 100)
 
-# Print
-print(sample.characteristics.table)
-print(sample.characteristics.tableBE)
-print(sample.characteristics.tableSBP)
-print(log_regBE_sample.characteristics.table)
-print(log_regSBP_sample.characteristics.table)
-print(log_regBE_sample.characteristics.table_unadjusted)
-print(log_regSBP_sample.characteristics.table_unadjusted)
+pd <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.detailed)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Distribution of OFI detailed Categories by BE Shock Class",
+    x = "BE Shock Class",
+    y = "Percentage of OFI detailed Categories"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.title = element_text(size = 10),
+    legend.position = "bottom"
+  ) +
+  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
+
+# ggplot2 SBP
+ofi_counts <- study.sample %>%
+  group_by(V4SBP_class, ofi.categories.detailed) %>%
+  summarize(count = n()) %>%
+  ungroup() %>%
+  group_by(V4SBP_class) %>%
+  mutate(percent = count / sum(count) * 100)
+
+pSBPd <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categories.detailed)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Distribution of OFI detailed Categories by SBP Shock Class",
+    x = "SBP Shock Class",
+    y = "Percentage of OFI detailed Categories"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.title = element_text(size = 10),
+    legend.position = "bottom"
+  ) +
+  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
 
 # Create objects for descriptive data
 ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")

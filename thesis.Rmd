@@ -141,7 +141,7 @@ Please note that ATLS classification defines class I for the BE parameter as (0 
 
 The statistical analysis will be performed using R, a programming language and environment for statistical computing. We will present the types of OFI as percentage distributions and then visualize them in a bar chart. Unadjusted logistic regression will be used to determine the association between the OFI, and degree of shock defined separately by classifying BE and SBP roughly according to ATLS classification of hemorrhagic shock. Adjusted logistic regression will then incorporate other patient factors such as age, sex, preinjury ASA, INR, and ISS. It will be presented as odds ratios (OR) between the presence of OFI, and shock classes. The OR will be determined with 95% confidence intervals, and a significance level of 5% will be used. All statistical analysis will first be done on synthetic data and later implemented on the data collected from the trauma registry and the trauma care quality database to ensure objectivity. Missing data will be addressed by listwise deletion. 
 
-# Ethics
+## Ethics
 
 The handling of registry data and the extraction of information from medical records pose a potential risk to patient privacy. To mitigate this, patients were anonymized after data collection, with personal identity numbers replaced by unique study identifiers.
 
@@ -235,7 +235,40 @@ For the outcome OFI, out of the `r sample` patients reviewed, `r ofi` patients h
 
 Table 3 present the sample characteristics.
 
+```{r sample-characteristics, echo=FALSE}
+sample.characteristics.table
+```
+
 Table 4 present 
+
+```{r BE-subofi, echo=FALSE}
+print(p)
+```
+
+Table 5
+
+```{r SBP-subofi, echo=FALSE}
+print(pSBP)
+```
+
+Table 6 - Subofi detailed
+
+```{r SBP-subofi-detailed, echo=FALSE}
+print(pd)
+```
+
+```{r BE-subofi-detailed, echo=FALSE}
+print(pSBPd)
+```
+
+print(sample.characteristics.table)
+print(sample.characteristics.tableBE)
+print(sample.characteristics.tableSBP)
+print(log_regBE_sample.characteristics.table)
+print(log_regSBP_sample.characteristics.table)
+print(log_regBE_sample.characteristics.table_unadjusted)
+print(log_regSBP_sample.characteristics.table_unadjusted)
+
 
 You can also embed plots:
 
