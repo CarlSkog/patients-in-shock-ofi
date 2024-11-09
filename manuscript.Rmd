@@ -244,10 +244,6 @@ amount)
 
 Sample characteristics are presented in Table \@ref(tab:sample-characteristics). A total of `r ofi` patients had at least one opportunity for improvement. The median age was `r age`. Most patients were male `r gender`.
 
-```{r sample-characteristics, echo=FALSE}
-sample.characteristics.table
-```
-
 Outcome data
 ------------
 
@@ -282,7 +278,9 @@ and sensitivity analyses
 ```
 You can include code in this document like this:
 
-
+```{r sample-characteristics, echo=FALSE}
+sample.characteristics.table
+```
 
 You can also embed plots:
 
