@@ -362,5 +362,5 @@ age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column =
 male <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
 merged <- nrow(merged.data)
 sample <- nrow(study.sample)
-excluded <- nrow(excluded)
+excludednum <- nrow(excluded)
 

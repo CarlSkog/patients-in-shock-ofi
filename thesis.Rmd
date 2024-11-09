@@ -220,40 +220,47 @@ source("main.R") ## This "imports" the main script file of your project and run 
 ```
 
 ## Participants
-There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excluded` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis. 
-
-## Descriptive data
-The study demographic median age is ... and the most common gender is male, `r male`. 
+There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis. 
 
 The variable with most missing data is ... which lack the data for ... patients. 
 
-### BE classification
-For the outcome OFI, out of the `r sample` patients reviewed, `r ofi` patients had a positive OFI. Clinically, the 
-
-### SBP classification
-
-
-Table 3 present the sample characteristics.
-
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
+```
+
+## Descriptive data
+
+### BE classification
+The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is (...) which is class (...), median INR is (...), and the most common Preinjury ASA class is (...), at (...)%. 
+
+```{r sample-characteristics BE, echo=FALSE}
 sample.characteristics.tableBE
+```
+### SBP classification
+The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is (...) which is class (...), median INR is (...), and the most common Preinjury ASA class is (...), at (...)%. 
+
+Table 3, 4, 5 present the sample characteristics.
+
+```{r sample-characteristics SBP, echo=FALSE}
 sample.characteristics.tableSBP
 ```
 
-Table 4 present 
+## Outcome data
+Out of the `r sample` patients reviewed, `r ofi` patients had at least one positive OFI.
+
+The most common 
+
+Table 6 and 7 present sub-ofi broad 
 
 ```{r BE-subofi, echo=FALSE}
 print(p)
 ```
 
-Table 5
-
 ```{r SBP-subofi, echo=FALSE}
 print(pSBP)
 ```
 
-Table 6 - Subofi detailed
+Table 8 and 9 present sub-ofi detailed
 
 ```{r SBP-subofi-detailed, echo=FALSE}
 print(pd)
@@ -263,13 +270,13 @@ print(pd)
 print(pSBPd)
 ```
 
-Table adjusted log
+Table 10 and 11 adjusted log
 ```{r Adjusted_log, echo=FALSE}
 log_regBE_sample.characteristics.table
 log_regSBP_sample.characteristics.table
 ```
 
-Table unadjusted log
+Table 12 and 13 unadjusted log
 ```{r Unadjusted_log, echo=FALSE}
 log_regBE_sample.characteristics.table_unadjusted
 log_regSBP_sample.characteristics.table_unadjusted
