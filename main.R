@@ -131,32 +131,46 @@ study.sample <- study.sample %>%
     TRUE ~ "Class 1"
   ))
 
+# no missing data data frame for regression models
+reg.sample <- study.sample %>% 
+  filter(!is.na(pt_age_yrs) & 
+           !is.na(pt_Gender) & 
+           !is.na(ISS) & 
+           !is.na(ed_inr_numeric) & 
+           !is.na(pt_asa_preinjury) & 
+           !is.na(BE_class) &
+           !is.na(V4SBP_class)
+         )
+
+# Total rows used in the logistic regression
+log_reg_count <- nrow(reg.sample)
+
 # Binary logistic regression model - BE
 # Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
 log_regBE <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class,
   family = binomial,
-  data = study.sample
+  data = reg.sample
 )
 
 # Binary logistic regression model - SBP
 log_regSBP <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + V4SBP_class,
                family = binomial,
-               data = study.sample
+               data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - BE
 log_regBEun <- glm(ofinum ~ BE_class,
                  family = binomial,
-                 data = study.sample
+                 data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - SBP
 log_regSBPun <- glm(ofinum ~ V4SBP_class,
                   family = binomial,
-                  data = study.sample
+                  data = reg.sample
 )
 
-# Remove unused variables.
+# Remove no longer used variables - study sample
 # I suggest removing them from the lines 40-52 where the study data is created instead
 study.sample <- study.sample |>
   select(
@@ -165,6 +179,17 @@ study.sample <- study.sample |>
     -ofinum,
     -Deceased
   )
+
+# Remove no longer used variables - regression sample 
+# I suggest removing them from the lines 40-52 where the study data is created instead
+reg.sample <- reg.sample |>
+  select(
+    -ed_be_art,
+    -ed_inr,
+    -ofinum,
+    -Deceased
+  )
+
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
 var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
@@ -179,31 +204,6 @@ var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 var_label(study.sample$ofi.categories.broad) <- "OFI categories broad"
 var_label(study.sample$ofi.categories.detailed) <- "OFI categories detailed"
 
-# Counting log reg BE
-log_reg_dataBE <- study.sample %>% 
-  filter(!is.na(pt_age_yrs) & 
-           !is.na(pt_Gender) & 
-           !is.na(ISS) & 
-           !is.na(ed_inr_numeric) & 
-           !is.na(pt_asa_preinjury) & 
-           !is.na(BE_class))
-
-# Total rows used in the logistic regression
-log_reg_countBE <- nrow(log_reg_dataBE)
-
-# Counting log reg SBP
-log_reg_dataSBP <- study.sample %>% 
-  filter(!is.na(pt_age_yrs) & 
-           !is.na(pt_Gender) & 
-           !is.na(ISS) & 
-           !is.na(ed_inr_numeric) & 
-           !is.na(pt_asa_preinjury) & 
-           !is.na(V4SBP_class))
-
-# Total rows used in the logistic regression
-log_reg_countSBP <- nrow(log_reg_dataSBP)
-
-
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
   by = ofi
@@ -211,16 +211,9 @@ sample.characteristics.table <- tbl_summary(study.sample,
   add_overall() |>
   add_p()
 
-# Create a table of sample characteristics - BE
-sample.characteristics.tableBE <- tbl_summary(log_reg_dataBE,
+# Create a table of sample characteristics - post reg
+sample.characteristics.tableBE <- tbl_summary(reg.sample,
                                             by = ofi
-) |>
-  add_overall() |>
-  add_p()
-
-# Create a table of sample characteristics - SBP
-sample.characteristics.tableSBP <- tbl_summary(log_reg_dataSBP,
-                                              by = ofi
 ) |>
   add_overall() |>
   add_p()
@@ -268,7 +261,7 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
 )
 
 # ggplot2
-ofi_counts <- study.sample %>%
+ofi_counts <- reg.sample %>%
   group_by(BE_class, ofi.categories.broad) %>%
   summarize(count = n()) %>%
   ungroup() %>%
@@ -290,7 +283,7 @@ p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.bro
   scale_fill_brewer(palette = "Set1", name = "OFI Categories")
 
 # ggplot2 SBP
-ofi_counts <- study.sample %>%
+ofi_counts <- reg.sample %>%
   group_by(V4SBP_class, ofi.categories.broad) %>%
   summarize(count = n()) %>%
   ungroup() %>%
@@ -313,7 +306,7 @@ pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categori
 
 #sub ofi detailed
 # ggplot2
-ofi_counts <- study.sample %>%
+ofi_counts <- reg.sample %>%
   group_by(BE_class, ofi.categories.detailed) %>%
   summarize(count = n()) %>%
   ungroup() %>%
@@ -335,7 +328,7 @@ pd <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.de
   scale_fill_brewer(palette = "Set3", name = "OFI Categories")
 
 # ggplot2 SBP
-ofi_counts <- study.sample %>%
+ofi_counts <- reg.sample %>%
   group_by(V4SBP_class, ofi.categories.detailed) %>%
   summarize(count = n()) %>%
   ungroup() %>%

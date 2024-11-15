@@ -135,8 +135,8 @@ The statistical analysis will be performed using R, a programming language and e
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```
 
-```{=html}
-<!-- 
+
+
 
 Participants
 ------------
@@ -149,7 +149,7 @@ included in the study, completing follow-up, and analysed
 
 (c) Consider use of a flow diagram
 
-There were a total of `r nrow(merged.data)` patients in the trauma registry. Out of these, `r nrow(study.sample)` patients had been reviewed for the presence of opportunities for improvement. After exluding patients younger than 15 and/or were dead on arrival, `r nrow(study.sample)` patients remained. A total of X patients were finally excluded due to missing data, leaving us with Y patients for the final analysis.
+There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis. 
 
 Descriptive data
 ----------------
@@ -164,7 +164,7 @@ variable of interest
 (c) Cohort study — Summarise follow-up time (eg, average and total
 amount)
 
-Sample characteristics are presented in Table \@ref(tab:sample-characteristics). A total of `r ofi` patients had at least one opportunity for improvement. The median age was `r age`. Most patients were male `r gender`.
+Sample characteristics are presented in Table \@ref(tab:sample-characteristics). A total of `r ofi` patients had at least one opportunity for improvement. The median age was `r age`. Most patients were male `r male`.
 
 Outcome data
 ------------
@@ -196,8 +196,8 @@ Other analyses
 
 Report other analyses done—eg analyses of subgroups and interactions,
 and sensitivity analyses 
--->
-```
+
+
 You can include code in this document like this:
 
 ```{r sample-characteristics, echo=FALSE}
