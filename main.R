@@ -261,26 +261,30 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
 )
 
 # ggplot2
-ofi_counts <- reg.sample %>%
+ofi_counts_filtered <- reg.sample %>%
+  filter(ofi.categories.broad != "no") %>% 
   group_by(BE_class, ofi.categories.broad) %>%
-  summarize(count = n()) %>%
-  ungroup() %>%
-  group_by(BE_class) %>%
-  mutate(percent = count / sum(count) * 100)
+  summarize(count = n()) %>% 
+  ungroup()
 
-p <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.broad)) +
+Yaxis <- max(ofi_counts_filtered$count) + 10
+
+p <- ggplot(ofi_counts_filtered, aes(x = BE_class, y = count, fill = ofi.categories.broad)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(
     title = "Distribution of OFI Broad Categories by BE Shock Class",
     x = "BE Shock Class",
-    y = "Percentage of OFI Broad Categories"
+    y = "Count of OFI Broad Categories"
   ) +
   theme_minimal() +
   theme(
     legend.title = element_text(size = 10),
     legend.position = "bottom"
   ) +
-  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
+  scale_fill_brewer(palette = "Set1", name = "OFI Categories") +
+  scale_y_continuous(limits = c(0, Yaxis)) 
+
+print(p)
 
 # ggplot2 SBP
 ofi_counts <- reg.sample %>%
@@ -357,3 +361,87 @@ merged <- nrow(merged.data)
 sample <- nrow(study.sample)
 excludednum <- nrow(excluded)
 
+
+#table
+library(dplyr)
+
+# Prepare the data
+ofi_table <- reg.sample %>%
+  filter(ofi.categories.broad != "no") %>% 
+  group_by(BE_class, ofi.categories.broad) %>%
+  summarize(count = n(), .groups = "drop") %>% 
+  group_by(BE_class) %>%
+  mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
+  ungroup()
+
+
+#table 2.0
+library(dplyr)
+library(tidyr)
+
+# Define all possible OFI categories
+all_ofi_categories <- unique(reg.sample$ofi.categories.broad)
+
+# Define all BE and SBP classes
+all_be_classes <- unique(reg.sample$BE_class)
+all_sbp_classes <- unique(reg.sample$V4SBP_class)
+
+# Expand data for BE_class
+be_data_complete <- expand.grid(
+  BE_class = all_be_classes,
+  ofi.categories.broad = all_ofi_categories
+) %>%
+  filter(ofi.categories.broad != "no") %>% # Exclude "no" category
+  left_join(
+    reg.sample %>%
+      filter(ofi.categories.broad != "no") %>%
+      group_by(BE_class, ofi.categories.broad) %>%
+      summarize(count = n(), .groups = "drop") %>%
+      group_by(BE_class) %>%
+      mutate(percentage = round((count / sum(count)) * 100, 1)),
+    by = c("BE_class", "ofi.categories.broad")
+  ) %>%
+  mutate(
+    count = replace_na(count, 0),
+    percentage = replace_na(percentage, 0)
+  )
+
+# Expand data for SBP_class
+sbp_data_complete <- expand.grid(
+  V4SBP_class = all_sbp_classes,
+  ofi.categories.broad = all_ofi_categories
+) %>%
+  filter(ofi.categories.broad != "no") %>% # Exclude "no" category
+  left_join(
+    reg.sample %>%
+      filter(ofi.categories.broad != "no") %>%
+      group_by(V4SBP_class, ofi.categories.broad) %>%
+      summarize(count = n(), .groups = "drop") %>%
+      group_by(V4SBP_class) %>%
+      mutate(percentage = round((count / sum(count)) * 100, 1)),
+    by = c("V4SBP_class", "ofi.categories.broad")
+  ) %>%
+  mutate(
+    count = replace_na(count, 0),
+    percentage = replace_na(percentage, 0)
+  )
+
+# Combine BE and SBP data
+combined_table <- be_data_complete %>%
+  left_join(
+    sbp_data_complete %>%
+      rename(
+        SBP_count = count,
+        SBP_percentage = percentage
+      ),
+    by = "ofi.categories.broad"
+  ) %>%
+  select(
+    BE_class,
+    ofi.categories.broad,
+    count,
+    percentage,
+    V4SBP_class,
+    SBP_count,
+    SBP_percentage
+  )

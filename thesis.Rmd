@@ -222,24 +222,18 @@ source("main.R") ## This "imports" the main script file of your project and run 
 ## Participants
 There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
 
-The variable with most missing data is ... which lack the data for ... patients. 
+The variable with most missing data is BE which lack the data for 1721 patients. 
 
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
 ```
 
 ## Descriptive data
-
-### BE classification
 The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is (...) which is class (...), median INR is (...), and the most common Preinjury ASA class is (...), at (...)%. 
 
 ```{r sample-characteristics BE, echo=FALSE}
 sample.characteristics.tableBE
 ```
-### SBP classification
-The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is (...) which is class (...), median INR is (...), and the most common Preinjury ASA class is (...), at (...)%. 
-
-Table 3, 4, 5 present the sample characteristics.
 
 ## Outcome data
 Out of the `r sample` patients reviewed, `r ofi` patients had at least one positive OFI.
@@ -247,6 +241,41 @@ Out of the `r sample` patients reviewed, `r ofi` patients had at least one posit
 The most common 
 
 Table 6 and 7 present sub-ofi broad 
+
+```{r ofitable, echo=FALSE, results='asis'}
+library(kableExtra)
+
+ofi_table %>%
+  kbl(
+    col.names = c("BE Shock Class", "OFI Category", "Count", "Percentage (%)"),
+    caption = "Counts and Percentages of OFI Broad Categories by BE Shock Class"
+  ) %>%
+  kable_classic(full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) %>% # Optional: Makes header bold
+  group_rows(index = table(ofi_table$BE_class)) # Automatically merges BE_class rows
+
+```
+
+```{r combined_ofitable, echo=FALSE, results='asis'}
+library(kableExtra)
+
+combined_table %>%
+  kbl(
+    col.names = c(
+      "BE Shock Class",
+      "OFI Category",
+      "BE Count",
+      "BE Percentage (%)",
+      "SBP Shock Class",
+      "SBP Count",
+      "SBP Percentage (%)"
+    ),
+    caption = "Counts and Percentages of OFI Broad Categories by BE and SBP Shock Classes"
+  ) %>%
+  kable_classic(full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) # Optional: Makes header bold
+
+```
 
 ```{r BE-subofi, echo=FALSE}
 print(p)
