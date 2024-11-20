@@ -53,8 +53,8 @@ study.data <- merged.data |>
     ISS,
     ofi,
     ed_inr,
-    ofi.categories.broad,
     ofi.categories.detailed,
+    ofi.categories.broad,
     Deceased,
   )
 
@@ -218,8 +218,11 @@ sample.characteristics.tableBE <- tbl_summary(reg.sample,
   add_overall() |>
   add_p()
 
+print(sample.characteristics.tableBE)
+
 # Create a table of regression of sample - BE
-log_regBE_sample.characteristics.table <- tbl_regression(log_regBE,
+log_regBE_sample.characteristics.table <- tbl_regression(
+  log_regBE,
   exponentiate = TRUE,
   label = list(
     pt_age_yrs ~ "Age (Years)",
@@ -229,7 +232,11 @@ log_regBE_sample.characteristics.table <- tbl_regression(log_regBE,
     ISS ~ "Injury Severity Score",
     BE_class ~ "Shock classification - BE"
   )
-)
+) |>
+  add_nevent() |>
+  bold_p()
+
+print(log_regBE_sample.characteristics.table)
 
 # Create a table of regression of sample - SBP
 log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
@@ -374,6 +381,16 @@ ofi_table <- reg.sample %>%
   mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
   ungroup()
 
+#table summery version
+BEsubofi <- reg.sample |>
+  select(
+    BE_class,
+    ofi.categories.broad,
+  )
+
+BEsubofi_tbl <- tbl_summary(BEsubofi, by = BE_class)
+
+print(BEsubofi_tbl)
 
 #table 2.0
 library(dplyr)
