@@ -462,3 +462,11 @@ combined_table <- be_data_complete %>%
     SBP_count,
     SBP_percentage
   )
+
+combined_tableBE <- tbl_merge(
+  tbls = list(log_regBE_sample.characteristics.table_unadjusted, log_regBE_sample.characteristics.table),
+  tab_spanner = c("**Unadjusted Model**", "**Adjusted Model**")
+)
+
+print(combined_tableBE)
+
