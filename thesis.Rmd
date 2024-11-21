@@ -346,6 +346,10 @@ Discuss the generalisability (external validity) of the study results
 
 -->
 ```
+This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
+
+The results showed significant lower risk for 
+
 Due to lack of data on heart rate, FAST, detailed types of injury and clinical chemistry, we will not be able to use categorisations such as TASH, TBSS and ABC with better sensitivity and specificity than ATLS[@yucel_trauma_2006][@ogura_modified_2016][@hanlin_prehospital_2024].
 Results from the BE approximation done by Mutschler et al [mutschler_renaissance_2013] which is the same as the tenth edition ATLS shock classification, shows that class I had a mean SBP of 132,6 mmhg and class IV have 94,8 mmhg at the emergency department. As a SBP of 132,6 is at the higher range of normotensive, we will not be able to use it as a upper limit, but the 94,8 mmhg is close to our approximation of 90mmhg for class IV. 
 

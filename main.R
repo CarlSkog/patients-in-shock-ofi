@@ -220,21 +220,44 @@ sample.characteristics.tableBE <- tbl_summary(reg.sample,
 
 print(sample.characteristics.tableBE)
 
-# Create a table of regression of sample - BE
-log_regBE_sample.characteristics.table <- tbl_regression(
-  log_regBE,
-  exponentiate = TRUE,
-  label = list(
-    pt_age_yrs ~ "Age (Years)",
-    pt_Gender ~ "Gender (M/F)",
-    pt_asa_preinjury ~ "Pre-injury ASA",
-    ed_inr_numeric ~ "INR",
-    ISS ~ "Injury Severity Score",
-    BE_class ~ "Shock classification - BE"
-  )
-) |>
-  add_nevent() |>
-  bold_p()
+# Create a table of of regression - BE
+log_regBE_sample.characteristics.table <- 
+  tbl_regression(
+    log_regBE,
+    exponentiate = TRUE,
+    label = list(
+      pt_age_yrs ~ "Age (Years)",
+      pt_Gender ~ "Gender (M/F)",
+      pt_asa_preinjury ~ "Pre-injury ASA",
+      ed_inr_numeric ~ "INR",
+      ISS ~ "Injury Severity Score",
+      BE_class ~ "Shock classification - BE"
+    )
+  ) |>
+  add_nevent(location = "level") |> # Adds event counts to the table
+  add_n(location = "level") |> # Adds total counts to the table
+  # Add event rate calculation
+  modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        stat_nevent_rate = 
+          ifelse(
+            !is.na(stat_nevent),
+            paste0(style_sigfig(stat_nevent / stat_n, scale = 100), "%"),
+            NA
+          ), 
+        .after = stat_nevent
+      )
+  ) |> 
+  # Combine columns for a cleaner display
+  modify_column_merge(
+    pattern = "{stat_nevent} / {stat_n} ({stat_nevent_rate})",
+    rows = !is.na(stat_nevent)
+  ) |>
+  # Update the header for event rate
+  modify_header(stat_nevent = "**Event Rate**") |>
+  bold_p() # Optional: Bold significant p-values
+
 
 print(log_regBE_sample.characteristics.table)
 
