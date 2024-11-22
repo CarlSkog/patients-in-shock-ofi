@@ -147,13 +147,13 @@ log_reg_count <- nrow(reg.sample)
 
 # Binary logistic regression model - BE
 # Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
-log_regBE <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + BE_class,
+log_regBE <- glm(ofinum ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
   family = binomial,
   data = reg.sample
 )
 
 # Binary logistic regression model - SBP
-log_regSBP <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + V4SBP_class,
+log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
                family = binomial,
                data = reg.sample
 )
@@ -226,12 +226,12 @@ log_regBE_sample.characteristics.table <-
     log_regBE,
     exponentiate = TRUE,
     label = list(
+      BE_class ~ "Shock classification - BE",
       pt_age_yrs ~ "Age (Years)",
       pt_Gender ~ "Gender (M/F)",
       pt_asa_preinjury ~ "Pre-injury ASA",
       ed_inr_numeric ~ "INR",
-      ISS ~ "Injury Severity Score",
-      BE_class ~ "Shock classification - BE"
+      ISS ~ "Injury Severity Score"
     )
   ) |>
   add_nevent(location = "level") |> # Adds event counts to the table
@@ -486,10 +486,12 @@ combined_table <- be_data_complete %>%
     SBP_percentage
   )
 
+
+#combined reg analysis
 combined_tableBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table_unadjusted, log_regBE_sample.characteristics.table),
-  tab_spanner = c("**Unadjusted Model**", "**Adjusted Model**")
-)
+  tbls = list(log_regBE_sample.characteristics.table, log_regBE_sample.characteristics.table_unadjusted),
+  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
+) 
 
 print(combined_tableBE)
 
