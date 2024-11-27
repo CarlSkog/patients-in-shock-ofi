@@ -59,12 +59,13 @@ objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
 ```
-Trauma is a major global public health concern. It causes over four milion death and affects hundreds of millions each year, among those younger populations are the most affected [@noauthor_injuries_nodate]. The initial management of trauma patients once they reach hospital is very time sensitive and error prone [@mackersie_pitfalls_2010; @teixeira_preventable_2007; @ivatury_patient_2008], and shock is the most common potentially preventable death within the first 24h of injury [@berry_shock_2015]. It is also the second major cause of early mortality in trauma patients [@kauvar_impact_2006], and patients in shock have a higher mortality rate than those not [@vang_shock_2022].
-
-The definition for shock is circulatory failure leading to insuficient perfusion and oxygenation of tissue and organ [@leech_shock_2023]. There are four types of causes, which are hypovolemic, obstructive, cardiogenic and distributive. These causes can occur alone or in combination. The most usual one during trauma are hypovolemic in form of a large bleeding [@teixeira_preventable_2007].
-
-To differentiate the severity of trauma shock, we can divide shock into different degrees. One of such classification is the ATLS classification for major haemorrhage (See Table \@ref(tab:alts) (ADD CITATION). The classification is divided into four classes, based on the patients: estimated bloodloss, heart frequency (HF), bloodpressure (BP), pulse pressure, respiratory rate (RR), mental status and urine output. However, this only meant to be used for hypovolemic shocks and not the other types. There is other classifications for predicting massive transfusion (TASH, TBSS, ABC), triaging (RETTS) or tracking the clinical deterioration of patients (NEWS2). The common denominator for these classifications is they are all roughly based on vital parameters, however none of them is specifically designed to classify trauma shock degree regardless of the type/cause of shock. ATLS in this regard, even though having its own shortcomings [@guly_vital_2011], still is one of the most used classifications for this topic (Källa).
-
+# Introduction
+ 
+## Epidemiology
+Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected [@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs [@noauthor_injuries_nodate]. Hemorrhagic shock, the second most common cause of death following trauma, is the leading preventable cause of death within the first 24 hours post-injury  [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007].
+ 
+## Shock classifications
+Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:alts) [@noauthor_atls_2018], Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
 
 | **Parameter**                     | **Class I** | **Class II** (Mild) | **Class III** (Moderate)  | **Class IV** (Severe)         |
 |-----------------------------------|-------------|---------------------|---------------------------|-------------------------------|
@@ -78,10 +79,16 @@ To differentiate the severity of trauma shock, we can divide shock into differen
 | Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L    | –6 to –10 mEq/L           | –10 mEq/L or less             |
 | Need for blood products           | Monitor     | Possible            | Yes                       | Massive Transfusion Protocol  |
 
-Table: ATLS classification for haemorrhagic shock, adapted from (ADD CITATION) {#tbl:atls}.
+Table: ATLS classification for haemorrhagic shock, adapted from [@noauthor_atls_2018] {#tbl:atls}.
 
-One way to improve trauma care quality is trough identifying Opportunities for Improvement (OFI). This method has an advantage compared to traditional mortality reviews in that it also includes non-fatals. There are different processes to finding OFIs, but one of the primary ways is through structured multidisciplinary morbidity and mortality reviews of patient cases [@world_health_organization_guidelines_2009]. In order for the review content to be as comprehensive as possible for trauma care, the Donabedian quality of care framework can be used[@donabedian_quality_1988]. It is based on the three factors of structure, process and outcome. By following this framework, healthcare providers will be able to systematically find and address OFIs[källa?]. This will in turn improve the effectiveness of trauma care, directly impacting mortality and morbidity[källa?/8].
-
+## Trauma quality improvement and opportunities for improvement
+The initial management of trauma patients is highly time-sensitive and prone to error  [@mackersie_pitfalls_2010;@teixeira_preventable_2007;@ivatury_patient_2008]. Quality Improvement (QI) initiatives address these challenges by systematically evaluating care processes and outcomes, aiming to reduce morbidity and mortality [@world_health_organization_guidelines_2009]. Through structured quality measures and collaborative reviews, QI has strengthened trauma care and improved outcomes globally  [@juillard_establishing_2009;@hashmi_hospital-based_2013].
+Identifying Opportunities for Improvement (OFI) offers a broader perspective than traditional mortality reviews by also including non-fatal outcomes [@world_health_organization_guidelines_2009]. Structured multidisciplinary morbidity and mortality (M&M) reviews are commonly used to identify OFIs. One systemic and comprehensive way to identify OFI is using the Donabedian framework, which asses the quality of care by the three categories of: structure, process, and outcome  [@donabedian_quality_1988;@world_health_organization_guidelines_2009].
+ 
+## Shock and OFI
+As mentioned before hemorrhagic shock is the leading cause of preventable death within the first 24 hours of injury [@berry_shock_2015]. Patients in shock have a higher mortality rate than those not [@vang_shock_2022], with a median time to death of just 2 hours [@tisherman_detailed_2015]. Despite this, the relationship between shock, its severity, and Opportunities for Improvement (OFI) remains largely unexamined. This knowledge would help clinicians better identify and avoid preventable mistakes in shock patients who need urgent care.
+ 
+## Aims
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 # Methods
@@ -139,82 +146,57 @@ The statistical analysis will be performed using R, a programming language and e
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```
 
+## Participants
+There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
 
+The variable with most missing data is BE which lack the data for 1721 patients.
 
-
-Participants
-------------
-
-(a) Report numbers of individuals at each stage of study—eg numbers
-potentially eligible, examined for eligibility, confirmed eligible,
-included in the study, completing follow-up, and analysed
-
-(b) Give reasons for non-participation at each stage
-
-(c) Consider use of a flow diagram
-
-There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_countBE` patients were excluded for the BE classification group due to missing data, resulting in `r log_reg_countBE` patients for the final analysis. For the SBP group, missing data accounted for exclusion of `r sample - log_reg_countSBP` patients, leaving a sum of `r log_reg_countSBP` patients for the final analysis. 
-
-Descriptive data
-----------------
-
-(a) Give characteristics of study participants (eg demographic,
-clinical, social) and information on exposures and potential
-confounders
-
-(b) Indicate number of participants with missing data for each
-variable of interest
-
-(c) Cohort study — Summarise follow-up time (eg, average and total
-amount)
-
-Sample characteristics are presented in Table \@ref(tab:sample-characteristics). A total of `r ofi` patients had at least one opportunity for improvement. The median age was `r age`. Most patients were male `r male`.
-
-Outcome data
-------------
-
-Cohort study — Report numbers of outcome events or summary measures
-over time
-
-Case-control study — Report numbers in each exposure category, or
-summary measures of exposure
-
-Cross-sectional study — Report numbers of outcome events or summary
-measures
-
-Main results
-------------
-
-(a) Give unadjusted estimates and, if applicable, confounder-adjusted
-estimates and their precision (eg, 95% confidence interval). Make
-clear which confounders were adjusted for and why they were included
-
-(b) Report category boundaries when continuous variables were
-categorized
-
-(c) If relevant, consider translating estimates of relative risk into
-absolute risk for a meaningful time period
-
-Other analyses 
---------------
-
-Report other analyses done—eg analyses of subgroups and interactions,
-and sensitivity analyses 
-
-
-You can include code in this document like this:
-
+Table 3 - Sample characteristics showing missing data.
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
 ```
 
-You can also embed plots:
+## Descriptive data
+The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is 5 which is considered minor injuries, median INR is 1,00, and the most common Preinjury ASA class is 1, at 62%.  
 
-```{r plot, echo=FALSE}
-plot(pressure)
+Table 4 - Sample characteristics used in regression.
+```{r sample-characteristics BE, echo=FALSE}
+sample.characteristics.table_reg
 ```
 
-You can also mix text and code, so called inline code, like this: `r 2+5`.
+## Outcome data
+Out of the `r log_reg_count` patients reviewed without missing data, `r ofi` patients had at least one positive OFI. 
+
+The most common broad sub-ofi category was clinical judgement error, at 103 (37%). The other three major broad sub-ofis are: inadequate resources 61 (22%), delay in treatment 49 (17%) and missed diagnosis 48 (17%). The smallest one, is other errors, at 5 (1,8%). 
+
+When classified, the most common broad sub-ofi in class 1 (no shock) is clinical judgement error both in the BE and SBP groups, while the other sub-ofi also follow a similar distribution between the groups. The largest sub-ofi continuous to be clinical judgment error for BE group in class 2, 3 and 4, at 34,6%; 31,2%; and 42,9% in this order. On other hand, the largest sub-ofi in SBP class 2 is delay in treatment at 50%. The SBP class 3 is evenly distributed between clinical judgement error and missed diagnosis at 40% each. Lastly, class 4 SBP's most common sub-ofi is clinical judgment error 46,7%.        
+
+Overall 3989 (81%) of the patients were classified as having no shock (class 1) according to the BE classification, the sum of the remaining classes accounted for 930 (19%) patients. The distribution of the classes were decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3,5%), and class 4: 116 (2,4%).  
+
+The SBP classification system sorted 4455 (91%) patients as having no shock (class 1), while the remaining classes with patients in shock accounted for 464 (9%) of all the patients. Among the classes defined with shock, class 2 was the biggest at 239 (4,9%), followed by class 4 at 127 (2,6%), and lastly class 3 with 99 (2,0%). 
+
+Table 5 - Sub-OFI, classified according to BE  
+
+```{r sub-ofi BE, echo=FALSE}
+BEsubofi_tbl
+```
+
+Table 6 - Sub-OFI, classified according to SBP
+
+```{r sub-ofi SBP, echo=FALSE}
+SBPsubofi_tbl
+```
+
+## Main results
+The adjusted analyses showed only statistical significance when comparing BE class 4 to class 1, which had 63% lower odds for OFI (OR 0,37; 95% CI 0,14-0,83; p-value 0.026).
+
+The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI. For the SBP group, comparison between class 1 and class 4 showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
+
+Table 7 and 8 adjusted log
+```{r Adjusted_log, echo=FALSE}
+combined_tableBE
+combined_tableSBP
+```
 
 # Discussion
 

@@ -186,7 +186,7 @@ test <- tbl_regression(
 
 
 # Binary logistic regression model - SBP
-log_regSBP <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + V4SBP_class,
+log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
   family = binomial,
   data = reg.sample
 )
@@ -257,7 +257,7 @@ sample.characteristics.table <- tbl_summary(study.sample,
   add_p()
 
 # Create a table of sample characteristics - post reg
-sample.characteristics.tableBE <- tbl_summary(reg.sample,
+sample.characteristics.table_reg <- tbl_summary(reg.sample,
   by = ofi
 ) |>
   add_overall() |>
@@ -299,16 +299,17 @@ log_regBE_sample.characteristics.table <-
   bold_p() 
 
 # Create a table of regression of sample - SBP
-log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
-                                                          exponentiate = TRUE,
-                                                          label = list(
-                                                            pt_age_yrs ~ "Age (Years)",
-                                                            pt_Gender ~ "Gender (M/F)",
-                                                            pt_asa_preinjury ~ "Pre-injury ASA",
-                                                            ed_inr_numeric ~ "INR",
-                                                            ISS ~ "Injury Severity Score",
-                                                            V4SBP_class ~ "Shock classification - SBP"
-                                                          )
+log_regSBP_sample.characteristics.table <- 
+  tbl_regression(log_regSBP,
+    exponentiate = TRUE,
+    label = list(
+      pt_age_yrs ~ "Age (Years)",
+      pt_Gender ~ "Gender (M/F)",
+      pt_asa_preinjury ~ "Pre-injury ASA",
+      ed_inr_numeric ~ "INR",
+      ISS ~ "Injury Severity Score",
+      V4SBP_class ~ "Shock classification - SBP"
+  )
 ) |>
   add_nevent(location = "level") |> 
   add_n(location = "level") |> 
@@ -337,7 +338,8 @@ log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
   label = list(
     BE_class ~ "Shock classification - BE"
   )
-)
+) |>
+  bold_p()
 
 # Create a table of regression of sample unadjusted - SBP
 log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPun,
@@ -345,7 +347,8 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
   label = list(
     V4SBP_class ~ "Shock classification - SBP"
   )
-)
+) |>
+  bold_p()
 
 #table summery version
 BEsubofi <- reg.sample |>
