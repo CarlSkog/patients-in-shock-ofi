@@ -60,15 +60,17 @@ study.data <- merged.data |>
 
 # Those excluded
 excluded <- study.data |>
-  filter(Deceased == "False",
-         pt_age_yrs >= 15
+  filter(
+    Deceased == "False",
+    pt_age_yrs >= 15
   )
 
 # Exclude patients who were not reviewed for the presence of OFI
 study.sample <- study.data |>
-  filter(!is.na(ofi),
-         Deceased == "False",
-         pt_age_yrs >= 15
+  filter(
+    !is.na(ofi),
+    Deceased == "False",
+    pt_age_yrs >= 15
   )
 
 # Function for converting to numeric
@@ -85,7 +87,7 @@ study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
 # Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
 
-#Re-add the BE column as numeric to `study.sample`
+# Re-add the BE column as numeric to `study.sample`
 study.sample <- study.sample %>%
   mutate(ed_be_art_numeric = BEnum)
 
@@ -132,15 +134,14 @@ study.sample <- study.sample %>%
   ))
 
 # no missing data data frame for regression models
-reg.sample <- study.sample %>% 
-  filter(!is.na(pt_age_yrs) & 
-           !is.na(pt_Gender) & 
-           !is.na(ISS) & 
-           !is.na(ed_inr_numeric) & 
-           !is.na(pt_asa_preinjury) & 
-           !is.na(BE_class) &
-           !is.na(V4SBP_class)
-  )
+reg.sample <- study.sample %>%
+  filter(!is.na(pt_age_yrs) &
+    !is.na(pt_Gender) &
+    !is.na(ISS) &
+    !is.na(ed_inr_numeric) &
+    !is.na(pt_asa_preinjury) &
+    !is.na(BE_class) &
+    !is.na(V4SBP_class))
 
 # Total rows used in the logistic regression
 log_reg_count <- nrow(reg.sample)
@@ -185,21 +186,21 @@ test <- tbl_regression(
 
 
 # Binary logistic regression model - SBP
-log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-                  family = binomial,
-                  data = reg.sample
+log_regSBP <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + V4SBP_class,
+  family = binomial,
+  data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - BE
 log_regBEun <- glm(ofinum ~ BE_class,
-                   family = binomial,
-                   data = reg.sample
+  family = binomial,
+  data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - SBP
 log_regSBPun <- glm(ofinum ~ V4SBP_class,
-                    family = binomial,
-                    data = reg.sample
+  family = binomial,
+  data = reg.sample
 )
 
 # Remove no longer used variables - study sample
@@ -212,7 +213,7 @@ study.sample <- study.sample |>
     -Deceased
   )
 
-# Remove no longer used variables - regression sample 
+# Remove no longer used variables - regression sample
 # I suggest removing them from the lines 40-52 where the study data is created instead
 reg.sample <- reg.sample |>
   select(
@@ -256,8 +257,8 @@ sample.characteristics.table <- tbl_summary(study.sample,
   add_p()
 
 # Create a table of sample characteristics - post reg
-sample.characteristics.table_reg <- tbl_summary(reg.sample,
-                                              by = BE_class
+sample.characteristics.tableBE <- tbl_summary(reg.sample,
+  by = ofi
 ) |>
   add_overall() |>
   add_p()
@@ -332,39 +333,19 @@ log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
 
 # Create a table of regression of sample unadjusted - BE
 log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
-                                                                    exponentiate = TRUE,
-                                                                    label = list(
-                                                                      BE_class ~ "Shock classification - BE"
-                                                                    )
-) |>
-  bold_p()
+  exponentiate = TRUE,
+  label = list(
+    BE_class ~ "Shock classification - BE"
+  )
+)
 
 # Create a table of regression of sample unadjusted - SBP
 log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPun,
-                                                                     exponentiate = TRUE,
-                                                                     label = list(
-                                                                       V4SBP_class ~ "Shock classification - SBP"
-                                                                     )
-) |>
-  bold_p()
-
-# BE class table
-BEtable <- reg.sample %>%
-  filter(ofi.categories.broad != "no") %>% 
-  group_by(BE_class, ofi.categories.broad) %>%
-  summarize(count = n(), .groups = "drop") %>% 
-  group_by(BE_class) %>%
-  mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
-  ungroup()
-
-# SBP class table
-SBPtable <- reg.sample %>%
-  filter(ofi.categories.broad != "no") %>% 
-  group_by(V4SBP_class, ofi.categories.broad) %>%
-  summarize(count = n(), .groups = "drop") %>% 
-  group_by(V4SBP_class) %>%
-  mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
-  ungroup()
+  exponentiate = TRUE,
+  label = list(
+    V4SBP_class ~ "Shock classification - SBP"
+  )
+)
 
 #table summery version
 BEsubofi <- reg.sample |>
