@@ -1,6 +1,6 @@
 ---
-title: "Manuscript title here"
-author: "Your name here"
+title: "Opportunities for improvement in the care of adult trauma patients arriving in shock"
+author: "Carl Skog"
 output:
   html_document: default
   word_document: default
