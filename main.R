@@ -18,7 +18,7 @@
 ## them). They all need to be sourced however when you compile your
 ## manuscript file or run this file as a job, as that happens in a
 ## clean R session.
-noacsr::source_all_functions()
+#noacsr::source_all_functions()
 
 # Load packages
 library(rofi)
@@ -28,12 +28,13 @@ library(gtsummary)
 library(ggplot2)
 library(nnet)
 library(broom.helpers)
+library(kableExtra)
 
 ## Import data
-data <- import_data(test = TRUE)
+data <- import_data()
 
 # Merge data
-merged.data <- merge_data(data, test = TRUE)
+merged.data <- merge_data(data)
 
 # New add ofi categories
 merged.data <- add_ofi_categories(merged.data)
@@ -53,7 +54,6 @@ study.data <- merged.data |>
     ISS,
     ofi,
     ed_inr,
-    ofi.categories.detailed,
     ofi.categories.broad,
     Deceased,
   )
@@ -69,7 +69,7 @@ study.sample <- study.data |>
   filter(!is.na(ofi),
          Deceased == "False",
          pt_age_yrs >= 15
-         )
+  )
 
 # Function for converting to numeric
 convert_number <- function(x) {
@@ -140,7 +140,7 @@ reg.sample <- study.sample %>%
            !is.na(pt_asa_preinjury) & 
            !is.na(BE_class) &
            !is.na(V4SBP_class)
-         )
+  )
 
 # Total rows used in the logistic regression
 log_reg_count <- nrow(reg.sample)
@@ -148,26 +148,58 @@ log_reg_count <- nrow(reg.sample)
 # Binary logistic regression model - BE
 # Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
 log_regBE <- glm(ofinum ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-  family = binomial,
-  data = reg.sample
-)
-
-# Binary logistic regression model - SBP
-log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-               family = binomial,
-               data = reg.sample
-)
-
-# Binary logistic regression model unadjusted - BE
-log_regBEun <- glm(ofinum ~ BE_class,
                  family = binomial,
                  data = reg.sample
 )
 
-# Binary logistic regression model unadjusted - SBP
-log_regSBPun <- glm(ofinum ~ V4SBP_class,
+
+
+
+#   
+#pt_asa_preinjury ~ "Pre-injury ASA",
+#ed_inr_numeric ~ "INR",
+#ISS ~ "Injury Severity Score",
+
+#test 
+test1 <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS + V4SBP_class,
+                 family = binomial,
+                 data = reg.sample
+)
+
+test <- tbl_regression(
+  test1,
+  exponentiate = TRUE,
+  label = list(
+    pt_age_yrs ~ "Age (Years)",
+    pt_Gender ~ "Gender (M/F)",
+    V4SBP_class ~ "Shock classification"
+  )
+) |>
+  add_nevent() |>
+  bold_p()
+
+#print(test)
+
+
+
+
+
+# Binary logistic regression model - SBP
+log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
                   family = binomial,
                   data = reg.sample
+)
+
+# Binary logistic regression model unadjusted - BE
+log_regBEun <- glm(ofinum ~ BE_class,
+                   family = binomial,
+                   data = reg.sample
+)
+
+# Binary logistic regression model unadjusted - SBP
+log_regSBPun <- glm(ofinum ~ V4SBP_class,
+                    family = binomial,
+                    data = reg.sample
 )
 
 # Remove no longer used variables - study sample
@@ -202,25 +234,35 @@ var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
 var_label(study.sample$ed_inr_numeric) <- "INR"
 var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 var_label(study.sample$ofi.categories.broad) <- "OFI categories broad"
-var_label(study.sample$ofi.categories.detailed) <- "OFI categories detailed"
+
+# Label variables - Reg sample
+var_label(reg.sample$pt_age_yrs) <- "Age (Years)"
+var_label(reg.sample$ofi) <- "Opportunities for improvement (Y/N)"
+var_label(reg.sample$ed_be_art_numeric) <- "Base Excess (BE)"
+var_label(reg.sample$BE_class) <- "Shock classification - BE"
+var_label(reg.sample$pt_asa_preinjury) <- "Pre-injury ASA"
+var_label(reg.sample$ISS) <- "Injury Severity Score"
+var_label(reg.sample$pt_Gender) <- "Gender (M/F)"
+var_label(reg.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(reg.sample$ed_inr_numeric) <- "INR"
+var_label(reg.sample$V4SBP_class) <- "Shock classification - SBP"
+var_label(reg.sample$ofi.categories.broad) <- "OFI categories broad"
 
 # Create a table of sample characteristics
 sample.characteristics.table <- tbl_summary(study.sample,
-  by = ofi
-) |>
-  add_overall() |>
-  add_p()
-
-# Create a table of sample characteristics - post reg
-sample.characteristics.tableBE <- tbl_summary(reg.sample,
                                             by = ofi
 ) |>
   add_overall() |>
   add_p()
 
-print(sample.characteristics.tableBE)
+# Create a table of sample characteristics - post reg
+sample.characteristics.table_reg <- tbl_summary(reg.sample,
+                                              by = BE_class
+) |>
+  add_overall() |>
+  add_p()
 
-# Create a table of of regression - BE
+# Create a table of regression of sample - BE
 log_regBE_sample.characteristics.table <- 
   tbl_regression(
     log_regBE,
@@ -234,9 +276,8 @@ log_regBE_sample.characteristics.table <-
       ISS ~ "Injury Severity Score"
     )
   ) |>
-  add_nevent(location = "level") |> # Adds event counts to the table
-  add_n(location = "level") |> # Adds total counts to the table
-  # Add event rate calculation
+  add_nevent(location = "level") |> 
+  add_n(location = "level") |> 
   modify_table_body(
     ~ .x |> 
       dplyr::mutate(
@@ -249,158 +290,79 @@ log_regBE_sample.characteristics.table <-
         .after = stat_nevent
       )
   ) |> 
-  # Combine columns for a cleaner display
   modify_column_merge(
     pattern = "{stat_nevent} / {stat_n} ({stat_nevent_rate})",
     rows = !is.na(stat_nevent)
   ) |>
-  # Update the header for event rate
-  modify_header(stat_nevent = "**Event Rate**") |>
-  bold_p() # Optional: Bold significant p-values
-
-
-print(log_regBE_sample.characteristics.table)
+  modify_header(stat_nevent = "**Event Risk**") |>
+  bold_p() 
 
 # Create a table of regression of sample - SBP
 log_regSBP_sample.characteristics.table <- tbl_regression(log_regSBP,
-  exponentiate = TRUE,
-  label = list(
-    pt_age_yrs ~ "Age (Years)",
-    pt_Gender ~ "Gender (M/F)",
-    pt_asa_preinjury ~ "Pre-injury ASA",
-    ed_inr_numeric ~ "INR",
-    ISS ~ "Injury Severity Score",
-    V4SBP_class ~ "Shock classification - SBP"
-  )
-)
+                                                          exponentiate = TRUE,
+                                                          label = list(
+                                                            pt_age_yrs ~ "Age (Years)",
+                                                            pt_Gender ~ "Gender (M/F)",
+                                                            pt_asa_preinjury ~ "Pre-injury ASA",
+                                                            ed_inr_numeric ~ "INR",
+                                                            ISS ~ "Injury Severity Score",
+                                                            V4SBP_class ~ "Shock classification - SBP"
+                                                          )
+) |>
+  add_nevent(location = "level") |> 
+  add_n(location = "level") |> 
+  modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        stat_nevent_rate = 
+          ifelse(
+            !is.na(stat_nevent),
+            paste0(style_sigfig(stat_nevent / stat_n, scale = 100), "%"),
+            NA
+          ), 
+        .after = stat_nevent
+      )
+  ) |> 
+  modify_column_merge(
+    pattern = "{stat_nevent} / {stat_n} ({stat_nevent_rate})",
+    rows = !is.na(stat_nevent)
+  ) |>
+  modify_header(stat_nevent = "**Event Risk**") |>
+  bold_p() 
 
 # Create a table of regression of sample unadjusted - BE
 log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
-                                                         exponentiate = TRUE,
-                                                         label = list(
-                                                           BE_class ~ "Shock classification - BE"
-                                                         )
-)
+                                                                    exponentiate = TRUE,
+                                                                    label = list(
+                                                                      BE_class ~ "Shock classification - BE"
+                                                                    )
+) |>
+  bold_p()
 
 # Create a table of regression of sample unadjusted - SBP
 log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPun,
-                                                          exponentiate = TRUE,
-                                                          label = list(
-                                                            V4SBP_class ~ "Shock classification - SBP"
-                                                          )
-)
+                                                                     exponentiate = TRUE,
+                                                                     label = list(
+                                                                       V4SBP_class ~ "Shock classification - SBP"
+                                                                     )
+) |>
+  bold_p()
 
-# ggplot2
-ofi_counts_filtered <- reg.sample %>%
-  filter(ofi.categories.broad != "no") %>% 
-  group_by(BE_class, ofi.categories.broad) %>%
-  summarize(count = n()) %>% 
-  ungroup()
-
-Yaxis <- max(ofi_counts_filtered$count) + 10
-
-p <- ggplot(ofi_counts_filtered, aes(x = BE_class, y = count, fill = ofi.categories.broad)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(
-    title = "Distribution of OFI Broad Categories by BE Shock Class",
-    x = "BE Shock Class",
-    y = "Count of OFI Broad Categories"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.title = element_text(size = 10),
-    legend.position = "bottom"
-  ) +
-  scale_fill_brewer(palette = "Set1", name = "OFI Categories") +
-  scale_y_continuous(limits = c(0, Yaxis)) 
-
-print(p)
-
-# ggplot2 SBP
-ofi_counts <- reg.sample %>%
-  group_by(V4SBP_class, ofi.categories.broad) %>%
-  summarize(count = n()) %>%
-  ungroup() %>%
-  group_by(V4SBP_class) %>%
-  mutate(percent = count / sum(count) * 100)
-
-pSBP <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categories.broad)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(
-    title = "Distribution of OFI Broad Categories by SBP Shock Class",
-    x = "SBP Shock Class",
-    y = "Percentage of OFI Broad Categories"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.title = element_text(size = 10),
-    legend.position = "bottom"
-  ) +
-  scale_fill_brewer(palette = "Set1", name = "OFI Categories")
-
-#sub ofi detailed
-# ggplot2
-ofi_counts <- reg.sample %>%
-  group_by(BE_class, ofi.categories.detailed) %>%
-  summarize(count = n()) %>%
-  ungroup() %>%
-  group_by(BE_class) %>%
-  mutate(percent = count / sum(count) * 100)
-
-pd <- ggplot(ofi_counts, aes(x = BE_class, y = percent, fill = ofi.categories.detailed)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(
-    title = "Distribution of OFI detailed Categories by BE Shock Class",
-    x = "BE Shock Class",
-    y = "Percentage of OFI detailed Categories"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.title = element_text(size = 10),
-    legend.position = "bottom"
-  ) +
-  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
-
-# ggplot2 SBP
-ofi_counts <- reg.sample %>%
-  group_by(V4SBP_class, ofi.categories.detailed) %>%
-  summarize(count = n()) %>%
-  ungroup() %>%
-  group_by(V4SBP_class) %>%
-  mutate(percent = count / sum(count) * 100)
-
-pSBPd <- ggplot(ofi_counts, aes(x = V4SBP_class, y = percent, fill = ofi.categories.detailed)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(
-    title = "Distribution of OFI detailed Categories by SBP Shock Class",
-    x = "SBP Shock Class",
-    y = "Percentage of OFI detailed Categories"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.title = element_text(size = 10),
-    legend.position = "bottom"
-  ) +
-  scale_fill_brewer(palette = "Set3", name = "OFI Categories")
-
-# Create objects for descriptive data
-ofi <- paste0(sum(study.sample$ofi == "Yes"), " (", round(sum(study.sample$ofi == "Yes") / nrow(study.sample) * 100, 1), "%)")
-age <- inline_text(sample.characteristics.table, variable = pt_age_yrs, column = stat_0)
-male <- inline_text(sample.characteristics.table, variable = pt_Gender, column = stat_0, level = "Male")
-merged <- nrow(merged.data)
-sample <- nrow(study.sample)
-excludednum <- nrow(excluded)
-
-
-#table
-library(dplyr)
-
-# Prepare the data
-ofi_table <- reg.sample %>%
+# BE class table
+BEtable <- reg.sample %>%
   filter(ofi.categories.broad != "no") %>% 
   group_by(BE_class, ofi.categories.broad) %>%
   summarize(count = n(), .groups = "drop") %>% 
   group_by(BE_class) %>%
+  mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
+  ungroup()
+
+# SBP class table
+SBPtable <- reg.sample %>%
+  filter(ofi.categories.broad != "no") %>% 
+  group_by(V4SBP_class, ofi.categories.broad) %>%
+  summarize(count = n(), .groups = "drop") %>% 
+  group_by(V4SBP_class) %>%
   mutate(percentage = round((count / sum(count)) * 100, 1)) %>%
   ungroup()
 
@@ -409,83 +371,31 @@ BEsubofi <- reg.sample |>
   select(
     BE_class,
     ofi.categories.broad,
-  )
+    ofi
+  ) |>
+  filter(ofi == "Yes") |>
+  select(-ofi)
 
 BEsubofi_tbl <- tbl_summary(BEsubofi, by = BE_class)
 
-print(BEsubofi_tbl)
-
-#table 2.0
-library(dplyr)
-library(tidyr)
-
-# Define all possible OFI categories
-all_ofi_categories <- unique(reg.sample$ofi.categories.broad)
-
-# Define all BE and SBP classes
-all_be_classes <- unique(reg.sample$BE_class)
-all_sbp_classes <- unique(reg.sample$V4SBP_class)
-
-# Expand data for BE_class
-be_data_complete <- expand.grid(
-  BE_class = all_be_classes,
-  ofi.categories.broad = all_ofi_categories
-) %>%
-  filter(ofi.categories.broad != "no") %>% # Exclude "no" category
-  left_join(
-    reg.sample %>%
-      filter(ofi.categories.broad != "no") %>%
-      group_by(BE_class, ofi.categories.broad) %>%
-      summarize(count = n(), .groups = "drop") %>%
-      group_by(BE_class) %>%
-      mutate(percentage = round((count / sum(count)) * 100, 1)),
-    by = c("BE_class", "ofi.categories.broad")
-  ) %>%
-  mutate(
-    count = replace_na(count, 0),
-    percentage = replace_na(percentage, 0)
-  )
-
-# Expand data for SBP_class
-sbp_data_complete <- expand.grid(
-  V4SBP_class = all_sbp_classes,
-  ofi.categories.broad = all_ofi_categories
-) %>%
-  filter(ofi.categories.broad != "no") %>% # Exclude "no" category
-  left_join(
-    reg.sample %>%
-      filter(ofi.categories.broad != "no") %>%
-      group_by(V4SBP_class, ofi.categories.broad) %>%
-      summarize(count = n(), .groups = "drop") %>%
-      group_by(V4SBP_class) %>%
-      mutate(percentage = round((count / sum(count)) * 100, 1)),
-    by = c("V4SBP_class", "ofi.categories.broad")
-  ) %>%
-  mutate(
-    count = replace_na(count, 0),
-    percentage = replace_na(percentage, 0)
-  )
-
-# Combine BE and SBP data
-combined_table <- be_data_complete %>%
-  left_join(
-    sbp_data_complete %>%
-      rename(
-        SBP_count = count,
-        SBP_percentage = percentage
-      ),
-    by = "ofi.categories.broad"
-  ) %>%
+SBPsubofi <- reg.sample |>
   select(
-    BE_class,
-    ofi.categories.broad,
-    count,
-    percentage,
     V4SBP_class,
-    SBP_count,
-    SBP_percentage
-  )
+    ofi.categories.broad,
+    ofi
+  ) |>
+  filter(ofi == "Yes") |>
+  select(-ofi)
 
+SBPsubofi_tbl <- tbl_summary(SBPsubofi, by = V4SBP_class)
+
+# Create objects for descriptive data
+ofi <- paste0(sum(reg.sample$ofi == "Yes"), " (", round(sum(reg.sample$ofi == "Yes") / nrow(reg.sample) * 100, 1), "%)")
+age <- inline_text(sample.characteristics.table_reg, variable = pt_age_yrs, column = stat_0)
+male <- inline_text(sample.characteristics.table_reg, variable = pt_Gender, column = stat_0, level = "Male")
+merged <- nrow(merged.data)
+sample <- nrow(study.sample)
+excludednum <- nrow(excluded)
 
 #combined reg analysis
 combined_tableBE <- tbl_merge(
@@ -493,5 +403,7 @@ combined_tableBE <- tbl_merge(
   tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
 ) 
 
-print(combined_tableBE)
-
+combined_tableSBP <- tbl_merge(
+  tbls = list(log_regSBP_sample.characteristics.table, log_regSBP_sample.characteristics.table_unadjusted),
+  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
+) 

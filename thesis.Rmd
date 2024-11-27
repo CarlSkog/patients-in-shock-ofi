@@ -8,7 +8,7 @@ output:
 bibliography: bibliography.bib
 csl: vancouver.csl
 knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "out") })
+  rmarkdown::render(inputFile, encoding = encoding, output_file = "/home/carls/out/thesis.html") })
 editor_options: 
   markdown: 
     wrap: 72
@@ -222,99 +222,54 @@ source("main.R") ## This "imports" the main script file of your project and run 
 ## Participants
 There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
 
-The variable with most missing data is BE which lack the data for 1721 patients. 
+The variable with most missing data is BE which lack the data for 1721 patients.
 
+Table 3 - Sample characteristics showing missing data.
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
 ```
 
 ## Descriptive data
-The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is (...) which is class (...), median INR is (...), and the most common Preinjury ASA class is (...), at (...)%. 
+The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is 5 which is considered minor injuries, median INR is 1,00, and the most common Preinjury ASA class is 1, at 62%.  
 
+Table 4 - Sample characteristics used in regression.
 ```{r sample-characteristics BE, echo=FALSE}
-sample.characteristics.tableBE
+sample.characteristics.table_reg
 ```
 
 ## Outcome data
-Out of the `r sample` patients reviewed, `r ofi` patients had at least one positive OFI.
+Out of the `r log_reg_count` patients reviewed without missing data, `r ofi` patients had at least one positive OFI. 
 
-The most common 
+The most common broad sub-ofi category was clinical judgement error, at 103 (37%). The other three major broad sub-ofis are: inadequate resources 61 (22%), delay in treatment 49 (17%) and missed diagnosis 48 (17%). The smallest one, is other errors, at 5 (1,8%). 
 
-Table 6 and 7 present sub-ofi broad 
+When classified, the most common broad sub-ofi in class 1 (no shock) is clinical judgement error both in the BE and SBP groups, while the other sub-ofi also follow a similar distribution between the groups. The largest sub-ofi continuous to be clinical judgment error for BE group in class 2, 3 and 4, at 34,6%; 31,2%; and 42,9% in this order. On other hand, the largest sub-ofi in SBP class 2 is delay in treatment at 50%. The SBP class 3 is evenly distributed between clinical judgement error and missed diagnosis at 40% each. Lastly, class 4 SBP's most common sub-ofi is clinical judgment error 46,7%.        
 
-```{r ofitable, echo=FALSE, results='asis'}
-library(kableExtra)
+Overall 3989 (81%) of the patients were classified as having no shock (class 1) according to the BE classification, the sum of the remaining classes accounted for 930 (19%) patients. The distribution of the classes were decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3,5%), and class 4: 116 (2,4%).  
 
-ofi_table %>%
-  kbl(
-    col.names = c("BE Shock Class", "OFI Category", "Count", "Percentage (%)"),
-    caption = "Counts and Percentages of OFI Broad Categories by BE Shock Class"
-  ) %>%
-  kable_classic(full_width = FALSE) %>%
-  row_spec(0, bold = TRUE) %>% # Optional: Makes header bold
-  group_rows(index = table(ofi_table$BE_class)) # Automatically merges BE_class rows
+The SBP classification system sorted 4455 (91%) patients as having no shock (class 1), while the remaining classes with patients in shock accounted for 464 (9%) of all the patients. Among the classes defined with shock, class 2 was the biggest at 239 (4,9%), followed by class 4 at 127 (2,6%), and lastly class 3 with 99 (2,0%). 
 
+Table 5 - Sub-OFI, classified according to BE  
+
+```{r sub-ofi BE, echo=FALSE}
+BEsubofi_tbl
 ```
 
-```{r combined_ofitable, echo=FALSE, results='asis'}
-library(kableExtra)
+Table 6 - Sub-OFI, classified according to SBP
 
-combined_table %>%
-  kbl(
-    col.names = c(
-      "BE Shock Class",
-      "OFI Category",
-      "BE Count",
-      "BE Percentage (%)",
-      "SBP Shock Class",
-      "SBP Count",
-      "SBP Percentage (%)"
-    ),
-    caption = "Counts and Percentages of OFI Broad Categories by BE and SBP Shock Classes"
-  ) %>%
-  kable_classic(full_width = FALSE) %>%
-  row_spec(0, bold = TRUE) # Optional: Makes header bold
-
+```{r sub-ofi SBP, echo=FALSE}
+SBPsubofi_tbl
 ```
 
-```{r BE-subofi, echo=FALSE}
-print(p)
-```
+## Main results
+The adjusted analyses showed only statistical significance when comparing BE class 4 to class 1, which had 63% lower odds for OFI (OR 0,37; 95% CI 0,14-0,83; p-value 0.026).
 
-```{r SBP-subofi, echo=FALSE}
-print(pSBP)
-```
+The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI. For the SBP group, comparison between class 1 and class 4 showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
 
-Table 8 and 9 present sub-ofi detailed
-
-```{r SBP-subofi-detailed, echo=FALSE}
-print(pd)
-```
-
-```{r BE-subofi-detailed, echo=FALSE}
-print(pSBPd)
-```
-
-Table 10 and 11 adjusted log
+Table 7 and 8 adjusted log
 ```{r Adjusted_log, echo=FALSE}
-log_regBE_sample.characteristics.table
-log_regSBP_sample.characteristics.table
+combined_tableBE
+combined_tableSBP
 ```
-
-Table 12 and 13 unadjusted log
-```{r Unadjusted_log, echo=FALSE}
-log_regBE_sample.characteristics.table_unadjusted
-log_regSBP_sample.characteristics.table_unadjusted
-```
-
-
-You can also embed plots:
-
-```{r plot, echo=FALSE}
-plot(pressure)
-```
-
-You can also mix text and code, so called inline code, like this: `r 2+5`.
 
 # Discussion
 
