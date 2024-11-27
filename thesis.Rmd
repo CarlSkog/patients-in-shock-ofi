@@ -111,9 +111,11 @@ All patients in the trauma registry and Trauma care quality database were includ
 
 ## Variables and data sources/measurements
 
-The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the trauma care quality registry. An OFI can be various types of errors, which are categorized into: clinical judgment error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
-Patients were classified into different shock severity categories in parallel and separately, once with systolic blood pressure (SBP) and once with base excess (BE), irrespective of shock cause. Based on these two parameters, the patients will be classified into four classes roughly based on the ATLS trauma shock classifications.
-Five other metrics were included to be adjusted for, due to potential for confounding. Pre-injury ASA and gender were categorical, meanwhile age, ISS and INR were kept continuous as they were directly from the register. 
+The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the trauma care quality registry. An OFI can be various types of preventable events, and can be categorized as: clinical judgment error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
+
+The patients will be classified to different degrees of shock in parallel and separately, once with systolic blood pressure (SBP) and once with base excess (BE), regardless of their cause of shock. Based on these two parameters, the patients will be classified into four classes roughly based on the ATLS trauma shock classifications.
+
+We included five other metrics to be adjusted for, due to potential for confounding. Pre-injury ASA and gender were categorical, meanwhile age, ISS and INR were kept continuous. 
 
 ## Bias
 
@@ -122,9 +124,8 @@ Five other metrics were included to be adjusted for, due to potential for confou
 All available data in trauma registry and trauma care quality database were included.
 
 ## Quantitative variables
-
 The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg).
-This classification follows the tenth edition ATLS hemorrhage classification, which does not specify exact values for any parameter other than BE. To solve this, numerical SBP values were assigned to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age[@eastridge_hypotension_2007; @oyetunji_redefining_2011]. Therefore, 110 mmHg was set as the lower limit for (Class I: no shock) - (ATLS: normal SBP), and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al.[@mutschler_critical_2013]. 
+This classification follows the tenth edition ATLS hemorrhage classification [@noauthor_atls_2018], which does not specify exact values for any parameter other than BE. To solve this, we assigned numerical SBP values to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age[@eastridge_hypotension_2007; @oyetunji_redefining_2011]. Therefore, we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al.[@mutschler_critical_2013].
 
 **ATLS tenth edition - Systolic blood pressure and Base excess (BD)**
 
