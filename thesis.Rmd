@@ -262,9 +262,9 @@ SBPsubofi_tbl
 ```
 
 ## Main results
-The adjusted analyses showed only statistical significance when comparing BE class 4 to class 1, which had 63% lower odds for OFI (OR 0,37; 95% CI 0,14-0,83; p-value 0.026).
+The adjusted analyses showed only statistical significance when comparing BE class 4 to class 1, which had 63% reduced odds for OFI (OR 0,37; 95% CI 0,14-0,83; p-value 0.026).
 
-The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI. For the SBP group, comparison between class 1 and class 4 showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
+The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 and 3 increased odds for OFI by 61% (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) respective 91% (OR 1,91; 95% CI 1,08-3,16; p-value 0.018). The SBP group showed, when comparing class 4 to class 1, there were increased odds of 128% (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
 
 Table 7 and 8 adjusted log
 ```{r Adjusted_log, echo=FALSE}
@@ -302,6 +302,20 @@ Discuss the generalisability (external validity) of the study results
 
 -->
 ```
+## Key results
+We found that the most common type of OFI is Clinical judgement error across almost all shock severities and that there are minor if any association between shock severity and OFI.  
+
+The most common type of OFI is clinical judgement error, it is the most common in all BE shock classes and 2/4 classes for SBP classes. is around ...% of. It generally takes up ...% of all OFI defined as shock (class 2 and below). 
+
+When OFI and shock severity are analysed alone, there are statistical significant correlation for these classes: ... . It shows positive correlation where the more severe the shock is, the higher the odds are for an OFI to occur. This in constrast with the adjusted results which showed inverted correlation betwen OFI and shock severity, with 63% lower odds for OFI when comparing the BE class 4 with class 1. However there is no correlation for the other classes nor the classes for the SBP group.
+
+When analysing the other adjusted factors, ISS seems to be a major confounder which correlates to both OFI and shock severity. This can explain why the results of the adjusted and unadjusted analyses are inverted.
+
+## Limitations
+
+## Clinical applications
+
+## Future studies
 This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 The most common type of OFI is clinical judgement error, it is the most common in all BE shock classes and 2/4 classes for SBP classes. is around ...% of. It generally takes up ...% of all OFI defined as shock (class 2 and below). 
