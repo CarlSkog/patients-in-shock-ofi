@@ -1,0 +1,845 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{anyfontsize}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Opportunities for improvement in the care of adult trauma patients arriving in shock},
+  pdfauthor={Carl Skog},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Opportunities for improvement in the care of adult trauma
+patients arriving in shock}
+\author{Carl Skog}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
+
+\hypertarget{background}{%
+\subsection{Background}\label{background}}
+
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
+
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
+
+\hypertarget{epidemiology}{%
+\subsection{Epidemiology}\label{epidemiology}}
+
+Trauma is a major global public health concern. It causes over four
+million deaths, among those younger populations are the most affected
+(1). Beyond the high mortality rate, trauma also imposes a substantial
+socio-economic burden, due to long-term disabilities and rehabilitation
+needs (1). Hemorrhagic shock, the second most common cause of death
+following trauma, is the leading preventable cause of death within the
+first 24 hours post-injury (2--4).
+
+\hypertarget{shock-classifications}{%
+\subsection{Shock classifications}\label{shock-classifications}}
+
+Out of the clinical needs to assess the severity of trauma shock,
+patients can be categorized by stratifying symptoms and physiological
+parameters into degrees. Many different scoring systems have been
+developed, such as ATLS classification for hemorrhagic shock (See Table
+@ref(tab:alts) (5)), Trauma Associated Severe Hemorrhage (TASH) and
+Assessment of Blood Consumption (ABC) scores for predicting massive
+transfusion (6). While none of these systems comprehensively classifies
+shock severity across all types of trauma shock, each aid in assessing
+severity through core physiological indicators. Ultimately, these
+classifications rely on vital signs and clinical indicators,
+highlighting the importance of physiological metrics in evaluating shock
+severity across clinical settings.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2756}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1024}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1654}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2126}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2441}}@{}}
+\caption{ATLS classification for haemorrhagic shock, adapted from (5)
+\{\#tbl:atls\}.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Parameter}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class I}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class II} (Mild)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class III} (Moderate)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class IV} (Severe)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Parameter}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class I}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class II} (Mild)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class III} (Moderate)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class IV} (Severe)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Approximate blood loss & \textless15\% & 15--30\% & 31--40\% &
+\textgreater40\% \\
+Heart rate & ↔ & ↔/↑ & ↑ & ↑/↑↑ \\
+Blood pressure & ↔ & ↔ & ↔/↓ & ↓ \\
+Pulse pressure & ↔ & ↓ & ↓ & ↓ \\
+Respiratory rate & ↔ & ↔ & ↔/↑ & ↑ \\
+Urine output & ↔ & ↔ & ↓ & ↓↓ \\
+Glasgow Coma Scale score & ↔ & ↔ & ↓ & ↓ \\
+Base deficit & 0 to --2 mEq/L & --2 to --6 mEq/L & --6 to --10 mEq/L &
+--10 mEq/L or less \\
+Need for blood products & Monitor & Possible & Yes & Massive Transfusion
+Protocol \\
+\end{longtable}
+
+\hypertarget{trauma-quality-improvement-and-opportunities-for-improvement}{%
+\subsection{Trauma quality improvement and opportunities for
+improvement}\label{trauma-quality-improvement-and-opportunities-for-improvement}}
+
+The initial management of trauma patients is highly time-sensitive and
+prone to error (4,7,8). Quality Improvement (QI) initiatives address
+these challenges by systematically evaluating care processes and
+outcomes, aiming to reduce morbidity and mortality (9). Through
+structured quality measures and collaborative reviews, QI has
+strengthened trauma care and improved outcomes globally (10,11).
+Identifying Opportunities for Improvement (OFI) offers a broader
+perspective than traditional mortality reviews by also including
+non-fatal outcomes (9). Structured multidisciplinary morbidity and
+mortality (M\&M) reviews are commonly used to identify OFIs. One
+systemic and comprehensive way to identify OFI is using the Donabedian
+framework, which asses the quality of care by the three categories of:
+structure, process, and outcome (9,12).
+
+\hypertarget{shock-and-ofi}{%
+\subsection{Shock and OFI}\label{shock-and-ofi}}
+
+As mentioned before hemorrhagic shock is the leading cause of
+preventable death within the first 24 hours of injury (3). Patients in
+shock have a higher mortality rate than those not (13), with a median
+time to death of just 2 hours (14). Despite this, the relationship
+between shock, its severity, and Opportunities for Improvement (OFI)
+remains largely unexamined. This knowledge would help clinicians better
+identify and avoid preventable mistakes in shock patients who need
+urgent care.
+
+\hypertarget{aims}{%
+\subsection{Aims}\label{aims}}
+
+This study aims to describe the types of opportunities for improvement
+for adult trauma patients arriving in shock, and to assess how the
+degree of shock is associated with opportunities for improvement.
+
+\hypertarget{methods-1}{%
+\section{Methods}\label{methods-1}}
+
+\hypertarget{study-design}{%
+\subsection{Study design}\label{study-design}}
+
+We conducted a registry based retrospective cohort study, using data
+from the trauma registry and trauma care quality database at the
+Karolinska University Hospital in Solna.
+
+\hypertarget{setting}{%
+\subsection{Setting}\label{setting}}
+
+The trauma registry includes patients treated at Karolinska University
+Hospital in Solna, which treats all major trauma in the greater
+metropolitan area of Stockholm. We included patients registered between
+2014 and 2023. The trauma care quality database is a subset of the
+trauma registry and includes patients selected for review.
+
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
+
+Inclusion in the trauma registry requires either admission through
+trauma team activation or presenting with an Injury Severity Score (ISS)
+greater than nine after admission to the Karolinska University Hopsital.
+Each trauma patient is then included in a morbidity and mortality review
+process, which involves both individual case evaluations by specialized
+nurses and audit filters. Patients identified with a high potential for
+OFIs are discussed at multidisciplinary conferences. The identified OFIs
+are then categorized into broad and detailed categories. The presence or
+absence of OFIs is determined by consensus among all participants and is
+documented in the trauma care quality database.
+
+We included all patients in the trauma registry and Trauma care quality
+database. We excluded patients younger than 15 and/or were dead on
+arrival.
+
+\hypertarget{variables-and-data-sourcesmeasurements}{%
+\subsection{Variables and data
+sources/measurements}\label{variables-and-data-sourcesmeasurements}}
+
+The outcome was defined as the presence of at least one OFI, determined
+by the multidisciplinary M\&M conference in the trauma care quality
+registry. An OFI can be various types of preventable events, and can be
+categorized as: clinical judgment error, inadequate resources, delay in
+treatment, missed injury, inadequate protocols, preventable death and
+other errors.
+
+The patients will be classified to different degrees of shock in
+parallel and separately, once with systolic blood pressure (SBP) and
+once with base excess (BE), regardless of their cause of shock. Based on
+these two parameters, the patients will be classified into four classes
+roughly based on the ATLS trauma shock classifications.
+
+We included five other metrics to be adjusted for, due to potential for
+confounding. Pre-injury ASA and gender were categorical, meanwhile age,
+ISS and INR were kept continuous.
+
+\hypertarget{bias}{%
+\subsection{Bias}\label{bias}}
+
+\hypertarget{study-size}{%
+\subsection{Study size}\label{study-size}}
+
+All available data in trauma registry and trauma care quality database
+will be included.
+
+\hypertarget{quantitative-variables}{%
+\subsection{Quantitative variables}\label{quantitative-variables}}
+
+The BE parameter was divided into four classes with these cutoffs: Class
+I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV
+(below -10). Similarly, SBP was divided into four classes: Class I
+(above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and
+Class IV (below 90 mmHg). This classification follows the tenth edition
+ATLS hemorrhage classification (5), which does not specify exact values
+for any parameter other than BE. To solve this, we assigned numerical
+SBP values to each class based on findings from Eastridge et al.~and
+Oyetunji et al., who redefined hypotension as 110 mmHg respective 90
+mmHg dependent on age(15,16). Therefore, we used 110 mmHg as the lower
+limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for
+(Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3
+divided equally in between. This also aligns with the classification
+done by Mutschler et al.(17).
+
+\textbf{ATLS tenth edition - Systolic blood pressure and Base excess
+(BD)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2734}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1016}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1719}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2109}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2422}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Parameter - original ATLS 10th edition}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class I}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class II} (Mild)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class III} (Moderate)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Class IV} (Severe)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Base deficit & 0 to --2 mEq/L & --2 to --6 mEq/L & --6 to --10 mEq/L &
+--10 mEq/L or less \\
+Systolic Blood pressure & ↔ & ↔ & ↔/↓ & ↓ \\
+\textbf{Parameter - numerical approximated SBP} & & & & \\
+Systolic Blood pressure & \textgreater110 mmhg & 109-100 mmhg & 99-90
+mmhg & \textless90 mmhg \\
+\end{longtable}
+
+Please note that ATLS classification defines class I for the BE
+parameter as (0 to -2) however, we choose to follow its original
+source(18), which defines class I as base deficit (Inverted BE) ≤ 2,
+with no lower limit (i.e.~an upper limit for BE).
+
+\hypertarget{statistical-methods}{%
+\subsection{Statistical methods}\label{statistical-methods}}
+
+The statistical analysis will be performed using R, a programming
+language and environment for statistical computing. We will present the
+types of OFI as percentage distributions and then visualize them in a
+bar chart. Unadjusted logistic regression will be used to determine the
+association between the OFI, and degree of shock defined separately by
+classifying BE and SBP roughly according to ATLS classification of
+hemorrhagic shock. Adjusted logistic regression will then incorporate
+other patient factors such as age, sex, preinjury ASA, INR, and ISS. It
+will be presented as odds ratios (OR) between the presence of OFI, and
+shock classes. The OR will be determined with 95\% confidence intervals,
+and a significance level of 5\% will be used. All statistical analysis
+will first be done on synthetic data and later implemented on the data
+collected from the trauma registry and the trauma care quality database
+to ensure objectivity. Missing data will be addressed by listwise
+deletion.
+
+\hypertarget{results-1}{%
+\section{Results}\label{results-1}}
+
+\hypertarget{participants-1}{%
+\subsection{Participants}\label{participants-1}}
+
+There were a total of 14022 patients in the trauma registry. After
+excluding the patients younger than 15 and/or were dead on arrival,
+there were 12153 patients left. Out of those, 7152 patients had been
+reviewed for the presence of OFI. A total of 2233 patients were excluded
+due to missing data, resulting in 4919 patients for the final analysis.
+
+The variable with most missing data is BE which lack the data for 1721
+patients.
+
+Table 3 - Sample characteristics showing missing data.
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+\toprule
+\textbf{Characteristic} & \textbf{Overall}  N = 7,152\textsuperscript{\textit{1}} & \textbf{No}  N = 6,716\textsuperscript{\textit{1}} & \textbf{Yes}  N = 436\textsuperscript{\textit{1}} & \textbf{p-value}\textsuperscript{\textit{2}} \\ 
+\midrule\addlinespace[2.5pt]
+Age (Years) & 40 (26, 56) & 40 (26, 56) & 45 (28, 61) & <0.001 \\ 
+Gender (M/F) &  &  &  & 0.14 \\ 
+    Female & 2,159 (30\%) & 2,041 (30\%) & 118 (27\%) &  \\ 
+    Male & 4,993 (70\%) & 4,675 (70\%) & 318 (73\%) &  \\ 
+Pre-injury ASA &  &  &  & 0.031 \\ 
+    1 & 4,362 (61\%) & 4,121 (61\%) & 241 (55\%) &  \\ 
+    2 & 1,803 (25\%) & 1,684 (25\%) & 119 (27\%) &  \\ 
+    3 & 949 (13\%) & 874 (13\%) & 75 (17\%) &  \\ 
+    4 & 29 (0.4\%) & 28 (0.4\%) & 1 (0.2\%) &  \\ 
+    Unknown & 9 & 9 & 0 &  \\ 
+Systolic blood pressure (mmhg) & 135 (121, 150) & 135 (121, 150) & 135 (120, 150) & 0.6 \\ 
+    Unknown & 123 & 114 & 9 &  \\ 
+Injury Severity Score & 9 (1, 16) & 8 (1, 14) & 17 (10, 24) & <0.001 \\ 
+    Unknown & 2 & 2 & 0 &  \\ 
+OFI categories broad &  &  &  &  \\ 
+    Clinical judgement error & 157 (36\%) & 0 (NA\%) & 157 (36\%) &  \\ 
+    Delay in treatment & 67 (15\%) & 0 (NA\%) & 67 (15\%) &  \\ 
+    Documentation Issues & 14 (3.2\%) & 0 (NA\%) & 14 (3.2\%) &  \\ 
+    Inadequate protocols & 21 (4.8\%) & 0 (NA\%) & 21 (4.8\%) &  \\ 
+    Inadequate resources & 104 (24\%) & 0 (NA\%) & 104 (24\%) &  \\ 
+    Missed diagnosis & 67 (15\%) & 0 (NA\%) & 67 (15\%) &  \\ 
+    Other errors & 5 (1.1\%) & 0 (NA\%) & 5 (1.1\%) &  \\ 
+    Unknown & 6,717 & 6,716 & 1 &  \\ 
+Base Excess (BE) & 0.8 (-1.3, 2.1) & 0.9 (-1.2, 2.2) & 0.0 (-2.4, 1.5) & <0.001 \\ 
+    Unknown & 1,721 & 1,597 & 124 &  \\ 
+INR & 1.00 (1.00, 1.10) & 1.00 (1.00, 1.10) & 1.00 (1.00, 1.10) & <0.001 \\ 
+    Unknown & 1,620 & 1,517 & 103 &  \\ 
+Shock classification - BE &  &  &  & 0.003 \\ 
+    Class 1 & 4,391 (81\%) & 4,162 (81\%) & 229 (73\%) &  \\ 
+    Class 2 & 719 (13\%) & 664 (13\%) & 55 (18\%) &  \\ 
+    Class 3 & 191 (3.5\%) & 172 (3.4\%) & 19 (6.1\%) &  \\ 
+    Class 4 & 130 (2.4\%) & 121 (2.4\%) & 9 (2.9\%) &  \\ 
+    Unknown & 1,721 & 1,597 & 124 &  \\ 
+Shock classification - SBP &  &  &  & 0.006 \\ 
+    Class 1 & 6,356 (90\%) & 5,983 (91\%) & 373 (87\%) &  \\ 
+    Class 2 & 355 (5.1\%) & 331 (5.0\%) & 24 (5.6\%) &  \\ 
+    Class 3 & 147 (2.1\%) & 138 (2.1\%) & 9 (2.1\%) &  \\ 
+    Class 4 & 171 (2.4\%) & 150 (2.3\%) & 21 (4.9\%) &  \\ 
+    Unknown & 123 & 114 & 9 &  \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}Median (Q1, Q3); n (\%)\\
+\textsuperscript{\textit{2}}Wilcoxon rank sum test; Pearson's Chi-squared test; Fisher's exact test\\
+\end{minipage}
+\end{table}
+
+\hypertarget{descriptive-data}{%
+\subsection{Descriptive data}\label{descriptive-data}}
+
+The study demographics median age is 39 (25, 56) and the most common
+gender is male, 3,506 (71\%). Clinically, the median ISS is 5 which is
+considered minor injuries, median INR is 1,00, and the most common
+Preinjury ASA class is 1, at 62\%.
+
+Table 4 - Sample characteristics used in regression.
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+\toprule
+\textbf{Characteristic} & \textbf{Overall}  N = 4,919\textsuperscript{\textit{1}} & \textbf{No}  N = 4,638\textsuperscript{\textit{1}} & \textbf{Yes}  N = 281\textsuperscript{\textit{1}} & \textbf{p-value}\textsuperscript{\textit{2}} \\ 
+\midrule\addlinespace[2.5pt]
+Age (Years) & 39 (25, 56) & 39 (25, 55) & 44 (26, 60) & 0.016 \\ 
+Gender (M/F) &  &  &  & 0.2 \\ 
+    Female & 1,413 (29\%) & 1,341 (29\%) & 72 (26\%) &  \\ 
+    Male & 3,506 (71\%) & 3,297 (71\%) & 209 (74\%) &  \\ 
+Pre-injury ASA &  &  &  & 0.12 \\ 
+    1 & 3,032 (62\%) & 2,874 (62\%) & 158 (56\%) &  \\ 
+    2 & 1,240 (25\%) & 1,163 (25\%) & 77 (27\%) &  \\ 
+    3 & 626 (13\%) & 580 (13\%) & 46 (16\%) &  \\ 
+    4 & 21 (0.4\%) & 21 (0.5\%) & 0 (0\%) &  \\ 
+Systolic blood pressure (mmhg) & 136 (122, 150) & 136 (122, 150) & 136 (120, 150) & 0.8 \\ 
+Injury Severity Score & 5 (1, 14) & 5 (1, 13) & 17 (9, 22) & <0.001 \\ 
+OFI categories broad &  &  &  &  \\ 
+    Clinical judgement error & 103 (37\%) & 0 (NA\%) & 103 (37\%) &  \\ 
+    Delay in treatment & 49 (17\%) & 0 (NA\%) & 49 (17\%) &  \\ 
+    Documentation Issues & 9 (3.2\%) & 0 (NA\%) & 9 (3.2\%) &  \\ 
+    Inadequate protocols & 6 (2.1\%) & 0 (NA\%) & 6 (2.1\%) &  \\ 
+    Inadequate resources & 61 (22\%) & 0 (NA\%) & 61 (22\%) &  \\ 
+    Missed diagnosis & 48 (17\%) & 0 (NA\%) & 48 (17\%) &  \\ 
+    Other errors & 5 (1.8\%) & 0 (NA\%) & 5 (1.8\%) &  \\ 
+    Unknown & 4,638 & 4,638 & 0 &  \\ 
+Base Excess (BE) & 0.9 (-1.2, 2.2) & 0.9 (-1.1, 2.3) & 0.0 (-2.4, 1.4) & <0.001 \\ 
+INR & 1.00 (1.00, 1.10) & 1.00 (1.00, 1.10) & 1.00 (1.00, 1.10) & <0.001 \\ 
+Shock classification - BE &  &  &  & 0.004 \\ 
+    Class 1 & 3,989 (81\%) & 3,783 (82\%) & 206 (73\%) &  \\ 
+    Class 2 & 644 (13\%) & 592 (13\%) & 52 (19\%) &  \\ 
+    Class 3 & 170 (3.5\%) & 154 (3.3\%) & 16 (5.7\%) &  \\ 
+    Class 4 & 116 (2.4\%) & 109 (2.4\%) & 7 (2.5\%) &  \\ 
+Shock classification - SBP &  &  &  & 0.028 \\ 
+    Class 1 & 4,455 (91\%) & 4,208 (91\%) & 247 (88\%) &  \\ 
+    Class 2 & 239 (4.9\%) & 225 (4.9\%) & 14 (5.0\%) &  \\ 
+    Class 3 & 98 (2.0\%) & 93 (2.0\%) & 5 (1.8\%) &  \\ 
+    Class 4 & 127 (2.6\%) & 112 (2.4\%) & 15 (5.3\%) &  \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}Median (Q1, Q3); n (\%)\\
+\textsuperscript{\textit{2}}Wilcoxon rank sum test; Pearson's Chi-squared test; Fisher's exact test\\
+\end{minipage}
+\end{table}
+
+\hypertarget{outcome-data}{%
+\subsection{Outcome data}\label{outcome-data}}
+
+Out of the 4919 patients reviewed without missing data, 281 (5.7\%)
+patients had at least one positive OFI.
+
+The most common broad sub-ofi category was clinical judgement error, at
+103 (37\%). The other three major broad sub-ofis are: inadequate
+resources 61 (22\%), delay in treatment 49 (17\%) and missed diagnosis
+48 (17\%). The smallest one, is other errors, at 5 (1,8\%).
+
+When classified, the most common broad sub-ofi in class 1 (no shock) is
+clinical judgement error both in the BE and SBP groups, while the other
+sub-ofi also follow a similar distribution between the groups. The
+largest sub-ofi continuous to be clinical judgment error for BE group in
+class 2, 3 and 4, at 34,6\%; 31,2\%; and 42,9\% in this order. On other
+hand, the largest sub-ofi in SBP class 2 is delay in treatment at 50\%.
+The SBP class 3 is evenly distributed between clinical judgement error
+and missed diagnosis at 40\% each. Lastly, class 4 SBP's most common
+sub-ofi is clinical judgment error 46,7\%.
+
+Overall 3989 (81\%) of the patients were classified as having no shock
+(class 1) according to the BE classification, the sum of the remaining
+classes accounted for 930 (19\%) patients. The distribution of the
+classes were decreasing in numbers with increased severity, with class
+2: 644 (13\%), class 3: 170 (3,5\%), and class 4: 116 (2,4\%).
+
+The SBP classification system sorted 4455 (91\%) patients as having no
+shock (class 1), while the remaining classes with patients in shock
+accounted for 464 (9\%) of all the patients. Among the classes defined
+with shock, class 2 was the biggest at 239 (4,9\%), followed by class 4
+at 127 (2,6\%), and lastly class 3 with 99 (2,0\%).
+
+Table 5 - Sub-OFI, classified according to BE
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+\toprule
+\textbf{Characteristic} & \textbf{Class 1}  N = 206\textsuperscript{\textit{1}} & \textbf{Class 2}  N = 52\textsuperscript{\textit{1}} & \textbf{Class 3}  N = 16\textsuperscript{\textit{1}} & \textbf{Class 4}  N = 7\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+OFI categories broad &  &  &  &  \\ 
+    Clinical judgement error & 77 (37\%) & 18 (35\%) & 5 (31\%) & 3 (43\%) \\ 
+    Delay in treatment & 32 (16\%) & 12 (23\%) & 4 (25\%) & 1 (14\%) \\ 
+    Documentation Issues & 6 (2.9\%) & 2 (3.8\%) & 1 (6.3\%) & 0 (0\%) \\ 
+    Inadequate protocols & 5 (2.4\%) & 1 (1.9\%) & 0 (0\%) & 0 (0\%) \\ 
+    Inadequate resources & 46 (22\%) & 9 (17\%) & 4 (25\%) & 2 (29\%) \\ 
+    Missed diagnosis & 39 (19\%) & 8 (15\%) & 1 (6.3\%) & 0 (0\%) \\ 
+    Other errors & 1 (0.5\%) & 2 (3.8\%) & 1 (6.3\%) & 1 (14\%) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}n (\%)\\
+\end{minipage}
+\end{table}
+
+Table 6 - Sub-OFI, classified according to SBP
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+\toprule
+\textbf{Characteristic} & \textbf{Class 1}  N = 247\textsuperscript{\textit{1}} & \textbf{Class 2}  N = 14\textsuperscript{\textit{1}} & \textbf{Class 3}  N = 5\textsuperscript{\textit{1}} & \textbf{Class 4}  N = 15\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+OFI categories broad &  &  &  &  \\ 
+    Clinical judgement error & 91 (37\%) & 3 (21\%) & 2 (40\%) & 7 (47\%) \\ 
+    Delay in treatment & 39 (16\%) & 7 (50\%) & 1 (20\%) & 2 (13\%) \\ 
+    Documentation Issues & 8 (3.2\%) & 1 (7.1\%) & 0 (0\%) & 0 (0\%) \\ 
+    Inadequate protocols & 4 (1.6\%) & 1 (7.1\%) & 0 (0\%) & 1 (6.7\%) \\ 
+    Inadequate resources & 57 (23\%) & 1 (7.1\%) & 0 (0\%) & 3 (20\%) \\ 
+    Missed diagnosis & 44 (18\%) & 1 (7.1\%) & 2 (40\%) & 1 (6.7\%) \\ 
+    Other errors & 4 (1.6\%) & 0 (0\%) & 0 (0\%) & 1 (6.7\%) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}n (\%)\\
+\end{minipage}
+\end{table}
+
+\hypertarget{main-results}{%
+\subsection{Main results}\label{main-results}}
+
+The adjusted analyses showed only statistical significance when
+comparing BE class 4 to class 1, which had 63\% lower odds for OFI (OR
+0,37; 95\% CI 0,14-0,83; p-value 0.026).
+
+The un-adjusted analysis showed when comparing to class 1 in BE group,
+class 2 (OR 1,61; 95\% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95\%
+CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI.
+For the SBP group, comparison between class 1 and class 4 showed
+significant increased risk (OR 2,28; 95\% CI 1,26-3,85; p-value 0.004).
+
+Table 7 and 8 adjusted log
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Adjusted Model}} & \multicolumn{3}{c}{\textbf{Unadjusted Model}} \\ 
+\cmidrule(lr){2-5} \cmidrule(lr){6-8}
+\textbf{Characteristic} & \textbf{Event Risk} & \textbf{OR}\textsuperscript{\textit{1}} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{OR}\textsuperscript{\textit{1}} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
+\midrule\addlinespace[2.5pt]
+Shock classification - BE &  &  &  &  &  &  &  \\ 
+    Class 1 & 206 / 3,989 (5.2\%) & — & — &  & — & — &  \\ 
+    Class 2 & 52 / 644 (8.1\%) & 1.12 & 0.79, 1.55 & 0.5 & 1.61 & 1.17, 2.20 & {\bfseries 0.003} \\ 
+    Class 3 & 16 / 170 (9.4\%) & 0.93 & 0.50, 1.62 & 0.8 & 1.91 & 1.08, 3.16 & {\bfseries 0.018} \\ 
+    Class 4 & 7 / 116 (6.0\%) & 0.37 & 0.14, 0.83 & {\bfseries 0.026} & 1.18 & 0.49, 2.39 & 0.7 \\ 
+Age (Years) & 281 / 4,919 (5.7\%) & 1.01 & 1.00, 1.01 & 0.10 &  &  &  \\ 
+Gender (M/F) &  &  &  &  &  &  &  \\ 
+    Female & 72 / 1,413 (5.1\%) & — & — &  &  &  &  \\ 
+    Male & 209 / 3,506 (6.0\%) & 1.10 & 0.84, 1.48 & 0.5 &  &  &  \\ 
+Pre-injury ASA &  &  &  &  &  &  &  \\ 
+    1 & 158 / 3,032 (5.2\%) & — & — &  &  &  &  \\ 
+    2 & 77 / 1,240 (6.2\%) & 1.05 & 0.77, 1.41 & 0.8 &  &  &  \\ 
+    3 & 46 / 626 (7.3\%) & 1.19 & 0.79, 1.76 & 0.4 &  &  &  \\ 
+    4 & 0 / 21 (0.00\%) & 0.00 &  & >0.9 &  &  &  \\ 
+INR & 281 / 4,919 (5.7\%) & 1.15 & 0.78, 1.52 & 0.4 &  &  &  \\ 
+Injury Severity Score & 281 / 4,919 (5.7\%) & 1.06 & 1.05, 1.07 & {\bfseries <0.001} &  &  &  \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}OR = Odds Ratio, CI = Confidence Interval\\
+\end{minipage}
+\end{table}
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Adjusted Model}} & \multicolumn{3}{c}{\textbf{Unadjusted Model}} \\ 
+\cmidrule(lr){2-5} \cmidrule(lr){6-8}
+\textbf{Characteristic} & \textbf{Event Risk} & \textbf{OR}\textsuperscript{\textit{1}} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{OR}\textsuperscript{\textit{1}} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
+\midrule\addlinespace[2.5pt]
+Shock classification - SBP &  &  &  &  &  &  &  \\ 
+    Class 1 & 247 / 4,455 (5.5\%) & — & — &  & — & — &  \\ 
+    Class 2 & 14 / 239 (5.9\%) & 0.96 & 0.52, 1.64 & 0.9 & 1.06 & 0.58, 1.78 & 0.8 \\ 
+    Class 3 & 5 / 98 (5.1\%) & 0.47 & 0.16, 1.13 & 0.13 & 0.92 & 0.32, 2.05 & 0.8 \\ 
+    Class 4 & 15 / 127 (12\%) & 0.73 & 0.37, 1.35 & 0.3 & 2.28 & 1.26, 3.85 & {\bfseries 0.004} \\ 
+Age (Years) & 281 / 4,919 (5.7\%) & 1.01 & 1.00, 1.01 & 0.076 &  &  &  \\ 
+Gender (M/F) &  &  &  &  &  &  &  \\ 
+    Female & 72 / 1,413 (5.1\%) & — & — &  &  &  &  \\ 
+    Male & 209 / 3,506 (6.0\%) & 1.13 & 0.85, 1.51 & 0.4 &  &  &  \\ 
+Pre-injury ASA &  &  &  &  &  &  &  \\ 
+    1 & 158 / 3,032 (5.2\%) & — & — &  &  &  &  \\ 
+    2 & 77 / 1,240 (6.2\%) & 1.03 & 0.76, 1.39 & 0.9 &  &  &  \\ 
+    3 & 46 / 626 (7.3\%) & 1.17 & 0.77, 1.73 & 0.5 &  &  &  \\ 
+    4 & 0 / 21 (0.00\%) & 0.00 &  & >0.9 &  &  &  \\ 
+INR & 281 / 4,919 (5.7\%) & 1.14 & 0.76, 1.52 & 0.4 &  &  &  \\ 
+Injury Severity Score & 281 / 4,919 (5.7\%) & 1.06 & 1.05, 1.07 & {\bfseries <0.001} &  &  &  \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}OR = Odds Ratio, CI = Confidence Interval\\
+\end{minipage}
+\end{table}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\hypertarget{conclusion-1}{%
+\section{Conclusion}\label{conclusion-1}}
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-noauthor_injuries_nodate}{}}%
+\CSLLeftMargin{1. }%
+\CSLRightInline{Injuries and violence {[}Internet{]}. {[}cited 2024 Sep
+10{]}. Available from:
+\url{https://www.who.int/news-room/fact-sheets/detail/injuries-and-violence}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-kauvar_impact_2006}{}}%
+\CSLLeftMargin{2. }%
+\CSLRightInline{Kauvar DS, Lefering R, Wade CE. Impact of {Hemorrhage}
+on {Trauma} {Outcome}: {An} {Overview} of {Epidemiology}, {Clinical}
+{Presentations}, and {Therapeutic} {Considerations}. Journal of Trauma
+and Acute Care Surgery {[}Internet{]}. 2006 Jun {[}cited 2024 Sep
+19{]};60(6):S3. Available from:
+\url{https://journals.lww.com/jtrauma/fulltext/2006/06001/impact_of_hemorrhage_on_trauma_outcome__an.2.aspx}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-berry_shock_2015}{}}%
+\CSLLeftMargin{3. }%
+\CSLRightInline{Berry S. Shock {Management} in {Trauma}. In: Papadakos
+PJ, Gestring ML, editors. Encyclopedia of {Trauma} {Care}
+{[}Internet{]}. Berlin, Heidelberg: Springer; 2015 {[}cited 2024 Sep
+20{]}. p. 1484--8. Available from:
+\url{https://doi.org/10.1007/978-3-642-29613-0_505}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-teixeira_preventable_2007}{}}%
+\CSLLeftMargin{4. }%
+\CSLRightInline{Teixeira PGR, Inaba K, Hadjizacharia P, Brown C, Salim
+A, Rhee P, et al.
+\href{https://doi.org/10.1097/TA.0b013e31815078ae}{Preventable or
+potentially preventable mortality at a mature trauma center}. The
+Journal of Trauma. 2007 Dec;63(6):1338-1346; discussion 1346-1347. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-noauthor_atls_2018}{}}%
+\CSLLeftMargin{5. }%
+\CSLRightInline{{ATLS} advanced trauma life support {[}Internet{]}. 10th
+ed. Vol. 2018. Chicago: American College of Surgeons; 2018 {[}cited 2024
+Sep 22{]}. Available from:
+\url{https://cirugia.facmed.unam.mx/wp-content/uploads/2018/07/Advanced-Trauma-Life-Support.pdf}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-el-menyar_review_2019}{}}%
+\CSLLeftMargin{6. }%
+\CSLRightInline{El-Menyar A, Mekkodathil A, Abdelrahman H, Latifi R,
+Galwankar S, Al-Thani H, et al. Review of {Existing} {Scoring} {Systems}
+for {Massive} {Blood} {Transfusion} in {Trauma} {Patients}: {Where} {Do}
+{We} {Stand}? Shock {[}Internet{]}. 2019 Sep {[}cited 2024 Oct
+24{]};52(3):288. Available from:
+\url{https://journals.lww.com/shockjournal/fulltext/2019/09000/review_of_existing_scoring_systems_for_massive.2.aspx}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-mackersie_pitfalls_2010}{}}%
+\CSLLeftMargin{7. }%
+\CSLRightInline{Mackersie RC. Pitfalls in the {Evaluation} and
+{Resuscitation} of the {Trauma} {Patient}. Emergency Medicine Clinics of
+North America {[}Internet{]}. 2010 Feb {[}cited 2024 Sep
+10{]};28(1):1--27. Available from:
+\url{https://www.sciencedirect.com/science/article/pii/S0733862709001199}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ivatury_patient_2008}{}}%
+\CSLLeftMargin{8. }%
+\CSLRightInline{Ivatury RR, Guilford K, Malhotra AK, Duane T, Aboutanos
+M, Martin N. \href{https://doi.org/10.1097/TA.0b013e318163359d}{Patient
+safety in trauma: Maximal impact management errors at a level {I} trauma
+center}. The Journal of Trauma. 2008 Feb;64(2):265-270; discussion
+270-272. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-world_health_organization_guidelines_2009}{}}%
+\CSLLeftMargin{9. }%
+\CSLRightInline{World Health Organization. Guidelines for trauma quality
+improvement programmes. 2009 {[}cited 2024 Sep 20{]};104. Available
+from: \url{https://iris.who.int/handle/10665/44061}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-juillard_establishing_2009}{}}%
+\CSLLeftMargin{10. }%
+\CSLRightInline{Juillard CJ, Mock C, Goosen J, Joshipura M, Civil I.
+\href{https://doi.org/10.1007/s00268-009-9959-8}{Establishing the
+evidence base for trauma quality improvement: A collaborative
+{WHO}-{IATSIC} review}. World Journal of Surgery. 2009
+May;33(5):1075--86. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-hashmi_hospital-based_2013}{}}%
+\CSLLeftMargin{11. }%
+\CSLRightInline{Hashmi ZG, Haider AH, Zafar SN, Kisat M, Moosa A,
+Siddiqui F, et al.
+\href{https://doi.org/10.1097/TA.0b013e31829880a0}{Hospital-based trauma
+quality improvement initiatives: First step toward improving trauma
+outcomes in the developing world}. The Journal of Trauma and Acute Care
+Surgery. 2013 Jul;75(1):60--68; discussion 68. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-donabedian_quality_1988}{}}%
+\CSLLeftMargin{12. }%
+\CSLRightInline{Donabedian A. The {Quality} of {Care}: {How} {Can} {It}
+{Be} {Assessed}? JAMA {[}Internet{]}. 1988 Sep {[}cited 2024 Sep
+19{]};260(12):1743--8. Available from:
+\url{https://doi.org/10.1001/jama.1988.03410120089033}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-vang_shock_2022}{}}%
+\CSLLeftMargin{13. }%
+\CSLRightInline{Vang M, Østberg M, Steinmetz J, Rasmussen LS.
+\href{https://doi.org/10.1007/s00068-022-01932-z}{Shock index as a
+predictor for mortality in trauma patients: A systematic review and
+meta-analysis}. European Journal of Trauma and Emergency Surgery:
+Official Publication of the European Trauma Society. 2022
+Aug;48(4):2559--66. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-tisherman_detailed_2015}{}}%
+\CSLLeftMargin{14. }%
+\CSLRightInline{Tisherman SA, Schmicker RH, Brasel KJ, Bulger EM, Kerby
+JD, Minei JP, et al.
+\href{https://doi.org/10.1097/SLA.0000000000000837}{Detailed description
+of all deaths in both the shock and traumatic brain injury hypertonic
+saline trials of the {Resuscitation} {Outcomes} {Consortium}}. Annals of
+Surgery. 2015 Mar;261(3):586--90. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-eastridge_hypotension_2007}{}}%
+\CSLLeftMargin{15. }%
+\CSLRightInline{Eastridge BJ, Salinas J, McManus JG, Blackburn L, Bugler
+EM, Cooke WH, et al.
+\href{https://doi.org/10.1097/TA.0b013e31809ed924}{Hypotension begins at
+110 mm {Hg}: Redefining "hypotension" with data}. The Journal of Trauma.
+2007 Aug;63(2):291-297; discussion 297-299. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-oyetunji_redefining_2011}{}}%
+\CSLLeftMargin{16. }%
+\CSLRightInline{Oyetunji TA, Chang DC, Crompton JG, Greene WR, Efron DT,
+Haut ER, et al.
+\href{https://doi.org/10.1001/archsurg.2011.154}{Redefining hypotension
+in the elderly: Normotension is not reassuring}. Archives of Surgery
+(Chicago, Ill: 1960). 2011 Jul;146(7):865--9. }
+
+\leavevmode\vadjust pre{\hypertarget{ref-mutschler_critical_2013}{}}%
+\CSLLeftMargin{17. }%
+\CSLRightInline{Mutschler M, Nienaber U, Brockamp T, Wafaisade A, Wyen
+H, Peiniger S, et al. A critical reappraisal of the {ATLS}
+classification of hypovolaemic shock: {Does} it really reflect clinical
+reality? Resuscitation {[}Internet{]}. 2013 Mar {[}cited 2024 Oct
+24{]};84(3):309--13. Available from:
+\url{https://www.sciencedirect.com/science/article/pii/S0300957212003693}}
+
+\leavevmode\vadjust pre{\hypertarget{ref-mutschler_renaissance_2013}{}}%
+\CSLLeftMargin{18. }%
+\CSLRightInline{Mutschler M, Nienaber U, Brockamp T, Wafaisade A, Fabian
+T, Paffrath T, et al. Renaissance of base deficit for the initial
+assessment of trauma patients: A base deficit-based classification for
+hypovolemic shock developed on data from 16,305 patients derived from
+the {TraumaRegister} {DGU}®. Critical Care {[}Internet{]}. 2013 Mar
+{[}cited 2024 Oct 24{]};17(2):R42. Available from:
+\url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3672480/}}
+
+\end{CSLReferences}
+
+\end{document}

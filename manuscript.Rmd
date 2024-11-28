@@ -1,9 +1,11 @@
 ---
-title: "Opportunities for improvement in the care of adult trauma patients arriving in shock"
+title: Opportunities for improvement in the care of adult trauma patients arriving
+  in shock
 author: "Carl Skog"
 output:
-  html_document: default
   word_document: default
+  pdf_document: default
+  html_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 ---
@@ -65,7 +67,7 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected [@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs [@noauthor_injuries_nodate]. Hemorrhagic shock, the second most common cause of death following trauma, is the leading preventable cause of death within the first 24 hours post-injury  [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007].
  
 ## Shock classifications
-Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:alts) [@noauthor_atls_2018], Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
+Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:alts) [@noauthor_atls_2018]), Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
 
 | **Parameter**                     | **Class I** | **Class II** (Mild) | **Class III** (Moderate)  | **Class IV** (Severe)         |
 |-----------------------------------|-------------|---------------------|---------------------------|-------------------------------|
