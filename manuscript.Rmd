@@ -3,9 +3,10 @@ title: Opportunities for improvement in the care of adult trauma patients arrivi
   in shock
 author: "Carl Skog"
 output:
-  word_document: default
-  pdf_document: default
-  html_document: default
+  # word_document: default
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+  # html_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 ---
@@ -67,7 +68,9 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected [@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs [@noauthor_injuries_nodate]. Hemorrhagic shock, the second most common cause of death following trauma, is the leading preventable cause of death within the first 24 hours post-injury  [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007].
  
 ## Shock classifications
-Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:alts) [@noauthor_atls_2018]), Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
+Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:atls) [@noauthor_atls_2018]), Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
+
+Table: (\#tab:atls) ATLS classification for haemorrhagic shock, adapted from [@noauthor_atls_2018].
 
 | **Parameter**                     | **Class I** | **Class II** (Mild) | **Class III** (Moderate)  | **Class IV** (Severe)         |
 |-----------------------------------|-------------|---------------------|---------------------------|-------------------------------|
@@ -80,8 +83,6 @@ Out of the clinical needs to assess the severity of trauma shock, patients can b
 | Glasgow Coma Scale score          | ↔           | ↔                   | ↓                         | ↓                             |
 | Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L    | –6 to –10 mEq/L           | –10 mEq/L or less             |
 | Need for blood products           | Monitor     | Possible            | Yes                       | Massive Transfusion Protocol  |
-
-Table: ATLS classification for haemorrhagic shock, adapted from [@noauthor_atls_2018] {#tbl:atls}.
 
 ## Trauma quality improvement and opportunities for improvement
 The initial management of trauma patients is highly time-sensitive and prone to error  [@mackersie_pitfalls_2010;@teixeira_preventable_2007;@ivatury_patient_2008]. Quality Improvement (QI) initiatives address these challenges by systematically evaluating care processes and outcomes, aiming to reduce morbidity and mortality [@world_health_organization_guidelines_2009]. Through structured quality measures and collaborative reviews, QI has strengthened trauma care and improved outcomes globally  [@juillard_establishing_2009;@hashmi_hospital-based_2013].
@@ -125,10 +126,10 @@ All available data in trauma registry and trauma care quality database will be i
 
 ## Quantitative variables
 
-The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg).
+Table \@ref(tab:mod-atls) shows how we defined shock according to BE and SBP. The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg).
 This classification follows the tenth edition ATLS hemorrhage classification [@noauthor_atls_2018], which does not specify exact values for any parameter other than BE. To solve this, we assigned numerical SBP values to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age[@eastridge_hypotension_2007; @oyetunji_redefining_2011]. Therefore, we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al.[@mutschler_critical_2013]. 
 
-**ATLS tenth edition - Systolic blood pressure and Base excess (BD)**
+Table: (\#tab:mod-atls) ATLS tenth edition - Systolic blood pressure and Base excess (BD).
 
 | **Parameter - original ATLS 10th edition**| **Class I** | **Class II** (Mild)  | **Class III** (Moderate)  | **Class IV** (Severe) |
 |-----------------------------------|-------------|----------------------|---------------------------|-------------------------------|
@@ -159,11 +160,11 @@ sample.characteristics.table
 ```
 
 ## Descriptive data
-The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is 5 which is considered minor injuries, median INR is 1,00, and the most common Preinjury ASA class is 1, at 62%.  
+Table \@ref(tab:sample-characteristics-reg) describes the characteristics of the study population. The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is 5 which is considered minor injuries, median INR is 1,00, and the most common Preinjury ASA class is 1, at 62%.  
 
-Table 4 - Sample characteristics used in regression.
-```{r sample-characteristics BE, echo=FALSE}
-sample.characteristics.table_reg
+```{r sample-characteristics-reg, echo=FALSE}
+sample.characteristics.table_reg |>
+  modify_caption("Sample characteristics used in regression.")
 ```
 
 ## Outcome data
