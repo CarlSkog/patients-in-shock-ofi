@@ -63,12 +63,15 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
 ```
 # Introduction
- 
-## Epidemiology
-Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected [@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs [@noauthor_injuries_nodate]. Hemorrhagic shock, the second most common cause of death following trauma, is the leading preventable cause of death within the first 24 hours post-injury  [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007].
- 
-## Shock classifications
-Out of the clinical needs to assess the severity of trauma shock, patients can be categorized by stratifying symptoms and physiological parameters into degrees. Many different scoring systems have been developed, such as ATLS classification for hemorrhagic shock (See Table \@ref(tab:atls) [@noauthor_atls_2018]), Trauma Associated Severe Hemorrhage (TASH) and Assessment of Blood Consumption (ABC) scores for predicting massive transfusion [@el-menyar_review_2019]. While none of these systems comprehensively classifies shock severity across all types of trauma shock, each aid in assessing severity through core physiological indicators. Ultimately, these classifications rely on vital signs and clinical indicators, highlighting the importance of physiological metrics in evaluating shock severity across clinical settings.
+Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected[@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs[@noauthor_injuries_nodate]. 
+
+The initial management of trauma patients is highly time-sensitive and prone to error [@mackersie_pitfalls_2010;@teixeira_preventable_2007;@ivatury_patient_2008]. Quality Improvement (QI) initiatives address these challenges by systematically evaluating care processes and outcomes, aiming to reduce morbidity and mortality [@world_health_organization_guidelines_2009]. 
+
+Hemorrhagic shock is, the second most common cause of death following trauma and it, is the leading preventable cause of death within the first 24 hours post-injury [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007], and opportunities for improvement are common in patients who die because of massive traumatic bleeding [@oreilly_opportunities_2013].
+
+This may indicate that these preventable events potentially leading to suboptimal outcomes are common also in patients who survive massive bleeding. This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement. This knowledge would help clinicians avoid such events in bleeding trauma patients.
+
+(See Table \@ref(tab:atls) [@noauthor_atls_2018])
 
 Table: (\#tab:atls) ATLS classification for haemorrhagic shock, adapted from [@noauthor_atls_2018].
 
@@ -83,16 +86,6 @@ Table: (\#tab:atls) ATLS classification for haemorrhagic shock, adapted from [@n
 | Glasgow Coma Scale score          | ↔           | ↔                   | ↓                         | ↓                             |
 | Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L    | –6 to –10 mEq/L           | –10 mEq/L or less             |
 | Need for blood products           | Monitor     | Possible            | Yes                       | Massive Transfusion Protocol  |
-
-## Trauma quality improvement and opportunities for improvement
-The initial management of trauma patients is highly time-sensitive and prone to error  [@mackersie_pitfalls_2010;@teixeira_preventable_2007;@ivatury_patient_2008]. Quality Improvement (QI) initiatives address these challenges by systematically evaluating care processes and outcomes, aiming to reduce morbidity and mortality [@world_health_organization_guidelines_2009]. Through structured quality measures and collaborative reviews, QI has strengthened trauma care and improved outcomes globally  [@juillard_establishing_2009;@hashmi_hospital-based_2013].
-Identifying Opportunities for Improvement (OFI) offers a broader perspective than traditional mortality reviews by also including non-fatal outcomes [@world_health_organization_guidelines_2009]. Structured multidisciplinary morbidity and mortality (M&M) reviews are commonly used to identify OFIs. One systemic and comprehensive way to identify OFI is using the Donabedian framework, which asses the quality of care by the three categories of: structure, process, and outcome  [@donabedian_quality_1988;@world_health_organization_guidelines_2009].
- 
-## Shock and OFI
-As mentioned before hemorrhagic shock is the leading cause of preventable death within the first 24 hours of injury [@berry_shock_2015]. Patients in shock have a higher mortality rate than those not [@vang_shock_2022], with a median time to death of just 2 hours [@tisherman_detailed_2015]. Despite this, the relationship between shock, its severity, and Opportunities for Improvement (OFI) remains largely unexamined. This knowledge would help clinicians better identify and avoid preventable mistakes in shock patients who need urgent care.
- 
-## Aims
-This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement.
 
 # Methods
 
