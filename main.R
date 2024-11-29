@@ -81,8 +81,8 @@ convert_number <- function(x) {
   return(x)
 }
 
-# Make ofi numerical
-study.sample$ofinum <- ifelse(study.sample$ofi == "Yes", 1, 0)
+# OFI as factor
+study.sample$ofi <- as.factor(study.sample$ofi)
 
 # Converting ed_be_art to numeric
 BEnum <- convert_number(study.sample$ed_be_art)
@@ -112,6 +112,15 @@ ed_inr_numeric <- convert_number(study.sample$ed_inr)
 # Re-add INR as numeric to `study.sample`
 study.sample <- study.sample %>%
   mutate(ed_inr_numeric = ed_inr_numeric)
+
+# Remove no longer used variables - study sample
+# I suggest removing them from the lines 40-52 where the study data is created instead
+study.sample <- study.sample |>
+  select(
+    -ed_be_art,
+    -ed_inr,
+    -Deceased
+  )
 
 # BE shock classification
 study.sample <- study.sample %>%
@@ -148,7 +157,7 @@ log_reg_count <- nrow(reg.sample)
 
 # Binary logistic regression model - BE
 # Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
-log_regBE <- glm(ofinum ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
+log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
                  family = binomial,
                  data = reg.sample
 )
@@ -162,7 +171,7 @@ log_regBE <- glm(ofinum ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury +
 #ISS ~ "Injury Severity Score",
 
 #test 
-test1 <- glm(ofinum ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS + V4SBP_class,
+test1 <- glm(ofi ~ pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS + V4SBP_class,
                  family = binomial,
                  data = reg.sample
 )
@@ -186,42 +195,22 @@ test <- tbl_regression(
 
 
 # Binary logistic regression model - SBP
-log_regSBP <- glm(ofinum ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
+log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
   family = binomial,
   data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - BE
-log_regBEun <- glm(ofinum ~ BE_class,
+log_regBEun <- glm(ofi ~ BE_class,
   family = binomial,
   data = reg.sample
 )
 
 # Binary logistic regression model unadjusted - SBP
-log_regSBPun <- glm(ofinum ~ V4SBP_class,
+log_regSBPun <- glm(ofi ~ V4SBP_class,
   family = binomial,
   data = reg.sample
 )
-
-# Remove no longer used variables - study sample
-# I suggest removing them from the lines 40-52 where the study data is created instead
-study.sample <- study.sample |>
-  select(
-    -ed_be_art,
-    -ed_inr,
-    -ofinum,
-    -Deceased
-  )
-
-# Remove no longer used variables - regression sample
-# I suggest removing them from the lines 40-52 where the study data is created instead
-reg.sample <- reg.sample |>
-  select(
-    -ed_be_art,
-    -ed_inr,
-    -ofinum,
-    -Deceased
-  )
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
