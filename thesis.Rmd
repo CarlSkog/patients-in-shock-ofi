@@ -310,7 +310,12 @@ Discuss the generalisability (external validity) of the study results
 -->
 ```
 ## Key results
-We found that the most common type of OFI is clinical judgement error across almost all shock severities and there is only statistical significant association between severe shock with a BE of < -10 and OFI. 
+We found that the most common type of OFI is clinical judgement error across almost all shock severities. Out of all shock severities, there is only statistical significant association between severe shock with a BE of < -10 and OFI, which showes a 63% reduced odds of OFI when comparing against those with no shock.  
+
+Previous studies [@teixeira_preventable_2007] which studied cases with a deathly outcome, showed that the most common OFI type was delay in treatment (52,9%) while the second most common is clinical judgement error (21,6%). In comparison, our results showed the most common OFI is clinical judgement error (36%), while inadequate was second (22%) and delay in treatment comes third (17%). For patients defined as in shock, the most common was still clinical judgement error (35%).   
+
+
+
 
 The most common type of OFI is clinical judgement error, it is the most common in all BE shock classes and 2/4 classes for SBP classes. is around ...% of. It generally takes up ...% of all OFI defined as shock (class 2 and below). 
 
