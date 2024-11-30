@@ -272,6 +272,13 @@ combined_tableBE
 combined_tableSBP
 ```
 
+When doing the regression in steps, it can be observed that the biggest changes of OR occurs when adding the ISS parameter into the regression model both for the BE and SBP groups.
+
+```{r Step log, echo=FALSE}
+combined_table_stepBE
+combined_table_stepSBP
+```
+
 # Discussion
 
 ```{=html}

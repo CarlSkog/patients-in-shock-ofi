@@ -427,11 +427,7 @@ combined_table_stepBE <- tbl_merge(
   tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
 ) 
 
-print(combined_table_stepBE)
-
 combined_table_stepSBP <- tbl_merge(
   tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
   tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
 ) 
-
-print(combined_table_stepSBP)
