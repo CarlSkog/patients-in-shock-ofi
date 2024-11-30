@@ -201,7 +201,7 @@ SBPstep2 <- tbl_regression(
 # step analysis - BE
 BEstep1d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric,
                  family = binomial,
-                 data = study.sample
+                 data = reg.sample
 )
 
 BEstep1 <- tbl_regression(
@@ -217,7 +217,7 @@ BEstep1 <- tbl_regression(
 
 BEstep2d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS,
                  family = binomial,
-                 data = study.sample
+                 data = reg.sample
 )
 
 BEstep2 <- tbl_regression(
@@ -229,7 +229,7 @@ BEstep2 <- tbl_regression(
     BE_class ~ "Shock classification - BE"
   )
 ) |>
-  bold_p()
+  bold_p() 
 
 
 
@@ -422,16 +422,16 @@ combined_tableSBP <- tbl_merge(
 ) 
 
 #combined step reg
-combined_table_stepSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
-  tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
-) 
-
-print(combined_table_stepSBP)
-
 combined_table_stepBE <- tbl_merge(
   tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, BEstep2),
   tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
 ) 
 
 print(combined_table_stepBE)
+
+combined_table_stepSBP <- tbl_merge(
+  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
+  tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
+) 
+
+print(combined_table_stepSBP)
