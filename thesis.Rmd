@@ -310,9 +310,13 @@ Discuss the generalisability (external validity) of the study results
 -->
 ```
 ## Key results
-We found that the most common type of OFI is clinical judgement error across almost all shock severities. Out of all shock severities, there is only statistical significant association between severe shock with a BE of < -10 and OFI, which showes a 63% reduced odds of OFI when comparing against those with no shock.  
+We found that the most common type of OFI is clinical judgement error across almost all shock severities. Out of all shock severities, there is only statistical significant association between severe shock with a BE of < -10 and OFI, which shows a 63% reduced odds of OFI when comparing against those with no shock.  
 
-Previous studies [@teixeira_preventable_2007] which studied cases with a deathly outcome, showed that the most common OFI type was delay in treatment (52,9%) while the second most common is clinical judgement error (21,6%). In comparison, our results showed the most common OFI is clinical judgement error (36%), while inadequate was second (22%) and delay in treatment comes third (17%). For patients defined as in shock, the most common was still clinical judgement error (35%).   
+Previous studies [@teixeira_preventable_2007;@saltzherr_preventability_2011] which studied cases with a deathly outcome, showed that the most common OFI type was delay in treatment, while the second most common is clinical judgement error [@teixeira_preventable_2007], or errors in management[@saltzherr_preventability_2011]. In comparison, our results showed the most common OFI is clinical judgement error (36%), while inadequate resources was second (22%) and delay in treatment comes third (17%), for the whole study population. These differences could be due to the nature of the studied population, where delay in treatment may be more deadly, therefore it takes up a smaller part in our results, while clinical judgement error takes a larger part. (KÄLLA)  
+
+For patients defined as in shock (Class 2-4), the most common was still clinical judgement error (BE 34,7%; SBP 35,3%). This result is similar when compared to D O'reilly's study [@oreilly_opportunities_2013], in which the most common type of opportunities for performance improvements (OPI) was ones involved with decision making at 63 out of 150 OPIs.
+
+Comparing 
 
 
 
