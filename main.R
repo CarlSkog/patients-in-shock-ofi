@@ -162,8 +162,23 @@ log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed
                  data = reg.sample
 )
 
+# Binary logistic regression model - SBP
+log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
+                  family = binomial,
+                  data = reg.sample
+)
 
+# Binary logistic regression model unadjusted - BE
+log_regBEun <- glm(ofi ~ BE_class,
+                   family = binomial,
+                   data = reg.sample
+)
 
+# Binary logistic regression model unadjusted - SBP
+log_regSBPun <- glm(ofi ~ V4SBP_class,
+                    family = binomial,
+                    data = reg.sample
+)
 
 # step analysis - SBP 
 SBPstep1d <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric,
@@ -230,27 +245,6 @@ BEstep2 <- tbl_regression(
   )
 ) |>
   bold_p() 
-
-
-
-
-# Binary logistic regression model - SBP
-log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-  family = binomial,
-  data = reg.sample
-)
-
-# Binary logistic regression model unadjusted - BE
-log_regBEun <- glm(ofi ~ BE_class,
-  family = binomial,
-  data = reg.sample
-)
-
-# Binary logistic regression model unadjusted - SBP
-log_regSBPun <- glm(ofi ~ V4SBP_class,
-  family = binomial,
-  data = reg.sample
-)
 
 # Label variables
 var_label(study.sample$pt_age_yrs) <- "Age (Years)"
