@@ -114,7 +114,6 @@ study.sample <- study.sample %>%
   mutate(ed_inr_numeric = ed_inr_numeric)
 
 # Remove no longer used variables - study sample
-# I suggest removing them from the lines 40-52 where the study data is created instead
 study.sample <- study.sample |>
   select(
     -ed_be_art,
@@ -156,7 +155,6 @@ reg.sample <- study.sample %>%
 log_reg_count <- nrow(reg.sample)
 
 # Binary logistic regression model - BE
-# Note that you cannot adjust for both ways to define shock in the same model, because they are just different ways to define the same thing. I suggest you create separate models for each.
 log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
                  family = binomial,
                  data = reg.sample
