@@ -423,3 +423,10 @@ combined_table_stepSBP <- tbl_merge(
   tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
   tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
 ) 
+
+# Sample characteristics with shock classification.
+sample.characteristics.table_ISS <- tbl_summary(reg.sample,
+                                            by = BE_class
+) |>
+  add_overall() |>
+  add_p()

@@ -279,6 +279,10 @@ combined_table_stepBE
 combined_table_stepSBP
 ```
 
+```{r ISS confounding, echo=FALSE}
+sample.characteristics.table_ISS
+```
+
 # Discussion
 
 ```{=html}
