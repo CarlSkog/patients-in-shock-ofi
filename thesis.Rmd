@@ -3,7 +3,7 @@ title: "Opportunities for improvement in the care of adult trauma patients arriv
 subtitle: "Add a Subtitle if Needed"
 author: "Carl Skog"
 output:
-  html_document: default
+  #html_document: default
   word_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
