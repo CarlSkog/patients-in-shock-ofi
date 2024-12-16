@@ -190,7 +190,9 @@ SBPstep1 <- tbl_regression(
   label = list(
     pt_age_yrs ~ "Age (Years)",
     pt_Gender ~ "Gender (M/F)",
-    V4SBP_class ~ "Shock classification - SBP"
+    V4SBP_class ~ "Shock classification - SBP",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR"
   )
 ) |>
   bold_p()
@@ -206,7 +208,10 @@ SBPstep2 <- tbl_regression(
   label = list(
     pt_age_yrs ~ "Age (Years)",
     pt_Gender ~ "Gender (M/F)",
-    V4SBP_class ~ "Shock classification - SBP"
+    V4SBP_class ~ "Shock classification - SBP",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR",
+    ISS ~ "Injury Severity Score"
   )
 ) |>
   bold_p()
@@ -223,7 +228,9 @@ BEstep1 <- tbl_regression(
   label = list(
     pt_age_yrs ~ "Age (Years)",
     pt_Gender ~ "Gender (M/F)",
-    BE_class ~ "Shock classification - BE"
+    BE_class ~ "Shock classification - BE",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR"
   )
 ) |>
   bold_p()
@@ -239,7 +246,10 @@ BEstep2 <- tbl_regression(
   label = list(
     pt_age_yrs ~ "Age (Years)",
     pt_Gender ~ "Gender (M/F)",
-    BE_class ~ "Shock classification - BE"
+    BE_class ~ "Shock classification - BE",
+    pt_asa_preinjury ~ "Pre-injury ASA",
+    ed_inr_numeric ~ "INR",
+    ISS ~ "Injury Severity Score"
   )
 ) |>
   bold_p() 
@@ -252,7 +262,7 @@ var_label(study.sample$BE_class) <- "Shock classification - BE"
 var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(study.sample$ISS) <- "Injury Severity Score"
 var_label(study.sample$pt_Gender) <- "Gender (M/F)"
-var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmHg)"
 var_label(study.sample$ed_inr_numeric) <- "INR"
 var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
 var_label(study.sample$ofi.categories.broad) <- "OFI categories broad"
@@ -265,7 +275,7 @@ var_label(reg.sample$BE_class) <- "Shock classification - BE"
 var_label(reg.sample$pt_asa_preinjury) <- "Pre-injury ASA"
 var_label(reg.sample$ISS) <- "Injury Severity Score"
 var_label(reg.sample$pt_Gender) <- "Gender (M/F)"
-var_label(reg.sample$ed_sbp_value) <- "Systolic blood pressure (mmhg)"
+var_label(reg.sample$ed_sbp_value) <- "Systolic blood pressure (mmHg)"
 var_label(reg.sample$ed_inr_numeric) <- "INR"
 var_label(reg.sample$V4SBP_class) <- "Shock classification - SBP"
 var_label(reg.sample$ofi.categories.broad) <- "OFI categories broad"
@@ -425,8 +435,25 @@ combined_table_stepSBP <- tbl_merge(
 ) 
 
 # Sample characteristics with shock classification.
-sample.characteristics.table_ISS <- tbl_summary(reg.sample,
+sample.characteristics.table_ISS_BE <- tbl_summary(reg.sample,
                                             by = BE_class
 ) |>
   add_overall() |>
   add_p()
+
+sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
+                                                   by = V4SBP_class
+) |>
+  add_overall() |>
+  add_p()
+
+# Step reg + event
+master_combined_table_stepBE <- tbl_merge(
+  tbls = list(log_regBE_sample.characteristics.table, BEstep1, log_regBE_sample.characteristics.table_unadjusted),
+  tab_spanner = c("**Fully adjusted**","**without ISS**","**Unadjusted**")
+) 
+
+master_combined_table_stepSBP <- tbl_merge(
+  tbls = list(log_regSBP_sample.characteristics.table, SBPstep1, log_regSBP_sample.characteristics.table_unadjusted),
+  tab_spanner = c("**Fully adjusted**","**without ISS**","**Unadjusted**")
+) 

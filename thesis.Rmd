@@ -280,7 +280,20 @@ combined_table_stepSBP
 ```
 
 ```{r ISS confounding, echo=FALSE}
-sample.characteristics.table_ISS
+sample.characteristics.table_ISS_BE
+sample.characteristics.table_ISS_SBP
+```
+
+DIVIDER
+
+```{r masterBE, echo=FALSE}
+master_combined_table_stepBE
+```
+
+DIVIDER
+
+```{r masterSBP, echo=FALSE}
+master_combined_table_stepSBP
 ```
 
 # Discussion
