@@ -210,3 +210,7 @@ dimnames(tabell) <- list(OFI = c("Yes", "No"),
                          Shock_class = c("Class 1", "Class 2", "Class 3", "Class 4"))
 tabell
 chisq.test(tabell)
+
+There were a total of  patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
+
+The variable with most missing data is BE which lack the data for 1721 patients.

@@ -4,9 +4,9 @@ title: Opportunities for improvement in the care of adult trauma patients arrivi
 author: "Carl Skog"
 output:
   # word_document: default
-  #bookdown::pdf_document2:
-    #latex_engine: xelatex
-   html_document: default
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+  #html_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 ---
@@ -145,17 +145,17 @@ source("main.R") ## This "imports" the main script file of your project and run 
 ```
 
 ## Participants
-There were a total of `r merged` patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
+There was a total of 14022 patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were 12153 patients remaining. Out of those, 7152 patients had been reviewed for the presence of OFI. A total of 2233 patients were excluded due to missing data, resulting in 4919 patients for the final analysis. The selection process can also be seen in Figure 1. The variable with the most missing data is BE which lacks the data for 1721 patients. Detailed data regarding missing data is displayed in a table in appendix 1.
 
-The variable with most missing data is BE which lack the data for 1721 patients.
-
+#ändra till flowchart
 Table 3 - Sample characteristics showing missing data.
 ```{r sample-characteristics, echo=FALSE}
 sample.characteristics.table
 ```
+#slut
 
 ## Descriptive data
-Table \@ref(tab:sample-characteristics-reg) describes the characteristics of the study population. The study demographics median age is `r age` and the most common gender is male, `r male`. Clinically, the median ISS is 5 which is considered minor injuries, median INR is 1.00, and the most common Preinjury ASA class is 1, at 62%.  
+Table \@ref(tab:sample-characteristics-reg) describes the characteristics of the study population. The study demographics median age was `r age` and the most common gender was male, `r male`. Clinically, the median ISS was 5 which is considered minor injuries, median INR was 1.00, and the most common Preinjury ASA class was 1, at 62%.  
 
 ```{r sample-characteristics-reg, echo=FALSE}
 sample.characteristics.table_reg |>
@@ -163,15 +163,17 @@ sample.characteristics.table_reg |>
 ```
 
 ## Outcome data
-Out of the `r log_reg_count` patients reviewed without missing data, `r ofi` patients had at least one positive OFI. 
+Out of the 4919 patients reviewed without missing data, 281 (5.7%) patients had at least one positive OFI.
 
-The most common broad sub-ofi category was clinical judgement error, at 103 (37%). The other three major broad sub-ofis are: inadequate resources 61 (22%), delay in treatment 49 (17%) and missed diagnosis 48 (17%). The smallest one, is other errors, at 5 (1,8%). 
+The most common OFI type was clinical judgement error, numbering 103 (37%) patients. The other three major OFI types were: inadequate resources for 61 (22%) patients, delay in treatment for 49 (17%) patients and missed diagnosis for 48 (17%) patients. The least common OFI was “other errors”, for 5 (1.8%) patients.
 
-When classified, the most common broad sub-ofi in class 1 (no shock) is clinical judgement error both in the BE and SBP groups, while the other sub-ofi also follow a similar distribution between the groups. The largest sub-ofi continuous to be clinical judgment error for BE group in class 2, 3 and 4, at 34.6%; 31.2%; and 42,9% in this order. On other hand, the largest sub-ofi in SBP class 2 is delay in treatment at 50%. The SBP class 3 is evenly distributed between clinical judgement error and missed diagnosis at 40% each. Lastly, class 4 SBP's most common sub-ofi is clinical judgment error 46.7%.        
+When classified, the most common OFI type in class 1 (no shock) was clinical judgement error both in the BE and SBP groups, while the other OFI types also followed a similar distribution between the groups. The largest OFI type continues to be clinical judgment error for BE group in class 2, 3 and 4, at 34.6%; 31.2%; and 42.9% in this order. On other hand, the largest OFI type in SBP class 2 was delay in treatment at 50%. The SBP class 3 was evenly distributed between clinical judgement error and missed diagnosis at 40% each. Lastly, class 4 SBP’s most common OFI type was clinical judgment error 46.7%.
 
-Overall 3989 (81%) of the patients were classified as having no shock (class 1) according to the BE classification, the sum of the remaining classes accounted for 930 (19%) patients. The distribution of the classes were decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3,5%), and class 4: 116 (2,4%).  
+Overall, 3989 (81%) of the patients were classified as having no shock (class 1) according to the BE classification, the sum of the remaining classes accounted for 930 (19%) patients. The distribution of the classes was decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3.5%), and class 4: 116 (2.4%).
 
-The SBP classification system sorted 4455 (91%) patients as having no shock (class 1), while the remaining classes with patients in shock accounted for 464 (9%) of all the patients. Among the classes defined with shock, class 2 was the biggest at 239 (4,9%), followed by class 4 at 127 (2,6%), and lastly class 3 with 99 (2,0%). 
+According to SBP, 4455 (91%) patients had no shock (class 1), while the remaining classes with patients in shock accounted for 464 (9%) of all the patients. Among the classes defined with shock, class 2 was the biggest at 239 (4.9%), followed by class 4 at 127 (2.6%), and lastly class 3 with 99 (2.0%).
+
+-------
 
 Table 5 - Sub-OFI, classified according to BE  
 
