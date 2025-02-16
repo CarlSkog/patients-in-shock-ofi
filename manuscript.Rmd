@@ -199,6 +199,34 @@ combined_tableSBP
 ```
 
 # Discussion
+```{=html}
+<!--
+
+Key results
+-----------
+Summarise key results with reference to study objectives
+
+Limitations
+-----------
+
+Discuss limitations of the study, taking into account sources of
+potential bias or imprecision.  Discuss both direction and magnitude
+of any potential bias
+
+Interpretation
+--------------
+
+Give a cautious overall interpretation of results considering
+objectives, limitations, multiplicity of analyses, results from
+similar studies, and other relevant evidence
+
+Generalisability
+----------------
+
+Discuss the generalisability (external validity) of the study results
+
+-->
+```
 The purpose of this study was to assess the association between OFI and adult trauma patients arriving in shock, focusing on the types of OFI and severity of shock. 
 
 ##Key results
@@ -239,36 +267,8 @@ It can be observed that the male gender is more prevalent in our results than fe
 The next step for future studies is to validate the findings and improve the methods from this study. As previously discussed, the association between anatomical classification ISS and physiological parameters BE and SBP, and how they correlate to OFI are complex and not necessarily clinically relevant. One way to avoid this problem is using a validated classification for hemorrhagic shock with both anatomical and physiological components, like ABC, TASH, and so on. 
 One other problem when interpreting the results is the “reversed survivorship bias”. Due to the design of trauma care quality database, when and where (level of care) the OFI occurred during the length of stay is not recorded. A prospective study can clarify whether shock severity directly affects OFI or if length of stay is a confounding factor. By observing when and where OFIs most commonly occur, it can determine whether the hypothesis of length of stay is correct. This also aids in understanding the reasons behind the nonlinear relationship between ISS, BE or SBP and OFI, as there are currently only theories but no studies.    
 
-```{=html}
-<!--
 
-Key results
------------
-Summarise key results with reference to study objectives
-
-Limitations
------------
-
-Discuss limitations of the study, taking into account sources of
-potential bias or imprecision.  Discuss both direction and magnitude
-of any potential bias
-
-Interpretation
---------------
-
-Give a cautious overall interpretation of results considering
-objectives, limitations, multiplicity of analyses, results from
-similar studies, and other relevant evidence
-
-Generalisability
-----------------
-
-Discuss the generalisability (external validity) of the study results
-
--->
-```
 # Conclusion
-
 <!-- Give a short conclusion, corresponding to the aim -->
 
 The most common type of OFI for shock patients is clinical judgement error. Association between shock and OFI doesn’t seem to be linear, but rather the moderate shock has higher odds of OFI compared to the mild and severe shocks. The lack of significance in SBP classification highlights potential framework limitations compared to BE. These findings emphasize the importance of accounting for ISS and using validated shock classifications in future research.
