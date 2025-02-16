@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2023.8.7)  29 NOV 2024 17:58
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Debian) (preloaded format=xelatex 2025.1.13)  16 FEB 2025 20:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -999,32 +999,32 @@ Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=
 ex-text;!
 Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
 ex-text;!
-Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
-ex-text;!
-Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
-ex-text;!
 [3]
+Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ↔ (U+2194) in font [lmroman10-regular]:mapping=t
+ex-text;!
 Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=t
 ex-text;!
 
-Overfull \hbox (64.70901pt too wide) in alignment at lines 313--357
+Overfull \hbox (66.98901pt too wide) in alignment at lines 315--359
 [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--361
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
 
  []
 
 
-Overfull \hbox (64.70901pt too wide) in alignment at lines 372--409
+Overfull \hbox (66.98901pt too wide) in alignment at lines 374--411
 [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--413
+Underfull \hbox (badness 10000) in paragraph at lines 413--415
 
  []
 
@@ -1036,118 +1036,120 @@ LaTeX Warning: Text page 5 contains only floats.
 Overfull \vbox (1.895pt too high) has occurred while \output is active []
 
 [5] [6]
-Overfull \hbox (86.41695pt too wide) in alignment at lines 433--446
+Overfull \hbox (86.41695pt too wide) in alignment at lines 435--448
 [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
  []
 
 
-Overfull \hbox (86.41695pt too wide) in alignment at lines 456--469
+Overfull \hbox (86.41695pt too wide) in alignment at lines 458--471
 [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-
-Overfull \hbox (76.18906pt too wide) in alignment at lines 486--509
+[7]
+Overfull \hbox (76.18906pt too wide) in alignment at lines 488--511
 [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--512
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
 
  []
 
 
-Overfull \hbox (82.71706pt too wide) in alignment at lines 516--539
+Overfull \hbox (82.71706pt too wide) in alignment at lines 518--541
 [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--542
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
+
+ []
+
+Missing character: There is no ≥ (U+2265) in font [lmroman10-regular]:mapping=t
+ex-text;!
+[8] [9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 601--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--559
-
- []
-
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 560--563
+Underfull \hbox (badness 10000) in paragraph at lines 605--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--567
+Underfull \hbox (badness 10000) in paragraph at lines 609--612
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--571
+Underfull \hbox (badness 10000) in paragraph at lines 613--616
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--575
+Underfull \hbox (badness 10000) in paragraph at lines 617--620
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--579
+Underfull \hbox (badness 10000) in paragraph at lines 621--624
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--583
+Underfull \hbox (badness 10000) in paragraph at lines 625--628
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--587
+Underfull \hbox (badness 10000) in paragraph at lines 629--632
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--591
+Underfull \hbox (badness 10000) in paragraph at lines 633--636
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--595
+Underfull \hbox (badness 10000) in paragraph at lines 637--640
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 596--599
+Underfull \hbox (badness 10000) in paragraph at lines 641--644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--603
+Underfull \hbox (badness 10000) in paragraph at lines 645--648
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--607
+Underfull \hbox (badness 10000) in paragraph at lines 649--652
 
  []
 
-[9] (./manuscript.aux) ) 
+[12] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
  21785 strings out of 478775
- 402043 string characters out of 5850946
- 1887991 words of memory out of 5000000
+ 402043 string characters out of 5850945
+ 1899991 words of memory out of 5000000
  41469 multiletter control sequences out of 15000+600000
  518812 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,13n,121p,1029b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,13n,121p,1761b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on manuscript.pdf (9 pages).
+Output written on manuscript.pdf (12 pages).
