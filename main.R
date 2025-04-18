@@ -457,3 +457,4 @@ master_combined_table_stepSBP <- tbl_merge(
   tbls = list(log_regSBP_sample.characteristics.table, SBPstep1, log_regSBP_sample.characteristics.table_unadjusted),
   tab_spanner = c("**Fully adjusted**","**without ISS**","**Unadjusted**")
 ) 
+

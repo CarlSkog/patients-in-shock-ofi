@@ -148,14 +148,13 @@ source("main.R") ## This "imports" the main script file of your project and run 
 There was a total of 14022 patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were 12153 patients remaining. Out of those, 7152 patients had been reviewed for the presence of OFI. A total of 2233 patients were excluded due to missing data, resulting in 4919 patients for the final analysis. The selection process can also be seen in Figure 1. The variable with the most missing data is BE which lacks the data for 1721 patients. Detailed data regarding missing data is displayed in a table in appendix 1.
 
 #ändra till flowchart
-Table 3 - Sample characteristics showing missing data.
-```{r sample-characteristics, echo=FALSE}
-sample.characteristics.table
-```
+
 #slut
 
 ## Descriptive data
 Table \@ref(tab:sample-characteristics-reg) describes the characteristics of the study population. The study demographics median age was `r age` and the most common gender was male, `r male`. Clinically, the median ISS was 5 which is considered minor injuries, median INR was 1.00, and the most common Preinjury ASA class was 1, at 62%.  
+
+Table 3
 
 ```{r sample-characteristics-reg, echo=FALSE}
 sample.characteristics.table_reg |>
@@ -175,13 +174,13 @@ According to SBP, 4455 (91%) patients had no shock (class 1), while the remainin
 
 -------
 
-Table 5 - Sub-OFI, classified according to BE  
+Table 4 - Sub-OFI, classified according to BE  
 
 ```{r sub-ofi BE, echo=FALSE}
 BEsubofi_tbl
 ```
 
-Table 6 - Sub-OFI, classified according to SBP
+Table 5 - Sub-OFI, classified according to SBP
 
 ```{r sub-ofi SBP, echo=FALSE}
 SBPsubofi_tbl
@@ -192,10 +191,14 @@ The adjusted analyses showed only statistical significance when comparing BE cla
 
 The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI. For the SBP group, comparison between class 1 and class 4 showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
 
-Table 7 and 8 adjusted log
-```{r Adjusted_log, echo=FALSE}
-combined_tableBE
-combined_tableSBP
+Table 6 adjusted log BE
+```{r masterBE, echo=FALSE}
+master_combined_table_stepBE
+```
+
+Table 7 adjusted log SBP
+```{r masterSBP, echo=FALSE}
+master_combined_table_stepSBP
 ```
 
 # Discussion
