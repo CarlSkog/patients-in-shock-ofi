@@ -45,7 +45,7 @@ Trauma is a major global public health concern. It causes over four million deat
 Trauma is generally divided into two groups, blunt and penetrating injury. The most common type in Sweden is blunt injury, constituting around 90% of all trauma. The most common causes for blunt trauma are traffic related and falls, which account for roughly ½ and ⅓ of all blunt trauma[@noauthor_arsrapport_2022].  
 
 Blunt and penetrating trauma have their own distinct clinical implications. Blunt trauma often results from impacts of different energy factors, and depending on the energy can result in anything from abbrations to fractures and internal organ damage. The most anatomically common type of blunt trauma is blunt abdominal trauma (BAT), which is often caused by traffic accidents. When counting motor vehicle collision and pedestrian versus auto accidents together, they account for 75% of all blunt trauma[@isenhour_advances_2007]
-#sweden or worldwide?
+#sweden or worldwide? 
 .
 
 Penetrating trauma, often caused by gunshots or stab wounds, commonly affects the small intestine, colon, liver, and intra-abdominal blood vessels. These injuries are life-threatening due to significant bleeding from large vessels and the liver’s extensive blood supply. There is also a risk of other complications, such as pancreatic damage leading to autodigestion, and intestinal perforation resulting in contamination from fecal matter. Consequently, penetrating trauma frequently leads to hypovolemic shock and peritonitis[@lotfollahzadeh_penetrating_2023].
