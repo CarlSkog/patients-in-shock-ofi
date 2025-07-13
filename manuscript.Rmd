@@ -9,6 +9,9 @@ output:
   html_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -20,12 +23,14 @@ knitr::opts_chunk$set(echo = TRUE)
 syntax for authoring HTML, PDF, and MS Word documents. For more
 details on using R Markdown see http://rmarkdown.rstudio.com -->
 ```
+
 ```{=html}
 <!-- This is a comment and will not be present in the compiled
 document. Try "knitting" this document by clicking the knit button up
 to the left, or by running `rmarkdown::render("manuscript.Rmd")` in
 the console and you should only see headings -->
 ```
+
 ```{=html}
 <!-- Structure and most comments are from the Strengthening the
 reporting of observational studies in epidemiology (STROBE) statement,
@@ -33,12 +38,14 @@ see https://www.strobe-statement.org/. For more explanations see the
 paper Strengthening the Reporting of Observational Studies in
 Epidemiology (STROBE):explanation and elaboration.  -->
 ```
+
 ```{=html}
 <!-- Indicate the study’s design with a commonly used term in the
 title, for example: "Associations between resuscitation interventions
 and opportunities for improvement in adult trauma patients: A cohort
 study" -->
 ```
+
 # Abstract
 
 ```{=html}
@@ -46,7 +53,31 @@ study" -->
 what was done and what was found. Not more than 300 words. -->
 ```
 
-Background: Hemorrhagic shock is the leading cause of preventable trauma deaths. Opportunities for improvement (OFI) are common in deaths from massive bleeding. Aims: This study aimed to describe the types of OFI for adult trauma patients arriving in shock and assess the association between shock severity and OFI. Methods: A retrospective cohort study was conducted on adult trauma patients treated at Karolinska University Hospital (2014-2023). Shock severity was categorized into four classes using base excess (BE) and systolic blood pressure (SBP). OFI identified during morbidity and mortality conference were analyzed using bi- and multivariable logistic regression, with adjustments for age, sex, American Society of Anesthesiologists Classification (ASA), international normalized ratio (INR), and injury severity score (ISS) Results: 4919 patients were included, of which 281 had OFI. Clinical judgment error was the most common OFI type for patients in shock. Unadjusted analyses showed positive associations between shock severities and OFI. However, after adjusting for ISS, patients with severe shock (BE < -10) showed 63% reduced odds of OFI compared to those without shock (p = 0.026). ISS was a significant confounder (p < 0.001). No significant association was observed between SBP classes and OFI in adjusted analysis. Conclusion: Association between shock and OFI seems to be nonlinear, with moderate shock (BE (-2) – (-10)) having highest odds of OFI. The lack of significance in SBP classification highlights potential framework limitations compared to BE. These findings emphasize the importance of accounting for ISS and using validated shock classifications in future research. 
+Background: Hemorrhagic shock is the leading cause of preventable trauma
+deaths. Opportunities for improvement (OFI) are common in deaths from
+massive bleeding. Aims: This study aimed to describe the types of OFI
+for adult trauma patients arriving in shock and assess the association
+between shock severity and OFI. Methods: A retrospective cohort study
+was conducted on adult trauma patients treated at Karolinska University
+Hospital (2014-2023). Shock severity was categorized into four classes
+using base excess (BE) and systolic blood pressure (SBP). OFI identified
+during morbidity and mortality conference were analyzed using bi- and
+multivariable logistic regression, with adjustments for age, sex,
+American Society of Anesthesiologists Classification (ASA),
+international normalized ratio (INR), and injury severity score (ISS)
+Results: 4919 patients were included, of which 281 had OFI. Clinical
+judgment error was the most common OFI type for patients in shock.
+Unadjusted analyses showed positive associations between shock
+severities and OFI. However, after adjusting for ISS, patients with
+severe shock (BE \< -10) showed 63% reduced odds of OFI compared to
+those without shock (p = 0.026). ISS was a significant confounder (p \<
+0.001). No significant association was observed between SBP classes and
+OFI in adjusted analysis. Conclusion: Association between shock and OFI
+seems to be nonlinear, with moderate shock (BE (-2) – (-10)) having
+highest odds of OFI. The lack of significance in SBP classification
+highlights potential framework limitations compared to BE. These
+findings emphasize the importance of accounting for ISS and using
+validated shock classifications in future research.
 
 ## Background
 
@@ -65,94 +96,204 @@ objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
 ```
+
 # Introduction
-Trauma is a major global public health concern. It causes over four million deaths, among those younger populations are the most affected[@noauthor_injuries_nodate]. Beyond the high mortality rate, trauma also imposes a substantial socio-economic burden, due to long-term disabilities and rehabilitation needs[@noauthor_injuries_nodate]. 
 
-The initial management of trauma patients is highly time-sensitive and prone to error [@mackersie_pitfalls_2010;@teixeira_preventable_2007;@ivatury_patient_2008]. Quality Improvement (QI) initiatives address these challenges by systematically evaluating care processes and outcomes, aiming to reduce morbidity and mortality [@world_health_organization_guidelines_2009]. 
+Trauma is a major global public health concern. It causes over four
+million deaths, among those younger populations are the most
+affected[@noauthor_injuries_nodate]. Beyond the high mortality rate,
+trauma also imposes a substantial socio-economic burden, due to
+long-term disabilities and rehabilitation
+needs[@noauthor_injuries_nodate].
 
-Hemorrhagic shock is, the second most common cause of death following trauma and it, is the leading preventable cause of death within the first 24 hours post-injury [@kauvar_impact_2006;@berry_shock_2015;@teixeira_preventable_2007], and opportunities for improvement are common in patients who die because of massive traumatic bleeding [@oreilly_opportunities_2013].
+The initial management of trauma patients is highly time-sensitive and
+prone to error [@mackersie_pitfalls_2010; @teixeira_preventable_2007;
+@ivatury_patient_2008]. Quality Improvement (QI) initiatives address
+these challenges by systematically evaluating care processes and
+outcomes, aiming to reduce morbidity and mortality
+[@world_health_organization_guidelines_2009].
 
-This may indicate that these preventable events potentially leading to suboptimal outcomes are common also in patients who survive massive bleeding. This study aims to describe the types of opportunities for improvement for adult trauma patients arriving in shock, and to assess how the degree of shock is associated with opportunities for improvement. This knowledge would help clinicians avoid such events in bleeding trauma patients.
+Hemorrhagic shock is, the second most common cause of death following
+trauma and it, is the leading preventable cause of death within the
+first 24 hours post-injury [@kauvar_impact_2006; @berry_shock_2015;
+@teixeira_preventable_2007], and opportunities for improvement are
+common in patients who die because of massive traumatic bleeding
+[@oreilly_opportunities_2013].
+
+This may indicate that these preventable events potentially leading to
+suboptimal outcomes are common also in patients who survive massive
+bleeding. This study aims to describe the types of opportunities for
+improvement for adult trauma patients arriving in shock, and to assess
+how the degree of shock is associated with opportunities for
+improvement. This knowledge would help clinicians avoid such events in
+bleeding trauma patients.
 
 # Methods
 
 ## Study design
 
-We conducted a registry based retrospective cohort study, using data from the trauma registry and trauma care quality database at the Karolinska University Hospital in Solna. 
+We conducted a registry based retrospective cohort study, using data
+from the trauma registry and trauma care quality database at the
+Karolinska University Hospital in Solna.
 
 ## Setting
 
-The trauma registry includes patients treated at Karolinska University Hospital in Solna, which treats all major trauma in the greater metropolitan area of Stockholm. We included patients registered between 2014 and 2023. The trauma care quality database is a subset of the trauma registry and includes patients selected for review. 
+The trauma registry is comprised of patients treated at the Karolinska
+University Hospital in Solna, which treats all major trauma in the
+greater metropolitan area of Stockholm. We included patients registered
+between 2014 and 2023. The trauma care quality database is a subset of
+the trauma registry and includes patients selected for review.
 
 ## Participants
 
-Inclusion in the trauma registry requires either admission through trauma team activation or presenting with an Injury Severity Score (ISS) greater than nine after admission to the Karolinska University Hopsital. Each trauma patient is then included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The identified OFIs are then categorized into broad and detailed categories. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+Inclusion in the trauma registry requires either admission through
+trauma team activation or presenting with an Injury Severity Score (ISS)
+greater than nine after admission to the Karolinska University Hospital.
+Each trauma patient is then included in a morbidity and mortality review
+process, which involves both individual case evaluations by specialized
+nurses and audit filters. Patients identified with a high potential for
+OFIs are discussed at multidisciplinary conferences. An OFI can be
+various types of preventable events, and can be categorized as: clinical
+judgment error, inadequate resources, delay in treatment, missed injury,
+inadequate protocols, preventable death and other errors. The presence
+or absence of OFIs is determined by consensus among all participants and
+is documented in the trauma care quality database.
 
-We included all patients in the trauma registry and Trauma care quality database. We excluded patients younger than 15 and/or were dead on arrival.
+All patients in the trauma registry and trauma care quality database
+were included. Patients younger than 15 and/or were dead on arrival were
+excluded.
 
 ## Variables and data sources/measurements
 
-The outcome was defined as the presence of at least one OFI, determined by the multidisciplinary M&M conference in the trauma care quality registry. An OFI can be various types of preventable events, and can be categorized as: clinical judgment error, inadequate resources, delay in treatment, missed injury, inadequate protocols, preventable death and other errors.
+The outcome was defined as the presence of at least one OFI, determined
+by the multidisciplinary M&M conference in the trauma care quality
+registry. An OFI can be various types of preventable events, and can be
+categorized as: clinical judgment error, inadequate resources, delay in
+treatment, missed injury, inadequate protocols, preventable death and
+other errors.
 
-The patients will be classified to different degrees of shock in parallel and separately, once with systolic blood pressure (SBP) and once with base excess (BE), regardless of their cause of shock. Based on these two parameters, the patients will be classified into four classes roughly based on the ATLS trauma shock classifications (See Table \@ref(tab:atls) [@noauthor_atls_2018]).
+The patients will be classified to different degrees of shock in
+parallel and separately, once with systolic blood pressure (SBP) and
+once with base excess (BE), regardless of their cause of shock. Based on
+these two parameters, the patients will be classified into four classes
+roughly based on the ATLS trauma shock classifications (See Table
+\@ref(tab:atls) [@noauthor_atls_2018]).
 
-Table: (\#tab:atls) ATLS classification for haemorrhagic shock, adapted from [@noauthor_atls_2018].
+| **Parameter** | **Class I** | **Class II** (Mild) | **Class III** (Moderate) | **Class IV** (Severe) |
+|----------------|--------------|--------------|--------------|--------------|
+| Approximate blood loss | \<15% | 15–30% | 31–40% | \>40% |
+| Heart rate | ↔ | ↔/↑ | ↑ | ↑/↑↑ |
+| Blood pressure | ↔ | ↔ | ↔/↓ | ↓ |
+| Pulse pressure | ↔ | ↓ | ↓ | ↓ |
+| Respiratory rate | ↔ | ↔ | ↔/↑ | ↑ |
+| Urine output | ↔ | ↔ | ↓ | ↓↓ |
+| Glasgow Coma Scale score | ↔ | ↔ | ↓ | ↓ |
+| Base deficit | 0 to –2 mEq/L | –2 to –6 mEq/L | –6 to –10 mEq/L | –10 mEq/L or less |
+| Need for blood products | Monitor | Possible | Yes | Massive Transfusion Protocol |
 
-| **Parameter**                     | **Class I** | **Class II** (Mild) | **Class III** (Moderate)  | **Class IV** (Severe)         |
-|-----------------------------------|-------------|---------------------|---------------------------|-------------------------------|
-| Approximate blood loss            | <15%        | 15–30%              | 31–40%                    | >40%                          |
-| Heart rate                        | ↔           | ↔/↑                 | ↑                         | ↑/↑↑                          |
-| Blood pressure                    | ↔           | ↔                   | ↔/↓                       | ↓                             |
-| Pulse pressure                    | ↔           | ↓                   | ↓                         | ↓                             |
-| Respiratory rate                  | ↔           | ↔                   | ↔/↑                       | ↑                             |
-| Urine output                      | ↔           | ↔                   | ↓                         | ↓↓                            |
-| Glasgow Coma Scale score          | ↔           | ↔                   | ↓                         | ↓                             |
-| Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L    | –6 to –10 mEq/L           | –10 mEq/L or less             |
-| Need for blood products           | Monitor     | Possible            | Yes                       | Massive Transfusion Protocol  |
+: (#tab:atls) ATLS classification for haemorrhagic shock, adapted from
+[@noauthor_atls_2018].
 
-
-We included five other metrics to be adjusted for, due to potential for confounding. Pre-injury ASA and gender were categorical, meanwhile age, ISS and INR were kept continuous. 
-
-## Bias
+We included five other metrics to be adjusted for, due to potential for
+confounding. Pre-injury ASA and gender were categorical, meanwhile age,
+ISS and INR were kept continuous.
 
 ## Study size
 
-All available data in trauma registry and trauma care quality database will be included.
+All available data in trauma registry and trauma care quality database
+will be included.
 
 ## Quantitative variables
 
-Table \@ref(tab:mod-atls) shows how we defined shock according to BE and SBP. The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg).
-This classification follows the tenth edition ATLS hemorrhage classification [@noauthor_atls_2018], which does not specify exact values for any parameter other than BE. To solve this, we assigned numerical SBP values to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age[@eastridge_hypotension_2007; @oyetunji_redefining_2011]. Therefore, we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al.[@mutschler_critical_2013]. 
+Table \@ref(tab:mod-atls) shows how we defined shock according to BE and
+SBP. The BE parameter was divided into four classes with these cutoffs:
+Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and
+Class IV (below -10). Similarly, SBP was divided into four classes:
+Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90
+mmHg), and Class IV (below 90 mmHg). This classification follows the
+tenth edition ATLS hemorrhage classification [@noauthor_atls_2018],
+which does not specify exact values for any parameter other than BE. To
+solve this, we assigned numerical SBP values to each class based on
+findings from Eastridge et al. and Oyetunji et al., who redefined
+hypotension as 110 mmHg respective 90 mmHg dependent on
+age[@eastridge_hypotension_2007; @oyetunji_redefining_2011]. Therefore,
+we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS:
+normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear
+hypotension), class 2 and 3 divided equally in between. This also aligns
+with the classification done by Mutschler et
+al.[@mutschler_critical_2013].
 
-Table: (\#tab:mod-atls) ATLS tenth edition - Systolic blood pressure and Base excess (BD).
+| **Parameter - original ATLS 10th edition** | **Class I** | **Class II** (Mild) | **Class III** (Moderate) | **Class IV** (Severe) |
+|----------------|--------------|--------------|--------------|--------------|
+| Base deficit | 0 to –2 mEq/L | –2 to –6 mEq/L | –6 to –10 mEq/L | –10 mEq/L or less |
+| Systolic Blood pressure | ↔ | ↔ | ↔/↓ | ↓ |
+| **Parameter - numerical approximated SBP** |  |  |  |  |
+| Systolic Blood pressure | \>110 mmhg | 109-100 mmhg | 99-90 mmhg | \<90 mmhg |
 
-| **Parameter - original ATLS 10th edition**| **Class I** | **Class II** (Mild)  | **Class III** (Moderate)  | **Class IV** (Severe) |
-|-----------------------------------|-------------|----------------------|---------------------------|-------------------------------|
-| Base deficit                      | 0 to –2 mEq/L | –2 to –6 mEq/L     | –6 to –10 mEq/L           | –10 mEq/L or less             |
-| Systolic Blood pressure           | ↔           | ↔                    | ↔/↓                       | ↓                             |
-| **Parameter - numerical approximated SBP**                                                                                         |
-| Systolic Blood pressure           | >110 mmhg   | 109-100 mmhg         | 99-90 mmhg                | <90  mmhg                     |
+: (#tab:mod-atls) ATLS tenth edition - Systolic blood pressure and Base
+excess (BD).
 
-Please note that ATLS classification defines class I for the BE parameter as (0 to -2) however, we choose to follow its original source[@mutschler_renaissance_2013], which defines class I as base deficit (Inverted BE) ≤ 2, with no lower limit (i.e. an upper limit for BE). 
+Please note that ATLS classification defines class I for the BE
+parameter as (0 to -2) however, we choose to follow its original
+source[@mutschler_renaissance_2013], which defines class I as base
+deficit (Inverted BE) ≤ 2, with no lower limit (i.e. an upper limit for
+BE).
 
 ## Statistical methods
 
-The statistical analysis will be performed using R, a programming language and environment for statistical computing. We will present the types of OFI as percentage distributions and then visualize them in a bar chart. Unadjusted logistic regression will be used to determine the association between the OFI, and degree of shock defined separately by classifying BE and SBP roughly according to ATLS classification of hemorrhagic shock. Adjusted logistic regression will then incorporate other patient factors such as age, sex, preinjury ASA, INR, and ISS. It will be presented as odds ratios (OR) between the presence of OFI, and shock classes. The OR will be determined with 95% confidence intervals, and a significance level of 5% will be used. All statistical analysis will first be done on synthetic data and later implemented on the data collected from the trauma registry and the trauma care quality database to ensure objectivity. Missing data will be addressed by listwise deletion. 
+The statistical analysis was performed using R, a programming language
+and environment for statistical computing. OFI subcategories were
+presented as percentage distributions and visualized in a bar chart.
+Bivariable logistic regression was used to determine the unadjusted
+association between the OFI, and degree of shock defined by BE and SBP
+classifications. Multivariable logistic regression incorporated and
+adjusted for other patient factors such as age, sex, preinjury ASA, INR,
+and ISS. It was presented as odds ratios (OR) between the presence of
+OFI, and shock classes. The OR was determined with 95% confidence
+intervals, and a significance level of 5% was used. All statistical
+analysis was first done on synthetic data and then later implemented on
+the data collected from the trauma registry and the trauma care quality
+database to ensure objectivity. Missing data was addressed by listwise
+deletion.
 
 # Results
+
 ```{r main, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 source("main.R") ## This "imports" the main script file of your project and run any code in it
 ```
 
 ## Participants
-There was a total of 14022 patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were 12153 patients remaining. Out of those, 7152 patients had been reviewed for the presence of OFI. A total of 2233 patients were excluded due to missing data, resulting in 4919 patients for the final analysis. The selection process can also be seen in Figure 1. The variable with the most missing data is BE which lacks the data for 1721 patients. Detailed data regarding missing data is displayed in a table in appendix 1.
 
-#ändra till flowchart
+There was a total of 14022 patients in the trauma registry. After
+excluding the patients younger than 15 and/or were dead on arrival,
+there were 12153 patients remaining. Out of those, 7152 patients had
+been reviewed for the presence of OFI. A total of 2233 patients were
+excluded due to missing data, resulting in 4919 patients for the final
+analysis. The selection process is shown in Figure 1. The variable with
+the most missing data is BE, for which data was missing in 1721
+patients. Detailed data regarding missing data is displayed in the
+supplementary material.
 
-#slut
+Figure 1. Flowchart of selection of study population.
 
 ## Descriptive data
-Table \@ref(tab:sample-characteristics-reg) describes the characteristics of the study population. The study demographics median age was `r age` and the most common gender was male, `r male`. Clinically, the median ISS was 5 which is considered minor injuries, median INR was 1.00, and the most common Preinjury ASA class was 1, at 62%.  
+
+Descriptive data is shown in Table 3. The median age was 39 years (25,
+56), and 3506 (71%) of the individuals were males. Clinically, the
+median ISS was 5, which is considered minor injuries, and the median INR
+was 1.00, and the most common Preinjury ASA class was 1, at 62%.
+
+Overall, 3989 (81%) of the patients were classified as having no shock
+(class 1) according to the BE classification, the sum of the remaining
+classes accounted for 930 (19%) patients. The distribution of the
+classes was decreasing in numbers with increased severity, with class 2:
+644 (13%), class 3: 170 (3.5%), and class 4: 116 (2.4%).
+
+According to SBP, 4455 (91%) patients had no shock (class 1), while the
+remaining classes with patients in shock accounted for 464 (9%) of all
+the patients. Among the classes defined with shock, class 2 was the
+biggest at 239 (4.9%), followed by class 4 at 127 (2.6%), and lastly
+class 3 with 99 (2.0%).
 
 Table 3
 
@@ -162,19 +303,28 @@ sample.characteristics.table_reg |>
 ```
 
 ## Outcome data
-Out of the 4919 patients reviewed without missing data, 281 (5.7%) patients had at least one positive OFI.
 
-The most common OFI type was clinical judgement error, numbering 103 (37%) patients. The other three major OFI types were: inadequate resources for 61 (22%) patients, delay in treatment for 49 (17%) patients and missed diagnosis for 48 (17%) patients. The least common OFI was “other errors”, for 5 (1.8%) patients.
+Out of the 4919 patients reviewed without missing data, 281 (5.7%)
+patients had at least one OFI. The most common OFI type was clinical
+judgment error, numbering 103 (37%) patients. The other three major OFI
+types were inadequate resources for 61 (22%) patients, delay in
+treatment for 49 (17%) patients, and missed diagnosis for 48 (17%)
+patients. The least common OFI was “other errors”, which was present in
+5 (1.8%) patients.
 
-When classified, the most common OFI type in class 1 (no shock) was clinical judgement error both in the BE and SBP groups, while the other OFI types also followed a similar distribution between the groups. The largest OFI type continues to be clinical judgment error for BE group in class 2, 3 and 4, at 34.6%; 31.2%; and 42.9% in this order. On other hand, the largest OFI type in SBP class 2 was delay in treatment at 50%. The SBP class 3 was evenly distributed between clinical judgement error and missed diagnosis at 40% each. Lastly, class 4 SBP’s most common OFI type was clinical judgment error 46.7%.
+The most common OFI in patients without chock (class 1) was clinical
+judgment error both in the BE and SBP groups, while the other OFI types
+also followed a similar distribution between the groups. Clinical
+judgment error was the most common OFI in the BE group class 2, 3 and 4,
+at 34.6%; 31.2%; and 42.9% respectively. On the other hand, the largest
+OFI type in SBP class 2 was delay in treatment at 50%. The frequencies
+of clinical judgement error and missed diagnosis were similar in the SBP
+class 3 group, at 40% each. Lastly, the most common OFI in class 4 of
+the SBP group was clinical judgment error, at 46.7%.
 
-Overall, 3989 (81%) of the patients were classified as having no shock (class 1) according to the BE classification, the sum of the remaining classes accounted for 930 (19%) patients. The distribution of the classes was decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3.5%), and class 4: 116 (2.4%).
+------------------------------------------------------------------------
 
-According to SBP, 4455 (91%) patients had no shock (class 1), while the remaining classes with patients in shock accounted for 464 (9%) of all the patients. Among the classes defined with shock, class 2 was the biggest at 239 (4.9%), followed by class 4 at 127 (2.6%), and lastly class 3 with 99 (2.0%).
-
--------
-
-Table 4 - Sub-OFI, classified according to BE  
+Table 4 - Sub-OFI, classified according to BE
 
 ```{r sub-ofi BE, echo=FALSE}
 BEsubofi_tbl
@@ -187,21 +337,28 @@ SBPsubofi_tbl
 ```
 
 ## Main results
-The adjusted analyses showed only statistical significance when comparing BE class 4 to class 1, which had 63% lower odds for OFI (OR 0,37; 95% CI 0,14-0,83; p-value 0.026).
 
-The un-adjusted analysis showed when comparing to class 1 in BE group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR 1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased risk for OFI. For the SBP group, comparison between class 1 and class 4 showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value 0.004). 
+The unadjusted analysis of the association between shock class categorised by BE is shown in Table 6. This analysis showed that compared to class 1 (no shock), the odds of OFI in class 2 and 3 were increased by 61% (OR 1.61, 95% CI 1.17-2.20, p-value 0.003) and 91% (OR 1.91, 95% CI 1.08-3.16, p-value 0.018) respectively. Table 7 shows the association between shock classes categorised by SBP. Compared to class 1 (no shock), the odds of OFI in class 4 were increased by 128% (OR 2.28, 95% CI 1.26-3.85, p-value 0.004).
+
+The adjusted analysis was conducted in two steps. In the first step, we adjusted for age, gender, preinjury ASA score, and INR, but not for ISS. Compared to the unadjusted analysis, this initial adjustment led to minor changes in ORs. In the BE group, the OR for class 2 changed by approximately 1% (from 1.61 to 1.60), and for class 3, it changed by about 2% (from 1.91 to 1.93), as shown in Table 6. In the SBP group, the OR for class 4 changed by around 7% (from 2.28 to 2.21), as shown in Table 7.
+
+In the second step, ISS was added to the adjustment model to complete the fully adjusted model. For the BE group (Table 6), this led to a shift in statistical significance: instead of class 2 and 3, class 4 became statistically significant. In this fully adjusted model, class 4 was associated with 63% lower odds of an opportunity for improvement (OR 0.37, 95% CI 0.14–0.83, p = 0.026). In contrast, for the SBP group (Table 7), no class remained statistically significant in the fully adjusted model.
+
 
 Table 6 adjusted log BE
+
 ```{r masterBE, echo=FALSE}
 master_combined_table_stepBE
 ```
 
 Table 7 adjusted log SBP
+
 ```{r masterSBP, echo=FALSE}
 master_combined_table_stepSBP
 ```
 
 # Discussion
+
 ```{=html}
 <!--
 
@@ -230,70 +387,41 @@ Discuss the generalisability (external validity) of the study results
 
 -->
 ```
-The purpose of this study was to assess the association between OFI and adult trauma patients arriving in shock, focusing on the types of OFI and severity of shock. 
 
-##Key results
-We found that the most common type of OFI is clinical judgment error across almost all shock severities. Out of all shock severities, there is only a statistically significant association between severe shock with a BE of < -10 and OFI, which shows 63% reduced odds of OFI when compared against those with no shock.
+## Key results
 
-The unadjusted analyses demonstrated a general positive association between shock and OFI. However, this association inverted in the adjusted models, with BE < -10 showing reduced odds for OFI. 
+We found that the most common type of OFI is clinical judgment error across almost all shock severities. The unadjusted models suggested a positive association between moderate shock and OFI; adjustment reversed this, with severe shock showing 63% reduced odds.
 
-##Interpretation
-Patients with BE < -10, indicating severe shock, were found to have lower odds of OFI compared to other groups, and two hypotheses may explain this finding.
+## Limitations
 
-First, patients in severe shock should be more easily recognized as critically ill upon arrival, triggering heightened clinical attention and prioritization in triage. This results in more structured management and often receives priority in resource allocation, which may minimize variability in care and reduce the likelihood of errors.
+The study design is limited by the lack of data on heart rate, FAST, detailed types of injury, and clinical chemistry. This resulted in choosing a proprietary simplified ATLS framework instead of categorizations such as TASH, TBSS, and ABC with better sensitivity and specificity than the ATLS framework [@yucel_trauma_2006;@ogura_modified_2016;@hanlin_prehospital_2024]. Another limitation is that missing data were handled by listwise deletion, which reduced the sample size by 2233 and may also introduce bias due to missing BE values. Also worth noting is that the sample size for most of the shock classes (class 2 to 4) are roughly around 100 to 200 patients, whereas those with positive OFI are as low as five patients. This may have resulted in higher randomness and inflated effect sizes.
 
-Another explanation is the potential influence of “reversed” survival bias. Patients with BE < -10 have high mortality rates (25), and for these patients who die, the care process is interrupted prematurely. This may induce generally fewer procedures or shorter care time for patients with deadly outcomes, which means less chance for errors, and therefore OFIs. This would result in reduced amount of OFIs in groups with higher mortality, which in this case would be class 4.
+## Interpretation
 
-###Interpretation of adjusted model after inclusion of ISS
-When looking at the distribution of the significant and insignificant results of the BE group (table 6), it can be observed that the significance reverses for the classes when adding ISS. One explanation is that the unadjusted positive correlation may be driven by a shared variability with ISS, as we can see significant positive association between ISS and OFI in our results. This positive association between OFI and ISS have also been shown in a study by Husssein et al (26). It is important to note that Hussein’s study was also conducted at Karolinska Solna, but during a different time frame (2017-2021) and with other inclusion and exclusion criteria.
+The lower odds of OFI for patients with BE < -10 may be explained by two theories. One is that more severe injuries may receive heightened attention and more protocol-driven responses. This would in turn, result in reduced risk of deviation from optimal care (and thus OFIs). This theory is also partly supported by the observation that the OFIs “inadequate protocols” and “missed diagnosis” generally occur with lower frequencies with higher shock degrees, regardless of whether classed with BE or SBP. Do note that the low frequencies of OFI in the severe shock classes, limit this theory with higher chance of randomness. 
 
-Another hypothetical explanation is multicollinearity, as both BE and ISS assess injury severity. Theoretically anatomical injury, bleeding and physiological response should be closely interconnected. A correlation between ISS and BD (inversed BE) or SBP was also shown in the two studies by Mutscher et al. (11,25). Therefore, adjusting for each other may explain the inversion of OR. However, it may also result in results that’s difficult to interpret or lack any meaning in a clinical context. This may also explain why class 2 and 3 are not significant but class 4 are in the adjusted analysis, as seen in study by Hussein et al (26), ISS does not correlate linearly to OFI, but we included ISS linearly in the model.
+The second theory is survival bias, where the reduced odds of OFI may be explained by that this study only incorporated the surviving patients. This may result in only the most optimally cared patients surviving. Patients with BE < -10 also have high mortality rates [@mutschler_renaissance_2013]. Hypothetically, this would result in the severe classes of shock, with more dying patients with OFIs being eliminated from the data, due to death as the outcome. 
 
-However, when adding ISS to the SBP group, the significance of class 4 disappears, but the significance of classes 2 and 3 does not change, like in the case for BE group. The same can be said about the OR, it does change but not nearly as major as in the BE class. Especially for class 2, as the OR merely changes from 1.06 to 1.11 and then to 0.96. Class 3 OR changes more, from 0.92 to 0.90 to 0.47; but the OR difference is still < 0.5, whereof for the BE group and SBP class 4 the difference is always > 0.5. The reason may be due to the cutoffs of the classification system, as the SBP classification does not follow the same range of shock as the BE classification. The results of the study that BE classification was originating from (25), shows that BE class 1 had a mean SBP of 132.6 mmHg and class IV had 94.8 mmHg. As an SBP of 132.6 mmHg is at the higher range of normotensive, we were therefore not able to use it as an upper limit, but the 94.8 mmHg is close to our approximation of 90 mmHg for class 4. The SBP classification is therefore only somewhat connected to the BE classification at the lower limit e.g. class 4. Also worth noting is that the divider between our SBP class 2 and 3, are arbitrary and made to connect with the ATLS system to make up a four-class system, as the 90 mmHg and 110 mmHg are from Eastridge et al (23) and Oyetunji et al (24) which only defined 110 mmHg and 90 mmHg and nothing in between. This means that this divider may have made the classes too small and no longer scientific.
+The reversal of OR and distribution of statistical significance may be attributed to multicollinearity, as both BE and ISS assess injury severity. Theoretically, anatomical injury, bleeding, and physiological response should be closely interconnected. A correlation between ISS and BD (inverted BE) or SBP was also shown in the two studies by Mutscher et al. [@mutschler_critical_2013;@mutschler_renaissance_2013]. Therefore, adjusting for each other may generate results that are difficult to interpret. This may also explain why classes 2 and 3 are no longer statistically significant, whereas class 4 remains significant. 
 
-###Comparison to literature
-Previous studies (7,27) which studied cases with a deathly outcome, showed that the most common OFI type was delay in treatment, while the second most common is clinical judgment error (7), or errors in management (27). In comparison, our results showed the most common OFI is clinical judgment error (36%), while inadequate resources were second (22%), and delay in treatment comes third (17%), for the whole study population. These differences may be due to the nature of the studied population, where delay in treatment may be more deadly, therefore it takes up a smaller part of our results, while clinical judgment error takes up a larger part. No studies were found to address this hypothesis of survivorship bias for OFI types.
+One other factor which may have contributed to this pattern of results, especially the distribution of significant classes and not as much the reversal after adjustment with ISS, was that ISS was included as a continuous (linear) variable in the model. As shown by Albaaj et al. [@albaaj_patient_2023], increases in ISS do not correspond proportionally to increases in the likelihood of OFI. Therefore, its relationship with opportunities for improvement (OFI) is likely not linear, which results in different statistical significances between the classes. 
 
-For patients defined as in shock (Class 2-4), the most common OFI was still clinical judgment error (BE 34.7%; SBP 35.3%). This result is similar when compared to D O’Reilly’s study (28), in which the most common type of opportunities for performance improvements (OPI) was one involved with decision-making at 63 out of 150 OPIs.
-We did not find any publication addressing shock severity and OFI. We have therefore looked at studies addressing preventable negative care outcomes and assessed severity by other factors but only found one that investigated predicting factors and preventable death. This study (29) showed that there was a OR correlation of 14.1 between preventable death and SBP ≥ 80mmHg, when comparing to SBP < 80 mmHg. This differs from our SBP findings, as our adjusted results are not statistically significant, and the significant unadjusted results don’t have that extreme of OR and are positively correlated with severe and not mild shock. These differences are not strange, but rather understandable, as the studies are conducted at different hospitals, populations, outcomes (surviving vs death) and different classifications (the lowest of our 4 SBP classes is 90mmHg, while they only got 2 classes that separate at 80mmHg). However, if reasoned from a shock standpoint where both SBP and BE are part of, and compare this result with our BE results, they show a similar trend. Our BE results showed reduced odds of OFI when comparing the most severe and the no shock class. This implies that if changing the reference point to the most severe shock class, the result would be increased odds of OFI when compared to the no shock class. Therefore, our results show similar trend to their study (29) result, that showed lesser shock (higher SBP) had increased odds ratio of preventable death.
+### Comparison to literature
 
-One surprising result is that there is no significance for the SBP group in our adjusted analysis. When comparing to the results from Hussein et al. (26), the SBP results conform, as it also showed significance for the unadjusted results below 90 mmHg and no significance when adjusted with other factors including ISS. 
-Due to a lack of research regarding shock/injury severity and OFI/preventable death, it is difficult to determine whether the results are reasonable or not. It is therefore also difficult to determine exactly why some of them are significant and others not, leaving us with reasoning and hypothetical explanations.
+A previous study by O’Reilly et al [@oreilly_opportunities_2013], which looked into opportunities for performance improvements (OPI) in 7511 cases, whereof 127 patients whose death was affected by hemorrhage, found that the most common OPI was related to decision making (63 out of 150 OPIs). This aligns with our findings that patients in shock (Class 2-4) were most affected by the OFI, “clinical judgment error” (BE 34.7%; SBP 35.3%).
 
-##Strengths and limitations
-Strength of this study includes the relatively large cohort of 4919 patients spread over 9 continuous years. From a methodical standpoint, even though an established shock/hemorrhage classification system was not used, two clinical parameters were used in parallel. This includes two perspectives, one physiological and one chemical, to best describe shock and at the same time still using the original parameters the clinicians meet on a day-to-day basis.  
+No studies were found that specifically examined OFIs in patients in hemorrhagic shock, but studies on OFIs in general trauma populations show results in a similar theme. A study by T.P. Saltzherr [@saltzherr_preventability_2011] from a Dutch trauma center reported that “delay in treatment” or “error in management” was the most common error type. Similarly, Martin et al. [@martin_analysis_2009] found that delays to surgery were significant contributors to adverse outcomes, for a military hospital in Baghdad. Sanddal et al [@sanddal_analysis_2011] identified the main issues of care for a trauma system in development in Utah as chest injury diagnostic and management, airway management, and fluid resuscitation. Teixeira et al. [@teixeira_preventable_2007], analyzing preventable deaths in a mature trauma center, also confirmed the impact of delayed treatment and poor clinical decision-making.
 
-One of the limitations is the lack of data to design the study around a modern shock/hemorrhage classification which uses a combination of base parameters. Due to a lack of data on heart rate, FAST, detailed types of injury, and clinical chemistry, we were not able to use categorizations such as TASH, TBSS, and ABC with better sensitivity and specificity than the ATLS framework (30–32). The ATLS shock classification framework would, in turn, would also be better studied and evidence-based, than the proprietary classification we simplified and built our classification from.
-
-The choice to not include the ATLS hemorrhage classification was due to four reasons. The first one is ATLS tenth edition lacks numerical values for vital parameters. The second one is that base deficit alone is superior to vital parameters as a predictive parameter for mortality (33). The third one is due to the nature of having multiple parameters, which makes it difficult to categorize a patient with vital parameters in two or more classes at the same time. The fourth one is difficulties in separating lower GCS due to traumatic brain injury from shock as a cause.
-
-Missing data were handled by listwise deletion, which reduced the sample size by 2233 and may also introduce bias, as the most common missing category was BE which may mean that BE was not routinely measured and result in inconsistency for certain patient groups, which risks selection bias.
-Also worth noting is that the sample size for most of the shock classes (class 2 to 4) are roughly around 100 to 200 patients, whereof those with positive OFI are as low as 5 patients. This may result in over/underestimation of the OR, as there is higher chance of randomness in smaller sample sizes, which results in broader confidence intervals which may result in more “extreme” average OR.
-
-##Clinical/Practical applications - Generalisability?
-Clinically the unadjusted are more insightful, as the variables are never separated and instead combined into complex cases. Therefore, from a BE standpoint when a patient’s BE is between -2 to -10 the odds of OFI are between 61% to 91% higher than those with BE above -2. Suggesting patients with a BE between these levels may need extra attention. 
-From a SBP perspective, when SBP dips below 90 mmHg odds for OFI increases a massive 128%, compared with those with SBP above 110 mmHg. This supports the idea (24) of using 90 mmHg as a clinical limit for defining hypotension.
-
-###Equity
-It can be observed that the male gender is more prevalent in our results than females (71% vs 29%), which is like other studies (22,27,28). However, when comparing the event rate of OFI among the patients reviewed for OFI, the difference between the genders becomes minimal at 5.1% for female, respective 6% for male. At the same time, when fully adjusted, gender is not significant (p = 0.4), this implies that even though gender may not be proportionate in trauma cases, there seems to be no major difference between the genders for trauma care quality. This may reflect that the standardized protocols for trauma care minimize gender-based differences. When comparing to other studies (27,28), it seems like the percentage potentially preventable death and OPI have a higher amount for males, however, to be noted their percentage is based on ratio between genders and not event risk for each gender. Socioeconomical factors were not incorporated into this study, nonetheless an important factor in emergency medicine, when resources are scarcer. Especially when “inadequate resources” is the third most common OFI type, even for a major hospital in the capital of Sweden. This implies the results of this study cannot be generalized globally, especially not places where standardized trauma care protocols are not incorporated and/or lack adequate resources.
-
-###Future studies
-The next step for future studies is to validate the findings and improve the methods from this study. As previously discussed, the association between anatomical classification ISS and physiological parameters BE and SBP, and how they correlate to OFI are complex and not necessarily clinically relevant. One way to avoid this problem is using a validated classification for hemorrhagic shock with both anatomical and physiological components, like ABC, TASH, and so on. 
-
-One other problem when interpreting the results is the “reversed survivorship bias”. Due to the design of trauma care quality database, when and where (level of care) the OFI occurred during the length of stay is not recorded. A prospective study can clarify whether shock severity directly affects OFI or if length of stay is a confounding factor. By observing when and where OFIs most commonly occur, it can determine whether the hypothesis of length of stay is correct. This also aids in understanding the reasons behind the nonlinear relationship between ISS, BE or SBP and OFI, as there are currently only theories but no studies.    
+In comparison, our study found that “clinical judgment error” was the most common OFI for all patients and patients in shock. While the relative ranking may vary, whether delay in treatment or clinical judgment error is most common, these two categories consistently emerged as the most frequent across studies. This also suggests that the types of OFIs that were common in the general trauma population were similarly frequent in patients in shock. Moreover, this pattern appears consistent regardless of the studied population, whether the focus was on preventable deaths or on patients who survived their injuries.
 
 
 # Conclusion
-<!-- Give a short conclusion, corresponding to the aim -->
 
-The most common type of OFI for shock patients is clinical judgement error. Association between shock and OFI doesn’t seem to be linear, but rather the moderate shock has higher odds of OFI compared to the mild and severe shocks. The lack of significance in SBP classification highlights potential framework limitations compared to BE. These findings emphasize the importance of accounting for ISS and using validated shock classifications in future research.
+Clinical judgment error was the most common OFI in shock patients. The association between shock and OFI does not seem to be linear, but rather the moderate shock has higher odds of OFI compared to the mild and severe shocks. These findings emphasize the importance of improved protocols for initial management of non-critical patients to minimise decision error. 
 
-#Contributions
+# Contributions
 Data collection from the trauma registry, ethics application and study designed by Martin Gerdin Wärnberg. Carl sorted, programmed and analyzed the data, and then wrote the thesis with support from Martin Gerdin Wärnberg, Johanna Berg, Jonatan Attergrim and Kelvin Szolnoky. 
-Technical tools used include Chat-GPT and Google translate. Both were used in the same way, as means to translate more adequate vocabulary for scientific writing between Swedish and English. The overall formulations, structure and content were written by me (Carl), and which of the translations done by the two tools, that were to be used to ensure the content, were also done by me (Carl). 
 
-##Acknowledgements
-I want to here again thank my supervisor and co-supervisors for supporting, replying to questions and reading and giving me constructive feedback. I also want to thank my coordinator Jan Jakobsson for a lot of constructive feedback and guiding my understanding of the practicalities and extent for this thesis. My fellow medical student Anton Fedchenko also supported me with constructive feedback. Lastly, I also want to thank my friend Gustav Nilsson-Gisleskog, a master student in computer science at Lund University for helping me solve conflicting push pull requests on git-hub. 
 
 # References
 

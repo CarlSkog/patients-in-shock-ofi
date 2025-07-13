@@ -480,27 +480,30 @@ Karolinska University Hospital in Solna.</p>
 </div>
 <div id="setting" class="section level2">
 <h2>Setting</h2>
-<p>The trauma registry includes patients treated at Karolinska
-University Hospital in Solna, which treats all major trauma in the
-greater metropolitan area of Stockholm. We included patients registered
-between 2014 and 2023. The trauma care quality database is a subset of
-the trauma registry and includes patients selected for review.</p>
+<p>The trauma registry is comprised of patients treated at the
+Karolinska University Hospital in Solna, which treats all major trauma
+in the greater metropolitan area of Stockholm. We included patients
+registered between 2014 and 2023. The trauma care quality database is a
+subset of the trauma registry and includes patients selected for
+review.</p>
 </div>
 <div id="participants" class="section level2">
 <h2>Participants</h2>
 <p>Inclusion in the trauma registry requires either admission through
 trauma team activation or presenting with an Injury Severity Score (ISS)
-greater than nine after admission to the Karolinska University Hopsital.
+greater than nine after admission to the Karolinska University Hospital.
 Each trauma patient is then included in a morbidity and mortality review
 process, which involves both individual case evaluations by specialized
 nurses and audit filters. Patients identified with a high potential for
-OFIs are discussed at multidisciplinary conferences. The identified OFIs
-are then categorized into broad and detailed categories. The presence or
-absence of OFIs is determined by consensus among all participants and is
-documented in the trauma care quality database.</p>
-<p>We included all patients in the trauma registry and Trauma care
-quality database. We excluded patients younger than 15 and/or were dead
-on arrival.</p>
+OFIs are discussed at multidisciplinary conferences. An OFI can be
+various types of preventable events, and can be categorized as: clinical
+judgment error, inadequate resources, delay in treatment, missed injury,
+inadequate protocols, preventable death and other errors. The presence
+or absence of OFIs is determined by consensus among all participants and
+is documented in the trauma care quality database.</p>
+<p>All patients in the trauma registry and trauma care quality database
+were included. Patients younger than 15 and/or were dead on arrival were
+excluded.</p>
 </div>
 <div id="variables-and-data-sourcesmeasurements" class="section level2">
 <h2>Variables and data sources/measurements</h2>
@@ -516,15 +519,15 @@ once with base excess (BE), regardless of their cause of shock. Based on
 these two parameters, the patients will be classified into four classes
 roughly based on the ATLS trauma shock classifications (See Table
 @ref(tab:atls) <span class="citation">(9)</span>).</p>
-<table>
+<table style="width:100%;">
 <caption>(#tab:atls) ATLS classification for haemorrhagic shock, adapted
 from <span class="citation">(9)</span>.</caption>
 <colgroup>
-<col width="27%" />
-<col width="10%" />
-<col width="16%" />
-<col width="21%" />
-<col width="24%" />
+<col width="22%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -605,9 +608,6 @@ from <span class="citation">(9)</span>.</caption>
 for confounding. Pre-injury ASA and gender were categorical, meanwhile
 age, ISS and INR were kept continuous.</p>
 </div>
-<div id="bias" class="section level2">
-<h2>Bias</h2>
-</div>
 <div id="study-size" class="section level2">
 <h2>Study size</h2>
 <p>All available data in trauma registry and trauma care quality
@@ -630,15 +630,15 @@ as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and
 below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension),
 class 2 and 3 divided equally in between. This also aligns with the
 classification done by Mutschler et al.<span class="citation">(12)</span>.</p>
-<table>
+<table style="width:100%;">
 <caption>(#tab:mod-atls) ATLS tenth edition - Systolic blood pressure
 and Base excess (BD).</caption>
 <colgroup>
-<col width="27%" />
-<col width="10%" />
-<col width="17%" />
-<col width="21%" />
-<col width="24%" />
+<col width="22%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -688,676 +688,68 @@ BE).</p>
 </div>
 <div id="statistical-methods" class="section level2">
 <h2>Statistical methods</h2>
-<p>The statistical analysis will be performed using R, a programming
-language and environment for statistical computing. We will present the
-types of OFI as percentage distributions and then visualize them in a
-bar chart. Unadjusted logistic regression will be used to determine the
-association between the OFI, and degree of shock defined separately by
-classifying BE and SBP roughly according to ATLS classification of
-hemorrhagic shock. Adjusted logistic regression will then incorporate
-other patient factors such as age, sex, preinjury ASA, INR, and ISS. It
-will be presented as odds ratios (OR) between the presence of OFI, and
-shock classes. The OR will be determined with 95% confidence intervals,
-and a significance level of 5% will be used. All statistical analysis
-will first be done on synthetic data and later implemented on the data
-collected from the trauma registry and the trauma care quality database
-to ensure objectivity. Missing data will be addressed by listwise
-deletion.</p>
+<p>The statistical analysis was performed using R, a programming
+language and environment for statistical computing. OFI subcategories
+were presented as percentage distributions and visualized in a bar
+chart. Bivariable logistic regression was used to determine the
+unadjusted association between the OFI, and degree of shock defined by
+BE and SBP classifications. Multivariable logistic regression
+incorporated and adjusted for other patient factors such as age, sex,
+preinjury ASA, INR, and ISS. It was presented as odds ratios (OR)
+between the presence of OFI, and shock classes. The OR was determined
+with 95% confidence intervals, and a significance level of 5% was used.
+All statistical analysis was first done on synthetic data and then later
+implemented on the data collected from the trauma registry and the
+trauma care quality database to ensure objectivity. Missing data was
+addressed by listwise deletion.</p>
 </div>
 </div>
 <div id="results-1" class="section level1">
 <h1>Results</h1>
 <div id="participants-1" class="section level2">
 <h2>Participants</h2>
-<p>There were a total of 14022 patients in the trauma registry. After
+<p>There was a total of 14022 patients in the trauma registry. After
 excluding the patients younger than 15 and/or were dead on arrival,
-there were 12153 patients left. Out of those, 7152 patients had been
-reviewed for the presence of OFI. A total of 2233 patients were excluded
-due to missing data, resulting in 4919 patients for the final
-analysis.</p>
-<p>The variable with most missing data is BE which lack the data for
-1721 patients.</p>
-<p>Table 3 - Sample characteristics showing missing data.</p>
-<div id="ahcboizcpj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ahcboizcpj table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#ahcboizcpj thead, #ahcboizcpj tbody, #ahcboizcpj tfoot, #ahcboizcpj tr, #ahcboizcpj td, #ahcboizcpj th {
-border-style: none;
-}
-#ahcboizcpj p {
-margin: 0;
-padding: 0;
-}
-#ahcboizcpj .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#ahcboizcpj .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#ahcboizcpj .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#ahcboizcpj .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#ahcboizcpj .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ahcboizcpj .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahcboizcpj .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ahcboizcpj .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#ahcboizcpj .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#ahcboizcpj .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#ahcboizcpj .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#ahcboizcpj .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#ahcboizcpj .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#ahcboizcpj .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#ahcboizcpj .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#ahcboizcpj .gt_from_md > :first-child {
-margin-top: 0;
-}
-#ahcboizcpj .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#ahcboizcpj .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#ahcboizcpj .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahcboizcpj .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#ahcboizcpj .gt_row_group_first td {
-border-top-width: 2px;
-}
-#ahcboizcpj .gt_row_group_first th {
-border-top-width: 2px;
-}
-#ahcboizcpj .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahcboizcpj .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#ahcboizcpj .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#ahcboizcpj .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahcboizcpj .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahcboizcpj .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#ahcboizcpj .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#ahcboizcpj .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#ahcboizcpj .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahcboizcpj .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ahcboizcpj .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahcboizcpj .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ahcboizcpj .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahcboizcpj .gt_left {
-text-align: left;
-}
-#ahcboizcpj .gt_center {
-text-align: center;
-}
-#ahcboizcpj .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#ahcboizcpj .gt_font_normal {
-font-weight: normal;
-}
-#ahcboizcpj .gt_font_bold {
-font-weight: bold;
-}
-#ahcboizcpj .gt_font_italic {
-font-style: italic;
-}
-#ahcboizcpj .gt_super {
-font-size: 65%;
-}
-#ahcboizcpj .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#ahcboizcpj .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#ahcboizcpj .gt_indent_1 {
-text-indent: 5px;
-}
-#ahcboizcpj .gt_indent_2 {
-text-indent: 10px;
-}
-#ahcboizcpj .gt_indent_3 {
-text-indent: 15px;
-}
-#ahcboizcpj .gt_indent_4 {
-text-indent: 20px;
-}
-#ahcboizcpj .gt_indent_5 {
-text-indent: 25px;
-}
-#ahcboizcpj .katex-display {
-display: inline-flex !important;
-margin-bottom: 0.75em !important;
-}
-#ahcboizcpj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-height: 0px !important;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class="gt_from_md"><strong>Characteristic</strong></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_0"><span class="gt_from_md"><strong>Overall</strong><br />
-N = 7,152</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class="gt_from_md"><strong>No</strong><br />
-N = 6,716</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class="gt_from_md"><strong>Yes</strong><br />
-N = 436</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value"><span class="gt_from_md"><strong>p-value</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">Age (Years)</td>
-<td headers="stat_0" class="gt_row gt_center">40 (26, 56)</td>
-<td headers="stat_1" class="gt_row gt_center">40 (26, 56)</td>
-<td headers="stat_2" class="gt_row gt_center">45 (28, 61)</td>
-<td headers="p.value" class="gt_row gt_center">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Gender (M/F)</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.14</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Female</td>
-<td headers="stat_0" class="gt_row gt_center">2,159 (30%)</td>
-<td headers="stat_1" class="gt_row gt_center">2,041 (30%)</td>
-<td headers="stat_2" class="gt_row gt_center">118 (27%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Male</td>
-<td headers="stat_0" class="gt_row gt_center">4,993 (70%)</td>
-<td headers="stat_1" class="gt_row gt_center">4,675 (70%)</td>
-<td headers="stat_2" class="gt_row gt_center">318 (73%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Pre-injury ASA</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.031</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    1</td>
-<td headers="stat_0" class="gt_row gt_center">4,362 (61%)</td>
-<td headers="stat_1" class="gt_row gt_center">4,121 (61%)</td>
-<td headers="stat_2" class="gt_row gt_center">241 (55%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    2</td>
-<td headers="stat_0" class="gt_row gt_center">1,803 (25%)</td>
-<td headers="stat_1" class="gt_row gt_center">1,684 (25%)</td>
-<td headers="stat_2" class="gt_row gt_center">119 (27%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    3</td>
-<td headers="stat_0" class="gt_row gt_center">949 (13%)</td>
-<td headers="stat_1" class="gt_row gt_center">874 (13%)</td>
-<td headers="stat_2" class="gt_row gt_center">75 (17%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    4</td>
-<td headers="stat_0" class="gt_row gt_center">29 (0.4%)</td>
-<td headers="stat_1" class="gt_row gt_center">28 (0.4%)</td>
-<td headers="stat_2" class="gt_row gt_center">1 (0.2%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">9</td>
-<td headers="stat_1" class="gt_row gt_center">9</td>
-<td headers="stat_2" class="gt_row gt_center">0</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Systolic blood pressure (mmHg)</td>
-<td headers="stat_0" class="gt_row gt_center">135 (121, 150)</td>
-<td headers="stat_1" class="gt_row gt_center">135 (121, 150)</td>
-<td headers="stat_2" class="gt_row gt_center">135 (120, 150)</td>
-<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">123</td>
-<td headers="stat_1" class="gt_row gt_center">114</td>
-<td headers="stat_2" class="gt_row gt_center">9</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Injury Severity Score</td>
-<td headers="stat_0" class="gt_row gt_center">9 (1, 16)</td>
-<td headers="stat_1" class="gt_row gt_center">8 (1, 14)</td>
-<td headers="stat_2" class="gt_row gt_center">17 (10, 24)</td>
-<td headers="p.value" class="gt_row gt_center">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">2</td>
-<td headers="stat_1" class="gt_row gt_center">2</td>
-<td headers="stat_2" class="gt_row gt_center">0</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">OFI categories broad</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">&gt;0.9</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Clinical judgement error</td>
-<td headers="stat_0" class="gt_row gt_center">157 (36%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">157 (36%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Delay in treatment</td>
-<td headers="stat_0" class="gt_row gt_center">67 (15%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">67 (15%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Documentation Issues</td>
-<td headers="stat_0" class="gt_row gt_center">14 (3.2%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">14 (3.2%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Inadequate protocols</td>
-<td headers="stat_0" class="gt_row gt_center">21 (4.8%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">21 (4.8%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Inadequate resources</td>
-<td headers="stat_0" class="gt_row gt_center">104 (24%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">104 (24%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Missed diagnosis</td>
-<td headers="stat_0" class="gt_row gt_center">67 (15%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">67 (15%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Other errors</td>
-<td headers="stat_0" class="gt_row gt_center">5 (1.1%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (NA%)</td>
-<td headers="stat_2" class="gt_row gt_center">5 (1.1%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">6,717</td>
-<td headers="stat_1" class="gt_row gt_center">6,716</td>
-<td headers="stat_2" class="gt_row gt_center">1</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Base Excess (BE)</td>
-<td headers="stat_0" class="gt_row gt_center">0.8 (-1.3, 2.1)</td>
-<td headers="stat_1" class="gt_row gt_center">0.9 (-1.2, 2.2)</td>
-<td headers="stat_2" class="gt_row gt_center">0.0 (-2.4, 1.5)</td>
-<td headers="p.value" class="gt_row gt_center">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">1,721</td>
-<td headers="stat_1" class="gt_row gt_center">1,597</td>
-<td headers="stat_2" class="gt_row gt_center">124</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">INR</td>
-<td headers="stat_0" class="gt_row gt_center">1.00 (1.00, 1.10)</td>
-<td headers="stat_1" class="gt_row gt_center">1.00 (1.00, 1.10)</td>
-<td headers="stat_2" class="gt_row gt_center">1.00 (1.00, 1.10)</td>
-<td headers="p.value" class="gt_row gt_center">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">1,620</td>
-<td headers="stat_1" class="gt_row gt_center">1,517</td>
-<td headers="stat_2" class="gt_row gt_center">103</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Shock classification - BE</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.003</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 1</td>
-<td headers="stat_0" class="gt_row gt_center">4,391 (81%)</td>
-<td headers="stat_1" class="gt_row gt_center">4,162 (81%)</td>
-<td headers="stat_2" class="gt_row gt_center">229 (73%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 2</td>
-<td headers="stat_0" class="gt_row gt_center">719 (13%)</td>
-<td headers="stat_1" class="gt_row gt_center">664 (13%)</td>
-<td headers="stat_2" class="gt_row gt_center">55 (18%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 3</td>
-<td headers="stat_0" class="gt_row gt_center">191 (3.5%)</td>
-<td headers="stat_1" class="gt_row gt_center">172 (3.4%)</td>
-<td headers="stat_2" class="gt_row gt_center">19 (6.1%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 4</td>
-<td headers="stat_0" class="gt_row gt_center">130 (2.4%)</td>
-<td headers="stat_1" class="gt_row gt_center">121 (2.4%)</td>
-<td headers="stat_2" class="gt_row gt_center">9 (2.9%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">1,721</td>
-<td headers="stat_1" class="gt_row gt_center">1,597</td>
-<td headers="stat_2" class="gt_row gt_center">124</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Shock classification - SBP</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.006</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 1</td>
-<td headers="stat_0" class="gt_row gt_center">6,356 (90%)</td>
-<td headers="stat_1" class="gt_row gt_center">5,983 (91%)</td>
-<td headers="stat_2" class="gt_row gt_center">373 (87%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 2</td>
-<td headers="stat_0" class="gt_row gt_center">355 (5.1%)</td>
-<td headers="stat_1" class="gt_row gt_center">331 (5.0%)</td>
-<td headers="stat_2" class="gt_row gt_center">24 (5.6%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 3</td>
-<td headers="stat_0" class="gt_row gt_center">147 (2.1%)</td>
-<td headers="stat_1" class="gt_row gt_center">138 (2.1%)</td>
-<td headers="stat_2" class="gt_row gt_center">9 (2.1%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Class 4</td>
-<td headers="stat_0" class="gt_row gt_center">171 (2.4%)</td>
-<td headers="stat_1" class="gt_row gt_center">150 (2.3%)</td>
-<td headers="stat_2" class="gt_row gt_center">21 (4.9%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">123</td>
-<td headers="stat_1" class="gt_row gt_center">114</td>
-<td headers="stat_2" class="gt_row gt_center">9</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md">Median (Q1, Q3); n (%)</span></td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> <span class="gt_from_md">Wilcoxon rank sum test; Pearson’s Chi-squared test; Fisher’s exact test</span></td>
-    </tr>
-  </tfoot>
-</table>
-</div>
+there were 12153 patients remaining. Out of those, 7152 patients had
+been reviewed for the presence of OFI. A total of 2233 patients were
+excluded due to missing data, resulting in 4919 patients for the final
+analysis. The selection process is shown in Figure 1. The variable with
+the most missing data is BE, for which data was missing in 1721
+patients. Detailed data regarding missing data is displayed in the
+supplementary material.</p>
+<p>Figure 1. Flowchart of selection of study population.</p>
 </div>
 <div id="descriptive-data" class="section level2">
 <h2>Descriptive data</h2>
-<p>Table @ref(tab:sample-characteristics-reg) describes the
-characteristics of the study population. The study demographics median
-age is 39 (25, 56) and the most common gender is male, 3,506 (71%).
-Clinically, the median ISS is 5 which is considered minor injuries,
-median INR is 1.00, and the most common Preinjury ASA class is 1, at
-62%.</p>
-<div id="hwpfzsugxq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hwpfzsugxq table {
+<p>Descriptive data is shown in Table 3. The median age was 39 years
+(25, 56), and 3506 (71%) of the individuals were males. Clinically, the
+median ISS was 5, which is considered minor injuries, and the median INR
+was 1.00, and the most common Preinjury ASA class was 1, at 62%.</p>
+<p>Overall, 3989 (81%) of the patients were classified as having no
+shock (class 1) according to the BE classification, the sum of the
+remaining classes accounted for 930 (19%) patients. The distribution of
+the classes was decreasing in numbers with increased severity, with
+class 2: 644 (13%), class 3: 170 (3.5%), and class 4: 116 (2.4%).</p>
+<p>According to SBP, 4455 (91%) patients had no shock (class 1), while
+the remaining classes with patients in shock accounted for 464 (9%) of
+all the patients. Among the classes defined with shock, class 2 was the
+biggest at 239 (4.9%), followed by class 4 at 127 (2.6%), and lastly
+class 3 with 99 (2.0%).</p>
+<p>Table 3</p>
+<div id="ocndkbhlhr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ocndkbhlhr table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#hwpfzsugxq thead, #hwpfzsugxq tbody, #hwpfzsugxq tfoot, #hwpfzsugxq tr, #hwpfzsugxq td, #hwpfzsugxq th {
+#ocndkbhlhr thead, #ocndkbhlhr tbody, #ocndkbhlhr tfoot, #ocndkbhlhr tr, #ocndkbhlhr td, #ocndkbhlhr th {
 border-style: none;
 }
-#hwpfzsugxq p {
+#ocndkbhlhr p {
 margin: 0;
 padding: 0;
 }
-#hwpfzsugxq .gt_table {
+#ocndkbhlhr .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -1382,11 +774,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_caption {
+#ocndkbhlhr .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#hwpfzsugxq .gt_title {
+#ocndkbhlhr .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -1397,7 +789,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#hwpfzsugxq .gt_subtitle {
+#ocndkbhlhr .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -1408,7 +800,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#hwpfzsugxq .gt_heading {
+#ocndkbhlhr .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -1419,12 +811,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_bottom_border {
+#ocndkbhlhr .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_col_headings {
+#ocndkbhlhr .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -1438,7 +830,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_col_heading {
+#ocndkbhlhr .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1457,7 +849,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#hwpfzsugxq .gt_column_spanner_outer {
+#ocndkbhlhr .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1468,13 +860,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#hwpfzsugxq .gt_column_spanner_outer:first-child {
+#ocndkbhlhr .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#hwpfzsugxq .gt_column_spanner_outer:last-child {
+#ocndkbhlhr .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#hwpfzsugxq .gt_column_spanner {
+#ocndkbhlhr .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -1485,10 +877,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#hwpfzsugxq .gt_spanner_row {
+#ocndkbhlhr .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#hwpfzsugxq .gt_group_heading {
+#ocndkbhlhr .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1513,7 +905,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#hwpfzsugxq .gt_empty_group_heading {
+#ocndkbhlhr .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -1527,13 +919,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#hwpfzsugxq .gt_from_md > :first-child {
+#ocndkbhlhr .gt_from_md > :first-child {
 margin-top: 0;
 }
-#hwpfzsugxq .gt_from_md > :last-child {
+#ocndkbhlhr .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#hwpfzsugxq .gt_row {
+#ocndkbhlhr .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1551,7 +943,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#hwpfzsugxq .gt_stub {
+#ocndkbhlhr .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1563,7 +955,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#hwpfzsugxq .gt_stub_row_group {
+#ocndkbhlhr .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1576,13 +968,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#hwpfzsugxq .gt_row_group_first td {
+#ocndkbhlhr .gt_row_group_first td {
 border-top-width: 2px;
 }
-#hwpfzsugxq .gt_row_group_first th {
+#ocndkbhlhr .gt_row_group_first th {
 border-top-width: 2px;
 }
-#hwpfzsugxq .gt_summary_row {
+#ocndkbhlhr .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1591,14 +983,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#hwpfzsugxq .gt_first_summary_row {
+#ocndkbhlhr .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_first_summary_row.thick {
+#ocndkbhlhr .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#hwpfzsugxq .gt_last_summary_row {
+#ocndkbhlhr .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1607,7 +999,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_grand_summary_row {
+#ocndkbhlhr .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1616,7 +1008,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#hwpfzsugxq .gt_first_grand_summary_row {
+#ocndkbhlhr .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1625,7 +1017,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_last_grand_summary_row_top {
+#ocndkbhlhr .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -1634,10 +1026,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_striped {
+#ocndkbhlhr .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#hwpfzsugxq .gt_table_body {
+#ocndkbhlhr .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -1645,7 +1037,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_footnotes {
+#ocndkbhlhr .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1658,7 +1050,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_footnote {
+#ocndkbhlhr .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -1666,7 +1058,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#hwpfzsugxq .gt_sourcenotes {
+#ocndkbhlhr .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1679,64 +1071,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#hwpfzsugxq .gt_sourcenote {
+#ocndkbhlhr .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#hwpfzsugxq .gt_left {
+#ocndkbhlhr .gt_left {
 text-align: left;
 }
-#hwpfzsugxq .gt_center {
+#ocndkbhlhr .gt_center {
 text-align: center;
 }
-#hwpfzsugxq .gt_right {
+#ocndkbhlhr .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#hwpfzsugxq .gt_font_normal {
+#ocndkbhlhr .gt_font_normal {
 font-weight: normal;
 }
-#hwpfzsugxq .gt_font_bold {
+#ocndkbhlhr .gt_font_bold {
 font-weight: bold;
 }
-#hwpfzsugxq .gt_font_italic {
+#ocndkbhlhr .gt_font_italic {
 font-style: italic;
 }
-#hwpfzsugxq .gt_super {
+#ocndkbhlhr .gt_super {
 font-size: 65%;
 }
-#hwpfzsugxq .gt_footnote_marks {
+#ocndkbhlhr .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#hwpfzsugxq .gt_asterisk {
+#ocndkbhlhr .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#hwpfzsugxq .gt_indent_1 {
+#ocndkbhlhr .gt_indent_1 {
 text-indent: 5px;
 }
-#hwpfzsugxq .gt_indent_2 {
+#ocndkbhlhr .gt_indent_2 {
 text-indent: 10px;
 }
-#hwpfzsugxq .gt_indent_3 {
+#ocndkbhlhr .gt_indent_3 {
 text-indent: 15px;
 }
-#hwpfzsugxq .gt_indent_4 {
+#ocndkbhlhr .gt_indent_4 {
 text-indent: 20px;
 }
-#hwpfzsugxq .gt_indent_5 {
+#ocndkbhlhr .gt_indent_5 {
 text-indent: 25px;
 }
-#hwpfzsugxq .katex-display {
+#ocndkbhlhr .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#hwpfzsugxq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ocndkbhlhr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -1931,45 +1323,37 @@ N = 281</span><span class="gt_footnote_marks" style="white-space:nowrap;font-sty
 <div id="outcome-data" class="section level2">
 <h2>Outcome data</h2>
 <p>Out of the 4919 patients reviewed without missing data, 281 (5.7%)
-patients had at least one positive OFI.</p>
-<p>The most common broad sub-ofi category was clinical judgement error,
-at 103 (37%). The other three major broad sub-ofis are: inadequate
-resources 61 (22%), delay in treatment 49 (17%) and missed diagnosis 48
-(17%). The smallest one, is other errors, at 5 (1,8%).</p>
-<p>When classified, the most common broad sub-ofi in class 1 (no shock)
-is clinical judgement error both in the BE and SBP groups, while the
-other sub-ofi also follow a similar distribution between the groups. The
-largest sub-ofi continuous to be clinical judgment error for BE group in
-class 2, 3 and 4, at 34.6%; 31.2%; and 42,9% in this order. On other
-hand, the largest sub-ofi in SBP class 2 is delay in treatment at 50%.
-The SBP class 3 is evenly distributed between clinical judgement error
-and missed diagnosis at 40% each. Lastly, class 4 SBP’s most common
-sub-ofi is clinical judgment error 46.7%.</p>
-<p>Overall 3989 (81%) of the patients were classified as having no shock
-(class 1) according to the BE classification, the sum of the remaining
-classes accounted for 930 (19%) patients. The distribution of the
-classes were decreasing in numbers with increased severity, with class
-2: 644 (13%), class 3: 170 (3,5%), and class 4: 116 (2,4%).</p>
-<p>The SBP classification system sorted 4455 (91%) patients as having no
-shock (class 1), while the remaining classes with patients in shock
-accounted for 464 (9%) of all the patients. Among the classes defined
-with shock, class 2 was the biggest at 239 (4,9%), followed by class 4
-at 127 (2,6%), and lastly class 3 with 99 (2,0%).</p>
-<p>Table 5 - Sub-OFI, classified according to BE</p>
-<div id="scanmogpht" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#scanmogpht table {
+patients had at least one OFI. The most common OFI type was clinical
+judgment error, numbering 103 (37%) patients. The other three major OFI
+types were inadequate resources for 61 (22%) patients, delay in
+treatment for 49 (17%) patients, and missed diagnosis for 48 (17%)
+patients. The least common OFI was “other errors”, which was present in
+5 (1.8%) patients.</p>
+<p>The most common OFI in patients without chock (class 1) was clinical
+judgment error both in the BE and SBP groups, while the other OFI types
+also followed a similar distribution between the groups. Clinical
+judgment error was the most common OFI in the BE group class 2, 3 and 4,
+at 34.6%; 31.2%; and 42.9% respectively. On the other hand, the largest
+OFI type in SBP class 2 was delay in treatment at 50%. The frequencies
+of clinical judgement error and missed diagnosis were similar in the SBP
+class 3 group, at 40% each. Lastly, the most common OFI in class 4 of
+the SBP group was clinical judgment error, at 46.7%.</p>
+<hr />
+<p>Table 4 - Sub-OFI, classified according to BE</p>
+<div id="ogcldgvvqb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ogcldgvvqb table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#scanmogpht thead, #scanmogpht tbody, #scanmogpht tfoot, #scanmogpht tr, #scanmogpht td, #scanmogpht th {
+#ogcldgvvqb thead, #ogcldgvvqb tbody, #ogcldgvvqb tfoot, #ogcldgvvqb tr, #ogcldgvvqb td, #ogcldgvvqb th {
 border-style: none;
 }
-#scanmogpht p {
+#ogcldgvvqb p {
 margin: 0;
 padding: 0;
 }
-#scanmogpht .gt_table {
+#ogcldgvvqb .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -1994,11 +1378,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#scanmogpht .gt_caption {
+#ogcldgvvqb .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#scanmogpht .gt_title {
+#ogcldgvvqb .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2009,7 +1393,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#scanmogpht .gt_subtitle {
+#ogcldgvvqb .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2020,7 +1404,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#scanmogpht .gt_heading {
+#ogcldgvvqb .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2031,12 +1415,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#scanmogpht .gt_bottom_border {
+#ogcldgvvqb .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#scanmogpht .gt_col_headings {
+#ogcldgvvqb .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2050,7 +1434,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#scanmogpht .gt_col_heading {
+#ogcldgvvqb .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2069,7 +1453,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#scanmogpht .gt_column_spanner_outer {
+#ogcldgvvqb .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2080,13 +1464,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#scanmogpht .gt_column_spanner_outer:first-child {
+#ogcldgvvqb .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#scanmogpht .gt_column_spanner_outer:last-child {
+#ogcldgvvqb .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#scanmogpht .gt_column_spanner {
+#ogcldgvvqb .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2097,10 +1481,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#scanmogpht .gt_spanner_row {
+#ogcldgvvqb .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#scanmogpht .gt_group_heading {
+#ogcldgvvqb .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2125,7 +1509,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#scanmogpht .gt_empty_group_heading {
+#ogcldgvvqb .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2139,13 +1523,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#scanmogpht .gt_from_md > :first-child {
+#ogcldgvvqb .gt_from_md > :first-child {
 margin-top: 0;
 }
-#scanmogpht .gt_from_md > :last-child {
+#ogcldgvvqb .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#scanmogpht .gt_row {
+#ogcldgvvqb .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2163,7 +1547,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#scanmogpht .gt_stub {
+#ogcldgvvqb .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2175,7 +1559,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#scanmogpht .gt_stub_row_group {
+#ogcldgvvqb .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2188,13 +1572,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#scanmogpht .gt_row_group_first td {
+#ogcldgvvqb .gt_row_group_first td {
 border-top-width: 2px;
 }
-#scanmogpht .gt_row_group_first th {
+#ogcldgvvqb .gt_row_group_first th {
 border-top-width: 2px;
 }
-#scanmogpht .gt_summary_row {
+#ogcldgvvqb .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2203,14 +1587,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#scanmogpht .gt_first_summary_row {
+#ogcldgvvqb .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#scanmogpht .gt_first_summary_row.thick {
+#ogcldgvvqb .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#scanmogpht .gt_last_summary_row {
+#ogcldgvvqb .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2219,7 +1603,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#scanmogpht .gt_grand_summary_row {
+#ogcldgvvqb .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2228,7 +1612,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#scanmogpht .gt_first_grand_summary_row {
+#ogcldgvvqb .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2237,7 +1621,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#scanmogpht .gt_last_grand_summary_row_top {
+#ogcldgvvqb .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2246,10 +1630,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#scanmogpht .gt_striped {
+#ogcldgvvqb .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#scanmogpht .gt_table_body {
+#ogcldgvvqb .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2257,7 +1641,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#scanmogpht .gt_footnotes {
+#ogcldgvvqb .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2270,7 +1654,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#scanmogpht .gt_footnote {
+#ogcldgvvqb .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -2278,7 +1662,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#scanmogpht .gt_sourcenotes {
+#ogcldgvvqb .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2291,64 +1675,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#scanmogpht .gt_sourcenote {
+#ogcldgvvqb .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#scanmogpht .gt_left {
+#ogcldgvvqb .gt_left {
 text-align: left;
 }
-#scanmogpht .gt_center {
+#ogcldgvvqb .gt_center {
 text-align: center;
 }
-#scanmogpht .gt_right {
+#ogcldgvvqb .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#scanmogpht .gt_font_normal {
+#ogcldgvvqb .gt_font_normal {
 font-weight: normal;
 }
-#scanmogpht .gt_font_bold {
+#ogcldgvvqb .gt_font_bold {
 font-weight: bold;
 }
-#scanmogpht .gt_font_italic {
+#ogcldgvvqb .gt_font_italic {
 font-style: italic;
 }
-#scanmogpht .gt_super {
+#ogcldgvvqb .gt_super {
 font-size: 65%;
 }
-#scanmogpht .gt_footnote_marks {
+#ogcldgvvqb .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#scanmogpht .gt_asterisk {
+#ogcldgvvqb .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#scanmogpht .gt_indent_1 {
+#ogcldgvvqb .gt_indent_1 {
 text-indent: 5px;
 }
-#scanmogpht .gt_indent_2 {
+#ogcldgvvqb .gt_indent_2 {
 text-indent: 10px;
 }
-#scanmogpht .gt_indent_3 {
+#ogcldgvvqb .gt_indent_3 {
 text-indent: 15px;
 }
-#scanmogpht .gt_indent_4 {
+#ogcldgvvqb .gt_indent_4 {
 text-indent: 20px;
 }
-#scanmogpht .gt_indent_5 {
+#ogcldgvvqb .gt_indent_5 {
 text-indent: 25px;
 }
-#scanmogpht .katex-display {
+#ogcldgvvqb .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#scanmogpht div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ogcldgvvqb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -2416,21 +1800,21 @@ N = 7</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style
   </tfoot>
 </table>
 </div>
-<p>Table 6 - Sub-OFI, classified according to SBP</p>
-<div id="npuilrbmsd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#npuilrbmsd table {
+<p>Table 5 - Sub-OFI, classified according to SBP</p>
+<div id="rwkzaoxkos" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rwkzaoxkos table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#npuilrbmsd thead, #npuilrbmsd tbody, #npuilrbmsd tfoot, #npuilrbmsd tr, #npuilrbmsd td, #npuilrbmsd th {
+#rwkzaoxkos thead, #rwkzaoxkos tbody, #rwkzaoxkos tfoot, #rwkzaoxkos tr, #rwkzaoxkos td, #rwkzaoxkos th {
 border-style: none;
 }
-#npuilrbmsd p {
+#rwkzaoxkos p {
 margin: 0;
 padding: 0;
 }
-#npuilrbmsd .gt_table {
+#rwkzaoxkos .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2455,11 +1839,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#npuilrbmsd .gt_caption {
+#rwkzaoxkos .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#npuilrbmsd .gt_title {
+#rwkzaoxkos .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2470,7 +1854,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#npuilrbmsd .gt_subtitle {
+#rwkzaoxkos .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2481,7 +1865,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#npuilrbmsd .gt_heading {
+#rwkzaoxkos .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2492,12 +1876,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#npuilrbmsd .gt_bottom_border {
+#rwkzaoxkos .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#npuilrbmsd .gt_col_headings {
+#rwkzaoxkos .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2511,7 +1895,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#npuilrbmsd .gt_col_heading {
+#rwkzaoxkos .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2530,7 +1914,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#npuilrbmsd .gt_column_spanner_outer {
+#rwkzaoxkos .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2541,13 +1925,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#npuilrbmsd .gt_column_spanner_outer:first-child {
+#rwkzaoxkos .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#npuilrbmsd .gt_column_spanner_outer:last-child {
+#rwkzaoxkos .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#npuilrbmsd .gt_column_spanner {
+#rwkzaoxkos .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2558,10 +1942,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#npuilrbmsd .gt_spanner_row {
+#rwkzaoxkos .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#npuilrbmsd .gt_group_heading {
+#rwkzaoxkos .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2586,7 +1970,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#npuilrbmsd .gt_empty_group_heading {
+#rwkzaoxkos .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2600,13 +1984,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#npuilrbmsd .gt_from_md > :first-child {
+#rwkzaoxkos .gt_from_md > :first-child {
 margin-top: 0;
 }
-#npuilrbmsd .gt_from_md > :last-child {
+#rwkzaoxkos .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#npuilrbmsd .gt_row {
+#rwkzaoxkos .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2624,7 +2008,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#npuilrbmsd .gt_stub {
+#rwkzaoxkos .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2636,7 +2020,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#npuilrbmsd .gt_stub_row_group {
+#rwkzaoxkos .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2649,13 +2033,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#npuilrbmsd .gt_row_group_first td {
+#rwkzaoxkos .gt_row_group_first td {
 border-top-width: 2px;
 }
-#npuilrbmsd .gt_row_group_first th {
+#rwkzaoxkos .gt_row_group_first th {
 border-top-width: 2px;
 }
-#npuilrbmsd .gt_summary_row {
+#rwkzaoxkos .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2664,14 +2048,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#npuilrbmsd .gt_first_summary_row {
+#rwkzaoxkos .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#npuilrbmsd .gt_first_summary_row.thick {
+#rwkzaoxkos .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#npuilrbmsd .gt_last_summary_row {
+#rwkzaoxkos .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2680,7 +2064,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#npuilrbmsd .gt_grand_summary_row {
+#rwkzaoxkos .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2689,7 +2073,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#npuilrbmsd .gt_first_grand_summary_row {
+#rwkzaoxkos .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2698,7 +2082,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#npuilrbmsd .gt_last_grand_summary_row_top {
+#rwkzaoxkos .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2707,10 +2091,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#npuilrbmsd .gt_striped {
+#rwkzaoxkos .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#npuilrbmsd .gt_table_body {
+#rwkzaoxkos .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2718,7 +2102,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#npuilrbmsd .gt_footnotes {
+#rwkzaoxkos .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2731,7 +2115,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#npuilrbmsd .gt_footnote {
+#rwkzaoxkos .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -2739,7 +2123,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#npuilrbmsd .gt_sourcenotes {
+#rwkzaoxkos .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2752,64 +2136,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#npuilrbmsd .gt_sourcenote {
+#rwkzaoxkos .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#npuilrbmsd .gt_left {
+#rwkzaoxkos .gt_left {
 text-align: left;
 }
-#npuilrbmsd .gt_center {
+#rwkzaoxkos .gt_center {
 text-align: center;
 }
-#npuilrbmsd .gt_right {
+#rwkzaoxkos .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#npuilrbmsd .gt_font_normal {
+#rwkzaoxkos .gt_font_normal {
 font-weight: normal;
 }
-#npuilrbmsd .gt_font_bold {
+#rwkzaoxkos .gt_font_bold {
 font-weight: bold;
 }
-#npuilrbmsd .gt_font_italic {
+#rwkzaoxkos .gt_font_italic {
 font-style: italic;
 }
-#npuilrbmsd .gt_super {
+#rwkzaoxkos .gt_super {
 font-size: 65%;
 }
-#npuilrbmsd .gt_footnote_marks {
+#rwkzaoxkos .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#npuilrbmsd .gt_asterisk {
+#rwkzaoxkos .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#npuilrbmsd .gt_indent_1 {
+#rwkzaoxkos .gt_indent_1 {
 text-indent: 5px;
 }
-#npuilrbmsd .gt_indent_2 {
+#rwkzaoxkos .gt_indent_2 {
 text-indent: 10px;
 }
-#npuilrbmsd .gt_indent_3 {
+#rwkzaoxkos .gt_indent_3 {
 text-indent: 15px;
 }
-#npuilrbmsd .gt_indent_4 {
+#rwkzaoxkos .gt_indent_4 {
 text-indent: 20px;
 }
-#npuilrbmsd .gt_indent_5 {
+#rwkzaoxkos .gt_indent_5 {
 text-indent: 25px;
 }
-#npuilrbmsd .katex-display {
+#rwkzaoxkos .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#npuilrbmsd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rwkzaoxkos div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -2880,30 +2264,45 @@ N = 15</span><span class="gt_footnote_marks" style="white-space:nowrap;font-styl
 </div>
 <div id="main-results" class="section level2">
 <h2>Main results</h2>
-<p>The adjusted analyses showed only statistical significance when
-comparing BE class 4 to class 1, which had 63% lower odds for OFI (OR
-0,37; 95% CI 0,14-0,83; p-value 0.026).</p>
-<p>The un-adjusted analysis showed when comparing to class 1 in BE
-group, class 2 (OR 1,61; 95% CI 1,17-2,20; p-value 0.003) and 3 (OR
-1,91; 95% CI 1,08-3,16; p-value 0.018) were significant in increased
-risk for OFI. For the SBP group, comparison between class 1 and class 4
-showed significant increased risk (OR 2,28; 95% CI 1,26-3,85; p-value
-0.004).</p>
-<p>Table 7 and 8 adjusted log</p>
-<div id="csavfrmobk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#csavfrmobk table {
+<p>The unadjusted analysis of the association between shock class
+categorised by BE is shown in Table 6. This analysis showed that
+compared to class 1 (no shock), the odds of OFI in class 2 and 3 were
+increased by 61% (OR 1.61, 95% CI 1.17-2.20, p-value 0.003) and 91% (OR
+1.91, 95% CI 1.08-3.16, p-value 0.018) respectively. Table 7 shows the
+association between shock classes categorised by SBP. Compared to class
+1 (no shock), the odds of OFI in class 4 were increased by 128% (OR
+2.28, 95% CI 1.26-3.85, p-value 0.004).</p>
+<p>The adjusted analysis was conducted in two steps. In the first step,
+we adjusted for age, gender, preinjury ASA score, and INR, but not for
+ISS. Compared to the unadjusted analysis, this initial adjustment led to
+minor changes in ORs. In the BE group, the OR for class 2 changed by
+approximately 1% (from 1.61 to 1.60), and for class 3, it changed by
+about 2% (from 1.91 to 1.93), as shown in Table 6. In the SBP group, the
+OR for class 4 changed by around 7% (from 2.28 to 2.21), as shown in
+Table 7.</p>
+<p>In the second step, ISS was added to the adjustment model to complete
+the fully adjusted model. For the BE group (Table 6), this led to a
+shift in statistical significance: instead of class 2 and 3, class 4
+became statistically significant. In this fully adjusted model, class 4
+was associated with 63% lower odds of an opportunity for improvement (OR
+0.37, 95% CI 0.14–0.83, p = 0.026). In contrast, for the SBP group
+(Table 7), no class remained statistically significant in the fully
+adjusted model.</p>
+<p>Table 6 adjusted log BE</p>
+<div id="sqofpgwuxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sqofpgwuxp table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#csavfrmobk thead, #csavfrmobk tbody, #csavfrmobk tfoot, #csavfrmobk tr, #csavfrmobk td, #csavfrmobk th {
+#sqofpgwuxp thead, #sqofpgwuxp tbody, #sqofpgwuxp tfoot, #sqofpgwuxp tr, #sqofpgwuxp td, #sqofpgwuxp th {
 border-style: none;
 }
-#csavfrmobk p {
+#sqofpgwuxp p {
 margin: 0;
 padding: 0;
 }
-#csavfrmobk .gt_table {
+#sqofpgwuxp .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2928,11 +2327,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#csavfrmobk .gt_caption {
+#sqofpgwuxp .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#csavfrmobk .gt_title {
+#sqofpgwuxp .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2943,7 +2342,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#csavfrmobk .gt_subtitle {
+#sqofpgwuxp .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2954,7 +2353,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#csavfrmobk .gt_heading {
+#sqofpgwuxp .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2965,12 +2364,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#csavfrmobk .gt_bottom_border {
+#sqofpgwuxp .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#csavfrmobk .gt_col_headings {
+#sqofpgwuxp .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2984,7 +2383,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#csavfrmobk .gt_col_heading {
+#sqofpgwuxp .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3003,7 +2402,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#csavfrmobk .gt_column_spanner_outer {
+#sqofpgwuxp .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3014,13 +2413,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#csavfrmobk .gt_column_spanner_outer:first-child {
+#sqofpgwuxp .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#csavfrmobk .gt_column_spanner_outer:last-child {
+#sqofpgwuxp .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#csavfrmobk .gt_column_spanner {
+#sqofpgwuxp .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -3031,10 +2430,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#csavfrmobk .gt_spanner_row {
+#sqofpgwuxp .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#csavfrmobk .gt_group_heading {
+#sqofpgwuxp .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3059,7 +2458,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#csavfrmobk .gt_empty_group_heading {
+#sqofpgwuxp .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -3073,13 +2472,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#csavfrmobk .gt_from_md > :first-child {
+#sqofpgwuxp .gt_from_md > :first-child {
 margin-top: 0;
 }
-#csavfrmobk .gt_from_md > :last-child {
+#sqofpgwuxp .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#csavfrmobk .gt_row {
+#sqofpgwuxp .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3097,7 +2496,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#csavfrmobk .gt_stub {
+#sqofpgwuxp .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3109,7 +2508,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#csavfrmobk .gt_stub_row_group {
+#sqofpgwuxp .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3122,13 +2521,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#csavfrmobk .gt_row_group_first td {
+#sqofpgwuxp .gt_row_group_first td {
 border-top-width: 2px;
 }
-#csavfrmobk .gt_row_group_first th {
+#sqofpgwuxp .gt_row_group_first th {
 border-top-width: 2px;
 }
-#csavfrmobk .gt_summary_row {
+#sqofpgwuxp .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3137,14 +2536,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#csavfrmobk .gt_first_summary_row {
+#sqofpgwuxp .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#csavfrmobk .gt_first_summary_row.thick {
+#sqofpgwuxp .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#csavfrmobk .gt_last_summary_row {
+#sqofpgwuxp .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3153,7 +2552,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#csavfrmobk .gt_grand_summary_row {
+#sqofpgwuxp .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3162,7 +2561,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#csavfrmobk .gt_first_grand_summary_row {
+#sqofpgwuxp .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3171,7 +2570,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#csavfrmobk .gt_last_grand_summary_row_top {
+#sqofpgwuxp .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3180,10 +2579,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#csavfrmobk .gt_striped {
+#sqofpgwuxp .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#csavfrmobk .gt_table_body {
+#sqofpgwuxp .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3191,7 +2590,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#csavfrmobk .gt_footnotes {
+#sqofpgwuxp .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3204,7 +2603,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#csavfrmobk .gt_footnote {
+#sqofpgwuxp .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -3212,7 +2611,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#csavfrmobk .gt_sourcenotes {
+#sqofpgwuxp .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3225,64 +2624,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#csavfrmobk .gt_sourcenote {
+#sqofpgwuxp .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#csavfrmobk .gt_left {
+#sqofpgwuxp .gt_left {
 text-align: left;
 }
-#csavfrmobk .gt_center {
+#sqofpgwuxp .gt_center {
 text-align: center;
 }
-#csavfrmobk .gt_right {
+#sqofpgwuxp .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#csavfrmobk .gt_font_normal {
+#sqofpgwuxp .gt_font_normal {
 font-weight: normal;
 }
-#csavfrmobk .gt_font_bold {
+#sqofpgwuxp .gt_font_bold {
 font-weight: bold;
 }
-#csavfrmobk .gt_font_italic {
+#sqofpgwuxp .gt_font_italic {
 font-style: italic;
 }
-#csavfrmobk .gt_super {
+#sqofpgwuxp .gt_super {
 font-size: 65%;
 }
-#csavfrmobk .gt_footnote_marks {
+#sqofpgwuxp .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#csavfrmobk .gt_asterisk {
+#sqofpgwuxp .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#csavfrmobk .gt_indent_1 {
+#sqofpgwuxp .gt_indent_1 {
 text-indent: 5px;
 }
-#csavfrmobk .gt_indent_2 {
+#sqofpgwuxp .gt_indent_2 {
 text-indent: 10px;
 }
-#csavfrmobk .gt_indent_3 {
+#sqofpgwuxp .gt_indent_3 {
 text-indent: 15px;
 }
-#csavfrmobk .gt_indent_4 {
+#sqofpgwuxp .gt_indent_4 {
 text-indent: 20px;
 }
-#csavfrmobk .gt_indent_5 {
+#sqofpgwuxp .gt_indent_5 {
 text-indent: 25px;
 }
-#csavfrmobk .katex-display {
+#sqofpgwuxp .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#csavfrmobk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sqofpgwuxp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -3290,21 +2689,27 @@ height: 0px !important;
   <thead>
     <tr class="gt_col_headings gt_spanner_row">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"><span class="gt_from_md"><strong>Characteristic</strong></span></th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="**Adjusted Model**">
-        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Adjusted Model</strong></span></div>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="level 1; stat_nevent_1">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Fully adjusted</strong></span></div>
       </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="**Unadjusted Model**">
-        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Unadjusted Model</strong></span></div>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="level 1; estimate_2">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>without ISS</strong></span></div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="level 1; estimate_3">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Unadjusted</strong></span></div>
       </th>
     </tr>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_nevent_1"><span class="gt_from_md"><strong>Event Risk</strong></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_1"><span class="gt_from_md"><strong>OR</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_1"><span class="gt_from_md"><strong>95% CI</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_1"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_1"><span class="gt_from_md"><strong>95% CI</strong></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_1"><span class="gt_from_md"><strong>p-value</strong></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_2"><span class="gt_from_md"><strong>OR</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_2"><span class="gt_from_md"><strong>95% CI</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_2"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_2"><span class="gt_from_md"><strong>95% CI</strong></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_2"><span class="gt_from_md"><strong>p-value</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_3"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_3"><span class="gt_from_md"><strong>95% CI</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_3"><span class="gt_from_md"><strong>p-value</strong></span></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -3315,7 +2720,10 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 1</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">206 / 3,989 (5.2%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
@@ -3323,39 +2731,54 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center">—</td>
 <td headers="conf.low_2" class="gt_row gt_center">—</td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center">—</td>
+<td headers="conf.low_3" class="gt_row gt_center">—</td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 2</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">52 / 644 (8.1%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.12</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.79, 1.55</td>
 <td headers="p.value_1" class="gt_row gt_center">0.5</td>
-<td headers="estimate_2" class="gt_row gt_center">1.61</td>
-<td headers="conf.low_2" class="gt_row gt_center">1.17, 2.20</td>
-<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.003</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.60</td>
+<td headers="conf.low_2" class="gt_row gt_center">1.15, 2.18</td>
+<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.004</td>
+<td headers="estimate_3" class="gt_row gt_center">1.61</td>
+<td headers="conf.low_3" class="gt_row gt_center">1.17, 2.20</td>
+<td headers="p.value_3" class="gt_row gt_center" style="font-weight: bold;">0.003</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 3</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">16 / 170 (9.4%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.93</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.50, 1.62</td>
 <td headers="p.value_1" class="gt_row gt_center">0.8</td>
-<td headers="estimate_2" class="gt_row gt_center">1.91</td>
-<td headers="conf.low_2" class="gt_row gt_center">1.08, 3.16</td>
-<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.018</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.93</td>
+<td headers="conf.low_2" class="gt_row gt_center">1.09, 3.19</td>
+<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.016</td>
+<td headers="estimate_3" class="gt_row gt_center">1.91</td>
+<td headers="conf.low_3" class="gt_row gt_center">1.08, 3.16</td>
+<td headers="p.value_3" class="gt_row gt_center" style="font-weight: bold;">0.018</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 4</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">7 / 116 (6.0%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.37</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.14, 0.83</td>
 <td headers="p.value_1" class="gt_row gt_center" style="font-weight: bold;">0.026</td>
-<td headers="estimate_2" class="gt_row gt_center">1.18</td>
-<td headers="conf.low_2" class="gt_row gt_center">0.49, 2.39</td>
-<td headers="p.value_2" class="gt_row gt_center">0.7</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.14</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.47, 2.32</td>
+<td headers="p.value_2" class="gt_row gt_center">0.7</td>
+<td headers="estimate_3" class="gt_row gt_center">1.18</td>
+<td headers="conf.low_3" class="gt_row gt_center">0.49, 2.39</td>
+<td headers="p.value_3" class="gt_row gt_center">0.7</td></tr>
     <tr><td headers="label" class="gt_row gt_left">Age (Years)</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.01</td>
 <td headers="conf.low_1" class="gt_row gt_center">1.00, 1.01</td>
 <td headers="p.value_1" class="gt_row gt_center">0.10</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.01</td>
+<td headers="conf.low_2" class="gt_row gt_center">1.00, 1.02</td>
+<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.033</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Gender (M/F)</td>
 <td headers="stat_nevent_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_1" class="gt_row gt_center"><br /></td>
@@ -3363,23 +2786,32 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Female</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">72 / 1,413 (5.1%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
 <td headers="conf.low_1" class="gt_row gt_center">—</td>
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="conf.low_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Male</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">209 / 3,506 (6.0%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.10</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.84, 1.48</td>
 <td headers="p.value_1" class="gt_row gt_center">0.5</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.22</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.93, 1.62</td>
+<td headers="p.value_2" class="gt_row gt_center">0.2</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Pre-injury ASA</td>
 <td headers="stat_nevent_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_1" class="gt_row gt_center"><br /></td>
@@ -3387,47 +2819,65 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    1</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">158 / 3,032 (5.2%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
 <td headers="conf.low_1" class="gt_row gt_center">—</td>
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="conf.low_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    2</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">77 / 1,240 (6.2%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.05</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.77, 1.41</td>
 <td headers="p.value_1" class="gt_row gt_center">0.8</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.07</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.79, 1.44</td>
+<td headers="p.value_2" class="gt_row gt_center">0.7</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    3</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">46 / 626 (7.3%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.19</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.79, 1.76</td>
 <td headers="p.value_1" class="gt_row gt_center">0.4</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.11</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.74, 1.65</td>
+<td headers="p.value_2" class="gt_row gt_center">0.6</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    4</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">0 / 21 (0.00%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.00</td>
 <td headers="conf.low_1" class="gt_row gt_center"><br /></td>
 <td headers="p.value_1" class="gt_row gt_center">&gt;0.9</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center">0.00</td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center">&gt;0.9</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">INR</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.15</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.78, 1.52</td>
 <td headers="p.value_1" class="gt_row gt_center">0.4</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.27</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.92, 1.63</td>
+<td headers="p.value_2" class="gt_row gt_center">0.088</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Injury Severity Score</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.06</td>
@@ -3435,30 +2885,34 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
   </tbody>
-  
-  <tfoot class="gt_footnotes">
+  <tfoot class="gt_sourcenotes">
     <tr>
-      <td class="gt_footnote" colspan="8"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md">OR = Odds Ratio, CI = Confidence Interval</span></td>
+      <td class="gt_sourcenote" colspan="11"><span class="gt_from_md">Abbreviations: CI = Confidence Interval, OR = Odds Ratio</span></td>
     </tr>
   </tfoot>
+  
 </table>
 </div>
-<div id="gklcztgeru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gklcztgeru table {
+<p>Table 7 adjusted log SBP</p>
+<div id="osbipivepr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#osbipivepr table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#gklcztgeru thead, #gklcztgeru tbody, #gklcztgeru tfoot, #gklcztgeru tr, #gklcztgeru td, #gklcztgeru th {
+#osbipivepr thead, #osbipivepr tbody, #osbipivepr tfoot, #osbipivepr tr, #osbipivepr td, #osbipivepr th {
 border-style: none;
 }
-#gklcztgeru p {
+#osbipivepr p {
 margin: 0;
 padding: 0;
 }
-#gklcztgeru .gt_table {
+#osbipivepr .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -3483,11 +2937,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#gklcztgeru .gt_caption {
+#osbipivepr .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#gklcztgeru .gt_title {
+#osbipivepr .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -3498,7 +2952,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#gklcztgeru .gt_subtitle {
+#osbipivepr .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -3509,7 +2963,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#gklcztgeru .gt_heading {
+#osbipivepr .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -3520,12 +2974,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#gklcztgeru .gt_bottom_border {
+#osbipivepr .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gklcztgeru .gt_col_headings {
+#osbipivepr .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3539,7 +2993,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#gklcztgeru .gt_col_heading {
+#osbipivepr .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3558,7 +3012,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#gklcztgeru .gt_column_spanner_outer {
+#osbipivepr .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3569,13 +3023,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#gklcztgeru .gt_column_spanner_outer:first-child {
+#osbipivepr .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#gklcztgeru .gt_column_spanner_outer:last-child {
+#osbipivepr .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#gklcztgeru .gt_column_spanner {
+#osbipivepr .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -3586,10 +3040,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#gklcztgeru .gt_spanner_row {
+#osbipivepr .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#gklcztgeru .gt_group_heading {
+#osbipivepr .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3614,7 +3068,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#gklcztgeru .gt_empty_group_heading {
+#osbipivepr .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -3628,13 +3082,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#gklcztgeru .gt_from_md > :first-child {
+#osbipivepr .gt_from_md > :first-child {
 margin-top: 0;
 }
-#gklcztgeru .gt_from_md > :last-child {
+#osbipivepr .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#gklcztgeru .gt_row {
+#osbipivepr .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3652,7 +3106,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#gklcztgeru .gt_stub {
+#osbipivepr .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3664,7 +3118,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gklcztgeru .gt_stub_row_group {
+#osbipivepr .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3677,13 +3131,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#gklcztgeru .gt_row_group_first td {
+#osbipivepr .gt_row_group_first td {
 border-top-width: 2px;
 }
-#gklcztgeru .gt_row_group_first th {
+#osbipivepr .gt_row_group_first th {
 border-top-width: 2px;
 }
-#gklcztgeru .gt_summary_row {
+#osbipivepr .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3692,14 +3146,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gklcztgeru .gt_first_summary_row {
+#osbipivepr .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#gklcztgeru .gt_first_summary_row.thick {
+#osbipivepr .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#gklcztgeru .gt_last_summary_row {
+#osbipivepr .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3708,7 +3162,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gklcztgeru .gt_grand_summary_row {
+#osbipivepr .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3717,7 +3171,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gklcztgeru .gt_first_grand_summary_row {
+#osbipivepr .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3726,7 +3180,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#gklcztgeru .gt_last_grand_summary_row_top {
+#osbipivepr .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3735,10 +3189,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#gklcztgeru .gt_striped {
+#osbipivepr .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#gklcztgeru .gt_table_body {
+#osbipivepr .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3746,7 +3200,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gklcztgeru .gt_footnotes {
+#osbipivepr .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3759,7 +3213,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#gklcztgeru .gt_footnote {
+#osbipivepr .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -3767,7 +3221,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gklcztgeru .gt_sourcenotes {
+#osbipivepr .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3780,64 +3234,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#gklcztgeru .gt_sourcenote {
+#osbipivepr .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gklcztgeru .gt_left {
+#osbipivepr .gt_left {
 text-align: left;
 }
-#gklcztgeru .gt_center {
+#osbipivepr .gt_center {
 text-align: center;
 }
-#gklcztgeru .gt_right {
+#osbipivepr .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#gklcztgeru .gt_font_normal {
+#osbipivepr .gt_font_normal {
 font-weight: normal;
 }
-#gklcztgeru .gt_font_bold {
+#osbipivepr .gt_font_bold {
 font-weight: bold;
 }
-#gklcztgeru .gt_font_italic {
+#osbipivepr .gt_font_italic {
 font-style: italic;
 }
-#gklcztgeru .gt_super {
+#osbipivepr .gt_super {
 font-size: 65%;
 }
-#gklcztgeru .gt_footnote_marks {
+#osbipivepr .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#gklcztgeru .gt_asterisk {
+#osbipivepr .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#gklcztgeru .gt_indent_1 {
+#osbipivepr .gt_indent_1 {
 text-indent: 5px;
 }
-#gklcztgeru .gt_indent_2 {
+#osbipivepr .gt_indent_2 {
 text-indent: 10px;
 }
-#gklcztgeru .gt_indent_3 {
+#osbipivepr .gt_indent_3 {
 text-indent: 15px;
 }
-#gklcztgeru .gt_indent_4 {
+#osbipivepr .gt_indent_4 {
 text-indent: 20px;
 }
-#gklcztgeru .gt_indent_5 {
+#osbipivepr .gt_indent_5 {
 text-indent: 25px;
 }
-#gklcztgeru .katex-display {
+#osbipivepr .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#gklcztgeru div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#osbipivepr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -3845,21 +3299,27 @@ height: 0px !important;
   <thead>
     <tr class="gt_col_headings gt_spanner_row">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"><span class="gt_from_md"><strong>Characteristic</strong></span></th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="**Adjusted Model**">
-        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Adjusted Model</strong></span></div>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="level 1; stat_nevent_1">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Fully adjusted</strong></span></div>
       </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="**Unadjusted Model**">
-        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Unadjusted Model</strong></span></div>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="level 1; estimate_2">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>without ISS</strong></span></div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="level 1; estimate_3">
+        <div class="gt_column_spanner"><span class="gt_from_md"><strong>Unadjusted</strong></span></div>
       </th>
     </tr>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_nevent_1"><span class="gt_from_md"><strong>Event Risk</strong></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_1"><span class="gt_from_md"><strong>OR</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_1"><span class="gt_from_md"><strong>95% CI</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_1"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_1"><span class="gt_from_md"><strong>95% CI</strong></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_1"><span class="gt_from_md"><strong>p-value</strong></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_2"><span class="gt_from_md"><strong>OR</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_2"><span class="gt_from_md"><strong>95% CI</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_2"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_2"><span class="gt_from_md"><strong>95% CI</strong></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_2"><span class="gt_from_md"><strong>p-value</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate_3"><span class="gt_from_md"><strong>OR</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low_3"><span class="gt_from_md"><strong>95% CI</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value_3"><span class="gt_from_md"><strong>p-value</strong></span></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -3870,7 +3330,10 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 1</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">247 / 4,455 (5.5%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
@@ -3878,39 +3341,54 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center">—</td>
 <td headers="conf.low_2" class="gt_row gt_center">—</td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center">—</td>
+<td headers="conf.low_3" class="gt_row gt_center">—</td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 2</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">14 / 239 (5.9%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.96</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.52, 1.64</td>
 <td headers="p.value_1" class="gt_row gt_center">0.9</td>
-<td headers="estimate_2" class="gt_row gt_center">1.06</td>
-<td headers="conf.low_2" class="gt_row gt_center">0.58, 1.78</td>
-<td headers="p.value_2" class="gt_row gt_center">0.8</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.11</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.61, 1.88</td>
+<td headers="p.value_2" class="gt_row gt_center">0.7</td>
+<td headers="estimate_3" class="gt_row gt_center">1.06</td>
+<td headers="conf.low_3" class="gt_row gt_center">0.58, 1.78</td>
+<td headers="p.value_3" class="gt_row gt_center">0.8</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 3</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">5 / 98 (5.1%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.47</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.16, 1.13</td>
 <td headers="p.value_1" class="gt_row gt_center">0.13</td>
-<td headers="estimate_2" class="gt_row gt_center">0.92</td>
-<td headers="conf.low_2" class="gt_row gt_center">0.32, 2.05</td>
-<td headers="p.value_2" class="gt_row gt_center">0.8</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">0.90</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.31, 2.02</td>
+<td headers="p.value_2" class="gt_row gt_center">0.8</td>
+<td headers="estimate_3" class="gt_row gt_center">0.92</td>
+<td headers="conf.low_3" class="gt_row gt_center">0.32, 2.05</td>
+<td headers="p.value_3" class="gt_row gt_center">0.8</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Class 4</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">15 / 127 (12%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.73</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.37, 1.35</td>
 <td headers="p.value_1" class="gt_row gt_center">0.3</td>
-<td headers="estimate_2" class="gt_row gt_center">2.28</td>
-<td headers="conf.low_2" class="gt_row gt_center">1.26, 3.85</td>
-<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.004</td></tr>
+<td headers="estimate_2" class="gt_row gt_center">2.21</td>
+<td headers="conf.low_2" class="gt_row gt_center">1.21, 3.77</td>
+<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.006</td>
+<td headers="estimate_3" class="gt_row gt_center">2.28</td>
+<td headers="conf.low_3" class="gt_row gt_center">1.26, 3.85</td>
+<td headers="p.value_3" class="gt_row gt_center" style="font-weight: bold;">0.004</td></tr>
     <tr><td headers="label" class="gt_row gt_left">Age (Years)</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.01</td>
 <td headers="conf.low_1" class="gt_row gt_center">1.00, 1.01</td>
 <td headers="p.value_1" class="gt_row gt_center">0.076</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.01</td>
+<td headers="conf.low_2" class="gt_row gt_center">1.00, 1.01</td>
+<td headers="p.value_2" class="gt_row gt_center" style="font-weight: bold;">0.048</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Gender (M/F)</td>
 <td headers="stat_nevent_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_1" class="gt_row gt_center"><br /></td>
@@ -3918,23 +3396,32 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Female</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">72 / 1,413 (5.1%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
 <td headers="conf.low_1" class="gt_row gt_center">—</td>
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="conf.low_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Male</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">209 / 3,506 (6.0%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.13</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.85, 1.51</td>
 <td headers="p.value_1" class="gt_row gt_center">0.4</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.23</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.93, 1.63</td>
+<td headers="p.value_2" class="gt_row gt_center">0.15</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Pre-injury ASA</td>
 <td headers="stat_nevent_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_1" class="gt_row gt_center"><br /></td>
@@ -3942,47 +3429,65 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    1</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">158 / 3,032 (5.2%)</td>
 <td headers="estimate_1" class="gt_row gt_center">—</td>
 <td headers="conf.low_1" class="gt_row gt_center">—</td>
 <td headers="p.value_1" class="gt_row gt_center"><br /></td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="conf.low_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    2</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">77 / 1,240 (6.2%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.03</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.76, 1.39</td>
 <td headers="p.value_1" class="gt_row gt_center">0.9</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.11</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.82, 1.49</td>
+<td headers="p.value_2" class="gt_row gt_center">0.5</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    3</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">46 / 626 (7.3%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.17</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.77, 1.73</td>
 <td headers="p.value_1" class="gt_row gt_center">0.5</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.15</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.77, 1.70</td>
+<td headers="p.value_2" class="gt_row gt_center">0.5</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    4</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">0 / 21 (0.00%)</td>
 <td headers="estimate_1" class="gt_row gt_center">0.00</td>
 <td headers="conf.low_1" class="gt_row gt_center"><br /></td>
 <td headers="p.value_1" class="gt_row gt_center">&gt;0.9</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center">0.00</td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center">&gt;0.9</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">INR</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.14</td>
 <td headers="conf.low_1" class="gt_row gt_center">0.76, 1.52</td>
 <td headers="p.value_1" class="gt_row gt_center">0.4</td>
-<td headers="estimate_2" class="gt_row gt_center"><br /></td>
-<td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="estimate_2" class="gt_row gt_center">1.21</td>
+<td headers="conf.low_2" class="gt_row gt_center">0.87, 1.56</td>
+<td headers="p.value_2" class="gt_row gt_center">0.2</td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">Injury Severity Score</td>
 <td headers="stat_nevent_1" class="gt_row gt_center">281 / 4,919 (5.7%)</td>
 <td headers="estimate_1" class="gt_row gt_center">1.06</td>
@@ -3990,217 +3495,23 @@ height: 0px !important;
 <td headers="p.value_1" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td>
 <td headers="estimate_2" class="gt_row gt_center"><br /></td>
 <td headers="conf.low_2" class="gt_row gt_center"><br /></td>
-<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td>
+<td headers="estimate_3" class="gt_row gt_center"><br /></td>
+<td headers="conf.low_3" class="gt_row gt_center"><br /></td>
+<td headers="p.value_3" class="gt_row gt_center"><br /></td></tr>
   </tbody>
-  
-  <tfoot class="gt_footnotes">
+  <tfoot class="gt_sourcenotes">
     <tr>
-      <td class="gt_footnote" colspan="8"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md">OR = Odds Ratio, CI = Confidence Interval</span></td>
+      <td class="gt_sourcenote" colspan="11"><span class="gt_from_md">Abbreviations: CI = Confidence Interval, OR = Odds Ratio</span></td>
     </tr>
   </tfoot>
+  
 </table>
 </div>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>The purpose of this study was to assess the association between OFI
-and adult trauma patients arriving in shock, focusing on the types of
-OFI and severity of shock.</p>
-<p>##Key results We found that the most common type of OFI is clinical
-judgment error across almost all shock severities. Out of all shock
-severities, there is only a statistically significant association
-between severe shock with a BE of &lt; -10 and OFI, which shows 63%
-reduced odds of OFI when compared against those with no shock. The
-unadjusted analyses demonstrated a general positive association between
-shock and OFI. However, this association inverted in the adjusted
-models, with BE &lt; -10 showing reduced odds for OFI.</p>
-<p>##Interpretation Patients with BE &lt; -10, indicating severe shock,
-were found to have lower odds of OFI compared to other groups, and two
-hypotheses may explain this finding. First, patients in severe shock
-should be more easily recognized as critically ill upon arrival,
-triggering heightened clinical attention and prioritization in triage.
-This results in more structured management and often receives priority
-in resource allocation, which may minimize variability in care and
-reduce the likelihood of errors. Another explanation is the potential
-influence of “reversed” survival bias. Patients with BE &lt; -10 have
-high mortality rates (25), and for these patients who die, the care
-process is interrupted prematurely. This may induce generally fewer
-procedures or shorter care time for patients with deadly outcomes, which
-means less chance for errors, and therefore OFIs. This would result in
-reduced amount of OFIs in groups with higher mortality, which in this
-case would be class 4.<br />
-Interpretation of adjusted model after inclusion of ISS When looking at
-the distribution of the significant and insignificant results of the BE
-group (table 6), it can be observed that the significance reverses for
-the classes when adding ISS. One explanation is that the unadjusted
-positive correlation may be driven by a shared variability with ISS, as
-we can see significant positive association between ISS and OFI in our
-results. This positive association between OFI and ISS have also been
-shown in a study by Husssein et al (26). It is important to note that
-Hussein’s study was also conducted at Karolinska Solna, but during a
-different time frame (2017-2021) and with other inclusion and exclusion
-criteria. Another hypothetical explanation is multicollinearity, as both
-BE and ISS assess injury severity. Theoretically anatomical injury,
-bleeding and physiological response should be closely interconnected. A
-correlation between ISS and BD (inversed BE) or SBP was also shown in
-the two studies by Mutscher et al. (11,25). Therefore, adjusting for
-each other may explain the inversion of OR. However, it may also result
-in results that’s difficult to interpret or lack any meaning in a
-clinical context. This may also explain why class 2 and 3 are not
-significant but class 4 are in the adjusted analysis, as seen in study
-by Hussein et al (26), ISS does not correlate linearly to OFI, but we
-included ISS linearly in the model.<br />
-However, when adding ISS to the SBP group, the significance of class 4
-disappears, but the significance of classes 2 and 3 does not change,
-like in the case for BE group. The same can be said about the OR, it
-does change but not nearly as major as in the BE class. Especially for
-class 2, as the OR merely changes from 1.06 to 1.11 and then to 0.96.
-Class 3 OR changes more, from 0.92 to 0.90 to 0.47; but the OR
-difference is still &lt; 0.5, whereof for the BE group and SBP class 4
-the difference is always &gt; 0.5. The reason may be due to the cutoffs
-of the classification system, as the SBP classification does not follow
-the same range of shock as the BE classification. The results of the
-study that BE classification was originating from (25), shows that BE
-class 1 had a mean SBP of 132.6 mmHg and class IV had 94.8 mmHg. As an
-SBP of 132.6 mmHg is at the higher range of normotensive, we were
-therefore not able to use it as an upper limit, but the 94.8 mmHg is
-close to our approximation of 90 mmHg for class 4. The SBP
-classification is therefore only somewhat connected to the BE
-classification at the lower limit e.g. class 4. Also worth noting is
-that the divider between our SBP class 2 and 3, are arbitrary and made
-to connect with the ATLS system to make up a four-class system, as the
-90 mmHg and 110 mmHg are from Eastridge et al (23) and Oyetunji et al
-(24) which only defined 110 mmHg and 90 mmHg and nothing in between.
-This means that this divider may have made the classes too small and no
-longer scientific.</p>
-<p>###Comparison to literature Previous studies (7,27) which studied
-cases with a deathly outcome, showed that the most common OFI type was
-delay in treatment, while the second most common is clinical judgment
-error (7), or errors in management (27). In comparison, our results
-showed the most common OFI is clinical judgment error (36%), while
-inadequate resources were second (22%), and delay in treatment comes
-third (17%), for the whole study population. These differences may be
-due to the nature of the studied population, where delay in treatment
-may be more deadly, therefore it takes up a smaller part of our results,
-while clinical judgment error takes up a larger part. No studies were
-found to address this hypothesis of survivorship bias for OFI types. For
-patients defined as in shock (Class 2-4), the most common OFI was still
-clinical judgment error (BE 34.7%; SBP 35.3%). This result is similar
-when compared to D O’Reilly’s study (28), in which the most common type
-of opportunities for performance improvements (OPI) was one involved
-with decision-making at 63 out of 150 OPIs. We did not find any
-publication addressing shock severity and OFI. We have therefore looked
-at studies addressing preventable negative care outcomes and assessed
-severity by other factors but only found one that investigated
-predicting factors and preventable death. This study (29) showed that
-there was a OR correlation of 14.1 between preventable death and SBP ≥
-80mmHg, when comparing to SBP &lt; 80 mmHg. This differs from our SBP
-findings, as our adjusted results are not statistically significant, and
-the significant unadjusted results don’t have that extreme of OR and are
-positively correlated with severe and not mild shock. These differences
-are not strange, but rather understandable, as the studies are conducted
-at different hospitals, populations, outcomes (surviving vs death) and
-different classifications (the lowest of our 4 SBP classes is 90mmHg,
-while they only got 2 classes that separate at 80mmHg). However, if
-reasoned from a shock standpoint where both SBP and BE are part of, and
-compare this result with our BE results, they show a similar trend. Our
-BE results showed reduced odds of OFI when comparing the most severe and
-the no shock class. This implies that if changing the reference point to
-the most severe shock class, the result would be increased odds of OFI
-when compared to the no shock class. Therefore, our results show similar
-trend to their study (29) result, that showed lesser shock (higher SBP)
-had increased odds ratio of preventable death. One surprising result is
-that there is no significance for the SBP group in our adjusted
-analysis. When comparing to the results from Hussein et al. (26), the
-SBP results conform, as it also showed significance for the unadjusted
-results below 90 mmHg and no significance when adjusted with other
-factors including ISS. Due to a lack of research regarding shock/injury
-severity and OFI/preventable death, it is difficult to determine whether
-the results are reasonable or not. It is therefore also difficult to
-determine exactly why some of them are significant and others not,
-leaving us with reasoning and hypothetical explanations.</p>
-<p>##Strengths and limitations Strength of this study includes the
-relatively large cohort of 4919 patients spread over 9 continuous years.
-From a methodical standpoint, even though an established
-shock/hemorrhage classification system was not used, two clinical
-parameters were used in parallel. This includes two perspectives, one
-physiological and one chemical, to best describe shock and at the same
-time still using the original parameters the clinicians meet on a
-day-to-day basis.<br />
-One of the limitations is the lack of data to design the study around a
-modern shock/hemorrhage classification which uses a combination of base
-parameters. Due to a lack of data on heart rate, FAST, detailed types of
-injury, and clinical chemistry, we were not able to use categorizations
-such as TASH, TBSS, and ABC with better sensitivity and specificity than
-the ATLS framework (30–32). The ATLS shock classification framework
-would, in turn, would also be better studied and evidence-based, than
-the proprietary classification we simplified and built our
-classification from. The choice to not include the ATLS hemorrhage
-classification was due to four reasons. The first one is ATLS tenth
-edition lacks numerical values for vital parameters. The second one is
-that base deficit alone is superior to vital parameters as a predictive
-parameter for mortality (33). The third one is due to the nature of
-having multiple parameters, which makes it difficult to categorize a
-patient with vital parameters in two or more classes at the same time.
-The fourth one is difficulties in separating lower GCS due to traumatic
-brain injury from shock as a cause. Missing data were handled by
-listwise deletion, which reduced the sample size by 2233 and may also
-introduce bias, as the most common missing category was BE which may
-mean that BE was not routinely measured and result in inconsistency for
-certain patient groups, which risks selection bias. Also worth noting is
-that the sample size for most of the shock classes (class 2 to 4) are
-roughly around 100 to 200 patients, whereof those with positive OFI are
-as low as 5 patients. This may result in over/underestimation of the OR,
-as there is higher chance of randomness in smaller sample sizes, which
-results in broader confidence intervals which may result in more
-“extreme” average OR.</p>
-<p>##Clinical/Practical applications - Generalisability? Clinically the
-unadjusted are more insightful, as the variables are never separated and
-instead combined into complex cases. Therefore, from a BE standpoint
-when a patient’s BE is between -2 to -10 the odds of OFI are between 61%
-to 91% higher than those with BE above -2. Suggesting patients with a BE
-between these levels may need extra attention. From a SBP perspective,
-when SBP dips below 90 mmHg odds for OFI increases a massive 128%,
-compared with those with SBP above 110 mmHg. This supports the idea (24)
-of using 90 mmHg as a clinical limit for defining hypotension.</p>
-<p>###Equity It can be observed that the male gender is more prevalent
-in our results than females (71% vs 29%), which is like other studies
-(22,27,28). However, when comparing the event rate of OFI among the
-patients reviewed for OFI, the difference between the genders becomes
-minimal at 5.1% for female, respective 6% for male. At the same time,
-when fully adjusted, gender is not significant (p = 0.4), this implies
-that even though gender may not be proportionate in trauma cases, there
-seems to be no major difference between the genders for trauma care
-quality. This may reflect that the standardized protocols for trauma
-care minimize gender-based differences. When comparing to other studies
-(27,28), it seems like the percentage potentially preventable death and
-OPI have a higher amount for males, however, to be noted their
-percentage is based on ratio between genders and not event risk for each
-gender. Socioeconomical factors were not incorporated into this study,
-nonetheless an important factor in emergency medicine, when resources
-are scarcer. Especially when “inadequate resources” is the third most
-common OFI type, even for a major hospital in the capital of Sweden.
-This implies the results of this study cannot be generalized globally,
-especially not places where standardized trauma care protocols are not
-incorporated and/or lack adequate resources.</p>
-<p>###Future studies The next step for future studies is to validate the
-findings and improve the methods from this study. As previously
-discussed, the association between anatomical classification ISS and
-physiological parameters BE and SBP, and how they correlate to OFI are
-complex and not necessarily clinically relevant. One way to avoid this
-problem is using a validated classification for hemorrhagic shock with
-both anatomical and physiological components, like ABC, TASH, and so on.
-One other problem when interpreting the results is the “reversed
-survivorship bias”. Due to the design of trauma care quality database,
-when and where (level of care) the OFI occurred during the length of
-stay is not recorded. A prospective study can clarify whether shock
-severity directly affects OFI or if length of stay is a confounding
-factor. By observing when and where OFIs most commonly occur, it can
-determine whether the hypothesis of length of stay is correct. This also
-aids in understanding the reasons behind the nonlinear relationship
-between ISS, BE or SBP and OFI, as there are currently only theories but
-no studies.</p>
 <!--
 
 Key results
@@ -4227,37 +3538,112 @@ Generalisability
 Discuss the generalisability (external validity) of the study results
 
 -->
+<div id="key-results" class="section level2">
+<h2>Key results</h2>
+<p>We found that the most common type of OFI is clinical judgment error
+across almost all shock severities. The unadjusted models suggested a
+positive association between moderate shock and OFI; adjustment reversed
+this, with severe shock showing 63% reduced odds.</p>
+</div>
+<div id="limitations" class="section level2">
+<h2>Limitations</h2>
+<p>The study design is limited by the lack of data on heart rate, FAST,
+detailed types of injury, and clinical chemistry. This resulted in
+choosing a proprietary simplified ATLS framework instead of
+categorizations such as TASH, TBSS, and ABC with better sensitivity and
+specificity than the ATLS framework <span class="citation">(14–16)</span>. Another limitation is that missing data
+were handled by listwise deletion, which reduced the sample size by 2233
+and may also introduce bias due to missing BE values. Also worth noting
+is that the sample size for most of the shock classes (class 2 to 4) are
+roughly around 100 to 200 patients, whereas those with positive OFI are
+as low as five patients. This may have resulted in higher randomness and
+inflated effect sizes.</p>
+</div>
+<div id="interpretation" class="section level2">
+<h2>Interpretation</h2>
+<p>The lower odds of OFI for patients with BE &lt; -10 may be explained
+by two theories. One is that more severe injuries may receive heightened
+attention and more protocol-driven responses. This would in turn, result
+in reduced risk of deviation from optimal care (and thus OFIs). This
+theory is also partly supported by the observation that the OFIs
+“inadequate protocols” and “missed diagnosis” generally occur with lower
+frequencies with higher shock degrees, regardless of whether classed
+with BE or SBP. Do note that the low frequencies of OFI in the severe
+shock classes, limit this theory with higher chance of randomness.</p>
+<p>The second theory is survival bias, where the reduced odds of OFI may
+be explained by that this study only incorporated the surviving
+patients. This may result in only the most optimally cared patients
+surviving. Patients with BE &lt; -10 also have high mortality rates
+<span class="citation">(13)</span>. Hypothetically, this would result in
+the severe classes of shock, with more dying patients with OFIs being
+eliminated from the data, due to death as the outcome.</p>
+<p>The reversal of OR and distribution of statistical significance may
+be attributed to multicollinearity, as both BE and ISS assess injury
+severity. Theoretically, anatomical injury, bleeding, and physiological
+response should be closely interconnected. A correlation between ISS and
+BD (inverted BE) or SBP was also shown in the two studies by Mutscher et
+al. <span class="citation">(12,13)</span>. Therefore, adjusting for each
+other may generate results that are difficult to interpret. This may
+also explain why classes 2 and 3 are no longer statistically
+significant, whereas class 4 remains significant.</p>
+<p>One other factor which may have contributed to this pattern of
+results, especially the distribution of significant classes and not as
+much the reversal after adjustment with ISS, was that ISS was included
+as a continuous (linear) variable in the model. As shown by Albaaj et
+al. <span class="citation">(17)</span>, increases in ISS do not
+correspond proportionally to increases in the likelihood of OFI.
+Therefore, its relationship with opportunities for improvement (OFI) is
+likely not linear, which results in different statistical significances
+between the classes.</p>
+<div id="comparison-to-literature" class="section level3">
+<h3>Comparison to literature</h3>
+<p>A previous study by O’Reilly et al <span class="citation">(8)</span>,
+which looked into opportunities for performance improvements (OPI) in
+7511 cases, whereof 127 patients whose death was affected by hemorrhage,
+found that the most common OPI was related to decision making (63 out of
+150 OPIs). This aligns with our findings that patients in shock (Class
+2-4) were most affected by the OFI, “clinical judgment error” (BE 34.7%;
+SBP 35.3%).</p>
+<p>No studies were found that specifically examined OFIs in patients in
+hemorrhagic shock, but studies on OFIs in general trauma populations
+show results in a similar theme. A study by T.P. Saltzherr <span class="citation">(18)</span> from a Dutch trauma center reported that
+“delay in treatment” or “error in management” was the most common error
+type. Similarly, Martin et al. <span class="citation">(19)</span> found
+that delays to surgery were significant contributors to adverse
+outcomes, for a military hospital in Baghdad. Sanddal et al <span class="citation">(20)</span> identified the main issues of care for a
+trauma system in development in Utah as chest injury diagnostic and
+management, airway management, and fluid resuscitation. Teixeira et al.
+<span class="citation">(3)</span>, analyzing preventable deaths in a
+mature trauma center, also confirmed the impact of delayed treatment and
+poor clinical decision-making.</p>
+<p>In comparison, our study found that “clinical judgment error” was the
+most common OFI for all patients and patients in shock. While the
+relative ranking may vary, whether delay in treatment or clinical
+judgment error is most common, these two categories consistently emerged
+as the most frequent across studies. This also suggests that the types
+of OFIs that were common in the general trauma population were similarly
+frequent in patients in shock. Moreover, this pattern appears consistent
+regardless of the studied population, whether the focus was on
+preventable deaths or on patients who survived their injuries.</p>
+</div>
+</div>
 </div>
 <div id="conclusion-1" class="section level1">
 <h1>Conclusion</h1>
-<!-- Give a short conclusion, corresponding to the aim -->
-<p>The most common type of OFI for shock patients is clinical judgement
-error. Association between shock and OFI doesn’t seem to be linear, but
+<p>Clinical judgment error was the most common OFI in shock patients.
+The association between shock and OFI does not seem to be linear, but
 rather the moderate shock has higher odds of OFI compared to the mild
-and severe shocks. The lack of significance in SBP classification
-highlights potential framework limitations compared to BE. These
-findings emphasize the importance of accounting for ISS and using
-validated shock classifications in future research.</p>
-<p>#Contributions Data collection from the trauma registry, ethics
-application and study designed by Martin Gerdin Wärnberg. Carl sorted,
-programmed and analyzed the data, and then wrote the thesis with support
-from Martin Gerdin Wärnberg, Johanna Berg, Jonatan Attergrim and Kelvin
-Szolnoky. Technical tools used include Chat-GPT and Google translate.
-Both were used in the same way, as means to translate more adequate
-vocabulary for scientific writing between Swedish and English. The
-overall formulations, structure and content were written by me (Carl),
-and which of the translations done by the two tools, that were to be
-used to ensure the content, were also done by me (Carl).</p>
-<p>##Acknowledgements I want to here again thank my supervisor and
-co-supervisors for supporting, replying to questions and reading and
-giving me constructive feedback. I also want to thank my coordinator Jan
-Jakobsson for a lot of constructive feedback and guiding my
-understanding of the practicalities and extent for this thesis. My
-fellow medical student Anton Fedchenko also supported me with
-constructive feedback. Lastly, I also want to thank my friend Gustav
-Nilsson-Gisleskog, a master student in computer science at Lund
-University for helping me solve conflicting push pull requests on
-git-hub.</p>
+and severe shocks. These findings emphasize the importance of improved
+protocols for initial management of non-critical patients to minimise
+decision error.</p>
+</div>
+<div id="contributions" class="section level1">
+<h1>Contributions</h1>
+<p>Data collection from the trauma registry, ethics application and
+study designed by Martin Gerdin Wärnberg. Carl sorted, programmed and
+analyzed the data, and then wrote the thesis with support from Martin
+Gerdin Wärnberg, Johanna Berg, Jonatan Attergrim and Kelvin
+Szolnoky.</p>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
@@ -4349,6 +3735,55 @@ classification for hypovolemic shock developed on data from 16,305
 patients derived from the <span>TraumaRegister</span> <span>DGU</span>®.
 Critical Care [Internet]. 2013 Mar [cited 2024 Oct 24];17(2):R42.
 Available from: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3672480/">https://pmc.ncbi.nlm.nih.gov/articles/PMC3672480/</a></div>
+</div>
+<div id="ref-yucel_trauma_2006" class="csl-entry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Yücel N, Lefering R, Maegele M, Vorweg M,
+Tjardes T, Ruchholtz S, et al. <a href="https://doi.org/10.1097/01.ta.0000220386.84012.bf">Trauma
+<span>Associated</span> <span>Severe</span> <span>Hemorrhage</span>
+(<span>TASH</span>)-<span>Score</span>: Probability of mass transfusion
+as surrogate for life threatening hemorrhage after multiple trauma</a>.
+The Journal of Trauma. 2006 Jun;60(6):1228-1236; discussion 1236-1237.
+</div>
+</div>
+<div id="ref-ogura_modified_2016" class="csl-entry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Ogura T, Lefor AK, Masuda M, Kushimoto S. <a href="https://doi.org/10.1016/j.ajem.2016.02.072">Modified traumatic
+bleeding severity score: Early determination of the need for massive
+transfusion</a>. The American Journal of Emergency Medicine. 2016
+Jun;34(6):1097–101. </div>
+</div>
+<div id="ref-hanlin_prehospital_2024" class="csl-entry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Hanlin E, Meyer DE, Heft N, Stilgenbauer H,
+Cotton B, Bourgeois M, et al. <a href="https://doi.org/10.1080/10903127.2023.2166174">Prehospital
+<span>Validation</span> of the <span>Assessment</span> of
+<span>Blood</span> <span>Consumption</span> (<span>ABC</span>)
+<span>Score</span></a>. Prehospital Emergency Care. 2024;28(3):495–500.
+</div>
+</div>
+<div id="ref-albaaj_patient_2023" class="csl-entry">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Albaaj H, Attergrim J, Strömmer L, Brattström
+O, Jacobsson M, Wihlke G, et al. Patient and process factors associated
+with opportunities for improvement in trauma care: A registry-based
+study. Scandinavian Journal of Trauma, Resuscitation and Emergency
+Medicine [Internet]. 2023 Nov [cited 2024 Sep 5];31(1):87. Available
+from: <a href="https://doi.org/10.1186/s13049-023-01157-y">https://doi.org/10.1186/s13049-023-01157-y</a></div>
+</div>
+<div id="ref-saltzherr_preventability_2011" class="csl-entry">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">Saltzherr TP, Wendt KW, Nieboer P, Nijsten MWN,
+Valk JP, Luitse JSK, et al. Preventability of trauma deaths in a
+<span>Dutch</span> <span>Level</span>-1 trauma centre. Injury
+[Internet]. 2011 Sep [cited 2024 Dec 1];42(9):870–3. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S0020138310002597">https://www.sciencedirect.com/science/article/pii/S0020138310002597</a></div>
+</div>
+<div id="ref-martin_analysis_2009" class="csl-entry">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Martin M, Oh J, Currier H, Tai N, Beekley A,
+Eckert M, et al. <a href="https://doi.org/10.1097/TA.0b013e31819d86ad">An analysis of
+in-hospital deaths at a modern combat support hospital</a>. The Journal
+of Trauma. 2009 Apr;66(4 Suppl):S51-60; discussion S60-61. </div>
+</div>
+<div id="ref-sanddal_analysis_2011" class="csl-entry">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Sanddal TL, Esposito TJ, Whitney JR, Hartford
+D, Taillac PP, Mann NC, et al. <a href="https://doi.org/10.1097/TA.0b013e3181fec9ba">Analysis of
+preventable trauma deaths and opportunities for trauma care improvement
+in utah</a>. The Journal of Trauma. 2011 Apr;70(4):970–7. </div>
 </div>
 </div>
 </div>
