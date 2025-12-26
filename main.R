@@ -302,7 +302,7 @@ log_regBE_sample.characteristics.table <-
     label = list(
       BE_class ~ "Shock classification - BE",
       pt_age_yrs ~ "Age (Years)",
-      pt_Gender ~ "Gender",
+      pt_Gender ~ "Gender (M/F)",
       pt_asa_preinjury ~ "Pre-injury ASA",
       ed_inr_numeric ~ "INR",
       ISS ~ "Injury Severity Score"
@@ -335,7 +335,7 @@ log_regSBP_sample.characteristics.table <-
     exponentiate = TRUE,
     label = list(
       pt_age_yrs ~ "Age (Years)",
-      pt_Gender ~ "Gender",
+      pt_Gender ~ "Gender (M/F)",
       pt_asa_preinjury ~ "Pre-injury ASA",
       ed_inr_numeric ~ "INR",
       ISS ~ "Injury Severity Score",
