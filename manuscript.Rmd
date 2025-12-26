@@ -3,10 +3,10 @@ title: Opportunities for improvement in the care of adult trauma patients arrivi
   in shock
 author: "Carl Skog"
 output:
-  #word_document: default
+  word_document: default
   #bookdown::pdf_document2:
     #latex_engine: xelatex
-  html_document: default
+  #html_document: default
 bibliography: bibliography.bib
 csl: vancouver.csl
 editor_options: 
