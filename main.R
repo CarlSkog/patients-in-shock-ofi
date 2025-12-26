@@ -449,12 +449,12 @@ sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
 
 # Step reg + event
 master_combined_table_stepBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table, BEstep1, log_regBE_sample.characteristics.table_unadjusted),
-  tab_spanner = c("**Fully adjusted**","**without ISS**","**Unadjusted**")
+  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, log_regBE_sample.characteristics.table),
+  tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
 ) 
 
 master_combined_table_stepSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table, SBPstep1, log_regSBP_sample.characteristics.table_unadjusted),
-  tab_spanner = c("**Fully adjusted**","**without ISS**","**Unadjusted**")
+  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, log_regSBP_sample.characteristics.table),
+  tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
 ) 
 
