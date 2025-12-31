@@ -214,3 +214,59 @@ chisq.test(tabell)
 There were a total of  patients in the trauma registry. After excluding the patients younger than 15 and/or were dead on arrival, there were `r excludednum` patients left. Out of those, `r sample` patients had been reviewed for the presence of OFI. A total of `r sample - log_reg_count` patients were excluded due to missing data, resulting in `r log_reg_count` patients for the final analysis.
 
 The variable with most missing data is BE which lack the data for 1721 patients.
+
+#TEST
+master_combined_table_stepSBP <- {
+  
+  # ---- EVENT RISK (leftmost column) ----
+  event_risk_SBP <-
+    tbl_regression(
+      log_regSBPun,
+      exponentiate = TRUE,
+      label = list(
+        V4SBP_class ~ "Shock classification – SBP"
+      )
+    ) |>
+    add_nevent(location = "level") |>
+    add_n(location = "level") |>
+    modify_table_body(
+      ~ .x |>
+        mutate(
+          stat_event_risk =
+            ifelse(
+              !is.na(stat_nevent),
+              paste0(
+                stat_nevent, " / ", stat_n,
+                " (",
+                style_sigfig(stat_nevent / stat_n, scale = 100),
+                "%)"
+              ),
+              NA_character_
+            )
+        )
+    ) |>
+    modify_table_body(
+      ~ .x |>
+        select(row_type, variable, label, stat_event_risk)
+    ) |>
+    modify_header(stat_event_risk = "**Event risk**")
+  
+  # ---- MERGE ALL TABLES ----
+  tbl_merge(
+    tbls = list(
+      event_risk_SBP,
+      log_regSBP_sample.characteristics.table_unadjusted,
+      SBPstep1,
+      log_regSBP_sample.characteristics.table
+    ),
+    tab_spanner = c(
+      "**Event risk**",
+      "**Unadjusted**",
+      "**Without ISS**",
+      "**Fully adjusted**"
+    )
+  )
+}
+
+print(master_combined_table_stepSBP)
+

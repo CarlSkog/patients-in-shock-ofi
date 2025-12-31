@@ -61,7 +61,7 @@ study.data <- merged.data |>
 # Those excluded
 excluded <- study.data |>
   filter(
-    Deceased == "False",
+    #Deceased == "False",
     pt_age_yrs >= 15
   )
 
@@ -69,7 +69,7 @@ excluded <- study.data |>
 study.sample <- study.data |>
   filter(
     !is.na(ofi),
-    Deceased == "False",
+    #Deceased == "False",
     pt_age_yrs >= 15
   )
 
@@ -118,7 +118,7 @@ study.sample <- study.sample |>
   select(
     -ed_be_art,
     -ed_inr,
-    -Deceased
+   # -Deceased
   )
 
 # BE shock classification
@@ -141,7 +141,7 @@ study.sample <- study.sample %>%
     TRUE ~ "Class 1"
   ))
 
-# no missing data data frame for regression models
+# no missing data dataframe for regression models
 reg.sample <- study.sample %>%
   filter(!is.na(pt_age_yrs) &
     !is.na(pt_Gender) &
@@ -150,6 +150,20 @@ reg.sample <- study.sample %>%
     !is.na(pt_asa_preinjury) &
     !is.na(BE_class) &
     !is.na(V4SBP_class))
+
+
+
+
+#TEST
+reg.sample <- reg.sample |>
+  mutate(
+    Deceased = ifelse(Deceased == "True", 1, 0)
+  )
+
+
+
+
+
 
 # Total rows used in the logistic regression
 log_reg_count <- nrow(reg.sample)
@@ -308,25 +322,6 @@ log_regBE_sample.characteristics.table <-
       ISS ~ "Injury Severity Score"
     )
   ) |>
-  add_nevent(location = "level") |> 
-  add_n(location = "level") |> 
-  modify_table_body(
-    ~ .x |> 
-      dplyr::mutate(
-        stat_nevent_rate = 
-          ifelse(
-            !is.na(stat_nevent),
-            paste0(style_sigfig(stat_nevent / stat_n, scale = 100), "%"),
-            NA
-          ), 
-        .after = stat_nevent
-      )
-  ) |> 
-  modify_column_merge(
-    pattern = "{stat_nevent} / {stat_n} ({stat_nevent_rate})",
-    rows = !is.na(stat_nevent)
-  ) |>
-  modify_header(stat_nevent = "**Event Risk**") |>
   bold_p() 
 
 # Create a table of regression of sample - SBP
@@ -342,6 +337,15 @@ log_regSBP_sample.characteristics.table <-
       V4SBP_class ~ "Shock classification - SBP"
   )
 ) |>
+  bold_p() 
+
+# Create a table of regression of sample unadjusted - BE
+log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
+  exponentiate = TRUE,
+  label = list(
+    BE_class ~ "Shock classification - BE"
+  )
+) |>
   add_nevent(location = "level") |> 
   add_n(location = "level") |> 
   modify_table_body(
@@ -363,15 +367,6 @@ log_regSBP_sample.characteristics.table <-
   modify_header(stat_nevent = "**Event Risk**") |>
   bold_p() 
 
-# Create a table of regression of sample unadjusted - BE
-log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
-  exponentiate = TRUE,
-  label = list(
-    BE_class ~ "Shock classification - BE"
-  )
-) |>
-  bold_p()
-
 # Create a table of regression of sample unadjusted - SBP
 log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPun,
   exponentiate = TRUE,
@@ -379,19 +374,80 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
     V4SBP_class ~ "Shock classification - SBP"
   )
 ) |>
-  bold_p()
+  add_nevent(location = "level") |> 
+  add_n(location = "level") |> 
+  modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        stat_nevent_rate = 
+          ifelse(
+            !is.na(stat_nevent),
+            paste0(style_sigfig(stat_nevent / stat_n, scale = 100), "%"),
+            NA
+          ), 
+        .after = stat_nevent
+      )
+  ) |> 
+  modify_column_merge(
+    pattern = "{stat_nevent} / {stat_n} ({stat_nevent_rate})",
+    rows = !is.na(stat_nevent)
+  ) |>
+  modify_header(stat_nevent = "**Event Risk**") |>
+  bold_p() 
+
+
+
+
+
+
+#mortality sample for table 4 and 5
+mort.sample <- study.data |>
+  filter(
+    !is.na(ofi),
+    pt_age_yrs >= 15
+  )
+
+# OFI as factor
+mort.sample$ofi <- as.factor(mort.sample$ofi)
+
+# Converting ed_be_art to numeric
+BEnum <- convert_number(mort.sample$ed_be_art)
+
+# Re-add the BE column as numeric to `study.sample`
+mort.sample <- mort.sample %>%
+  mutate(ed_be_art_numeric = BEnum)
+
+# BE shock classification
+mort.sample <- mort.sample %>%
+  mutate(BE_class = case_when(
+    BEnum < (-10) ~ "Class 4",
+    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
+    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",
+    BEnum >= (-2) ~ "Class 1",
+    is.na(BEnum) ~ NA_character_,
+  ))
 
 #table summery version
-BEsubofi <- reg.sample |>
+BEsubofi <- mort.sample |>
   select(
     BE_class,
     ofi.categories.broad,
-    ofi
+    ofi,
+    Deceased
   ) |>
   filter(ofi == "Yes") |>
   select(-ofi)
 
 BEsubofi_tbl <- tbl_summary(BEsubofi, by = BE_class)
+
+print(BEsubofi_tbl)
+
+
+
+
+
+
+
 
 SBPsubofi <- reg.sample |>
   select(
@@ -403,6 +459,8 @@ SBPsubofi <- reg.sample |>
   select(-ofi)
 
 SBPsubofi_tbl <- tbl_summary(SBPsubofi, by = V4SBP_class)
+
+print(SBPsubofi_tbl)
 
 # Create objects for descriptive data
 ofi <- paste0(sum(reg.sample$ofi == "Yes"), " (", round(sum(reg.sample$ofi == "Yes") / nrow(reg.sample) * 100, 1), "%)")
@@ -453,8 +511,132 @@ master_combined_table_stepBE <- tbl_merge(
   tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
 ) 
 
+print(master_combined_table_stepBE)
+
 master_combined_table_stepSBP <- tbl_merge(
   tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, log_regSBP_sample.characteristics.table),
   tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
-) 
+)
+
+print(master_combined_table_stepSBP)
+
+#TEST
+master_combined_table_stepSBP <- {
+  
+  # ---- MORTALITY COLUMN (LEFTMOST) ----
+  mortality_SBP <-
+    tbl_regression(
+      glm(
+        Deceased ~ V4SBP_class,
+        family = binomial,
+        data = reg.sample
+      ),
+      exponentiate = TRUE,
+      label = list(
+        V4SBP_class ~ "Shock classification – SBP"
+      )
+    ) |>
+    add_nevent(location = "level") |>
+    add_n(location = "level") |>
+    modify_table_body(
+      ~ .x |>
+        mutate(
+          stat_mortality =
+            ifelse(
+              !is.na(stat_nevent),
+              paste0(
+                stat_nevent, " / ", stat_n,
+                " (",
+                style_sigfig(stat_nevent / stat_n, scale = 100),
+                "%)"
+              ),
+              NA_character_
+            )
+        )
+    ) |>
+    modify_table_body(
+      ~ .x |>
+        select(row_type, variable, label, stat_mortality)
+    ) |>
+    modify_header(stat_mortality = "**Mortality**")
+  
+  # ---- MERGE WITH OFI MODELS ----
+  tbl_merge(
+    tbls = list(
+      mortality_SBP,
+      log_regSBP_sample.characteristics.table_unadjusted,
+      SBPstep1,
+      log_regSBP_sample.characteristics.table
+    ),
+    tab_spanner = c(
+      "**Mortality**",
+      "**Unadjusted**",
+      "**Without ISS**",
+      "**Fully adjusted**"
+    )
+  )
+}
+
+print(master_combined_table_stepSBP)
+
+#TEST - BE
+
+master_combined_table_stepBE <- {
+  
+  #mortality calculation
+  mortality_BE <-
+    tbl_regression(
+      glm(
+        Deceased ~ BE_class,
+        family = binomial,
+        data = reg.sample
+      ),
+      exponentiate = TRUE,
+      label = list(
+        BE_class ~ "Shock classification – BE"
+      )
+    ) |>
+    add_nevent(location = "level") |>
+    add_n(location = "level") |>
+    modify_table_body(
+      ~ .x |>
+        mutate(
+          stat_mortality =
+            ifelse(
+              !is.na(stat_nevent),
+              paste0(
+                stat_nevent, " / ", stat_n,
+                " (",
+                style_sigfig(stat_nevent / stat_n, scale = 100),
+                "%)"
+              ),
+              NA_character_
+            )
+        )
+    ) |>
+    modify_table_body(
+      ~ .x |>
+        select(row_type, variable, label, stat_mortality)
+    ) |>
+    modify_header(stat_mortality = "**Mortality**")
+  
+  #merge tables
+  tbl_merge(
+    tbls = list(
+      mortality_BE,
+      log_regBE_sample.characteristics.table_unadjusted,
+      BEstep1,
+      log_regBE_sample.characteristics.table
+    ),
+    tab_spanner = c(
+      "**Mortality**",
+      "**Unadjusted**",
+      "**Without ISS**",
+      "**Fully adjusted**"
+    )
+  )
+}
+
+print(master_combined_table_stepBE)
+print(BEsubofi_tbl)
 
