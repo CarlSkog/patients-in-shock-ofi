@@ -154,6 +154,7 @@ reg.sample <- study.sample %>%
 
 
 
+
 #TEST
 reg.sample <- reg.sample |>
   mutate(
@@ -519,6 +520,10 @@ master_combined_table_stepSBP <- tbl_merge(
 )
 
 print(master_combined_table_stepSBP)
+
+
+
+
 
 #TEST
 master_combined_table_stepSBP <- {
