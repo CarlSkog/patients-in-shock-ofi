@@ -61,7 +61,6 @@ study.data <- merged.data |>
 # Those excluded
 excluded <- study.data |>
   filter(
-    #Deceased == "False",
     pt_age_yrs >= 15
   )
 
@@ -69,7 +68,6 @@ excluded <- study.data |>
 study.sample <- study.data |>
   filter(
     !is.na(ofi),
-    #Deceased == "False",
     pt_age_yrs >= 15
   )
 
@@ -117,8 +115,7 @@ study.sample <- study.sample %>%
 study.sample <- study.sample |>
   select(
     -ed_be_art,
-    -ed_inr,
-   # -Deceased
+    -ed_inr
   )
 
 # BE shock classification
@@ -141,6 +138,12 @@ study.sample <- study.sample %>%
     TRUE ~ "Class 1"
   ))
 
+#Deceased
+study.sample <- study.sample |>
+  mutate(
+    Deceased = ifelse(Deceased == "True", 1, 0)
+  )
+
 # no missing data dataframe for regression models
 reg.sample <- study.sample %>%
   filter(!is.na(pt_age_yrs) &
@@ -149,18 +152,8 @@ reg.sample <- study.sample %>%
     !is.na(ed_inr_numeric) &
     !is.na(pt_asa_preinjury) &
     !is.na(BE_class) &
-    !is.na(V4SBP_class))
-
-
-
-
-
-#TEST
-reg.sample <- reg.sample |>
-  mutate(
-    Deceased = ifelse(Deceased == "True", 1, 0)
-  )
-
+    !is.na(V4SBP_class) &
+    !is.na(Deceased))
 
 
 
