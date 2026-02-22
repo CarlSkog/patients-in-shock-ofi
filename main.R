@@ -163,16 +163,16 @@ reg.sample <- study.sample %>%
 log_reg_count <- nrow(reg.sample)
 
 # Binary logistic regression model - BE
-log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-                 family = binomial,
-                 data = reg.sample
-)
+#log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + Deceased,
+#                 family = binomial,
+#                 data = reg.sample
+#)
 
 # Binary logistic regression model - SBP
-log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS,
-                  family = binomial,
-                  data = reg.sample
-)
+#log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS+ Deceased,
+#                  family = binomial,
+#                  data = reg.sample
+#)
 
 # Binary logistic regression model unadjusted - BE
 log_regBEun <- glm(ofi ~ BE_class,
@@ -187,7 +187,7 @@ log_regSBPun <- glm(ofi ~ V4SBP_class,
 )
 
 # step analysis - SBP 
-SBPstep1d <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric,
+SBPstep1d <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + Deceased,
                  family = binomial,
                  data = reg.sample
 )
@@ -205,7 +205,7 @@ SBPstep1 <- tbl_regression(
 ) |>
   bold_p()
 
-SBPstep2d <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS,
+SBPstep2d <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + Deceased,
                  family = binomial,
                  data = reg.sample
 )
@@ -225,7 +225,7 @@ SBPstep2 <- tbl_regression(
   bold_p()
 
 # step analysis - BE
-BEstep1d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric,
+BEstep1d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + Deceased,
                  family = binomial,
                  data = reg.sample
 )
@@ -243,7 +243,7 @@ BEstep1 <- tbl_regression(
 ) |>
   bold_p()
 
-BEstep2d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS,
+BEstep2d <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric  + ISS + Deceased,
                  family = binomial,
                  data = reg.sample
 )
@@ -465,15 +465,15 @@ sample <- nrow(study.sample)
 excludednum <- nrow(excluded)
 
 #combined reg analysis
-combined_tableBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table, log_regBE_sample.characteristics.table_unadjusted),
-  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
-) 
+#combined_tableBE <- tbl_merge(
+  #tbls = list(log_regBE_sample.characteristics.table, log_regBE_sample.characteristics.table_unadjusted),
+  #tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
+#) 
 
-combined_tableSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table, log_regSBP_sample.characteristics.table_unadjusted),
-  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
-) 
+#combined_tableSBP <- tbl_merge(
+#  tbls = list(log_regSBP_sample.characteristics.table, log_regSBP_sample.characteristics.table_unadjusted),
+#  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
+#) 
 
 #combined step reg
 combined_table_stepBE <- tbl_merge(
@@ -501,14 +501,14 @@ sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
 
 # Step reg + event
 master_combined_table_stepBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, log_regBE_sample.characteristics.table),
+  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, BEstep2),
   tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
 ) 
 
 print(master_combined_table_stepBE)
 
 master_combined_table_stepSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, log_regSBP_sample.characteristics.table),
+  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
   tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
 )
 
