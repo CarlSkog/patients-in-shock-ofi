@@ -91,11 +91,13 @@ study.sample <- study.sample %>%
 
 # Convert gender from numeric to categorical
 study.sample <- study.sample %>%
-  mutate(pt_Gender = case_when(
-    pt_Gender == 1 ~ "Male",
-    pt_Gender == 2 ~ "Female",
-    TRUE ~ NA_character_
-  ))
+  mutate(
+    pt_Gender = factor(
+      pt_Gender,
+      levels = c(1, 2),
+      labels = c("Male", "Female")
+    )
+  )
 
 # Converting 999 to unknown for pt_asa_preinjury
 study.sample <- study.sample %>%
@@ -138,11 +140,17 @@ study.sample <- study.sample %>%
     TRUE ~ "Class 1"
   ))
 
-#Deceased
-study.sample <- study.sample |>
+#Deceased to factor
+study.sample <- study.sample %>%
   mutate(
-    Deceased = ifelse(Deceased == "True", 1, 0)
+    Deceased = case_when(
+      Deceased == "True"  ~ "Yes",
+      Deceased == "False" ~ "No",
+      TRUE ~ NA_character_
+    ),
+    Deceased = factor(Deceased, levels = c("No", "Yes"))
   )
+
 
 # no missing data dataframe for regression models
 reg.sample <- study.sample %>%
