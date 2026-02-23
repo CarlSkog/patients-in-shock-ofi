@@ -58,10 +58,10 @@ study.data <- merged.data |>
     Deceased,
   )
 
-# Those excluded
+# Excluding age
 excluded <- study.data |>
   filter(
-    pt_age_yrs >= 15
+    pt_age_yrs < 15
   )
 
 # Exclude patients who were not reviewed for the presence of OFI
