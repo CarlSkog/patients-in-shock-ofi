@@ -101,10 +101,16 @@ study.sample <- study.sample %>%
 
 # Converting 999 to unknown for pt_asa_preinjury
 study.sample <- study.sample %>%
-  mutate(pt_asa_preinjury = case_when(
-    pt_asa_preinjury == 999 ~ NA_character_,
-    TRUE ~ as.character(pt_asa_preinjury)
-  ))
+  mutate(
+    pt_asa_preinjury = case_when(
+      pt_asa_preinjury == 999 ~ NA_character_,
+      TRUE ~ as.character(pt_asa_preinjury)
+    ),
+    pt_asa_preinjury = factor(
+      pt_asa_preinjury,
+      levels = c("1", "2", "3", "4", "5")
+    )
+  )
 
 # Converting INR to numeric
 ed_inr_numeric <- convert_number(study.sample$ed_inr)
@@ -140,6 +146,19 @@ study.sample <- study.sample %>%
     TRUE ~ "Class 1"
   ))
 
+# Change class from character to factor
+study.sample <- study.sample %>%
+  mutate(
+    BE_class = factor(
+      BE_class,
+      levels = c("Class 1", "Class 2", "Class 3", "Class 4")
+    ),
+    V4SBP_class = factor(
+      V4SBP_class,
+      levels = c("Class 1", "Class 2", "Class 3", "Class 4")
+    )
+  )
+
 #Deceased to factor
 study.sample <- study.sample %>%
   mutate(
@@ -170,17 +189,7 @@ reg.sample <- study.sample %>%
 # Total rows used in the logistic regression
 log_reg_count <- nrow(reg.sample)
 
-# Binary logistic regression model - BE
-#log_regBE <- glm(ofi ~ BE_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS + Deceased,
-#                 family = binomial,
-#                 data = reg.sample
-#)
 
-# Binary logistic regression model - SBP
-#log_regSBP <- glm(ofi ~ V4SBP_class + pt_age_yrs + pt_Gender + pt_asa_preinjury + ed_inr_numeric + ISS+ Deceased,
-#                  family = binomial,
-#                  data = reg.sample
-#)
 
 # Binary logistic regression model unadjusted - BE
 log_regBEun <- glm(ofi ~ BE_class,
@@ -270,19 +279,6 @@ BEstep2 <- tbl_regression(
 ) |>
   bold_p() 
 
-# Label variables
-var_label(study.sample$pt_age_yrs) <- "Age (Years)"
-var_label(study.sample$ofi) <- "Opportunities for improvement (Y/N)"
-var_label(study.sample$ed_be_art_numeric) <- "Base Excess (BE)"
-var_label(study.sample$BE_class) <- "Shock classification - BE"
-var_label(study.sample$pt_asa_preinjury) <- "Pre-injury ASA"
-var_label(study.sample$ISS) <- "Injury Severity Score"
-var_label(study.sample$pt_Gender) <- "Gender (M/F)"
-var_label(study.sample$ed_sbp_value) <- "Systolic blood pressure (mmHg)"
-var_label(study.sample$ed_inr_numeric) <- "INR"
-var_label(study.sample$V4SBP_class) <- "Shock classification - SBP"
-var_label(study.sample$ofi.categories.broad) <- "OFI categories broad"
-
 # Label variables - Reg sample
 var_label(reg.sample$pt_age_yrs) <- "Age (Years)"
 var_label(reg.sample$ofi) <- "Opportunities for improvement (Y/N)"
@@ -296,13 +292,6 @@ var_label(reg.sample$ed_inr_numeric) <- "INR"
 var_label(reg.sample$V4SBP_class) <- "Shock classification - SBP"
 var_label(reg.sample$ofi.categories.broad) <- "OFI categories broad"
 
-# Create a table of sample characteristics
-sample.characteristics.table <- tbl_summary(study.sample,
-                                            by = ofi
-) |>
-  add_overall() |>
-  add_p()
-
 # Create a table of sample characteristics - post reg
 sample.characteristics.table_reg <- tbl_summary(reg.sample,
   by = ofi
@@ -310,36 +299,49 @@ sample.characteristics.table_reg <- tbl_summary(reg.sample,
   add_overall() |>
   add_p()
 
+# Sample characteristics with shock classification.
+sample.characteristics.table_ISS_BE <- tbl_summary(reg.sample,
+                                                   by = BE_class
+) |>
+  add_overall() |>
+  add_p()
+
+sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
+                                                    by = V4SBP_class
+) |>
+  add_overall() |>
+  add_p()
+
 # Create a table of regression of sample - BE
-log_regBE_sample.characteristics.table <- 
-  tbl_regression(
-    log_regBE,
-    exponentiate = TRUE,
-    label = list(
-      BE_class ~ "Shock classification - BE",
-      pt_age_yrs ~ "Age (Years)",
-      pt_Gender ~ "Gender (M/F)",
-      pt_asa_preinjury ~ "Pre-injury ASA",
-      ed_inr_numeric ~ "INR",
-      ISS ~ "Injury Severity Score"
-    )
-  ) |>
-  bold_p() 
+#log_regBE_sample.characteristics.table <- 
+ # tbl_regression(
+  #  log_regBE,
+   # exponentiate = TRUE,
+    #label = list(
+      #BE_class ~ "Shock classification - BE",
+      #pt_age_yrs ~ "Age (Years)",
+    #  pt_Gender ~ "Gender (M/F)",
+    # pt_asa_preinjury ~ "Pre-injury ASA",
+    #  ed_inr_numeric ~ "INR",
+    #  ISS ~ "Injury Severity Score"
+#    )
+#  ) |>
+#  bold_p() 
 
 # Create a table of regression of sample - SBP
-log_regSBP_sample.characteristics.table <- 
-  tbl_regression(log_regSBP,
-    exponentiate = TRUE,
-    label = list(
-      pt_age_yrs ~ "Age (Years)",
-      pt_Gender ~ "Gender (M/F)",
-      pt_asa_preinjury ~ "Pre-injury ASA",
-      ed_inr_numeric ~ "INR",
-      ISS ~ "Injury Severity Score",
-      V4SBP_class ~ "Shock classification - SBP"
-  )
-) |>
-  bold_p() 
+#log_regSBP_sample.characteristics.table <- 
+#  tbl_regression(log_regSBP,
+#    exponentiate = TRUE,
+#    label = list(
+#      pt_age_yrs ~ "Age (Years)",
+#      pt_Gender ~ "Gender (M/F)",
+#      pt_asa_preinjury ~ "Pre-injury ASA",
+#      ed_inr_numeric ~ "INR",
+#      ISS ~ "Injury Severity Score",
+#      V4SBP_class ~ "Shock classification - SBP"
+#  )
+#) |>
+#  bold_p() 
 
 # Create a table of regression of sample unadjusted - BE
 log_regBE_sample.characteristics.table_unadjusted <- tbl_regression(log_regBEun,
@@ -430,7 +432,7 @@ mort.sample <- mort.sample %>%
   ))
 
 #table summery version
-BEsubofi <- mort.sample |>
+BEsubofi <- reg.sample |>
   select(
     BE_class,
     ofi.categories.broad,
@@ -464,6 +466,24 @@ SBPsubofi_tbl <- tbl_summary(SBPsubofi, by = V4SBP_class)
 
 print(SBPsubofi_tbl)
 
+
+
+# Step reg + event
+master_combined_table_stepBE <- tbl_merge(
+  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, BEstep2),
+  tab_spanner = c("**Unadjusted**","**Without ISS**","**Fully adjusted**")
+) 
+
+print(master_combined_table_stepBE)
+
+master_combined_table_stepSBP <- tbl_merge(
+  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
+  tab_spanner = c("**Unadjusted**","**Without ISS**","**Fully adjusted**")
+)
+
+print(master_combined_table_stepSBP)
+
+
 # Create objects for descriptive data
 ofi <- paste0(sum(reg.sample$ofi == "Yes"), " (", round(sum(reg.sample$ofi == "Yes") / nrow(reg.sample) * 100, 1), "%)")
 age <- inline_text(sample.characteristics.table_reg, variable = pt_age_yrs, column = stat_0)
@@ -472,177 +492,4 @@ merged <- nrow(merged.data)
 sample <- nrow(study.sample)
 excludednum <- nrow(excluded)
 
-#combined reg analysis
-#combined_tableBE <- tbl_merge(
-  #tbls = list(log_regBE_sample.characteristics.table, log_regBE_sample.characteristics.table_unadjusted),
-  #tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
-#) 
-
-#combined_tableSBP <- tbl_merge(
-#  tbls = list(log_regSBP_sample.characteristics.table, log_regSBP_sample.characteristics.table_unadjusted),
-#  tab_spanner = c("**Adjusted Model**", "**Unadjusted Model**")
-#) 
-
-#combined step reg
-combined_table_stepBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, BEstep2),
-  tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
-) 
-
-combined_table_stepSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
-  tab_spanner = c("**Unadjusted**","**without ISS**", "**with ISS**")
-) 
-
-# Sample characteristics with shock classification.
-sample.characteristics.table_ISS_BE <- tbl_summary(reg.sample,
-                                            by = BE_class
-) |>
-  add_overall() |>
-  add_p()
-
-sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
-                                                   by = V4SBP_class
-) |>
-  add_overall() |>
-  add_p()
-
-# Step reg + event
-master_combined_table_stepBE <- tbl_merge(
-  tbls = list(log_regBE_sample.characteristics.table_unadjusted, BEstep1, BEstep2),
-  tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
-) 
-
-print(master_combined_table_stepBE)
-
-master_combined_table_stepSBP <- tbl_merge(
-  tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
-  tab_spanner = c("**Unadjusted**","**without ISS**","**Fully adjusted**")
-)
-
-print(master_combined_table_stepSBP)
-
-
-
-
-
-#TEST
-master_combined_table_stepSBP <- {
-  
-  # ---- MORTALITY COLUMN (LEFTMOST) ----
-  mortality_SBP <-
-    tbl_regression(
-      glm(
-        Deceased ~ V4SBP_class,
-        family = binomial,
-        data = reg.sample
-      ),
-      exponentiate = TRUE,
-      label = list(
-        V4SBP_class ~ "Shock classification – SBP"
-      )
-    ) |>
-    add_nevent(location = "level") |>
-    add_n(location = "level") |>
-    modify_table_body(
-      ~ .x |>
-        mutate(
-          stat_mortality =
-            ifelse(
-              !is.na(stat_nevent),
-              paste0(
-                stat_nevent, " / ", stat_n,
-                " (",
-                style_sigfig(stat_nevent / stat_n, scale = 100),
-                "%)"
-              ),
-              NA_character_
-            )
-        )
-    ) |>
-    modify_table_body(
-      ~ .x |>
-        select(row_type, variable, label, stat_mortality)
-    ) |>
-    modify_header(stat_mortality = "**Mortality**")
-  
-  # ---- MERGE WITH OFI MODELS ----
-  tbl_merge(
-    tbls = list(
-      mortality_SBP,
-      log_regSBP_sample.characteristics.table_unadjusted,
-      SBPstep1,
-      log_regSBP_sample.characteristics.table
-    ),
-    tab_spanner = c(
-      "**Mortality**",
-      "**Unadjusted**",
-      "**Without ISS**",
-      "**Fully adjusted**"
-    )
-  )
-}
-
-print(master_combined_table_stepSBP)
-
-#TEST - BE
-
-master_combined_table_stepBE <- {
-  
-  #mortality calculation
-  mortality_BE <-
-    tbl_regression(
-      glm(
-        Deceased ~ BE_class,
-        family = binomial,
-        data = reg.sample
-      ),
-      exponentiate = TRUE,
-      label = list(
-        BE_class ~ "Shock classification – BE"
-      )
-    ) |>
-    add_nevent(location = "level") |>
-    add_n(location = "level") |>
-    modify_table_body(
-      ~ .x |>
-        mutate(
-          stat_mortality =
-            ifelse(
-              !is.na(stat_nevent),
-              paste0(
-                stat_nevent, " / ", stat_n,
-                " (",
-                style_sigfig(stat_nevent / stat_n, scale = 100),
-                "%)"
-              ),
-              NA_character_
-            )
-        )
-    ) |>
-    modify_table_body(
-      ~ .x |>
-        select(row_type, variable, label, stat_mortality)
-    ) |>
-    modify_header(stat_mortality = "**Mortality**")
-  
-  #merge tables
-  tbl_merge(
-    tbls = list(
-      mortality_BE,
-      log_regBE_sample.characteristics.table_unadjusted,
-      BEstep1,
-      log_regBE_sample.characteristics.table
-    ),
-    tab_spanner = c(
-      "**Mortality**",
-      "**Unadjusted**",
-      "**Without ISS**",
-      "**Fully adjusted**"
-    )
-  )
-}
-
-print(master_combined_table_stepBE)
-print(BEsubofi_tbl)
 

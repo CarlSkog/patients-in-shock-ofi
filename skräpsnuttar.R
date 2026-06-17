@@ -270,3 +270,126 @@ master_combined_table_stepSBP <- {
 
 print(master_combined_table_stepSBP)
 
+
+
+
+#TEST
+master_combined_table_stepSBP <- {
+  
+  # ---- MORTALITY COLUMN (LEFTMOST) ----
+  mortality_SBP <-
+    tbl_regression(
+      glm(
+        Deceased ~ V4SBP_class,
+        family = binomial,
+        data = reg.sample
+      ),
+      exponentiate = TRUE,
+      label = list(
+        V4SBP_class ~ "Shock classification – SBP"
+      )
+    ) |>
+    add_nevent(location = "level") |>
+    add_n(location = "level") |>
+    modify_table_body(
+      ~ .x |>
+        mutate(
+          stat_mortality =
+            ifelse(
+              !is.na(stat_nevent),
+              paste0(
+                stat_nevent, " / ", stat_n,
+                " (",
+                style_sigfig(stat_nevent / stat_n, scale = 100),
+                "%)"
+              ),
+              NA_character_
+            )
+        )
+    ) |>
+    modify_table_body(
+      ~ .x |>
+        select(row_type, variable, label, stat_mortality)
+    ) |>
+    modify_header(stat_mortality = "**Mortality**")
+  
+  # ---- MERGE WITH OFI MODELS ----
+  tbl_merge(
+    tbls = list(
+      mortality_SBP,
+      log_regSBP_sample.characteristics.table_unadjusted,
+      SBPstep1,
+      log_regSBP_sample.characteristics.table
+    ),
+    tab_spanner = c(
+      "**Mortality**",
+      "**Unadjusted**",
+      "**Without ISS**",
+      "**Fully adjusted**"
+    )
+  )
+}
+
+print(master_combined_table_stepSBP)
+
+#TEST - BE
+
+master_combined_table_stepBE <- {
+  
+  #mortality calculation
+  mortality_BE <-
+    tbl_regression(
+      glm(
+        Deceased ~ BE_class,
+        family = binomial,
+        data = reg.sample
+      ),
+      exponentiate = TRUE,
+      label = list(
+        BE_class ~ "Shock classification – BE"
+      )
+    ) |>
+    add_nevent(location = "level") |>
+    add_n(location = "level") |>
+    modify_table_body(
+      ~ .x |>
+        mutate(
+          stat_mortality =
+            ifelse(
+              !is.na(stat_nevent),
+              paste0(
+                stat_nevent, " / ", stat_n,
+                " (",
+                style_sigfig(stat_nevent / stat_n, scale = 100),
+                "%)"
+              ),
+              NA_character_
+            )
+        )
+    ) |>
+    modify_table_body(
+      ~ .x |>
+        select(row_type, variable, label, stat_mortality)
+    ) |>
+    modify_header(stat_mortality = "**Mortality**")
+  
+  #merge tables
+  tbl_merge(
+    tbls = list(
+      mortality_BE,
+      log_regBE_sample.characteristics.table_unadjusted,
+      BEstep1,
+      log_regBE_sample.characteristics.table
+    ),
+    tab_spanner = c(
+      "**Mortality**",
+      "**Unadjusted**",
+      "**Without ISS**",
+      "**Fully adjusted**"
+    )
+  )
+}
+
+print(master_combined_table_stepBE)
+print(BEsubofi_tbl)
+
