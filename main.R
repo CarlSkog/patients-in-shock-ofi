@@ -457,7 +457,8 @@ SBPsubofi <- reg.sample |>
   select(
     V4SBP_class,
     ofi.categories.broad,
-    ofi
+    ofi,
+    Deceased
   ) |>
   filter(ofi == "Yes") |>
   select(-ofi)
