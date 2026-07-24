@@ -393,3 +393,33 @@ master_combined_table_stepBE <- {
 print(master_combined_table_stepBE)
 print(BEsubofi_tbl)
 
+# Create a table of regression of sample - BE
+#log_regBE_sample.characteristics.table <- 
+# tbl_regression(
+#  log_regBE,
+# exponentiate = TRUE,
+#label = list(
+#BE_class ~ "Shock classification - BE",
+#pt_age_yrs ~ "Age (Years)",
+#  pt_Gender ~ "Gender (M/F)",
+# pt_asa_preinjury ~ "Pre-injury ASA",
+#  ed_inr_numeric ~ "INR",
+#  ISS ~ "Injury Severity Score"
+#    )
+#  ) |>
+#  bold_p() 
+
+# Create a table of regression of sample - SBP
+#log_regSBP_sample.characteristics.table <- 
+#  tbl_regression(log_regSBP,
+#    exponentiate = TRUE,
+#    label = list(
+#      pt_age_yrs ~ "Age (Years)",
+#      pt_Gender ~ "Gender (M/F)",
+#      pt_asa_preinjury ~ "Pre-injury ASA",
+#      ed_inr_numeric ~ "INR",
+#      ISS ~ "Injury Severity Score",
+#      V4SBP_class ~ "Shock classification - SBP"
+#  )
+#) |>
+#  bold_p() 
