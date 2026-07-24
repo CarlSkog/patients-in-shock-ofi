@@ -299,19 +299,6 @@ sample.characteristics.table_reg <- tbl_summary(reg.sample,
   add_overall() |>
   add_p()
 
-# Sample characteristics with shock classification.
-sample.characteristics.table_ISS_BE <- tbl_summary(reg.sample,
-                                                   by = BE_class
-) |>
-  add_overall() |>
-  add_p()
-
-sample.characteristics.table_ISS_SBP <- tbl_summary(reg.sample,
-                                                    by = V4SBP_class
-) |>
-  add_overall() |>
-  add_p()
-
 # Create a table of regression of sample - BE
 #log_regBE_sample.characteristics.table <- 
  # tbl_regression(
@@ -400,37 +387,6 @@ log_regSBP_sample.characteristics.table_unadjusted <- tbl_regression(log_regSBPu
   bold_p() 
 
 
-
-
-
-
-#mortality sample for table 4 and 5
-mort.sample <- study.data |>
-  filter(
-    !is.na(ofi),
-    pt_age_yrs >= 15
-  )
-
-# OFI as factor
-mort.sample$ofi <- as.factor(mort.sample$ofi)
-
-# Converting ed_be_art to numeric
-BEnum <- convert_number(mort.sample$ed_be_art)
-
-# Re-add the BE column as numeric to `study.sample`
-mort.sample <- mort.sample %>%
-  mutate(ed_be_art_numeric = BEnum)
-
-# BE shock classification
-mort.sample <- mort.sample %>%
-  mutate(BE_class = case_when(
-    BEnum < (-10) ~ "Class 4",
-    BEnum >= (-10) & BEnum < (-6) ~ "Class 3",
-    BEnum >= (-6) & BEnum < (-2) ~ "Class 2",
-    BEnum >= (-2) ~ "Class 1",
-    is.na(BEnum) ~ NA_character_,
-  ))
-
 #table summery version
 BEsubofi <- reg.sample |>
   select(
@@ -445,13 +401,6 @@ BEsubofi <- reg.sample |>
 BEsubofi_tbl <- tbl_summary(BEsubofi, by = BE_class)
 
 print(BEsubofi_tbl)
-
-
-
-
-
-
-
 
 SBPsubofi <- reg.sample |>
   select(
