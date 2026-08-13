@@ -210,7 +210,7 @@ source("main.R") ## This "imports" the main script file of your project and run 
 
 ## Participants
 
-There were a total of 14,022 patients in the trauma registry. After excluding the patients younger than 15 and those who were dead on arrival, there were 12,153 patients remaining. Out of those, 7152 patients had been reviewed for the presence of OFI. A total of 2233 patients were excluded due to missing data, resulting in 4919 patients for the final analysis. The selection process is shown in Figure 1. The variable with the most missing data is BE, for which data was missing in 1721 patients. Detailed data regarding missing data is available in the supplementary material.
+There were a total of 14,022 patients in the trauma registry. After excluding the patients younger than 15 year old, 5 patients were removed. Out of teh rest, 8309 patients had been reviewed for the presence of OFI. A total of 2734 patients were excluded due to missing data, resulting in 5575 patients for the final analysis. The selection process is shown in Figure 1. The variable with the most missing data is BE, for which data was missing in 1721 patients. Detailed data regarding missing data is available in the supplementary material.
 
 Figure 1. Flowchart of selection of study population.
 
