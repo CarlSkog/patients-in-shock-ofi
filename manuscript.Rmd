@@ -1,7 +1,7 @@
 ---
 title: Opportunities for improvement in the care of adult trauma patients arriving
   in shock
-author: "Carl Skog"
+author: ""
 output:
   word_document: default
   #bookdown::pdf_document2:
@@ -79,6 +79,7 @@ highlights potential framework limitations compared to BE. These
 findings emphasize the importance of accounting for ISS and using
 validated shock classifications in future research.
 
+Keywords: shock, hemorrhagic - shock, traumatic - quality improvement
 ## Background
 
 ## Methods
@@ -152,7 +153,7 @@ The outcome was the presence of at least one OFI, determined by the multidiscipl
 
 ### Exposure
 
-The patients were classified to different degrees of shock according to two different classifications adapted from the 10th edition of the Advanced Trauma Life Support guidelines: one based on systolic blood pressure (SBP) and one based on base excess (BE). Table 1 shows the original ATLS categorisation whereas table 2 shows how we defined shock according to BE and SBP. The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg). This classification follows the tenth edition ATLS hemorrhage classification [@noauthor_atls_2018], which does not specify exact values for any parameter other than BE. To solve this, we assigned numerical SBP values to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age [@eastridge_hypotension_2007;@oyetunji_redefining_2011]. Therefore, we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al. [@mutschler_critical_2013]. The cause of shock was not accounted for. 
+The patients were classified to different degrees of shock according to two different classifications adapted from the 10th edition of the Advanced Trauma Life Support guidelines: one based on systolic blood pressure (SBP) and one based on base excess (BE). Table 1 shows the original ATLS categorisation whereas table 2 shows how we defined shock according to BE and SBP. The BE parameter was divided into four classes with these cutoffs: Class I (above -2), Class II (-2 to -6), Class III (-6 to -10), and Class IV (below -10). Similarly, SBP was divided into four classes: Class I (above 110 mmHg), Class II (109-100 mmHg), Class III (99-90 mmHg), and Class IV (below 90 mmHg). This classification follows the tenth edition ATLS hemorrhage classification [@noauthor_atls_2018], which does not specify exact values for any parameter other than BE. To solve this, we assigned numerical SBP values to each class based on findings from Eastridge et al. and Oyetunji et al., who redefined hypotension as 110 mmHg respective 90 mmHg dependent on age [@eastridge_hypotension_2007;@oyetunji_redefining_2011]. Therefore, we used 110 mmHg as the lower limit for (Class I: no shock) - (ATLS: normal SBP) and below 90 mmHg for (Class IV: clear shock) - (ATLS: clear hypotension), class 2 and 3 divided equally in between. This also aligns with the classification done by Mutschler et al [@mutschler_critical_2013]. The cause of shock was not accounted for. 
 
 (See Table
 \@ref(tab:atls) [@noauthor_atls_2018]).
@@ -169,12 +170,7 @@ The patients were classified to different degrees of shock according to two diff
 | Base deficit | 0 to –2 mEq/L | –2 to –6 mEq/L | –6 to –10 mEq/L | –10 mEq/L or less |
 | Need for blood products | Monitor | Possible | Yes | Massive Transfusion Protocol |
 
-: (#tab:atls) ATLS classification for haemorrhagic shock, adapted from
-[@noauthor_atls_2018].
-
-## Quantitative variables
-
-Table 2 shows how
+: (#tab:atls) ATLS 10th edition classification for haemorrhagic shock, adapted from [@noauthor_atls_2018].
 
 | **Parameter - original ATLS 10th edition** | **Class I** | **Class II** (Mild) | **Class III** (Moderate) | **Class IV** (Severe) |
 |----------------|--------------|--------------|--------------|--------------|
@@ -183,8 +179,7 @@ Table 2 shows how
 | **Parameter - numerical approximated SBP** |  |  |  |  |
 | Systolic Blood pressure | \>110 mmhg | 109-100 mmhg | 99-90 mmhg | \<90 mmhg |
 
-: (#tab:mod-atls) ATLS tenth edition - Systolic blood pressure and Base
-excess (BD).
+: (#tab:mod-atls) ATLS 10th edition and approximated systolic blood pressure (SBP) and base deficit (BD).
 
 Please note that ATLS classification defines class I for the BE
 parameter as (0 to -2) however, we choose to follow its original

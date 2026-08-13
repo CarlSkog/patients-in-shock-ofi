@@ -296,8 +296,7 @@ var_label(reg.sample$ofi.categories.broad) <- "OFI categories broad"
 sample.characteristics.table_reg <- tbl_summary(reg.sample,
   by = ofi
 ) |>
-  add_overall() |>
-  add_p()
+  add_overall()
 
 
 # Create a table of regression of sample unadjusted - BE
@@ -370,7 +369,6 @@ BEsubofi <- reg.sample |>
 
 BEsubofi_tbl <- tbl_summary(BEsubofi, by = BE_class)
 
-print(BEsubofi_tbl)
 
 SBPsubofi <- reg.sample |>
   select(
@@ -384,9 +382,6 @@ SBPsubofi <- reg.sample |>
 
 SBPsubofi_tbl <- tbl_summary(SBPsubofi, by = V4SBP_class)
 
-print(SBPsubofi_tbl)
-
-
 
 # Step reg + event
 master_combined_table_stepBE <- tbl_merge(
@@ -394,14 +389,10 @@ master_combined_table_stepBE <- tbl_merge(
   tab_spanner = c("**Unadjusted**","**Without ISS**","**Fully adjusted**")
 ) 
 
-print(master_combined_table_stepBE)
-
 master_combined_table_stepSBP <- tbl_merge(
   tbls = list(log_regSBP_sample.characteristics.table_unadjusted, SBPstep1, SBPstep2),
   tab_spanner = c("**Unadjusted**","**Without ISS**","**Fully adjusted**")
 )
-
-print(master_combined_table_stepSBP)
 
 
 # Create objects for descriptive data
