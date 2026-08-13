@@ -216,11 +216,11 @@ Figure 1. Flowchart of selection of study population.
 
 ## Descriptive data
 
-Descriptive data is shown in Table 3. The median age was 39 years (IQR 25, 56), and 3506 (71%) of the individuals were males. The median ISS was 5 (IQR 1, 14), which is considered minor trauma, the median INR was 1.00 (IQR 1.00, 1.10), and the most common Preinjury ASA class was 1 (62%).
+Descriptive data is shown in Table 3. The median age was 42 years (IQR 27, 60), and 3917 (70%) of the individuals were males. The median ISS was 8 (IQR 1, 16), which is considered minor trauma, the median INR was 1.00 (IQR 1.00, 1.10), and the most common Preinjury ASA class was 1 at 3184 individuals (57%).
 
-According to the BE classification, 3989 (81%) of the patients were classified as having no shock (class 1). The distribution of the remaining classes was decreasing in numbers with increased severity, with class 2: 644 (13%), class 3: 170 (3.5%), and class 4: 116 (2.4%).
+According to the BE classification, 4358 (78%) of the patients were classified as having no shock (class 1). The distribution of the remaining classes was decreasing in numbers with increased severity, with class 2: 775 (14%), class 3: 230 (4.1%), and class 4: 212 (3.8%).
 
-According to SBP classification, 4455 (91%) patients had no shock (class 1). The distribution of the remaining classes, in the order of most to least common, was: class 2 at 239 (4.9%), followed by class 4 at 127 (2.6%), and lastly class 3 with 99 (2.0%).
+According to SBP classification, 4973 (89%) patients had no shock (class 1). The distribution of the remaining classes, in the order of most to least common, was: class 2 at 279 (5.0%), followed by class 4 at 207 (3.7%), and lastly class 3 with 116 (2.1%).
 
 Table 3
 
@@ -231,12 +231,9 @@ sample.characteristics.table_reg |>
 
 ## Outcome data
 
-Out of the 4919 reviewed patients with complete data, 281 (5.7%) patients had at least one OFI. The most common OFI type was clinical judgment error, which was present in the care of 103 (37%) patients. The other three major OFI types were inadequate resources for 61 (22%) patients, delay in treatment for 49 (17%) patients, and missed diagnosis for 48 (17%) patients. The least common OFI was other errors, which was present in 5 (1.8%) patients.
+Out of the 5575 reviewed patients with complete data, 316 (5.7%) patients had at least one OFI. The most common OFI type was clinical judgement error, which was present in the care of 115 (36%) patients. The other three major OFI types were inadequate resources for 65 (21%) patients, delay in treatment for 53 (17%) patients, and missed diagnosis for 49 (16%) patients. The least common OFI was other errors, which was present in 5 (1.6%) patients.
 
-The most common OFI in patients without chock (class 1) was clinical judgment error both in the BE and SBP groups. The other OFI types also followed a similar distribution in the two groups. Clinical judgment error was the most common OFI in the BE group class 2, 3 and 4, at 34.6%; 31.2%; and 42.9% respectively. On the other hand, the largest OFI type in SBP class 2 was delay in treatment at 50%. The frequencies of clinical judgement error and missed diagnosis were similar in the SBP class 3 group, at 40% each. Lastly, the most common OFI in class 4 of the SBP group was clinical judgment error, at 46.7%.
-
-
-------------------------------------------------------------------------
+The most common OFI in patients without chock (class 1) was clinical judgment error both in the BE and SBP groups. The other OFI types also followed a similar distribution in the two groups. Clinical judgement error was the most common OFI in the BE group class 2, 3 and 4, at 33%; 28%; and 36% respectively. On the other hand, the largest OFI type in SBP class 2 was delay in treatment at 44%. The most common OFI in class 3 and 4 of the SBP group was clinical judgement error, at 30% and 37% respectively.
 
 Table 4 - Sub-OFI, classified according to BE
 
