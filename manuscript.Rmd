@@ -119,7 +119,7 @@ The trauma registry includes patients treated at the Karolinska University Hospi
 
 ## Participants
 
-All patients in the trauma registry and trauma care quality database were included. Patients younger than 15 years and those who were dead on arrival were excluded. Inclusion in the trauma registry requires either admission through trauma team activation or presenting with an Injury Severity Score (ISS) greater than nine after admission to the Karolinska University Hospital. Each trauma patient is then included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
+All patients in the trauma registry and trauma care quality database were included. Patients younger than 15 years were excluded. Inclusion in the trauma registry requires either admission through trauma team activation or presenting with an Injury Severity Score (ISS) greater than nine after admission to the Karolinska University Hospital. Each trauma patient is then included in a morbidity and mortality review process, which involves both individual case evaluations by specialized nurses and audit filters. Patients identified with a high potential for OFIs are discussed at multidisciplinary conferences. The presence or absence of OFIs is determined by consensus among all participants and is documented in the trauma care quality database.
 
 ## Variables and data sources/measurements
 
