@@ -53,31 +53,7 @@ study" -->
 what was done and what was found. Not more than 300 words. -->
 ```
 
-Background: Hemorrhagic shock is the leading cause of preventable trauma
-deaths. Opportunities for improvement (OFI) are common in deaths from
-massive bleeding. Aims: This study aimed to describe the types of OFI
-for adult trauma patients arriving in shock and assess the association
-between shock severity and OFI. Methods: A retrospective cohort study
-was conducted on adult trauma patients treated at Karolinska University
-Hospital (2014-2023). Shock severity was categorized into four classes
-using base excess (BE) and systolic blood pressure (SBP). OFI identified
-during morbidity and mortality conference were analyzed using bi- and
-multivariable logistic regression, with adjustments for age, sex,
-American Society of Anesthesiologists Classification (ASA),
-international normalized ratio (INR), and injury severity score (ISS)
-Results: 4919 patients were included, of which 281 had OFI. Clinical
-judgment error was the most common OFI type for patients in shock.
-Unadjusted analyses showed positive associations between shock
-severities and OFI. However, after adjusting for ISS, patients with
-severe shock (BE \< -10) showed 63% reduced odds of OFI compared to
-those without shock (p = 0.026). ISS was a significant confounder (p \<
-0.001). No significant association was observed between SBP classes and
-OFI in adjusted analysis. Conclusion: Association between shock and OFI
-seems to be nonlinear, with moderate shock (BE (-2) – (-10)) having
-highest odds of OFI. The lack of significance in SBP classification
-highlights potential framework limitations compared to BE. These
-findings emphasize the importance of accounting for ISS and using
-validated shock classifications in future research.
+Background: Hemorrhagic shock is the leading cause of preventable trauma deaths. Opportunities for improvement (OFI) are common in deaths from massive bleeding. Aims: This study aimed to describe the types of OFI for adult trauma patients arriving in shock and assess the association between shock severity and OFI. Methods: A retrospective cohort study was conducted on adult trauma patients treated at Karolinska University Hospital (2014-2023). Shock severity was categorized into four classes using base excess (BE) and systolic blood pressure (SBP). Unadjusted and adjusted associations between shock severity and OFI identified during morbidity and mortality conference were analyzed using logistic regression, with adjustments for age, sex, American Society of Anesthesiologists Classification (ASA), international normalized ratio (INR), and injury severity score (ISS). Results: A total of 5575 patients were included, of which 1217 (22%) were in shock according to BE (BE \< -2) and 602 (11%) according to SBP (SBP \< 110mmHg). OFI prevalence among the included was 316 (5.7%). Clinical judgment error was the most common OFI type for most shock classes in both BE and SBP classifications, except BE class 3 (-6 \> BE \> -10) (P=0.049) and SBP class 2 (110 \> SBP \> 100) (p=0.024). Unadjusted analyses showed positive associations between shock severities and OFI. The unadjusted BE model showed higher odds of OFI for the class 2 (-2 \> BE \> -6), while the SBP model suggested higher odds of OFI in the class 4 (SBP \< 90). However, after adjusting for ISS, BE class 4 (BE \< -10) showed 58% reduced odds of OFI compared to those without shock (p = 0.014). No significant association was observed between SBP classes and OFI in adjusted analysis. ISS was a significant confounder (p \< 0.001). Conclusion: Clinical judgment error was the most common OFI among patients in shock. The association between shock severity and OFI appeared non-linear, with less pronounced physiological shock potentially associated with greater variation in initial management. These findings highlight the importance of standardized initial management for patients presenting with shock. 
 
 Keywords: shock, hemorrhagic - shock, traumatic - quality improvement
 ## Background
@@ -210,7 +186,7 @@ source("main.R") ## This "imports" the main script file of your project and run 
 
 ## Participants
 
-There were a total of 14,022 patients in the trauma registry. After excluding the patients younger than 15 year old, 5 patients were removed. Out of teh rest, 8309 patients had been reviewed for the presence of OFI. A total of 2734 patients were excluded due to missing data, resulting in 5575 patients for the final analysis. The selection process is shown in Figure 1. The variable with the most missing data is BE, for which data was missing in 1721 patients. Detailed data regarding missing data is available in the supplementary material.
+There were a total of 14,022 patients in the trauma registry. After excluding the patients younger than 15 year old, 5 patients were removed. Out of the rest, 8309 patients had been reviewed for the presence of OFI. A total of 2734 patients were excluded due to missing data, resulting in 5575 patients for the final analysis. The selection process is shown in Figure 1. The variable with the most missing data is BE, for which data was missing in 1721 patients. Detailed data regarding missing data is available in the supplementary material.
 
 Figure 1. Flowchart of selection of study population.
 
