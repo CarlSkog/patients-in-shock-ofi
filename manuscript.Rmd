@@ -235,6 +235,8 @@ Out of the 5575 reviewed patients with complete data, 316 (5.7%) patients had at
 
 The most common OFI in patients without chock (class 1) was clinical judgment error both in the BE and SBP groups. The other OFI types also followed a similar distribution in the two groups. Clinical judgement error was the most common OFI in the BE group class 2, 3 and 4, at 33%; 28%; and 36% respectively. On the other hand, the largest OFI type in SBP class 2 was delay in treatment at 44%. The most common OFI in class 3 and 4 of the SBP group was clinical judgement error, at 30% and 37% respectively.
 
+Looking at the mortality, first and foremost the distribution of mortality seems to relatively similar with 12% among overall and no OFI and 11% mortality among those with an OFI. When looking at the shock classes and OFI types. The highest mortality occurs in the class 2 of SBP classification at 5 (50%). The lowest mortality in SBP classification is 24 (8.9%) for class 1 no shock, and among those with shock is class 2 at 2 (13%). Looking at the BE classification, the highest mortality occurs in class 4 at 4 (36%), wheras the lowest is class 2 at 3 (5.5%). Overall the there seems to be high discrepancy for mortality between the classes. 
+
 Table 4 - Sub-OFI, classified according to BE
 
 ```{r sub-ofi BE, echo=FALSE}
